@@ -273,6 +273,7 @@
   .plan-row.open .pr-expand{max-height:640px}
   .expand-inner{margin-top:18px;padding-top:18px;border-top:1px dashed var(--border)}
   .expand-media{width:100%;aspect-ratio:16/8}
+  .expand-img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--shadow)}
   /* schemes: stepper replaces the Add button in the header when active */
   .pr-count{display:none;align-items:center;gap:14px}
   .r-scheme.open .addbtn{display:none}
@@ -308,7 +309,7 @@
   .incl ul{list-style:none;display:flex;flex-direction:column;gap:9px}
   .incl li{font-size:13.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
   .incl li::before{content:"";width:16px;height:16px;flex:0 0 16px;margin-top:3px;border-radius:50%;background:var(--yellow);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
-.langnav{display:flex;gap:4px;align-items:center}.langnav a{border:1px solid var(--border);background:#fff;font-weight:600;font-size:12px;padding:6px 9px;border-radius:8px;color:var(--muted);text-decoration:none;transition:.15s}.langnav a:hover{border-color:var(--ink);color:var(--ink)}.langnav a.active{background:var(--ink);color:#fff;border-color:var(--ink)}</style>
+</style>
 <meta content="en_US" property="og:locale:alternate"/><meta content="cs_CZ" property="og:locale:alternate"/><meta content="sk_SK" property="og:locale:alternate"/><meta content="pl_PL" property="og:locale:alternate"/><link href="https://kojeflow.com/" hreflang="en" rel="alternate"/><link href="https://kojeflow.com/cz/" hreflang="cs" rel="alternate"/><link href="https://kojeflow.com/sk/" hreflang="sk" rel="alternate"/><link href="https://kojeflow.com/pl/" hreflang="pl" rel="alternate"/><link href="https://kojeflow.com/ua/" hreflang="uk" rel="alternate"/><link href="https://kojeflow.com/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <!-- NAV -->
@@ -322,7 +323,7 @@
 <a data-i18n="nav_pricing" href="#pricing">Ціни</a>
 <a class="btn btn-yellow" data-i18n="nav_demo" href="#contact" style="padding:10px 20px;font-size:14px">Замовити демо</a>
 </nav>
-<div class="langnav"><a href="/">EN</a><a href="/cz/">CZ</a><a href="/sk/">SK</a><a href="/pl/">PL</a><a class="active" href="/ua/">UA</a></div>
+<select aria-label="Language" class="langsel" id="langSelect" onchange="if(this.value)location.href=this.value"><option value="/">EN</option><option value="/cz/">CZ</option><option value="/sk/">SK</option><option value="/pl/">PL</option><option selected="selected" value="/ua/">UA</option></select>
 </div>
 </div>
 </header>
@@ -488,7 +489,7 @@
 </div>
 <div class="pr-expand">
 <div class="expand-inner">
-<div class="media expand-media"><span class="tag" data-i18n="tag_screenshot">Скріншот</span><span class="label" data-i18n="label_scheme">Конструктор плану будівлі</span></div>
+<img alt="Kojeflow building plan builder" class="expand-img" loading="lazy" src="/kojeflow-floorplan.png"/>
 </div>
 </div>
 </div>
