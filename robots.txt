@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kojeflow.com/sitemap.xml
