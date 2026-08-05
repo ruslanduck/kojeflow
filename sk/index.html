@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+<html lang="sk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="title">Kojeflow — Každé lôžko. Každý check-in. Na jednom mieste.</title>
+<!-- SEO -->
+<meta content="Kompletná správa ubytovania pracovníkov a hostelov — rezervujte lôžka, odbavujte ľudí a majte všetko pod kontrolou. Na webe aj mobile." name="description"/>
+<meta content="správa lůžek, správa obsazenosti, ubytování pracovníků, hostel management, bed management software, occupancy management, worker accommodation, bed booking, check-in app, Kojeflow" name="keywords"/>
+<meta content="Kojeflow" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#FFD600" name="theme-color"/>
+<link href="https://kojeflow.com/sk/" rel="canonical"/>
+<!-- Favicons -->
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Kojeflow" property="og:site_name"/>
+<meta content="Kojeflow — Každé lôžko. Každý check-in. Na jednom mieste." property="og:title"/>
+<meta content="Kompletná správa ubytovania pracovníkov a hostelov — rezervujte lôžka, odbavujte ľudí a majte všetko pod kontrolou. Na webe aj mobile." property="og:description"/>
+<meta content="https://kojeflow.com/sk/" property="og:url"/>
+<meta content="https://kojeflow.com/kojeflow-og.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="sk_SK" property="og:locale"/>
+
+
+
+
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Kojeflow — Každé lôžko. Každý check-in. Na jednom mieste." name="twitter:title"/>
+<meta content="Kompletná správa ubytovania pracovníkov a hostelov — rezervujte lôžka, odbavujte ľudí a majte všetko pod kontrolou. Na webe aj mobile." name="twitter:description"/>
+<meta content="https://kojeflow.com/kojeflow-og.png" name="twitter:image"/>
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kojeflow",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "url": "https://kojeflow.com/",
+  "description": "Bed & occupancy management for worker accommodation and hostels — book beds, check people in on web and mobile, and track every place in real time.",
+  "offers": {
+    "@type": "Offer",
+    "price": "1.00",
+    "priceCurrency": "EUR",
+    "description": "From €1 per bed / month"
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --yellow:#FFD600;
+    --magenta:#E500E5;
+    --ink:#141414;
+    --muted:#5c5c66;
+    --bg:#ffffff;
+    --bg-soft:#f6f6f8;
+    --card:#ffffff;
+    --border:#ececf1;
+    --radius:18px;
+    --shadow:0 10px 40px rgba(20,20,20,.06);
+    --shadow-lift:0 18px 60px rgba(20,20,20,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',system-ui,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Barlow Condensed','Arial Black',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:.95;
+    letter-spacing:.5px;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .accent{color:var(--magenta)}
+  .ast{color:var(--magenta);font-family:'Poppins';font-weight:700}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);
+    color:var(--ink);
+    font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:7px 14px;border-radius:100px;
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:15px;
+    padding:14px 26px;border-radius:100px;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+  .btn-yellow{background:var(--yellow);color:var(--ink)}
+  .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,214,0,.4)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed';font-weight:800;font-size:26px;text-transform:uppercase;letter-spacing:1px}
+  .logo .dot{width:14px;height:14px;border-radius:4px;background:var(--yellow);box-shadow:3px 3px 0 var(--magenta)}
+  .nav-right{display:flex;align-items:center;gap:24px}
+  .nav-links{display:flex;gap:28px;align-items:center;font-weight:500;font-size:15px}
+  .nav-links a{color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  .langsel{appearance:none;-webkit-appearance:none;border:1px solid var(--border);background:#fff;font-family:inherit;font-weight:600;font-size:13px;color:var(--ink);padding:7px 28px 7px 12px;border-radius:10px;cursor:pointer;transition:.15s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5c66' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+  .langsel:hover{border-color:var(--ink)}
+  .langsel:focus{outline:2px solid var(--yellow);border-color:transparent}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  .hero{position:relative;overflow:hidden;padding:80px 0 60px}
+  .hero::before{content:"";position:absolute;top:-160px;right:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(229,0,229,.14),transparent 70%);pointer-events:none}
+  .hero::after{content:"";position:absolute;bottom:-140px;left:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,214,0,.22),transparent 70%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+  .hero h1{font-size:clamp(40px,5vw,68px);margin:20px 0 18px;line-height:1}
+  .hero h1 .u{position:relative;display:inline-block}
+  .hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:12px;background:var(--yellow);z-index:-1;opacity:.9}
+  .hero p.sub{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+  .media{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--bg-soft);border:2px dashed #d4d4de;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9a9aa6;text-align:center;gap:10px;padding:24px}
+  .media .tag{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#b0b0ba}
+  .media .label{font-family:'Barlow Condensed';font-weight:700;font-size:20px;color:#8a8a95;text-transform:uppercase}
+  .media .hint{font-size:12.5px;max-width:300px}
+  .media.video{aspect-ratio:16/10}
+  .media.play::before{content:"";width:64px;height:64px;border-radius:50%;background:var(--yellow);display:block;box-shadow:0 8px 24px rgba(255,214,0,.5)}
+  .media.play::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-40%,-50%);border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #141414}
+  .hero-media{aspect-ratio:4/3;box-shadow:var(--shadow-lift)}
+  .hero-img{width:100%;height:auto;display:block;filter:drop-shadow(0 26px 55px rgba(20,20,20,.15));transform-origin:center;cursor:zoom-in;transition:transform .45s cubic-bezier(.2,.7,.2,1), filter .45s ease}
+  .hero-img:hover{transform:scale(1.05);filter:drop-shadow(0 36px 80px rgba(20,20,20,.22))}
+  @media(prefers-reduced-motion:reduce){.hero-img{transition:none}.hero-img:hover{transform:none}}
+
+  .badge{position:absolute;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:14px;padding:12px 16px;z-index:2}
+  .badge .n{font-family:'Barlow Condensed';font-weight:800;font-size:26px;line-height:1}
+  .badge .t{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .badge.b1{bottom:-22px;left:-22px}
+  .badge.b2{top:-20px;right:-16px}
+  @media(max-width:920px){.badge.b1{left:8px}.badge.b2{right:8px}}
+
+  .statsbar{background:var(--ink);color:#fff;border-radius:20px;margin-top:56px;padding:26px 20px}
+  .statsbar-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:18px}
+  .stat{display:flex;align-items:center;gap:14px}
+  .stat .sep{width:9px;height:9px;border-radius:50%;background:var(--yellow)}
+  .stat .n{font-family:'Barlow Condensed';font-weight:800;font-size:30px;line-height:1}
+  .stat .t{font-size:13px;color:#b9b9c2}
+
+  section{padding:88px 0}
+  .sec-head{max-width:660px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(32px,4.4vw,52px);margin:16px 0 14px}
+  .sec-head p{color:var(--muted);font-size:17px}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+
+  .roles{background:var(--bg-soft)}
+  /* tabbed role slider */
+  .tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;border-bottom:1px solid var(--border)}
+  .tab{border:none;background:transparent;font-family:inherit;font-weight:600;font-size:15px;color:var(--muted);padding:14px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;border-bottom:3px solid transparent;margin-bottom:-1px;transition:.15s}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--ink);border-bottom-color:var(--magenta)}
+  .tab .tabicn{width:28px;height:28px;border-radius:8px;background:var(--yellow);display:flex;align-items:center;justify-content:center;flex:0 0 28px}
+  .tab .tabicn svg{width:16px;height:16px;stroke:#141414;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .tab[data-slide="1"] .tabicn{background:var(--magenta)}
+  .tab[data-slide="1"] .tabicn svg{stroke:#fff}
+  @media(max-width:640px){.tab{font-size:13.5px;padding:12px 12px}.tab .tabicn{display:none}}
+  .slide{display:none}
+  .slide.active{display:block;animation:slidein .4s ease}
+  @keyframes slidein{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+  .slide-text{max-width:780px;margin:0 auto 34px;text-align:center}
+  .slide-text .icn{width:56px;height:56px;border-radius:14px;background:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .slide-text .icn svg{width:28px;height:28px;stroke:#141414;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .slide[data-idx="1"] .slide-text .icn{background:var(--magenta)}
+  .slide[data-idx="1"] .slide-text .icn svg{stroke:#fff}
+  .slide-text h3{font-size:clamp(28px,3.2vw,40px);margin-bottom:12px}
+  .slide-text p{color:var(--muted);font-size:16.5px;max-width:540px;margin:0 auto}
+  .slide-img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow-lift);transform-origin:center;cursor:zoom-in;transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease}
+  .slide-img:hover{transform:scale(1.045);box-shadow:0 30px 80px rgba(20,20,20,.18)}
+  .slide-img.plain{border-radius:0;box-shadow:none;max-width:720px;margin:0 auto}
+  .slide-img.plain:hover{transform:scale(1.03);box-shadow:none}
+  @media(prefers-reduced-motion:reduce){.slide-img,.slide.active{transition:none;animation:none}.slide-img:hover{transform:none}}
+  .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:900px){.roles-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+  .role-card .icn{width:52px;height:52px;border-radius:14px;background:var(--yellow);display:flex;align-items:center;justify-content:center}
+  .role-card:nth-child(2) .icn{background:var(--magenta)}
+  .role-card:nth-child(2) .icn svg{stroke:#fff}
+  .role-card h3{font-size:26px}
+  .role-card p{color:var(--muted);font-size:15px}
+  .role-shot{aspect-ratio:16/11;margin-top:4px}
+  .role-shot.phone{aspect-ratio:9/13;max-width:170px;margin:4px auto 0}
+  .note{display:inline-flex;gap:8px;align-items:center;margin-top:30px;font-weight:600;color:var(--ink);background:var(--yellow);padding:10px 18px;border-radius:100px;font-size:14px}
+
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+  .feat{padding:24px;border:1px solid var(--border);border-radius:var(--radius);transition:.18s}
+  .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .feat .k{width:44px;height:44px;border-radius:12px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .feat h3{font-size:21px;margin-bottom:6px}
+  .feat p{color:var(--muted);font-size:14.5px}
+
+  .videoband{background:var(--ink);color:#fff}
+  .videoband .sec-head h2{color:#fff}
+  .videoband .sec-head p{color:#b9b9c2}
+  .videoband .media{background:#1f1f28;border-color:#33333f;color:#7d7d8b}
+  .videoband .media .label{color:#9b9ba8}
+
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  @media(max-width:900px){.price-grid{grid-template-columns:1fr}}
+  .price{border:1px solid var(--border);border-radius:var(--radius);padding:30px;background:#fff;display:flex;flex-direction:column;gap:8px}
+  .price.featured{border:2px solid var(--ink);box-shadow:var(--shadow-lift);position:relative}
+  .price.featured .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%)}
+  .price .plan{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:24px}
+  .price .amt{font-family:'Barlow Condensed';font-weight:800;font-size:44px;line-height:1;margin:6px 0}
+  .price .amt span{font-size:15px;font-family:'Poppins';font-weight:500;color:var(--muted)}
+  .price ul{list-style:none;margin:14px 0 22px;display:flex;flex-direction:column;gap:10px}
+  .price li{font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+  .price li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:3px;border-radius:50%;background:var(--yellow);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+  .price .btn{margin-top:auto;justify-content:center}
+  .price-note{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+
+  .cta{background:var(--yellow)}
+  .cta-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  @media(max-width:880px){.cta-inner{grid-template-columns:1fr}}
+  .cta h2{font-size:clamp(34px,4.8vw,58px)}
+  .cta p{font-size:17px;color:#3a3a00;margin-top:12px;max-width:460px}
+  .form{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-lift);display:flex;flex-direction:column;gap:14px}
+  .form input,.form textarea{font-family:inherit;font-size:15px;padding:13px 15px;border:1px solid var(--border);border-radius:12px;width:100%}
+  .form input:focus,.form textarea:focus{outline:2px solid var(--yellow);border-color:transparent}
+  .form label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+
+  footer.ft{background:#fff;border-top:1px solid var(--border);padding:44px 0}
+  .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .ft-links{display:flex;gap:26px;color:var(--muted);font-size:14px}
+  .ft small{color:#9a9aa6;font-size:13px}
+  .icon{width:26px;height:26px;stroke:#141414;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .feat .icon{width:22px;height:22px}
+
+  /* pricing calculator (PeopleForce-style) */
+  .billing{display:inline-flex;background:var(--bg-soft);border:1px solid var(--border);border-radius:100px;padding:4px;gap:4px;width:fit-content}
+  .billing button{border:none;background:transparent;font-family:inherit;font-weight:600;font-size:13.5px;padding:9px 18px;border-radius:100px;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:7px;transition:.15s}
+  .billing button.active{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+  .billing .save{background:var(--magenta);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:100px}
+  .plan{display:grid;grid-template-columns:1.3fr .7fr;gap:0;border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift);background:#fff}
+  @media(max-width:880px){.plan{grid-template-columns:1fr}}
+  .plan-rows{padding:26px;display:flex;flex-direction:column;gap:14px}
+  .plan-row{padding:18px 20px;border:1px solid var(--border);border-radius:16px;transition:border-color .2s}
+  .plan-row.open{border-color:var(--ink)}
+  .pr-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .pr-expand{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .plan-row.open .pr-expand{max-height:640px}
+  .expand-inner{margin-top:18px;padding-top:18px;border-top:1px dashed var(--border)}
+  .expand-media{width:100%;aspect-ratio:16/8}
+  /* schemes: stepper replaces the Add button in the header when active */
+  .pr-count{display:none;align-items:center;gap:14px}
+  .r-scheme.open .addbtn{display:none}
+  .r-scheme.open .pr-count{display:flex}
+  .pr-main{display:flex;align-items:flex-start;gap:14px;min-width:0}
+  .pr-icn{width:44px;height:44px;border-radius:12px;background:var(--yellow);display:flex;align-items:center;justify-content:center;flex:0 0 44px}
+  .plan-row.r-scheme .pr-icn{background:var(--magenta)}
+  .plan-row.r-scheme .pr-icn svg{stroke:#fff}
+  .plan-row.r-sig .pr-icn{background:#ececf1}
+  .pr-name{font-weight:700;font-size:15.5px}
+  .pr-name .rate{color:var(--muted);font-weight:600;font-size:13px;margin-left:2px;white-space:nowrap}
+  .pr-desc{font-size:12.5px;color:var(--muted);margin-top:3px;max-width:340px;line-height:1.45}
+  .pr-ctrl{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .pr-qty{font-size:13.5px;color:var(--muted);white-space:nowrap}
+  .pr-qty b{color:var(--ink);font-weight:700}
+  .rowstep{display:inline-flex;gap:8px}
+  .rowstep button{width:40px;height:40px;border:1px solid var(--border);background:#fff;border-radius:10px;font-size:20px;font-weight:600;cursor:pointer;color:var(--ink);transition:.15s;font-family:inherit;line-height:1}
+  .rowstep button:hover{background:var(--yellow);border-color:var(--yellow)}
+  .addbtn{border:1.5px solid var(--border);background:#fff;font-family:inherit;font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:100px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:7px;transition:.15s;white-space:nowrap}
+  .addbtn:hover{border-color:var(--ink)}
+  .addbtn.added{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .addbtn .chk{display:none;width:15px;height:15px;stroke:#fff;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+  .addbtn.added .chk{display:inline-block}
+  .plan-summary{padding:32px 30px;background:#f9f9fb;border-left:1px solid var(--border);display:flex;flex-direction:column}
+  @media(max-width:880px){.plan-summary{border-left:none;border-top:1px solid var(--border)}}
+  .plan-summary .billing{margin-bottom:22px}
+  .plan-summary .total{font-family:'Barlow Condensed';font-weight:800;font-size:58px;line-height:1;display:flex;align-items:baseline;gap:6px}
+  .plan-summary .total .cur{font-size:30px}
+  .plan-summary .total .per{font-family:'Poppins';font-size:15px;font-weight:500;color:var(--muted)}
+  .plan-summary .sub-label{font-size:13px;color:var(--muted);margin:8px 0 20px}
+  .plan-summary .btn{justify-content:center;margin-bottom:22px}
+  .incl-title{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#9a9aa6;font-weight:700;margin-bottom:12px}
+  .incl ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .incl li{font-size:13.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+  .incl li::before{content:"";width:16px;height:16px;flex:0 0 16px;margin-top:3px;border-radius:50%;background:var(--yellow);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.langnav{display:flex;gap:4px;align-items:center}.langnav a{border:1px solid var(--border);background:#fff;font-weight:600;font-size:12px;padding:6px 9px;border-radius:8px;color:var(--muted);text-decoration:none;transition:.15s}.langnav a:hover{border-color:var(--ink);color:var(--ink)}.langnav a.active{background:var(--ink);color:#fff;border-color:var(--ink)}</style>
+<meta content="en_US" property="og:locale:alternate"/><meta content="cs_CZ" property="og:locale:alternate"/><meta content="pl_PL" property="og:locale:alternate"/><meta content="uk_UA" property="og:locale:alternate"/><link href="https://kojeflow.com/" hreflang="en" rel="alternate"/><link href="https://kojeflow.com/cz/" hreflang="cs" rel="alternate"/><link href="https://kojeflow.com/sk/" hreflang="sk" rel="alternate"/><link href="https://kojeflow.com/pl/" hreflang="pl" rel="alternate"/><link href="https://kojeflow.com/ua/" hreflang="uk" rel="alternate"/><link href="https://kojeflow.com/" hreflang="x-default" rel="alternate"/></head>
+<body>
+<!-- NAV -->
+<header class="nav">
+<div class="wrap nav-inner">
+<div class="logo"><span class="dot"></span>Kojeflow<span class="ast">*</span></div>
+<div class="nav-right">
+<nav class="nav-links">
+<a data-i18n="nav_product" href="#surfaces">Produkt</a>
+<a data-i18n="nav_features" href="#features">Funkcie</a>
+<a data-i18n="nav_pricing" href="#pricing">Cenník</a>
+<a class="btn btn-yellow" data-i18n="nav_demo" href="#contact" style="padding:10px 20px;font-size:14px">Dohodnúť demo</a>
+</nav>
+<div class="langnav"><a href="/">EN</a><a href="/cz/">CZ</a><a class="active" href="/sk/">SK</a><a href="/pl/">PL</a><a href="/ua/">UA</a></div>
+</div>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<span class="pill" data-i18n="hero_pill">Správa lôžok a obsadenosti</span>
+<h1>
+<span data-i18n="hero_h1_1">Každé lôžko.</span><br/>
+<span data-i18n="hero_h1_2">Každý check-in.</span><br/>
+<span class="u" data-i18n="hero_h1_3">Na jednom mieste.</span>
+</h1>
+<p class="sub" data-i18n="hero_sub">Kompletná správa ubytovania pracovníkov a hostelov — rezervujte lôžka, odbavujte ľudí a majte všetko pod kontrolou. Na webe aj mobile.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" data-i18n="hero_cta1" href="#contact">Dohodnúť demo →</a>
+<a class="btn btn-ghost" data-i18n="hero_cta2" href="#surfaces">Ako to funguje</a>
+</div>
+</div>
+<div style="position:relative">
+<img alt="Kojeflow network dashboard on a laptop" class="hero-img" src="/kojeflow-hero.png"/>
+<div class="badge b1"><div class="n" data-i18n="badge1_n">Naživo</div><div class="t" data-i18n="badge1_t">obsadenosť</div></div>
+<div class="badge b2"><div class="n">30s</div><div class="t" data-i18n="badge2_t">check-in</div></div>
+</div>
+</div>
+<div class="wrap">
+<div class="statsbar">
+<div class="statsbar-inner">
+<div class="stat"><span class="sep"></span><div><div class="n">3</div><div class="t" data-i18n="stat1_t">aplikácie, jeden systém</div></div></div>
+<div class="stat"><span class="sep"></span><div><div class="n" data-i18n="stat2_n">Web + mobil</div><div class="t" data-i18n="stat2_t">plne responzívne</div></div></div>
+<div class="stat"><span class="sep"></span><div><div class="n" data-i18n="stat3_n">V reálnom čase</div><div class="t" data-i18n="stat3_t">dostupnosť lôžok</div></div></div>
+<div class="stat"><span class="sep"></span><div><div class="n" data-i18n="stat4_n">Podľa rolí</div><div class="t" data-i18n="stat4_t">prístup</div></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- SURFACES -->
+<section class="roles" id="surfaces">
+<div class="wrap">
+<div class="sec-head">
+<span class="pill" data-i18n="surf_pill">Jeden produkt, každá rola</span>
+<h2><span data-i18n="surf_h2a">Vytvorené pre to, ako váš tím</span> <span class="accent" data-i18n="surf_h2b">skutočne pracuje</span></h2>
+<p data-i18n="surf_p">Administrátori plánujú a rezervujú. Koordinátori odbavujú ľudí z telefónu. Manažéri vidia čísla. Rovnaké dáta, tri rozhrania.</p>
+</div>
+<div class="tabs" id="roleTabs">
+<button class="tab active" data-slide="0" type="button">
+<span class="tabicn"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="20" x="2" y="4"></rect><path d="M8 21h8M12 18v3"></path></svg></span>
+<span data-i18n="role1_h3">Webová aplikácia pre adminov</span>
+</button>
+<button class="tab" data-slide="1" type="button">
+<span class="tabicn"><svg viewbox="0 0 24 24"><rect height="20" rx="3" width="12" x="6" y="2"></rect><path d="M11 18h2"></path></svg></span>
+<span data-i18n="role2_h3">Mobilná aplikácia</span>
+</button>
+<button class="tab" data-slide="2" type="button">
+<span class="tabicn"><svg viewbox="0 0 24 24"><path d="M3 3v18h18"></path><rect height="7" width="3" x="7" y="10"></rect><rect height="11" width="3" x="12" y="6"></rect><rect height="4" width="3" x="17" y="13"></rect></svg></span>
+<span data-i18n="role3_h3">Reporty a dashboardy</span>
+</button>
+</div>
+<div id="roleSlides">
+<div class="slide active" data-idx="0">
+<div class="slide-text">
+<div class="icn"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="20" x="2" y="4"></rect><path d="M8 21h8M12 18v3"></path></svg></div>
+<h3 data-i18n="role1_h3">Webová aplikácia pre adminov</h3>
+<p data-i18n="role1_p">Plánujte kapacitu a rezervujte lôžka naprieč lokalitami. Plná kontrola z počítača.</p>
+</div>
+<img alt="Kojeflow admin web app — rooms by type" class="slide-img" loading="lazy" src="/kojeflow-admin.png"/>
+</div>
+<div class="slide" data-idx="1">
+<div class="slide-text">
+<div class="icn"><svg viewbox="0 0 24 24"><rect height="20" rx="3" width="12" x="6" y="2"></rect><path d="M11 18h2"></path></svg></div>
+<h3 data-i18n="role2_h3">Mobilná aplikácia</h3>
+<p data-i18n="role2_p">Check-in priamo na mieste. Naskenovať, potvrdiť, hotovo.</p>
+</div>
+<img alt="Kojeflow mobile app — check-in on phone" class="slide-img plain" loading="lazy" src="/kojeflow-mobile-nobg.png"/>
+</div>
+<div class="slide" data-idx="2">
+<div class="slide-text">
+<div class="icn"><svg viewbox="0 0 24 24"><path d="M3 3v18h18"></path><rect height="7" width="3" x="7" y="10"></rect><rect height="11" width="3" x="12" y="6"></rect><rect height="4" width="3" x="17" y="13"></rect></svg></div>
+<h3 data-i18n="role3_h3">Reporty a dashboardy</h3>
+<p data-i18n="role3_p">Obsadenosť, pohyby a trendy — prehľad, ktorý manažéri potrebujú na rýchle rozhodovanie.</p>
+</div>
+<img alt="Kojeflow floor plan — bed-places mapped onto the building plan" class="slide-img" loading="lazy" src="/kojeflow-floorplan.png"/>
+</div>
+</div>
+<span class="note"><span class="ast">*</span> <span data-i18n="note">Webová aplikácia je plne responzívna — funguje na akejkoľvek obrazovke.</span></span>
+</div>
+</section>
+<!-- FEATURES -->
+<section id="features">
+<div class="wrap">
+<div class="sec-head">
+<span class="pill" data-i18n="feat_pill">Čo získate</span>
+<h2><span data-i18n="feat_h2a">Menej administratívy.</span> <span class="accent" data-i18n="feat_h2b">Viac obsadených lôžok.</span></h2>
+</div>
+<div class="feat-grid">
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 18h18M5 10V7a1 1 0 0 1 1-1h4v4"></path></svg></div><h3 data-i18n="feat1_h3">Obsadenosť v reálnom čase</h3><p data-i18n="feat1_p">Vidíte voľné aj obsadené lôžka na prvý pohľad, naprieč všetkými lokalitami.</p></div>
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><polygon points="13 2 3 14 11 14 10 22 20 10 12 10 13 2"></polygon></svg></div><h3 data-i18n="feat2_h3">Rýchly check-in</h3><p data-i18n="feat2_p">Ubytujte človeka za pár sekúnd — z webu aj telefónu.</p></div>
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><path d="M16 20v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1"></path><circle cx="9" cy="8" r="3.5"></circle><path d="M22 20v-1a4 4 0 0 0-3-3.8"></path><path d="M16 4.5a4 4 0 0 1 0 7"></path></svg></div><h3 data-i18n="feat3_h3">Prístup podľa rolí</h3><p data-i18n="feat3_p">Administrátori, koordinátori, manažéri — každý vidí presne to, čo potrebuje.</p></div>
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><path d="M3 3v18h18"></path><rect height="7" width="3" x="7" y="10"></rect><rect height="11" width="3" x="12" y="6"></rect><rect height="4" width="3" x="17" y="13"></rect></svg></div><h3 data-i18n="feat4_h3">Reporty pre prehľad</h3><p data-i18n="feat4_p">Reporty o obsadenosti a pohyboch, pripravené hneď po otvorení.</p></div>
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><rect height="20" rx="2.5" width="10" x="7" y="2"></rect><path d="M11 18h2"></path></svg></div><h3 data-i18n="feat5_h3">Web + mobil</h3><p data-i18n="feat5_p">Jeden systém, prispôsobí sa každému zariadeniu. Bez obchádzania cez app store.</p></div>
+<div class="feat"><div class="k"><svg class="icon" viewbox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8"></path><path d="M20 3v5h-5"></path><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16"></path><path d="M4 21v-5h5"></path></svg></div><h3 data-i18n="feat6_h3">Jeden zdroj pravdy</h3><p data-i18n="feat6_p">Rezervácie, check-in aj reporty nad rovnakými živými dátami. Žiadne tabuľky.</p></div>
+</div>
+</div>
+</section>
+<!-- VIDEO BAND (hidden for now) -->
+<section class="videoband" style="display:none">
+<div class="wrap">
+<div class="sec-head center">
+<span class="pill" data-i18n="vid_pill">Pozrite sa v akcii</span>
+<h2><span data-i18n="vid_h2a">Od rezervácie po check-in</span> <span class="accent" data-i18n="vid_h2b">v jednom toku</span></h2>
+<p data-i18n="vid_p">Admin rezervuje lôžko → koordinátor odbaví z telefónu → manažér otvorí report.</p>
+</div>
+<div class="media video play">
+<span class="tag" data-i18n="tag_demovideo">Demo video</span>
+<span class="label" data-i18n="label_roleswalk">Video prechodu rolami</span>
+<span class="hint" data-i18n="hint_video">Nahraďte videom prechodu „admin → mobil → report“.</span>
+</div>
+</div>
+</section>
+<!-- PRICING -->
+<section id="pricing">
+<div class="wrap">
+<div class="sec-head center">
+<span class="pill" data-i18n="price_pill">Cenník</span>
+<h2><span data-i18n="price_h2a">Zostavte si plán,</span> <span class="accent" data-i18n="price_h2b">platba za lôžko</span></h2>
+<p data-i18n="price_p">Vyberte lôžka, schémy budov a doplnky. Mesačne alebo ročne.</p>
+</div>
+<div class="plan">
+<div class="plan-rows">
+<!-- Beds (core) -->
+<div class="plan-row r-beds">
+<div class="pr-head">
+<div class="pr-main">
+<div class="pr-icn"><svg class="icon" viewbox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 18h18M5 10V7a1 1 0 0 1 1-1h4v4"></path></svg></div>
+<div>
+<div class="pr-name"><span data-i18n="row_beds_name">Lôžka</span> <span class="rate" id="rateBeds">(€1 / lůžko)</span></div>
+<div class="pr-desc" data-i18n="row_beds_desc">Živý prehľad obsadenosti a rýchly check-in pre každé lôžko, ktoré spravujete.</div>
+</div>
+</div>
+<div class="pr-ctrl">
+<span class="pr-qty"><b id="bedCount">100</b> <span data-i18n="row_beds_unit">lôžok</span></span>
+<div class="rowstep"><button aria-label="minus" id="bedMinus" type="button">−</button><button aria-label="plus" id="bedPlus" type="button">+</button></div>
+</div>
+</div>
+</div>
+<!-- Building schemes (add-on module) -->
+<div class="plan-row r-scheme" id="rowScheme">
+<div class="pr-head">
+<div class="pr-main">
+<div class="pr-icn"><svg class="icon" stroke="#fff" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M9 21V9"></path></svg></div>
+<div>
+<div class="pr-name"><span data-i18n="row_schemes_name">Schémy budov</span> <span class="rate" id="rateSchemes">(€50 / 5)</span></div>
+<div class="pr-desc" data-i18n="row_schemes_desc">Vidíte celú budovu na jednom pláne — poschodia, izby a presne kde je ktoré lôžko.</div>
+</div>
+</div>
+<div class="pr-ctrl">
+<button class="addbtn" id="schemeBtn" type="button"><svg class="chk" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="sig_add" id="schemeBtnLabel">Pridať</span></button>
+<div class="pr-count" id="schemeCtrl">
+<span class="pr-qty"><b id="schemeCount">5</b> <span data-i18n="row_schemes_unit">schém</span></span>
+<div class="rowstep"><button aria-label="minus" id="schemeMinus" type="button">−</button><button aria-label="plus" id="schemePlus" type="button">+</button></div>
+</div>
+</div>
+</div>
+<div class="pr-expand">
+<div class="expand-inner">
+<div class="media expand-media"><span class="tag" data-i18n="tag_screenshot">Screenshot</span><span class="label" data-i18n="label_scheme">Konštruktor plánika budovy</span></div>
+</div>
+</div>
+</div>
+<!-- Document signatures (add-on module) -->
+<div class="plan-row r-sig" id="rowSig">
+<div class="pr-head">
+<div class="pr-main">
+<div class="pr-icn"><svg class="icon" viewbox="0 0 24 24"><path d="M3 17c3-4 5-4 6-2s3 2 5-1 4-2 4-2"></path><path d="M4 21h16"></path></svg></div>
+<div>
+<div class="pr-name"><span data-i18n="row_sig_name">Podpisy dokumentov</span> <span class="rate" id="rateSig">(+€0,10 / lůžko)</span></div>
+<div class="pr-desc" data-i18n="row_sig_desc">Podpisujte zmluvy a check-in dokumenty priamo v aplikácii — bez tlače a papierovania.</div>
+</div>
+</div>
+<div class="pr-ctrl">
+<button class="addbtn" id="sigBtn" type="button"><svg class="chk" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="sig_add" id="sigBtnLabel">Pridať</span></button>
+</div>
+</div>
+<div class="pr-expand">
+<div class="expand-inner">
+<div class="media expand-media"><span class="tag" data-i18n="tag_screenshot">Screenshot</span><span class="label" data-i18n="label_sig">Podpis dokumentu v aplikácii</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="plan-summary">
+<div class="billing" id="billing">
+<button data-bill="monthly" data-i18n="bill_monthly">Mesačne</button>
+<button data-bill="annual"><span data-i18n="bill_annual">Ročne</span> <span class="save" data-i18n="bill_save">−20 %</span></button>
+</div>
+<div class="total"><span class="cur">€</span><span id="calcTotal">100</span> <span class="per" data-i18n="calc_per_month">/ mesiac</span></div>
+<div class="sub-label" id="calcSubLabel">Účtováno měsíčně</div>
+<a class="btn btn-primary" data-i18n="hero_cta1" href="#contact">Dohodnúť demo →</a>
+<div class="incl">
+<div class="incl-title" data-i18n="calc_incl_title">Každý plán obsahuje</div>
+<ul>
+<li data-i18n="incl1">Webová aplikácia pre adminov</li>
+<li data-i18n="incl2">Mobilný check-in</li>
+<li data-i18n="incl3">Reporty a dashboardy</li>
+<li data-i18n="incl4">Prístup podľa rolí</li>
+<li data-i18n="incl5">Web + mobil — plne responzívne</li>
+</ul>
+</div>
+</div>
+</div>
+<p class="price-note" data-i18n="price_note">Uvedená cena je bez DPH, ktoré sa pripočíta k výslednej sume.</p>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta" id="contact">
+<div class="wrap cta-inner">
+<div>
+<span class="pill" data-i18n="cta_pill" style="background:var(--ink);color:#fff">Začnite</span>
+<h2><span data-i18n="cta_h2_1">Obsaďte viac lôžok,</span><br/><span data-i18n="cta_h2_2">s menšou námahou.</span></h2>
+<p data-i18n="cta_p">Dohodnite si demo a ukážeme vám Kojeflow na vašej prevádzke — web aj mobil.</p>
+</div>
+<form class="form" onsubmit="return false;">
+<div><label data-i18n="form_name">Meno</label><input data-i18n-ph="ph_name" placeholder="Vaše meno" type="text"/></div>
+<div><label data-i18n="form_email">E-mail</label><input data-i18n-ph="ph_email" placeholder="vy@firma.sk" type="email"/></div>
+<div><label data-i18n="form_company">Firma / lokality</label><input data-i18n-ph="ph_company" placeholder="Firma, počet lokalít" type="text"/></div>
+<div><label data-i18n="form_message">Správa</label><textarea data-i18n-ph="ph_message" placeholder="Čo potrebujete spravovať?" rows="3"></textarea></div>
+<button class="btn btn-primary" data-i18n="cta_submit" style="justify-content:center" type="submit">Dohodnúť demo →</button>
+</form>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="ft">
+<div class="wrap ft-inner">
+<div class="logo"><span class="dot"></span>Kojeflow<span class="ast">*</span></div>
+<nav class="ft-links">
+<a data-i18n="nav_product" href="#surfaces">Produkt</a>
+<a data-i18n="nav_features" href="#features">Funkcie</a>
+<a data-i18n="nav_pricing" href="#pricing">Cenník</a>
+<a data-i18n="nav_contact" href="#contact">Kontakt</a>
+</nav>
+<small data-i18n="footer_copy">© 2026 Kojeflow.cz — Všetky práva vyhradené.</small>
+</div>
+</footer>
+<script>
+const I18N = {
+  en:{
+    title:"Kojeflow — Every bed. Every check-in. One place.",
+    nav_product:"Product", nav_features:"Features", nav_pricing:"Pricing", nav_demo:"Book a demo", nav_contact:"Contact",
+    hero_pill:"Bed & occupancy management",
+    hero_h1_1:"Every bed.", hero_h1_2:"Every check-in.", hero_h1_3:"One place.",
+    hero_sub:"Manage worker & hostel accommodation end-to-end — book beds, check people in, and track it all. On web and mobile.",
+    hero_cta1:"Book a demo →", hero_cta2:"See how it works",
+    tag_hero_video:"Hero video", label_overview:"Product overview clip", hint_hero:"Drop a 20–30s loop: dashboard → booking → check-in. (replace this block)",
+    badge1_n:"Live", badge1_t:"occupancy", badge2_t:"check-in",
+    stat1_t:"apps, one system", stat2_n:"Web + Mobile", stat2_t:"fully adaptive", stat3_n:"Real-time", stat3_t:"bed availability", stat4_n:"Role-based", stat4_t:"access",
+    surf_pill:"One product, every role", surf_h2a:"Built for the way your team", surf_h2b:"actually works",
+    surf_p:"Admins plan and book. Coordinators check people in from their phone. Managers see the numbers. Same data, three surfaces.",
+    role1_h3:"Admin web app", role1_p:"Plan capacity and book beds across sites. Full control from the desktop.",
+    tag_screenshot:"Screenshot", tag_screenshot2:"Screenshot", label_webbooking:"Web booking view",
+    role2_h3:"Mobile app", role2_p:"On-the-spot check-in. Scan, confirm, done — right from the location.",
+    tag_mockup:"Mockup", label_phonecheckin:"Check-in on phone",
+    role3_h3:"Reports & dashboards", role3_p:"Occupancy, movements and trends — the view managers need to decide fast.", label_dashboard:"Manager dashboard",
+    note:"The web app is fully mobile-adaptive — works on any screen.",
+    feat_pill:"What you get", feat_h2a:"Less admin.", feat_h2b:"More beds filled.",
+    feat1_h3:"Real-time occupancy", feat1_p:"See every free and taken bed at a glance, across all sites.",
+    feat2_h3:"Fast check-in", feat2_p:"Get someone into a bed in seconds — from web or phone.",
+    feat3_h3:"Role-based access", feat3_p:"Admins, coordinators, managers — each sees exactly what they need.",
+    feat4_h3:"Reports to track", feat4_p:"Occupancy and movement reports, ready when managers open them.",
+    feat5_h3:"Web + mobile", feat5_p:"One system, adaptive on every device. No app store detours.",
+    feat6_h3:"One source of truth", feat6_p:"Book, check in and report on the same live data. No spreadsheets.",
+    vid_pill:"See it in motion", vid_h2a:"From booking to check-in", vid_h2b:"in one flow",
+    vid_p:"Admin books a bed → coordinator checks in on their phone → manager opens the report.",
+    tag_demovideo:"Demo video", label_roleswalk:"Roles walkthrough clip", hint_video:"Replace with the “admin → mobile → report” walkthrough video.",
+    price_pill:"Pricing", price_h2a:"Build your plan,", price_h2b:"pay per bed", price_p:"Pick beds, building schemes and add-ons. Monthly or annually.",
+    bill_monthly:"Monthly", bill_annual:"Annually", bill_save:"−20%",
+    row_beds_name:"Beds", row_beds_unit:"beds", row_beds_desc:"Live availability and fast check-in for every bed you manage.",
+    row_schemes_name:"Building schemes", row_schemes_unit:"schemes", row_schemes_desc:"See a whole building at a glance — floors, rooms and exactly where each bed sits.",
+    row_sig_name:"Document signatures", row_sig_desc:"Sign contracts and check-in docs right in the app — no printing, no chasing paper.",
+    label_scheme:"Building plan builder", label_sig:"In-app document signing",
+    calc_per_bed:"/ bed", per_five:"/ 5", sig_add:"Add", sig_added:"Added",
+    calc_per_month:"/ Month", calc_incl_title:"Every plan includes",
+    incl1:"Admin web app", incl2:"Mobile check-in", incl3:"Reports & dashboards", incl4:"Role-based access", incl5:"Web + mobile — fully adaptive",
+    billed_monthly:"Billed monthly", billed_annually:"Billed annually", per_year:"/ year",
+    price_note:"Price shown excludes applicable taxes (VAT), added to the final amount.",
+    cta_pill:"Get started", cta_h2_1:"Fill more beds,", cta_h2_2:"with less hassle.",
+    cta_p:"Book a demo and we’ll show Kojeflow running on your setup — web and mobile.",
+    form_name:"Name", form_email:"Email", form_company:"Company / sites", form_message:"Message",
+    ph_name:"Your name", ph_email:"you@company.com", ph_company:"Company, number of sites", ph_message:"What do you need to manage?",
+    cta_submit:"Book a demo →",
+    footer_copy:"© 2026 Kojeflow.cz — All rights reserved."
+  },
+  cs:{
+    title:"Kojeflow — Každé lůžko. Každý check-in. Na jednom místě.",
+    nav_product:"Produkt", nav_features:"Funkce", nav_pricing:"Ceník", nav_demo:"Domluvit demo", nav_contact:"Kontakt",
+    hero_pill:"Správa lůžek a obsazenosti",
+    hero_h1_1:"Každé lůžko.", hero_h1_2:"Každý check-in.", hero_h1_3:"Na jednom místě.",
+    hero_sub:"Kompletní správa ubytování pracovníků a hostelů — rezervujte lůžka, odbavujte lidi a mějte vše pod kontrolou. Na webu i mobilu.",
+    hero_cta1:"Domluvit demo →", hero_cta2:"Jak to funguje",
+    tag_hero_video:"Hlavní video", label_overview:"Přehledové video produktu", hint_hero:"Vložte 20–30s smyčku: dashboard → rezervace → check-in. (nahraďte tento blok)",
+    badge1_n:"Živě", badge1_t:"obsazenost", badge2_t:"check-in",
+    stat1_t:"aplikace, jeden systém", stat2_n:"Web + mobil", stat2_t:"plně responzivní", stat3_n:"V reálném čase", stat3_t:"dostupnost lůžek", stat4_n:"Podle rolí", stat4_t:"přístup",
+    surf_pill:"Jeden produkt, každá role", surf_h2a:"Vytvořeno pro to, jak váš tým", surf_h2b:"skutečně pracuje",
+    surf_p:"Administrátoři plánují a rezervují. Koordinátoři odbavují lidi z telefonu. Manažeři vidí čísla. Stejná data, tři rozhraní.",
+    role1_h3:"Webová aplikace pro adminy", role1_p:"Plánujte kapacitu a rezervujte lůžka napříč lokalitami. Plná kontrola z počítače.",
+    tag_screenshot:"Screenshot", tag_screenshot2:"Screenshot", label_webbooking:"Webová rezervace",
+    role2_h3:"Mobilní aplikace", role2_p:"Check-in přímo na místě. Naskenovat, potvrdit, hotovo.",
+    tag_mockup:"Náhled", label_phonecheckin:"Check-in v telefonu",
+    role3_h3:"Reporty a dashboardy", role3_p:"Obsazenost, pohyby a trendy — přehled, který manažeři potřebují k rychlému rozhodování.", label_dashboard:"Manažerský dashboard",
+    note:"Webová aplikace je plně responzivní — funguje na jakékoli obrazovce.",
+    feat_pill:"Co získáte", feat_h2a:"Méně administrativy.", feat_h2b:"Více obsazených lůžek.",
+    feat1_h3:"Obsazenost v reálném čase", feat1_p:"Vidíte volná i obsazená lůžka na první pohled, napříč všemi lokalitami.",
+    feat2_h3:"Rychlý check-in", feat2_p:"Ubytujte člověka během pár sekund — z webu i telefonu.",
+    feat3_h3:"Přístup podle rolí", feat3_p:"Administrátoři, koordinátoři, manažeři — každý vidí přesně to, co potřebuje.",
+    feat4_h3:"Reporty pro přehled", feat4_p:"Reporty o obsazenosti a pohybech, připravené hned po otevření.",
+    feat5_h3:"Web + mobil", feat5_p:"Jeden systém, přizpůsobí se každému zařízení. Bez obcházení přes app store.",
+    feat6_h3:"Jeden zdroj pravdy", feat6_p:"Rezervace, check-in i reporty nad stejnými živými daty. Žádné tabulky.",
+    vid_pill:"Podívejte se v akci", vid_h2a:"Od rezervace po check-in", vid_h2b:"v jednom toku",
+    vid_p:"Admin rezervuje lůžko → koordinátor odbaví z telefonu → manažer otevře report.",
+    tag_demovideo:"Demo video", label_roleswalk:"Video průchodu rolemi", hint_video:"Nahraďte videem průchodu „admin → mobil → report“.",
+    price_pill:"Ceník", price_h2a:"Sestavte si plán,", price_h2b:"platba za lůžko", price_p:"Vyberte lůžka, schémata budov a doplňky. Měsíčně nebo ročně.",
+    bill_monthly:"Měsíčně", bill_annual:"Ročně", bill_save:"−20 %",
+    row_beds_name:"Lůžka", row_beds_unit:"lůžek", row_beds_desc:"Živý přehled obsazenosti a rychlý check-in pro každé lůžko, které spravujete.",
+    row_schemes_name:"Schémata budov", row_schemes_unit:"schémat", row_schemes_desc:"Vidíte celou budovu na jednom plánku — patra, pokoje a přesně kde je které lůžko.",
+    row_sig_name:"Podpisy dokumentů", row_sig_desc:"Podepisujte smlouvy a check-in dokumenty přímo v aplikaci — bez tisku a papírování.",
+    label_scheme:"Konstruktor plánku budovy", label_sig:"Podpis dokumentu v aplikaci",
+    calc_per_bed:"/ lůžko", per_five:"/ 5", sig_add:"Přidat", sig_added:"Přidáno",
+    calc_per_month:"/ měsíc", calc_incl_title:"Každý plán obsahuje",
+    incl1:"Webová aplikace pro adminy", incl2:"Mobilní check-in", incl3:"Reporty a dashboardy", incl4:"Přístup podle rolí", incl5:"Web + mobil — plně responzivní",
+    billed_monthly:"Účtováno měsíčně", billed_annually:"Účtováno ročně", per_year:"/ rok",
+    price_note:"Uvedená cena je bez DPH, které se připočítá k výsledné částce.",
+    cta_pill:"Začněte", cta_h2_1:"Obsaďte více lůžek,", cta_h2_2:"s menší námahou.",
+    cta_p:"Domluvte si demo a ukážeme vám Kojeflow na vašem provozu — web i mobil.",
+    form_name:"Jméno", form_email:"E-mail", form_company:"Firma / lokality", form_message:"Zpráva",
+    ph_name:"Vaše jméno", ph_email:"vy@firma.cz", ph_company:"Firma, počet lokalit", ph_message:"Co potřebujete spravovat?",
+    cta_submit:"Domluvit demo →",
+    footer_copy:"© 2026 Kojeflow.cz — Všechna práva vyhrazena."
+  },
+  sk:{
+    title:"Kojeflow — Každé lôžko. Každý check-in. Na jednom mieste.",
+    nav_product:"Produkt", nav_features:"Funkcie", nav_pricing:"Cenník", nav_demo:"Dohodnúť demo", nav_contact:"Kontakt",
+    hero_pill:"Správa lôžok a obsadenosti",
+    hero_h1_1:"Každé lôžko.", hero_h1_2:"Každý check-in.", hero_h1_3:"Na jednom mieste.",
+    hero_sub:"Kompletná správa ubytovania pracovníkov a hostelov — rezervujte lôžka, odbavujte ľudí a majte všetko pod kontrolou. Na webe aj mobile.",
+    hero_cta1:"Dohodnúť demo →", hero_cta2:"Ako to funguje",
+    tag_hero_video:"Hlavné video", label_overview:"Prehľadové video produktu", hint_hero:"Vložte 20–30s slučku: dashboard → rezervácia → check-in. (nahraďte tento blok)",
+    badge1_n:"Naživo", badge1_t:"obsadenosť", badge2_t:"check-in",
+    stat1_t:"aplikácie, jeden systém", stat2_n:"Web + mobil", stat2_t:"plne responzívne", stat3_n:"V reálnom čase", stat3_t:"dostupnosť lôžok", stat4_n:"Podľa rolí", stat4_t:"prístup",
+    surf_pill:"Jeden produkt, každá rola", surf_h2a:"Vytvorené pre to, ako váš tím", surf_h2b:"skutočne pracuje",
+    surf_p:"Administrátori plánujú a rezervujú. Koordinátori odbavujú ľudí z telefónu. Manažéri vidia čísla. Rovnaké dáta, tri rozhrania.",
+    role1_h3:"Webová aplikácia pre adminov", role1_p:"Plánujte kapacitu a rezervujte lôžka naprieč lokalitami. Plná kontrola z počítača.",
+    tag_screenshot:"Screenshot", tag_screenshot2:"Screenshot", label_webbooking:"Webová rezervácia",
+    role2_h3:"Mobilná aplikácia", role2_p:"Check-in priamo na mieste. Naskenovať, potvrdiť, hotovo.",
+    tag_mockup:"Náhľad", label_phonecheckin:"Check-in v telefóne",
+    role3_h3:"Reporty a dashboardy", role3_p:"Obsadenosť, pohyby a trendy — prehľad, ktorý manažéri potrebujú na rýchle rozhodovanie.", label_dashboard:"Manažérsky dashboard",
+    note:"Webová aplikácia je plne responzívna — funguje na akejkoľvek obrazovke.",
+    feat_pill:"Čo získate", feat_h2a:"Menej administratívy.", feat_h2b:"Viac obsadených lôžok.",
+    feat1_h3:"Obsadenosť v reálnom čase", feat1_p:"Vidíte voľné aj obsadené lôžka na prvý pohľad, naprieč všetkými lokalitami.",
+    feat2_h3:"Rýchly check-in", feat2_p:"Ubytujte človeka za pár sekúnd — z webu aj telefónu.",
+    feat3_h3:"Prístup podľa rolí", feat3_p:"Administrátori, koordinátori, manažéri — každý vidí presne to, čo potrebuje.",
+    feat4_h3:"Reporty pre prehľad", feat4_p:"Reporty o obsadenosti a pohyboch, pripravené hneď po otvorení.",
+    feat5_h3:"Web + mobil", feat5_p:"Jeden systém, prispôsobí sa každému zariadeniu. Bez obchádzania cez app store.",
+    feat6_h3:"Jeden zdroj pravdy", feat6_p:"Rezervácie, check-in aj reporty nad rovnakými živými dátami. Žiadne tabuľky.",
+    vid_pill:"Pozrite sa v akcii", vid_h2a:"Od rezervácie po check-in", vid_h2b:"v jednom toku",
+    vid_p:"Admin rezervuje lôžko → koordinátor odbaví z telefónu → manažér otvorí report.",
+    tag_demovideo:"Demo video", label_roleswalk:"Video prechodu rolami", hint_video:"Nahraďte videom prechodu „admin → mobil → report“.",
+    price_pill:"Cenník", price_h2a:"Zostavte si plán,", price_h2b:"platba za lôžko", price_p:"Vyberte lôžka, schémy budov a doplnky. Mesačne alebo ročne.",
+    bill_monthly:"Mesačne", bill_annual:"Ročne", bill_save:"−20 %",
+    row_beds_name:"Lôžka", row_beds_unit:"lôžok", row_beds_desc:"Živý prehľad obsadenosti a rýchly check-in pre každé lôžko, ktoré spravujete.",
+    row_schemes_name:"Schémy budov", row_schemes_unit:"schém", row_schemes_desc:"Vidíte celú budovu na jednom pláne — poschodia, izby a presne kde je ktoré lôžko.",
+    row_sig_name:"Podpisy dokumentov", row_sig_desc:"Podpisujte zmluvy a check-in dokumenty priamo v aplikácii — bez tlače a papierovania.",
+    label_scheme:"Konštruktor plánika budovy", label_sig:"Podpis dokumentu v aplikácii",
+    calc_per_bed:"/ lôžko", per_five:"/ 5", sig_add:"Pridať", sig_added:"Pridané",
+    calc_per_month:"/ mesiac", calc_incl_title:"Každý plán obsahuje",
+    incl1:"Webová aplikácia pre adminov", incl2:"Mobilný check-in", incl3:"Reporty a dashboardy", incl4:"Prístup podľa rolí", incl5:"Web + mobil — plne responzívne",
+    billed_monthly:"Účtované mesačne", billed_annually:"Účtované ročne", per_year:"/ rok",
+    price_note:"Uvedená cena je bez DPH, ktoré sa pripočíta k výslednej sume.",
+    cta_pill:"Začnite", cta_h2_1:"Obsaďte viac lôžok,", cta_h2_2:"s menšou námahou.",
+    cta_p:"Dohodnite si demo a ukážeme vám Kojeflow na vašej prevádzke — web aj mobil.",
+    form_name:"Meno", form_email:"E-mail", form_company:"Firma / lokality", form_message:"Správa",
+    ph_name:"Vaše meno", ph_email:"vy@firma.sk", ph_company:"Firma, počet lokalít", ph_message:"Čo potrebujete spravovať?",
+    cta_submit:"Dohodnúť demo →",
+    footer_copy:"© 2026 Kojeflow.cz — Všetky práva vyhradené."
+  },
+  pl:{
+    title:"Kojeflow — Każde łóżko. Każde zameldowanie. W jednym miejscu.",
+    nav_product:"Produkt", nav_features:"Funkcje", nav_pricing:"Cennik", nav_demo:"Umów demo", nav_contact:"Kontakt",
+    hero_pill:"Zarządzanie łóżkami i obłożeniem",
+    hero_h1_1:"Każde łóżko.", hero_h1_2:"Każde zameldowanie.", hero_h1_3:"W jednym miejscu.",
+    hero_sub:"Kompleksowe zarządzanie zakwaterowaniem pracowników i hosteli — rezerwuj łóżka, melduj gości i miej wszystko pod kontrolą. Na komputerze i telefonie.",
+    hero_cta1:"Umów demo →", hero_cta2:"Zobacz, jak działa",
+    tag_hero_video:"Wideo główne", label_overview:"Klip prezentujący produkt", hint_hero:"Wstaw pętlę 20–30 s: dashboard → rezerwacja → meldunek. (zastąp ten blok)",
+    badge1_n:"Na żywo", badge1_t:"obłożenie", badge2_t:"meldunek",
+    stat1_t:"aplikacje, jeden system", stat2_n:"Web + mobile", stat2_t:"w pełni responsywne", stat3_n:"W czasie rzeczywistym", stat3_t:"dostępność łóżek", stat4_n:"Wg ról", stat4_t:"dostęp",
+    surf_pill:"Jeden produkt, każda rola", surf_h2a:"Stworzone pod to, jak twój zespół", surf_h2b:"naprawdę pracuje",
+    surf_p:"Administratorzy planują i rezerwują. Koordynatorzy meldują gości z telefonu. Menedżerowie widzą liczby. Te same dane, trzy widoki.",
+    role1_h3:"Aplikacja webowa dla adminów", role1_p:"Planuj pojemność i rezerwuj łóżka w wielu lokalizacjach. Pełna kontrola z komputera.",
+    tag_screenshot:"Zrzut ekranu", tag_screenshot2:"Zrzut ekranu", label_webbooking:"Widok rezerwacji web",
+    role2_h3:"Aplikacja mobilna", role2_p:"Meldunek na miejscu. Zeskanuj, potwierdź, gotowe.",
+    tag_mockup:"Makieta", label_phonecheckin:"Meldunek w telefonie",
+    role3_h3:"Raporty i dashboardy", role3_p:"Obłożenie, ruchy i trendy — widok, którego menedżerowie potrzebują, by szybko decydować.", label_dashboard:"Dashboard menedżera",
+    note:"Aplikacja webowa jest w pełni responsywna — działa na każdym ekranie.",
+    feat_pill:"Co zyskujesz", feat_h2a:"Mniej papierologii.", feat_h2b:"Więcej zajętych łóżek.",
+    feat1_h3:"Obłożenie w czasie rzeczywistym", feat1_p:"Zobacz wolne i zajęte łóżka na pierwszy rzut oka, we wszystkich lokalizacjach.",
+    feat2_h3:"Szybki meldunek", feat2_p:"Zamelduj kogoś w kilka sekund — z webu lub telefonu.",
+    feat3_h3:"Dostęp według ról", feat3_p:"Administratorzy, koordynatorzy, menedżerowie — każdy widzi dokładnie to, czego potrzebuje.",
+    feat4_h3:"Raporty do śledzenia", feat4_p:"Raporty obłożenia i ruchów, gotowe, gdy menedżer je otworzy.",
+    feat5_h3:"Web + mobile", feat5_p:"Jeden system, dopasowany do każdego urządzenia. Bez kombinowania ze sklepem z aplikacjami.",
+    feat6_h3:"Jedno źródło prawdy", feat6_p:"Rezerwacja, meldunek i raporty na tych samych danych na żywo. Bez arkuszy.",
+    vid_pill:"Zobacz w akcji", vid_h2a:"Od rezerwacji po meldunek", vid_h2b:"w jednym przepływie",
+    vid_p:"Admin rezerwuje łóżko → koordynator melduje z telefonu → menedżer otwiera raport.",
+    tag_demovideo:"Wideo demo", label_roleswalk:"Klip: przejście przez role", hint_video:"Zastąp wideo przejścia „admin → mobile → raport”.",
+    price_pill:"Cennik", price_h2a:"Zbuduj swój plan,", price_h2b:"płatność za łóżko", price_p:"Wybierz łóżka, schematy budynków i dodatki. Miesięcznie lub rocznie.",
+    bill_monthly:"Miesięcznie", bill_annual:"Rocznie", bill_save:"−20 %",
+    row_beds_name:"Łóżka", row_beds_unit:"łóżek", row_beds_desc:"Dostępność na żywo i szybki meldunek dla każdego łóżka, którym zarządzasz.",
+    row_schemes_name:"Schematy budynków", row_schemes_unit:"schematów", row_schemes_desc:"Zobacz cały budynek na jednym planie — piętra, pokoje i dokładnie gdzie jest każde łóżko.",
+    row_sig_name:"Podpisy dokumentów", row_sig_desc:"Podpisuj umowy i dokumenty meldunkowe w aplikacji — bez druku i gonienia za papierami.",
+    label_scheme:"Kreator planu budynku", label_sig:"Podpis dokumentu w aplikacji",
+    calc_per_bed:"/ łóżko", per_five:"/ 5", sig_add:"Dodaj", sig_added:"Dodano",
+    calc_per_month:"/ miesiąc", calc_incl_title:"Każdy plan zawiera",
+    incl1:"Aplikacja webowa dla adminów", incl2:"Meldunek mobilny", incl3:"Raporty i dashboardy", incl4:"Dostęp według ról", incl5:"Web + mobile — w pełni responsywne",
+    billed_monthly:"Rozliczenie miesięczne", billed_annually:"Rozliczenie roczne", per_year:"/ rok",
+    price_note:"Podana cena nie zawiera podatku (VAT), doliczanego do kwoty końcowej.",
+    cta_pill:"Zacznij", cta_h2_1:"Zapełnij więcej łóżek,", cta_h2_2:"mniejszym wysiłkiem.",
+    cta_p:"Umów demo, a pokażemy Kojeflow na twoim setupie — web i mobile.",
+    form_name:"Imię", form_email:"E-mail", form_company:"Firma / lokalizacje", form_message:"Wiadomość",
+    ph_name:"Twoje imię", ph_email:"ty@firma.pl", ph_company:"Firma, liczba lokalizacji", ph_message:"Czym musisz zarządzać?",
+    cta_submit:"Umów demo →",
+    footer_copy:"© 2026 Kojeflow.cz — Wszelkie prawa zastrzeżone."
+  },
+  uk:{
+    title:"Kojeflow — Кожне ліжко. Кожен чек-ін. В одному місці.",
+    nav_product:"Продукт", nav_features:"Функції", nav_pricing:"Ціни", nav_demo:"Замовити демо", nav_contact:"Контакти",
+    hero_pill:"Управління ліжками та заповненістю",
+    hero_h1_1:"Кожне ліжко.", hero_h1_2:"Кожен чек-ін.", hero_h1_3:"В одному місці.",
+    hero_sub:"Повне управління житлом для працівників і хостелів — бронюйте ліжка, реєструйте людей і контролюйте все. У вебі та на мобільному.",
+    hero_cta1:"Замовити демо →", hero_cta2:"Як це працює",
+    tag_hero_video:"Головне відео", label_overview:"Оглядове відео продукту", hint_hero:"Додайте 20–30-секундне відео: дашборд → бронювання → чек-ін. (замініть цей блок)",
+    badge1_n:"Наживо", badge1_t:"заповненість", badge2_t:"чек-ін",
+    stat1_t:"додатки, одна система", stat2_n:"Веб + мобільний", stat2_t:"повністю адаптивно", stat3_n:"У реальному часі", stat3_t:"доступність ліжок", stat4_n:"За ролями", stat4_t:"доступ",
+    surf_pill:"Один продукт, кожна роль", surf_h2a:"Створено під те, як ваша команда", surf_h2b:"справді працює",
+    surf_p:"Адміністратори планують і бронюють. Координатори реєструють людей із телефона. Менеджери бачать цифри. Ті самі дані, три інтерфейси.",
+    role1_h3:"Веб-додаток для адмінів", role1_p:"Плануйте місткість і бронюйте ліжка на всіх об’єктах. Повний контроль із комп’ютера.",
+    tag_screenshot:"Скріншот", tag_screenshot2:"Скріншот", label_webbooking:"Веб-бронювання",
+    role2_h3:"Мобільний додаток", role2_p:"Чек-ін просто на місці. Скануйте, підтверджуйте, готово.",
+    tag_mockup:"Макет", label_phonecheckin:"Чек-ін у телефоні",
+    role3_h3:"Звіти та дашборди", role3_p:"Заповненість, рухи та тренди — огляд, потрібний менеджерам для швидких рішень.", label_dashboard:"Дашборд менеджера",
+    note:"Веб-додаток повністю адаптивний — працює на будь-якому екрані.",
+    feat_pill:"Що ви отримуєте", feat_h2a:"Менше рутини.", feat_h2b:"Більше заповнених ліжок.",
+    feat1_h3:"Заповненість у реальному часі", feat1_p:"Бачте вільні та зайняті ліжка з першого погляду на всіх об’єктах.",
+    feat2_h3:"Швидкий чек-ін", feat2_p:"Поселіть людину за секунди — з вебу чи телефона.",
+    feat3_h3:"Доступ за ролями", feat3_p:"Адміністратори, координатори, менеджери — кожен бачить саме те, що потрібно.",
+    feat4_h3:"Звіти для контролю", feat4_p:"Звіти про заповненість і рухи, готові щойно менеджер їх відкриє.",
+    feat5_h3:"Веб + мобільний", feat5_p:"Одна система, адаптується під будь-який пристрій. Без походів в app store.",
+    feat6_h3:"Єдине джерело правди", feat6_p:"Бронювання, чек-ін і звіти на тих самих живих даних. Жодних таблиць.",
+    vid_pill:"Подивіться в дії", vid_h2a:"Від бронювання до чек-іну", vid_h2b:"в одному потоці",
+    vid_p:"Адмін бронює ліжко → координатор реєструє з телефона → менеджер відкриває звіт.",
+    tag_demovideo:"Демо-відео", label_roleswalk:"Відео-огляд ролей", hint_video:"Замініть відео-оглядом „адмін → мобільний → звіт“.",
+    price_pill:"Ціни", price_h2a:"Зберіть свій план,", price_h2b:"оплата за ліжко", price_p:"Оберіть ліжка, схеми будівель і додатки. Щомісяця або щороку.",
+    bill_monthly:"Щомісяця", bill_annual:"Щороку", bill_save:"−20 %",
+    row_beds_name:"Ліжка", row_beds_unit:"ліжок", row_beds_desc:"Наявність у реальному часі та швидкий чек-ін для кожного ліжка, яким ви керуєте.",
+    row_schemes_name:"Схеми будівель", row_schemes_unit:"схем", row_schemes_desc:"Бачте всю будівлю на одному плані — поверхи, кімнати й точно де яке ліжко.",
+    row_sig_name:"Підписи документів", row_sig_desc:"Підписуйте договори та документи чек-іну прямо в застосунку — без друку й паперів.",
+    label_scheme:"Конструктор плану будівлі", label_sig:"Підписання документа в застосунку",
+    calc_per_bed:"/ ліжко", per_five:"/ 5", sig_add:"Додати", sig_added:"Додано",
+    calc_per_month:"/ місяць", calc_incl_title:"Кожен план включає",
+    incl1:"Веб-додаток для адмінів", incl2:"Мобільний чек-ін", incl3:"Звіти та дашборди", incl4:"Доступ за ролями", incl5:"Веб + мобільний — повністю адаптивно",
+    billed_monthly:"Оплата щомісяця", billed_annually:"Оплата щороку", per_year:"/ рік",
+    price_note:"Вказана ціна без податків (ПДВ), які додаються до підсумкової суми.",
+    cta_pill:"Почніть", cta_h2_1:"Заповнюйте більше ліжок,", cta_h2_2:"з меншими зусиллями.",
+    cta_p:"Замовте демо — і ми покажемо Kojeflow на вашому налаштуванні: веб і мобільний.",
+    form_name:"Ім’я", form_email:"E-mail", form_company:"Компанія / об’єкти", form_message:"Повідомлення",
+    ph_name:"Ваше ім’я", ph_email:"vy@company.com", ph_company:"Компанія, кількість об’єктів", ph_message:"Чим потрібно керувати?",
+    cta_submit:"Замовити демо →",
+    footer_copy:"© 2026 Kojeflow.cz — Усі права захищені."
+  }
+};
+
+let currentLang = 'cs';
+
+function setLang(lang){
+  const dict = I18N[lang] || I18N.cs;
+  currentLang = I18N[lang] ? lang : 'cs';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k = el.getAttribute('data-i18n-ph');
+    if(dict[k]!==undefined) el.setAttribute('placeholder', dict[k]);
+  });
+  document.documentElement.lang = currentLang;
+  const ls = document.getElementById('langSelect');
+  if(ls) ls.value = currentLang;
+  try{ localStorage.setItem('bedstack_lang', lang); }catch(e){}
+  renderPlan();
+}
+
+
+
+/* ---------- pricing plan builder ---------- */
+const RATES = { monthly:{bed:1, scheme:50, sig:0.10}, annual:{bed:0.80, scheme:40, sig:0.08} };
+const DISP  = { monthly:{bed:'1', scheme:'50', sig:'0.10'}, annual:{bed:'0.80', scheme:'40', sig:'0.08'} };
+const LOCALE = {en:'en-GB', cs:'cs-CZ', sk:'sk-SK', pl:'pl-PL', uk:'uk-UA'};
+const BEDS_MIN=50, BEDS_STEP=50, BEDS_MAX=5000;
+const SCH_MIN=5, SCH_STEP=5, SCH_MAX=200;
+const planState = { beds:100, schemes:5, schemesOn:false, sig:false, billing:'monthly' };
+
+function fmtNum(n){ return n.toLocaleString(LOCALE[currentLang]||'en-GB'); }
+function fmtMoney(n){
+  const loc = LOCALE[currentLang]||'en-GB';
+  const dec = (Math.round(n*100)/100)%1 !== 0;
+  return (Math.round(n*100)/100).toLocaleString(loc, {minimumFractionDigits: dec?2:0, maximumFractionDigits:2});
+}
+
+function renderPlan(){
+  const d = I18N[currentLang] || I18N.cs;
+  const b = planState.billing;
+  const sep = currentLang==='en' ? '.' : ',';
+  const perBed = d.calc_per_bed || '/ bed';
+  const perFive = d.per_five || '/ 5';
+  // rate hints
+  document.getElementById('rateBeds').textContent   = '(€'+DISP[b].bed.replace('.',sep)+' '+perBed+')';
+  document.getElementById('rateSchemes').textContent= '(€'+DISP[b].scheme.replace('.',sep)+' '+perFive+')';
+  document.getElementById('rateSig').textContent    = '(+€'+DISP[b].sig.replace('.',sep)+' '+perBed+')';
+  // quantities
+  document.getElementById('bedCount').textContent   = fmtNum(planState.beds);
+  document.getElementById('schemeCount').textContent= fmtNum(planState.schemes);
+  // scheme module: stepper replaces the Add button when active
+  document.getElementById('schemeBtnLabel').textContent = d.sig_add||'Add';
+  document.getElementById('rowScheme').classList.toggle('open', planState.schemesOn);
+  // signature module (add-on)
+  document.getElementById('sigBtn').classList.toggle('added', planState.sig);
+  document.getElementById('sigBtnLabel').textContent = planState.sig ? (d.sig_added||'Added') : (d.sig_add||'Add');
+  document.getElementById('rowSig').classList.toggle('open', planState.sig);
+  // billing toggle active
+  document.querySelectorAll('#billing button').forEach(btn=>btn.classList.toggle('active', btn.getAttribute('data-bill')===b));
+  // total
+  const r = RATES[b];
+  const total = planState.beds*r.bed
+    + (planState.schemesOn ? (planState.schemes/SCH_STEP)*r.scheme : 0)
+    + (planState.sig ? planState.beds*r.sig : 0);
+  document.getElementById('calcTotal').textContent = fmtMoney(total);
+  // sub label
+  const sub = document.getElementById('calcSubLabel');
+  if(b==='annual'){
+    sub.textContent = (d.billed_annually||'Billed annually') + ' · €' + fmtMoney(total*12) + ' ' + (d.per_year||'/ year');
+  } else {
+    sub.textContent = d.billed_monthly || 'Billed monthly';
+  }
+}
+
+document.getElementById('bedMinus').addEventListener('click',()=>{planState.beds=Math.max(BEDS_MIN, planState.beds-BEDS_STEP); renderPlan();});
+document.getElementById('bedPlus').addEventListener('click',()=>{planState.beds=Math.min(BEDS_MAX, planState.beds+BEDS_STEP); renderPlan();});
+document.getElementById('schemeBtn').addEventListener('click',()=>{planState.schemesOn=!planState.schemesOn; if(planState.schemesOn && planState.schemes<SCH_MIN) planState.schemes=SCH_MIN; renderPlan();});
+document.getElementById('schemeMinus').addEventListener('click',()=>{ if(planState.schemes<=SCH_MIN){planState.schemesOn=false;} else {planState.schemes-=SCH_STEP;} renderPlan();});
+document.getElementById('schemePlus').addEventListener('click',()=>{planState.schemes=Math.min(SCH_MAX, planState.schemes+SCH_STEP); renderPlan();});
+document.getElementById('sigBtn').addEventListener('click',()=>{planState.sig=!planState.sig; renderPlan();});
+document.querySelectorAll('#billing button').forEach(btn=>btn.addEventListener('click',()=>{planState.billing=btn.getAttribute('data-bill'); renderPlan();}));
+
+/* ---------- role tabs / slides ---------- */
+(function(){
+  const tabs = [...document.querySelectorAll('#roleTabs .tab')];
+  const slides = [...document.querySelectorAll('#roleSlides .slide')];
+  const DELAY = 4000;
+  let cur = 0, timer = null;
+  function show(i){
+    cur = (i + slides.length) % slides.length;
+    tabs.forEach((x,idx)=>x.classList.toggle('active', idx===cur));
+    slides.forEach((s,idx)=>s.classList.toggle('active', idx===cur));
+  }
+  function start(){ stop(); timer = setInterval(()=>show(cur+1), DELAY); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  tabs.forEach((t,idx)=>t.addEventListener('click',()=>{ show(idx); start(); }));
+  ['roleTabs','roleSlides'].forEach(id=>{
+    const el = document.getElementById(id);
+    el.addEventListener('mouseenter', stop);
+    el.addEventListener('mouseleave', start);
+  });
+  show(0); start();
+})();
+
+setLang('sk');
+</script>
+</body>
+</html>
