@@ -250,6 +250,7 @@
   .form input,.form textarea{font-family:inherit;font-size:15px;padding:13px 15px;border:1px solid var(--border);border-radius:12px;width:100%}
   .form input:focus,.form textarea:focus{outline:2px solid var(--yellow);border-color:transparent}
   .form label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .form-success{display:none;background:#eef9f0;border:1px solid #cdeccd;color:#137333;font-weight:600;text-align:center;padding:20px 16px;border-radius:12px;font-size:14.5px;line-height:1.5}
 
   footer.ft{background:#fff;border-top:1px solid var(--border);padding:44px 0}
   .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -545,12 +546,16 @@
 <h2><span data-i18n="cta_h2_1">Заповнюйте більше ліжок,</span><br/><span data-i18n="cta_h2_2">з меншими зусиллями.</span></h2>
 <p data-i18n="cta_p">Замовте демо — і ми покажемо Kojeflow на вашому налаштуванні: веб і мобільний.</p>
 </div>
-<form class="form" onsubmit="return false;">
-<div><label data-i18n="form_name">Ім’я</label><input data-i18n-ph="ph_name" placeholder="Ваше ім’я" type="text"/></div>
-<div><label data-i18n="form_email">E-mail</label><input data-i18n-ph="ph_email" placeholder="vy@company.com" type="email"/></div>
-<div><label data-i18n="form_company">Компанія / об’єкти</label><input data-i18n-ph="ph_company" placeholder="Компанія, кількість об’єктів" type="text"/></div>
-<div><label data-i18n="form_message">Повідомлення</label><textarea data-i18n-ph="ph_message" placeholder="Чим потрібно керувати?" rows="3"></textarea></div>
-<button class="btn btn-primary" data-i18n="cta_submit" style="justify-content:center" type="submit">Замовити демо →</button>
+<form action="https://formsubmit.co/ajax/ruslan@duck-agency.com" class="form" id="demoForm" method="POST">
+<input name="_subject" type="hidden" value="New Kojeflow demo request"/>
+<input name="_template" type="hidden" value="table"/>
+<input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
+<div><label data-i18n="form_name">Ім’я</label><input data-i18n-ph="ph_name" name="name" placeholder="Ваше ім’я" required="" type="text"/></div>
+<div><label data-i18n="form_email">E-mail</label><input data-i18n-ph="ph_email" name="email" placeholder="vy@company.com" required="" type="email"/></div>
+<div><label data-i18n="form_company">Компанія / об’єкти</label><input data-i18n-ph="ph_company" name="company" placeholder="Компанія, кількість об’єктів" type="text"/></div>
+<div><label data-i18n="form_message">Повідомлення</label><textarea data-i18n-ph="ph_message" name="message" placeholder="Чим потрібно керувати?" rows="3"></textarea></div>
+<button class="btn btn-primary" data-i18n="cta_submit" id="demoSubmit" style="justify-content:center" type="submit">Замовити демо →</button>
+<div class="form-success" data-i18n="form_success" id="formSuccess" style="display:none">Дякуємо! Вашу заявку надіслано — скоро зв'яжемося.</div>
 </form>
 </div>
 </section>
@@ -613,6 +618,7 @@ const I18N = {
     form_name:"Name", form_email:"Email", form_company:"Company / sites", form_message:"Message",
     ph_name:"Your name", ph_email:"you@company.com", ph_company:"Company, number of sites", ph_message:"What do you need to manage?",
     cta_submit:"Book a demo →",
+    form_success:"Thanks! Your request has been sent — we'll be in touch shortly.",
     footer_copy:"© 2026 Kojeflow.cz — All rights reserved."
   },
   cs:{
@@ -659,6 +665,7 @@ const I18N = {
     form_name:"Jméno", form_email:"E-mail", form_company:"Firma / lokality", form_message:"Zpráva",
     ph_name:"Vaše jméno", ph_email:"vy@firma.cz", ph_company:"Firma, počet lokalit", ph_message:"Co potřebujete spravovat?",
     cta_submit:"Domluvit demo →",
+    form_success:"Děkujeme! Vaše žádost byla odeslána — brzy se ozveme.",
     footer_copy:"© 2026 Kojeflow.cz — Všechna práva vyhrazena."
   },
   sk:{
@@ -705,6 +712,7 @@ const I18N = {
     form_name:"Meno", form_email:"E-mail", form_company:"Firma / lokality", form_message:"Správa",
     ph_name:"Vaše meno", ph_email:"vy@firma.sk", ph_company:"Firma, počet lokalít", ph_message:"Čo potrebujete spravovať?",
     cta_submit:"Dohodnúť demo →",
+    form_success:"Ďakujeme! Vaša žiadosť bola odoslaná — čoskoro sa ozveme.",
     footer_copy:"© 2026 Kojeflow.cz — Všetky práva vyhradené."
   },
   pl:{
@@ -751,6 +759,7 @@ const I18N = {
     form_name:"Imię", form_email:"E-mail", form_company:"Firma / lokalizacje", form_message:"Wiadomość",
     ph_name:"Twoje imię", ph_email:"ty@firma.pl", ph_company:"Firma, liczba lokalizacji", ph_message:"Czym musisz zarządzać?",
     cta_submit:"Umów demo →",
+    form_success:"Dziękujemy! Zapytanie zostało wysłane — wkrótce się odezwiemy.",
     footer_copy:"© 2026 Kojeflow.cz — Wszelkie prawa zastrzeżone."
   },
   uk:{
@@ -797,6 +806,7 @@ const I18N = {
     form_name:"Ім’я", form_email:"E-mail", form_company:"Компанія / об’єкти", form_message:"Повідомлення",
     ph_name:"Ваше ім’я", ph_email:"vy@company.com", ph_company:"Компанія, кількість об’єктів", ph_message:"Чим потрібно керувати?",
     cta_submit:"Замовити демо →",
+    form_success:"Дякуємо! Вашу заявку надіслано — скоро зв'яжемося.",
     footer_copy:"© 2026 Kojeflow.cz — Усі права захищені."
   }
 };
@@ -815,8 +825,6 @@ function setLang(lang){
     if(dict[k]!==undefined) el.setAttribute('placeholder', dict[k]);
   });
   document.documentElement.lang = currentLang;
-  const ls = document.getElementById('langSelect');
-  if(ls) ls.value = currentLang;
   try{ localStorage.setItem('bedstack_lang', lang); }catch(e){}
   renderPlan();
 }
@@ -903,6 +911,24 @@ document.querySelectorAll('#billing button').forEach(btn=>btn.addEventListener('
     el.addEventListener('mouseleave', start);
   });
   show(0); start();
+})();
+
+/* ---------- demo form (emails ruslan@duck-agency.com via FormSubmit) ---------- */
+(function(){
+  const f = document.getElementById('demoForm');
+  if(!f) return;
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('demoSubmit');
+    if(btn){ btn.disabled = true; }
+    try{
+      const res = await fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}});
+      if(res.ok){
+        Array.prototype.forEach.call(f.children, function(el){ if(el.id!=='formSuccess') el.style.display='none'; });
+        const s = document.getElementById('formSuccess'); if(s) s.style.display='block';
+      } else { if(btn) btn.disabled=false; alert('Something went wrong — please email ruslan@duck-agency.com'); }
+    }catch(err){ if(btn) btn.disabled=false; alert('Something went wrong — please email ruslan@duck-agency.com'); }
+  });
 })();
 
 setLang('uk');
