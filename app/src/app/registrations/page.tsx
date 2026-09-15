@@ -1,5 +1,5 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { RegistrationsScreen } from '@/components/registrations/RegistrationsScreen';
 
 export default function RegistrationsPage() {
-  return <ScreenPlaceholder navKey="registrations" />;
+  return <RegistrationsScreen />;
 }

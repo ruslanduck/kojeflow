@@ -108,6 +108,9 @@ export interface Registration {
   status: RegistrationStatus;
   propertyId: string;
   coordinator: string;
+  issued: string; // ISO date
+  expires: string; // ISO date
+  docs: number;
 }
 
 export interface User {

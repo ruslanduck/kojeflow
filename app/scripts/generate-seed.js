@@ -257,9 +257,18 @@ const transfers = transfersRaw.map((t, i) => ({
   date: t.date, status: t.status === 'Handed over' ? 'Handed over' : 'Accepted',
 }));
 
+// Ports Component.regDates(name,i): deterministic issued/expires/docs from a name+index hash.
+function regDates(name, i) {
+  const h = hash(name + i);
+  const issued = addDays(TODAY, -(20 + (h % 160)));
+  const expires = addDays(issued, 90 + (h % 4) * 30);
+  const docs = 1 + (h % 3);
+  return { issued, expires, docs };
+}
+
 const registrations = registrationsRaw.map((r, i) => ({
   id: `rg${i + 1}`, residentName: r.name, type: r.type, status: r.status,
-  propertyId: slugify(r.hostel), coordinator: r.visa,
+  propertyId: slugify(r.hostel), coordinator: r.visa, ...regDates(r.name, i),
 }));
 
 const users = [
