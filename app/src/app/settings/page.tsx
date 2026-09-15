@@ -1,5 +1,5 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { SettingsScreen } from '@/components/settings/SettingsScreen';
 
 export default function SettingsPage() {
-  return <ScreenPlaceholder navKey="settings" />;
+  return <SettingsScreen />;
 }
