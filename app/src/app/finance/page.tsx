@@ -1,5 +1,10 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { Suspense } from 'react';
+import { FinanceScreen } from '@/components/finance/FinanceScreen';
 
 export default function FinancePage() {
-  return <ScreenPlaceholder navKey="finances" />;
+  return (
+    <Suspense>
+      <FinanceScreen />
+    </Suspense>
+  );
 }
