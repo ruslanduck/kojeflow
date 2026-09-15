@@ -1,5 +1,10 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { Suspense } from 'react';
+import { BookingsScreen } from '@/components/bookings/BookingsScreen';
 
 export default function BookingsPage() {
-  return <ScreenPlaceholder navKey="bookings" />;
+  return (
+    <Suspense>
+      <BookingsScreen />
+    </Suspense>
+  );
 }

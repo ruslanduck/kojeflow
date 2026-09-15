@@ -44,6 +44,8 @@ export interface Resident {
   id: string;
   name: string;
   gender: Gender;
+  phone?: string;
+  dob?: string;
 }
 
 export interface Stay {

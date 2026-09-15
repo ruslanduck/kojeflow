@@ -1,0 +1,77 @@
+{
+  "MALE": [
+    "Ihor",
+    "Vasyl",
+    "Oleksandr",
+    "Serhii",
+    "Michal",
+    "Ivan",
+    "Lauris",
+    "Dmytro",
+    "Oleksii",
+    "Petro",
+    "Roman",
+    "Andrii",
+    "Bohdan",
+    "Taras"
+  ],
+  "FEMALE": [
+    "Liliia",
+    "Olha",
+    "Nataliia",
+    "Anastasiia",
+    "Liene",
+    "Aileen",
+    "Kateryna",
+    "Maria",
+    "Sofiia",
+    "Yuliia",
+    "Iryna"
+  ],
+  "SURN": [
+    "Maliar",
+    "Krasulia",
+    "Basko",
+    "Viieru",
+    "Ando",
+    "Mondych",
+    "Vakarov",
+    "Ozolins",
+    "Liashenko",
+    "Dmytriiev",
+    "Rukavitsyna",
+    "Lazarenko",
+    "Kondratenko",
+    "Turok"
+  ],
+  "MANAGERS": [
+    "Natalia Vakarov",
+    "Iurii Turok",
+    "Lilia Mamiseishvili",
+    "Valeriia Kondratenko"
+  ],
+  "PROJECTS": [
+    "ACI — Auto Components Int.",
+    "Metrostav Hasičarna",
+    "Škoda Line 4",
+    "Panattoni Logistics"
+  ],
+  "MANAGER_PROJECTS": {
+    "Natalia Vakarov": [
+      "ACI — Auto Components Int.",
+      "Škoda Line 4",
+      "Metrostav Hasičarna"
+    ],
+    "Iurii Turok": [
+      "Panattoni Logistics"
+    ],
+    "Lilia Mamiseishvili": [
+      "ACI — Auto Components Int.",
+      "Metrostav Hasičarna"
+    ],
+    "Valeriia Kondratenko": [
+      "Panattoni Logistics",
+      "Škoda Line 4"
+    ]
+  }
+}
