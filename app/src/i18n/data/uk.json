@@ -198,6 +198,7 @@
   "col_mgr_resp": "Менеджер / відп.",
   "col_project": "Проєкт / клієнт",
   "hc_back": "← Панель",
+  "nav_back": "Назад",
   "hc_summary": "{rooms} кімнат · {places} ліжок · {occ} зайнято · {free} вільно · від ${price}",
   "tab_rooms": "Кімнати за типом",
   "tab_tenants": "Мешканці",

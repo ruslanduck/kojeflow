@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { ROLES, ROLE_NAMES, NAV_LABEL_KEY, NAV_ROUTE, roleLabelKey, type NavKey, type RoleName } from '@/domain/roles';
@@ -23,7 +23,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const t = useT();
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const role = useSessionStore((s) => s.role);
   const setRole = useSessionStore((s) => s.setRole);
@@ -45,8 +44,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     if (blockedRoute) router.replace(NAV_ROUTE[nav[0]]);
   }, [pathname, nav, router]);
 
-  const canGoBack =
-    !nav.some((k) => pathname === NAV_ROUTE[k]) || searchParams.toString() !== '';
+  // Only a true drill-down (e.g. a property's detail page, reached from the Dashboard)
+  // is a distinct screen with its own back-chevron — matches the prototype's navStack,
+  // which is pushed only by openHostel(). Modals and in-screen tab/filter state (both
+  // deep-linked here via query params, for shareable URLs) float over a nav-root screen
+  // and close via their own controls, so they must not surface the chevron either.
+  const canGoBack = !nav.some((k) => pathname === NAV_ROUTE[k]);
 
   const tabKeys = useMemo(() => {
     const keys = TAB_PREFERENCE.filter((k) => nav.includes(k));
@@ -127,7 +130,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         {/* MOBILE TOPBAR */}
         <div className="topbar" style={{ alignItems: 'center', gap: 11, padding: '10px 13px', background: '#fff', borderBottom: '1px solid var(--color-border)' }}>
           {canGoBack && (
-            <button onClick={() => router.back()} aria-label="Back" style={{ background: 'none', border: 'none', color: 'var(--color-ink)', fontSize: 22, cursor: 'pointer', lineHeight: 1, padding: '2px 6px 2px 2px' }}>
+            <button onClick={() => router.back()} aria-label={t('nav_back')} style={{ background: 'none', border: 'none', color: 'var(--color-ink)', fontSize: 22, cursor: 'pointer', lineHeight: 1, padding: '2px 6px 2px 2px' }}>
               ‹
             </button>
           )}

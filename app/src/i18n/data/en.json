@@ -201,6 +201,7 @@
   "col_mgr_resp": "Manager / resp.",
   "col_project": "Project / client",
   "hc_back": "← Dashboard",
+  "nav_back": "Back",
   "hc_summary": "{rooms} rooms · {places} beds · {occ} occupied · {free} free · from {price}",
   "tab_rooms": "Rooms by type",
   "tab_tenants": "Residents",
