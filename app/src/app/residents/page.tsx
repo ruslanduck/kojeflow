@@ -1,5 +1,10 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { Suspense } from 'react';
+import { ResidentsScreen } from '@/components/residents/ResidentsScreen';
 
 export default function ResidentsPage() {
-  return <ScreenPlaceholder navKey="residents" />;
+  return (
+    <Suspense>
+      <ResidentsScreen />
+    </Suspense>
+  );
 }
