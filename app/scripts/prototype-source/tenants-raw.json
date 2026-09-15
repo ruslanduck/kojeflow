@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Ozolins Lauris",
+    "type": "Internal",
+    "hostel": "Behovice",
+    "place": "Room 2 · Place 1",
+    "checkIn": "01/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "ACI — Auto Components Int."
+  },
+  {
+    "name": "Ozolina Liene",
+    "type": "Internal",
+    "hostel": "Behovice",
+    "place": "Room 2 · Place 2",
+    "checkIn": "01/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "ACI — Auto Components Int."
+  },
+  {
+    "name": "Liashenko Oleksii",
+    "type": "Internal",
+    "hostel": "Behovice",
+    "place": "Room 2 · Place 3",
+    "checkIn": "02/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "—"
+  },
+  {
+    "name": "Dmytriiev Dmytro",
+    "type": "Internal",
+    "hostel": "Chocerady",
+    "place": "Room 1 · Place 1",
+    "checkIn": "10/07/2026",
+    "manager": "Lilia Mamiseishvili",
+    "project": "ACI — Auto Components Int."
+  },
+  {
+    "name": "Vakarova Nataliia",
+    "type": "Internal",
+    "hostel": "Chuchle",
+    "place": "Apt 1 · Place 1",
+    "checkIn": "01/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "Škoda Line 4"
+  },
+  {
+    "name": "Vakarov Serhii",
+    "type": "Internal",
+    "hostel": "Chuchle",
+    "place": "Apt 1 · Place 2",
+    "checkIn": "01/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "Metrostav Hasičarna"
+  },
+  {
+    "name": "Rukavitsyna Anastasiia",
+    "type": "Commercial",
+    "hostel": "Chuchle",
+    "place": "Apt 20 · Place 1",
+    "checkIn": "01/07/2026",
+    "manager": "Iurii Turok",
+    "project": "Client direct"
+  },
+  {
+    "name": "Maliar Liliia",
+    "type": "Internal",
+    "hostel": "Chuchle",
+    "place": "Room 4 · Place 2",
+    "checkIn": "05/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "Škoda Line 4"
+  },
+  {
+    "name": "Viieru Olha",
+    "type": "Internal",
+    "hostel": "Chuchle",
+    "place": "Room 4 · Place 1",
+    "checkIn": "20/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "Škoda Line 4"
+  },
+  {
+    "name": "Basko Ihor",
+    "type": "Commercial",
+    "hostel": "P.Svandy",
+    "place": "Room 3 · Place 2",
+    "checkIn": "12/07/2026",
+    "manager": "Iurii Turok",
+    "project": "Client direct"
+  },
+  {
+    "name": "Ando Richard",
+    "type": "Internal",
+    "hostel": "P.Svandy",
+    "place": "Room 5 · Place 1",
+    "checkIn": "14/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "ACI — Auto Components Int."
+  },
+  {
+    "name": "Ando Aileen",
+    "type": "Internal",
+    "hostel": "P.Svandy",
+    "place": "Room 6 · Place 1",
+    "checkIn": "14/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "ACI — Auto Components Int."
+  },
+  {
+    "name": "Mondych Vasyl",
+    "type": "Internal",
+    "hostel": "Behovice",
+    "place": "Room 5 · Place 2",
+    "checkIn": "08/07/2026",
+    "manager": "Natalia Vakarov",
+    "project": "Metrostav Hasičarna"
+  },
+  {
+    "name": "Kondratenko Valeriia",
+    "type": "Internal",
+    "hostel": "Korycany",
+    "place": "Room 7 · Place 3",
+    "checkIn": "02/07/2026",
+    "manager": "Valeriia Kondratenko",
+    "project": "Panattoni Logistics"
+  }
+]

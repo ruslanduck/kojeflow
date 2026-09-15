@@ -1,0 +1,52 @@
+{
+  "Administrator": {
+    "planner": true,
+    "nav": [
+      "dashboard",
+      "floorplan",
+      "bookings",
+      "checkin",
+      "registrations",
+      "residents",
+      "finances",
+      "settings"
+    ],
+    "balance": true
+  },
+  "Company employee": {
+    "planner": true,
+    "nav": [
+      "dashboard",
+      "floorplan",
+      "bookings",
+      "checkin",
+      "registrations",
+      "residents",
+      "finances",
+      "settings"
+    ],
+    "balance": true
+  },
+  "Commandant": {
+    "nav": [
+      "dashboard",
+      "floorplan",
+      "bookings",
+      "settings"
+    ],
+    "balance": false,
+    "ownHostel": "P.Svandy"
+  },
+  "Client": {
+    "nav": [
+      "dashboard",
+      "floorplan",
+      "bookings",
+      "registrations",
+      "settings"
+    ],
+    "balance": false,
+    "hideNames": true,
+    "ownOnly": true
+  }
+}

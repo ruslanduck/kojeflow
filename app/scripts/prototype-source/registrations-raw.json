@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Maliar Liliia",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "Chuchle",
+    "visa": "Turok"
+  },
+  {
+    "name": "Krasulia Oleksandr",
+    "type": "Free",
+    "status": "New",
+    "hostel": "Kralupy",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Basko Ihor",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "P.Svandy",
+    "visa": "Turok"
+  },
+  {
+    "name": "Viieru Olha",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "Chuchle",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Ando Richard Madrid",
+    "type": "Paid",
+    "status": "Registered",
+    "hostel": "P.Svandy",
+    "visa": "Turok"
+  },
+  {
+    "name": "Ando Aileen Bantazan",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "P.Svandy",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Mondych Vasyl",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "Behovice",
+    "visa": "Turok"
+  },
+  {
+    "name": "Ozolins Lauris",
+    "type": "Paid",
+    "status": "Expired",
+    "hostel": "Mnichovo Hradiste",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Ozolina Liene",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "Behovice",
+    "visa": "Turok"
+  },
+  {
+    "name": "Liashenko Oleksii",
+    "type": "Free",
+    "status": "New",
+    "hostel": "Behovice",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Dmytriiev Dmytro",
+    "type": "Paid",
+    "status": "Registered",
+    "hostel": "Chocerady",
+    "visa": "Turok"
+  },
+  {
+    "name": "Vakarova Nataliia",
+    "type": "Free",
+    "status": "Registered",
+    "hostel": "Chuchle",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Vakarov Serhii",
+    "type": "Paid",
+    "status": "Expired",
+    "hostel": "Chuchle",
+    "visa": "Turok"
+  },
+  {
+    "name": "Rukavitsyna Anastasiia",
+    "type": "Paid",
+    "status": "Registered",
+    "hostel": "Chuchle",
+    "visa": "Vakarov"
+  },
+  {
+    "name": "Lazarenko Mykhailo",
+    "type": "Free",
+    "status": "New",
+    "hostel": "Morina",
+    "visa": "Turok"
+  }
+]
