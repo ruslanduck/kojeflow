@@ -11,8 +11,10 @@ import paymentsSeed from '@/data/seed/payments.json';
 import transfersSeed from '@/data/seed/transfers.json';
 import registrationsSeed from '@/data/seed/registrations.json';
 import usersSeed from '@/data/seed/users.json';
+import floorPlansSeed from '@/data/seed/floorPlans.json';
+import floorZonesSeed from '@/data/seed/floorZones.json';
 import type {
-  Property, Room, Bed, Resident, Stay, Booking, Payment, Transfer, Registration, User,
+  Property, Room, Bed, Resident, Stay, Booking, Payment, Transfer, Registration, User, FloorPlan, FloorZone,
 } from '@/domain/types';
 
 export interface EntityState {
@@ -26,6 +28,8 @@ export interface EntityState {
   transfers: Transfer[];
   registrations: Registration[];
   users: User[];
+  floorPlans: FloorPlan[];
+  floorZones: FloorZone[];
 }
 
 /**
@@ -46,4 +50,6 @@ export const useEntityStore = create<EntityState>(() => ({
   transfers: transfersSeed as Transfer[],
   registrations: registrationsSeed as Registration[],
   users: usersSeed as User[],
+  floorPlans: floorPlansSeed as FloorPlan[],
+  floorZones: floorZonesSeed as FloorZone[],
 }));

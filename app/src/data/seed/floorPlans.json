@@ -1,0 +1,9 @@
+[
+  {
+    "id": "plan1",
+    "propertyId": "behovice",
+    "name": "1st Floor",
+    "sort": 1,
+    "imageUrl": "/floorplan-1.png"
+  }
+]

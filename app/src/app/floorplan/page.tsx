@@ -1,5 +1,5 @@
-import { ScreenPlaceholder } from '@/components/shell/ScreenPlaceholder';
+import { FloorPlanScreen } from '@/components/floorplan/FloorPlanScreen';
 
 export default function FloorplanPage() {
-  return <ScreenPlaceholder navKey="floorplan" />;
+  return <FloorPlanScreen />;
 }

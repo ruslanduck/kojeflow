@@ -9,20 +9,13 @@ import { ROLES } from '@/domain/roles';
 import { propertyStat } from '@/domain/dashboard';
 import { roomGender } from '@/domain/logic';
 import type { Bed, Room, RoomType } from '@/domain/types';
-import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, TYPE_PILL, DEFAULT_PILL, GENDER_EMOJI } from '@/domain/labels';
+import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, TYPE_PILL, DEFAULT_PILL, GENDER_EMOJI, BED_TILE_COLORS } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
-
-const BED_STYLE: Record<Bed['status'], { bg: string; border: string; fg: string }> = {
-  free: { bg: '#E4F6EC', border: '#B7E4CB', fg: '#1B7F52' },
-  booked: { bg: '#FFFBE6', border: '#FFE88A', fg: '#8A6B00' },
-  occupied: { bg: '#F1F1F5', border: '#E2E2EA', fg: '#5C5C66' },
-  unavailable: { bg: '#F1F1F5', border: '#E2E2EA', fg: '#5C5C66' },
-};
 
 export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: string; showBackToDash: boolean }) {
   const t = useT();
@@ -153,7 +146,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 13 }}>
                       {roomBeds.map((bed) => {
-                        const c = BED_STYLE[bed.status];
+                        const [bg, border, fg] = BED_TILE_COLORS[bed.status];
                         const resident = bed.residentId ? residentsById.get(bed.residentId) : undefined;
                         return (
                           <div
@@ -161,7 +154,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                             className="bed"
                             onClick={() => onBedClick(bed, room)}
                             title={bedTitle(bed)}
-                            style={{ position: 'relative', minWidth: 42, height: 42, borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12.5, fontWeight: 700, cursor: 'pointer', background: c.bg, border: `1px solid ${c.border}`, color: c.fg }}
+                            style={{ position: 'relative', minWidth: 42, height: 42, borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12.5, fontWeight: 700, cursor: 'pointer', background: bg, border: `1px solid ${border}`, color: fg }}
                           >
                             {bed.index}
                             {bed.status === 'occupied' && resident && (

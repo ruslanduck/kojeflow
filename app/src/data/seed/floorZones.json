@@ -1,0 +1,65 @@
+[
+  {
+    "id": "zone0",
+    "planId": "plan1",
+    "roomId": "behovice-r1",
+    "x": 3.5,
+    "y": 55,
+    "w": 10,
+    "h": 40
+  },
+  {
+    "id": "zone1",
+    "planId": "plan1",
+    "roomId": "behovice-r2",
+    "x": 14.5,
+    "y": 55,
+    "w": 10,
+    "h": 40
+  },
+  {
+    "id": "zone2",
+    "planId": "plan1",
+    "roomId": "behovice-r3",
+    "x": 25.5,
+    "y": 55,
+    "w": 10,
+    "h": 40
+  },
+  {
+    "id": "zone3",
+    "planId": "plan1",
+    "roomId": "behovice-r4",
+    "x": 36.5,
+    "y": 55,
+    "w": 10,
+    "h": 40
+  },
+  {
+    "id": "zone4",
+    "planId": "plan1",
+    "roomId": "behovice-r5",
+    "x": 48.5,
+    "y": 16,
+    "w": 13,
+    "h": 34
+  },
+  {
+    "id": "zone5",
+    "planId": "plan1",
+    "roomId": "behovice-r6",
+    "x": 48.5,
+    "y": 55,
+    "w": 13,
+    "h": 40
+  },
+  {
+    "id": "zone6",
+    "planId": "plan1",
+    "roomId": "behovice-r7",
+    "x": 83,
+    "y": 55,
+    "w": 13.5,
+    "h": 40
+  }
+]

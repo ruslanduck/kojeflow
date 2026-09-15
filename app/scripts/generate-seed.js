@@ -236,6 +236,19 @@ hostelsWithRooms.forEach(({ raw, rooms: rawRooms }) => {
 
 const payments = seedPayments(stays);
 
+// ---- floor plans: one seeded plan (matches Component.seedPlans()), on Behovice ----
+const floorPlanHostelName = 'Behovice';
+const floorPlanBoxes = [
+  [3.5, 55, 10, 40], [14.5, 55, 10, 40], [25.5, 55, 10, 40], [36.5, 55, 10, 40],
+  [48.5, 16, 13, 34], [48.5, 55, 13, 40], [83, 55, 13.5, 40],
+];
+const floorPlanPropertyId = slugify(floorPlanHostelName);
+const floorPlanRooms = rooms.filter((r) => r.propertyId === floorPlanPropertyId);
+const floorPlans = [{ id: 'plan1', propertyId: floorPlanPropertyId, name: '1st Floor', sort: 1, imageUrl: '/floorplan-1.png' }];
+const floorZones = floorPlanBoxes
+  .map((box, i) => (floorPlanRooms[i] ? { id: `zone${i}`, planId: 'plan1', roomId: floorPlanRooms[i].id, x: box[0], y: box[1], w: box[2], h: box[3] } : null))
+  .filter(Boolean);
+
 const bookings = [
   ['Kondratenko Valeriia', 'Internal', 'Korycany', '22/07/2026', '4 places 22.07-5.8', 'Valeriia Kondratenko', 'New', 'Valeriia Kondratenko', 'Panattoni Logistics'],
   ['Ozolins Lauris', 'Commercial', 'Mnichovo Hradiste', '25/07/2026', '25-26 july', 'Lilia Mamiseishvili', 'New', 'Iurii Turok', '—'],
@@ -291,6 +304,8 @@ write('payments.json', payments);
 write('transfers.json', transfers);
 write('registrations.json', registrations);
 write('users.json', users);
+write('floorPlans.json', floorPlans);
+write('floorZones.json', floorZones);
 
 console.log('properties', properties.length, 'rooms', rooms.length, 'beds', beds.length,
   'residents', residents.length, 'stays', stays.length, 'bookings', bookings.length,

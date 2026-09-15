@@ -70,6 +70,14 @@ export const STATUS_PILL: Record<string, [fg: string, bg: string]> = {
 
 export const GENDER_EMOJI: Record<string, string> = { M: '👨', F: '👩', X: '🧑‍🤝‍🧑', N: '👤' };
 
+/** [background, border, text] per bed status, ported from Component's `c=` lookups (floor plan dots and room tiles). */
+export const BED_TILE_COLORS: Record<'free' | 'occupied' | 'booked' | 'unavailable', [bg: string, border: string, fg: string]> = {
+  free: ['#E4F6EC', '#B7E4CB', '#1B7F52'],
+  booked: ['#FFFBE6', '#FFE88A', '#8A6B00'],
+  occupied: ['#F1F1F5', '#E2E2EA', '#5C5C66'],
+  unavailable: ['#FDECEC', '#F6CBCB', '#C0392B'],
+};
+
 export const ROOM_GENDER_PILL: Record<string, [fg: string, bg: string]> = {
   M: ['#1D4F91', '#E6EEFA'],
   F: ['#A0126F', '#FBE3F2'],

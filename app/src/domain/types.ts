@@ -119,3 +119,22 @@ export interface User {
   email: string;
   role: string;
 }
+
+export interface FloorPlan {
+  id: string;
+  propertyId: string;
+  name: string;
+  sort: number;
+  imageUrl: string;
+}
+
+export interface FloorZone {
+  id: string;
+  planId: string;
+  roomId: string;
+  /** Percentages (0-100) of the plan image's width/height. */
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
