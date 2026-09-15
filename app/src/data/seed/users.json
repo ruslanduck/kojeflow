@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u1",
+    "name": "Anna Kovalenko",
+    "email": "anna@kojeflow.app",
+    "role": "Administrator"
+  },
+  {
+    "id": "u2",
+    "name": "Natalia Vakarov",
+    "email": "natalia@kojeflow.app",
+    "role": "Company employee"
+  },
+  {
+    "id": "u3",
+    "name": "Iurii Turok",
+    "email": "iurii@kojeflow.app",
+    "role": "Company employee"
+  },
+  {
+    "id": "u4",
+    "name": "Valeriia Kondratenko",
+    "email": "valeriia@kojeflow.app",
+    "role": "Commandant"
+  }
+]

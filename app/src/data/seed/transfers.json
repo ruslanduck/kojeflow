@@ -1,0 +1,83 @@
+[
+  {
+    "id": "tr1",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Lazarenko Mykhailo",
+    "amount": 12390,
+    "date": "15/07/2026 08:19",
+    "status": "Handed over"
+  },
+  {
+    "id": "tr2",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Roman Rozman",
+    "amount": 37460,
+    "date": "30/06/2026 18:29",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr3",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Lutsyshyna",
+    "amount": 51000,
+    "date": "23/06/2026 12:02",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr4",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Lazarenko",
+    "amount": 28515,
+    "date": "04/06/2026 08:05",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr5",
+    "propertyId": "morina",
+    "by": "Iurii Turok",
+    "to": "Orsah Ivan",
+    "amount": 6770,
+    "date": "24/05/2026 21:28",
+    "status": "Handed over"
+  },
+  {
+    "id": "tr6",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Lazarenko",
+    "amount": 44990,
+    "date": "20/05/2026 08:43",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr7",
+    "propertyId": "morina",
+    "by": "Iurii Turok",
+    "to": "Lazarenko Michal",
+    "amount": 20520,
+    "date": "06/05/2026 19:01",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr8",
+    "propertyId": "chuchle",
+    "by": "Natalia Vakarov",
+    "to": "Lesko",
+    "amount": 95980,
+    "date": "06/05/2026 15:26",
+    "status": "Accepted"
+  },
+  {
+    "id": "tr9",
+    "propertyId": "morina",
+    "by": "Iurii Turok",
+    "to": "Ivan Orsah",
+    "amount": 23350,
+    "date": "23/04/2026 18:37",
+    "status": "Handed over"
+  }
+]

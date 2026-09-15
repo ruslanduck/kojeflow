@@ -1,0 +1,762 @@
+[
+  {
+    "id": "behovice-r1",
+    "propertyId": "behovice",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 211,
+    "priceTo": 277
+  },
+  {
+    "id": "behovice-r2",
+    "propertyId": "behovice",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 220,
+    "priceTo": 257
+  },
+  {
+    "id": "behovice-r3",
+    "propertyId": "behovice",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 248,
+    "priceTo": 272
+  },
+  {
+    "id": "behovice-r4",
+    "propertyId": "behovice",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 220,
+    "priceTo": 264
+  },
+  {
+    "id": "behovice-r5",
+    "propertyId": "behovice",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 232,
+    "priceTo": 265
+  },
+  {
+    "id": "behovice-r6",
+    "propertyId": "behovice",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 236,
+    "priceTo": 306
+  },
+  {
+    "id": "behovice-r7",
+    "propertyId": "behovice",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 215,
+    "priceTo": 294
+  },
+  {
+    "id": "behovice-r8",
+    "propertyId": "behovice",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 222,
+    "priceTo": 266
+  },
+  {
+    "id": "behovice-r9",
+    "propertyId": "behovice",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 239,
+    "priceTo": 273
+  },
+  {
+    "id": "chocerady-r1",
+    "propertyId": "chocerady",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 203,
+    "priceTo": 248
+  },
+  {
+    "id": "chocerady-r2",
+    "propertyId": "chocerady",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 201,
+    "priceTo": 252
+  },
+  {
+    "id": "chocerady-r3",
+    "propertyId": "chocerady",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 227,
+    "priceTo": 303
+  },
+  {
+    "id": "chuchle-r1",
+    "propertyId": "chuchle",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 187,
+    "priceTo": 258
+  },
+  {
+    "id": "chuchle-r2",
+    "propertyId": "chuchle",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 158,
+    "priceTo": 204
+  },
+  {
+    "id": "chuchle-r3",
+    "propertyId": "chuchle",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 156,
+    "priceTo": 198
+  },
+  {
+    "id": "chuchle-r4",
+    "propertyId": "chuchle",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 180,
+    "priceTo": 254
+  },
+  {
+    "id": "chuchle-r5",
+    "propertyId": "chuchle",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 165,
+    "priceTo": 186
+  },
+  {
+    "id": "chuchle-r6",
+    "propertyId": "chuchle",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 160,
+    "priceTo": 213
+  },
+  {
+    "id": "chuchle-r7",
+    "propertyId": "chuchle",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 174,
+    "priceTo": 218
+  },
+  {
+    "id": "chuchle-r8",
+    "propertyId": "chuchle",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 157,
+    "priceTo": 179
+  },
+  {
+    "id": "chuchle-r9",
+    "propertyId": "chuchle",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 181,
+    "priceTo": 240
+  },
+  {
+    "id": "do-klukovic-r1",
+    "propertyId": "do-klukovic",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 170,
+    "priceTo": 229
+  },
+  {
+    "id": "do-klukovic-r2",
+    "propertyId": "do-klukovic",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 193,
+    "priceTo": 264
+  },
+  {
+    "id": "do-klukovic-r3",
+    "propertyId": "do-klukovic",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 174,
+    "priceTo": 200
+  },
+  {
+    "id": "horni-pocernice-r1",
+    "propertyId": "horni-pocernice",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 178,
+    "priceTo": 199
+  },
+  {
+    "id": "horni-pocernice-r2",
+    "propertyId": "horni-pocernice",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 217,
+    "priceTo": 276
+  },
+  {
+    "id": "horni-pocernice-r3",
+    "propertyId": "horni-pocernice",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 194,
+    "priceTo": 260
+  },
+  {
+    "id": "hostivice-r1",
+    "propertyId": "hostivice",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 158,
+    "priceTo": 188
+  },
+  {
+    "id": "hostivice-r2",
+    "propertyId": "hostivice",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 158,
+    "priceTo": 228
+  },
+  {
+    "id": "hostivice-r3",
+    "propertyId": "hostivice",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 159,
+    "priceTo": 201
+  },
+  {
+    "id": "hostivice-r4",
+    "propertyId": "hostivice",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 188,
+    "priceTo": 243
+  },
+  {
+    "id": "hostivice-r5",
+    "propertyId": "hostivice",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 169,
+    "priceTo": 242
+  },
+  {
+    "id": "hostivice-r6",
+    "propertyId": "hostivice",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 175,
+    "priceTo": 251
+  },
+  {
+    "id": "hostivice-r7",
+    "propertyId": "hostivice",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 168,
+    "priceTo": 208
+  },
+  {
+    "id": "hostivice-r8",
+    "propertyId": "hostivice",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 151,
+    "priceTo": 226
+  },
+  {
+    "id": "hostivice-r9",
+    "propertyId": "hostivice",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 185,
+    "priceTo": 260
+  },
+  {
+    "id": "korycany-r1",
+    "propertyId": "korycany",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 229,
+    "priceTo": 279
+  },
+  {
+    "id": "korycany-r2",
+    "propertyId": "korycany",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 191,
+    "priceTo": 261
+  },
+  {
+    "id": "korycany-r3",
+    "propertyId": "korycany",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 206,
+    "priceTo": 247
+  },
+  {
+    "id": "korycany-r4",
+    "propertyId": "korycany",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 212,
+    "priceTo": 274
+  },
+  {
+    "id": "korycany-r5",
+    "propertyId": "korycany",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 227,
+    "priceTo": 270
+  },
+  {
+    "id": "korycany-r6",
+    "propertyId": "korycany",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 214,
+    "priceTo": 273
+  },
+  {
+    "id": "korycany-r7",
+    "propertyId": "korycany",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 209,
+    "priceTo": 235
+  },
+  {
+    "id": "korycany-r8",
+    "propertyId": "korycany",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 210,
+    "priceTo": 237
+  },
+  {
+    "id": "korycany-r9",
+    "propertyId": "korycany",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 216,
+    "priceTo": 257
+  },
+  {
+    "id": "korycany-sleep-go-r1",
+    "propertyId": "korycany-sleep-go",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 231,
+    "priceTo": 251
+  },
+  {
+    "id": "korycany-sleep-go-r2",
+    "propertyId": "korycany-sleep-go",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 206,
+    "priceTo": 284
+  },
+  {
+    "id": "korycany-sleep-go-r3",
+    "propertyId": "korycany-sleep-go",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 236,
+    "priceTo": 283
+  },
+  {
+    "id": "korycany-sleep-go-r4",
+    "propertyId": "korycany-sleep-go",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 237,
+    "priceTo": 266
+  },
+  {
+    "id": "korycany-sleep-go-r5",
+    "propertyId": "korycany-sleep-go",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 230,
+    "priceTo": 250
+  },
+  {
+    "id": "kralupy-r1",
+    "propertyId": "kralupy",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 209,
+    "priceTo": 265
+  },
+  {
+    "id": "kralupy-r2",
+    "propertyId": "kralupy",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 222,
+    "priceTo": 266
+  },
+  {
+    "id": "kralupy-r3",
+    "propertyId": "kralupy",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 213,
+    "priceTo": 268
+  },
+  {
+    "id": "kralupy-r4",
+    "propertyId": "kralupy",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 215,
+    "priceTo": 282
+  },
+  {
+    "id": "kralupy-r5",
+    "propertyId": "kralupy",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 208,
+    "priceTo": 260
+  },
+  {
+    "id": "kralupy-r6",
+    "propertyId": "kralupy",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 216,
+    "priceTo": 295
+  },
+  {
+    "id": "kralupy-r7",
+    "propertyId": "kralupy",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 209,
+    "priceTo": 230
+  },
+  {
+    "id": "kralupy-r8",
+    "propertyId": "kralupy",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 209,
+    "priceTo": 239
+  },
+  {
+    "id": "kralupy-r9",
+    "propertyId": "kralupy",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 206,
+    "priceTo": 279
+  },
+  {
+    "id": "kroftova-r1",
+    "propertyId": "kroftova",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 211,
+    "priceTo": 283
+  },
+  {
+    "id": "kroftova-r2",
+    "propertyId": "kroftova",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 186,
+    "priceTo": 213
+  },
+  {
+    "id": "kroftova-r3",
+    "propertyId": "kroftova",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 196,
+    "priceTo": 229
+  },
+  {
+    "id": "kroftova-r4",
+    "propertyId": "kroftova",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 211,
+    "priceTo": 263
+  },
+  {
+    "id": "kroftova-r5",
+    "propertyId": "kroftova",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 207,
+    "priceTo": 248
+  },
+  {
+    "id": "kroftova-r6",
+    "propertyId": "kroftova",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 209,
+    "priceTo": 258
+  },
+  {
+    "id": "kroftova-r7",
+    "propertyId": "kroftova",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 212,
+    "priceTo": 249
+  },
+  {
+    "id": "kroftova-r8",
+    "propertyId": "kroftova",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 183,
+    "priceTo": 213
+  },
+  {
+    "id": "kroftova-r9",
+    "propertyId": "kroftova",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 194,
+    "priceTo": 246
+  },
+  {
+    "id": "mnichovo-hradiste-r1",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 197,
+    "priceTo": 222
+  },
+  {
+    "id": "mnichovo-hradiste-r2",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 186,
+    "priceTo": 236
+  },
+  {
+    "id": "mnichovo-hradiste-r3",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 200,
+    "priceTo": 236
+  },
+  {
+    "id": "mnichovo-hradiste-r4",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 192,
+    "priceTo": 247
+  },
+  {
+    "id": "mnichovo-hradiste-r5",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 199,
+    "priceTo": 220
+  },
+  {
+    "id": "mnichovo-hradiste-r6",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 199,
+    "priceTo": 274
+  },
+  {
+    "id": "mnichovo-hradiste-r7",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 202,
+    "priceTo": 238
+  },
+  {
+    "id": "mnichovo-hradiste-r8",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 178,
+    "priceTo": 208
+  },
+  {
+    "id": "mnichovo-hradiste-r9",
+    "propertyId": "mnichovo-hradiste",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 191,
+    "priceTo": 212
+  },
+  {
+    "id": "morina-r1",
+    "propertyId": "morina",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 211,
+    "priceTo": 272
+  },
+  {
+    "id": "morina-r2",
+    "propertyId": "morina",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 186,
+    "priceTo": 219
+  },
+  {
+    "id": "morina-r3",
+    "propertyId": "morina",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 200,
+    "priceTo": 260
+  },
+  {
+    "id": "morina-r4",
+    "propertyId": "morina",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 201,
+    "priceTo": 232
+  },
+  {
+    "id": "morina-r5",
+    "propertyId": "morina",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 215,
+    "priceTo": 292
+  },
+  {
+    "id": "morina-r6",
+    "propertyId": "morina",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 204,
+    "priceTo": 271
+  },
+  {
+    "id": "morina-r7",
+    "propertyId": "morina",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 223,
+    "priceTo": 260
+  },
+  {
+    "id": "morina-r8",
+    "propertyId": "morina",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 191,
+    "priceTo": 252
+  },
+  {
+    "id": "morina-r9",
+    "propertyId": "morina",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 192,
+    "priceTo": 225
+  },
+  {
+    "id": "p-svandy-r1",
+    "propertyId": "p-svandy",
+    "name": "Room 1",
+    "type": "Room",
+    "priceFrom": 207,
+    "priceTo": 258
+  },
+  {
+    "id": "p-svandy-r2",
+    "propertyId": "p-svandy",
+    "name": "Room 2",
+    "type": "Room",
+    "priceFrom": 201,
+    "priceTo": 239
+  },
+  {
+    "id": "p-svandy-r3",
+    "propertyId": "p-svandy",
+    "name": "Apartment 1",
+    "type": "Apartment",
+    "priceFrom": 232,
+    "priceTo": 260
+  },
+  {
+    "id": "p-svandy-r4",
+    "propertyId": "p-svandy",
+    "name": "Room 3",
+    "type": "Room",
+    "priceFrom": 222,
+    "priceTo": 268
+  },
+  {
+    "id": "p-svandy-r5",
+    "propertyId": "p-svandy",
+    "name": "Wagon 1",
+    "type": "Wagon",
+    "priceFrom": 228,
+    "priceTo": 272
+  },
+  {
+    "id": "p-svandy-r6",
+    "propertyId": "p-svandy",
+    "name": "Apartment 2",
+    "type": "Apartment",
+    "priceFrom": 222,
+    "priceTo": 277
+  },
+  {
+    "id": "p-svandy-r7",
+    "propertyId": "p-svandy",
+    "name": "Room 4",
+    "type": "Room",
+    "priceFrom": 209,
+    "priceTo": 230
+  },
+  {
+    "id": "p-svandy-r8",
+    "propertyId": "p-svandy",
+    "name": "Room 5",
+    "type": "Room",
+    "priceFrom": 195,
+    "priceTo": 259
+  },
+  {
+    "id": "p-svandy-r9",
+    "propertyId": "p-svandy",
+    "name": "Wagon 2",
+    "type": "Wagon",
+    "priceFrom": 223,
+    "priceTo": 279
+  }
+]

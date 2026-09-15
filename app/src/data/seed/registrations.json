@@ -1,0 +1,122 @@
+[
+  {
+    "id": "rg1",
+    "residentName": "Maliar Liliia",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "chuchle",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg2",
+    "residentName": "Krasulia Oleksandr",
+    "type": "Free",
+    "status": "New",
+    "propertyId": "kralupy",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg3",
+    "residentName": "Basko Ihor",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "p-svandy",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg4",
+    "residentName": "Viieru Olha",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "chuchle",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg5",
+    "residentName": "Ando Richard Madrid",
+    "type": "Paid",
+    "status": "Registered",
+    "propertyId": "p-svandy",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg6",
+    "residentName": "Ando Aileen Bantazan",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "p-svandy",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg7",
+    "residentName": "Mondych Vasyl",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "behovice",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg8",
+    "residentName": "Ozolins Lauris",
+    "type": "Paid",
+    "status": "Expired",
+    "propertyId": "mnichovo-hradiste",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg9",
+    "residentName": "Ozolina Liene",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "behovice",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg10",
+    "residentName": "Liashenko Oleksii",
+    "type": "Free",
+    "status": "New",
+    "propertyId": "behovice",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg11",
+    "residentName": "Dmytriiev Dmytro",
+    "type": "Paid",
+    "status": "Registered",
+    "propertyId": "chocerady",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg12",
+    "residentName": "Vakarova Nataliia",
+    "type": "Free",
+    "status": "Registered",
+    "propertyId": "chuchle",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg13",
+    "residentName": "Vakarov Serhii",
+    "type": "Paid",
+    "status": "Expired",
+    "propertyId": "chuchle",
+    "coordinator": "Turok"
+  },
+  {
+    "id": "rg14",
+    "residentName": "Rukavitsyna Anastasiia",
+    "type": "Paid",
+    "status": "Registered",
+    "propertyId": "chuchle",
+    "coordinator": "Vakarov"
+  },
+  {
+    "id": "rg15",
+    "residentName": "Lazarenko Mykhailo",
+    "type": "Free",
+    "status": "New",
+    "propertyId": "morina",
+    "coordinator": "Turok"
+  }
+]
