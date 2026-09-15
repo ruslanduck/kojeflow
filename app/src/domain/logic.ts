@@ -1,4 +1,5 @@
-import type { Bed, Payment, Resident, RoomGender, Stay } from './types';
+import type { Bed, Payment, Resident, Room, RoomGender, Stay } from './types';
+import namePools from './data/name-pools.json';
 
 /**
  * Fixed reference date the prototype (and this Stage 1 fake-data build) is anchored
@@ -73,6 +74,60 @@ export function hashString(s: string): number {
 /** Deterministic per-bed rate: a property's base price plus a small, stable hash-based spread. */
 export function rateFor(basePrice: number, propertyName: string, bedLabel: string): number {
   return basePrice + (hashString(propertyName + '|' + bedLabel) % 6) * 5;
+}
+
+export interface RoomLogEntry {
+  name: string;
+  gender: 'M' | 'F';
+  isReal: boolean;
+  residentId?: string;
+  stayId?: string;
+  place: string;
+  periodStart: string;
+  periodEnd: string | null; // null = still living there (now)
+}
+
+/**
+ * A room's occupancy history: real current occupants (from live bed/resident/stay
+ * data) plus a fixed set of deterministic past-tenant rows, since Stage 1's seed data
+ * doesn't carry real check-out history yet. Ported from the prototype's roomLogData(),
+ * which fabricates the same fixed-count hash-based past tenants for every room.
+ */
+export function roomHistoryRows(propertyName: string, room: Room, roomBeds: Bed[], residentsById: Map<string, Resident>, stays: Stay[], today: string = TODAY): RoomLogEntry[] {
+  const rows: RoomLogEntry[] = [];
+  roomBeds.forEach((bed) => {
+    if (bed.status !== 'occupied' || !bed.residentId) return;
+    const resident = residentsById.get(bed.residentId);
+    if (!resident) return;
+    const stay = stays.find((s) => s.residentId === resident.id && s.roomId === room.id && s.status === 'active');
+    rows.push({
+      name: resident.name,
+      gender: resident.gender,
+      isReal: true,
+      residentId: resident.id,
+      stayId: stay?.id,
+      place: `${room.name} · Place ${bed.index}`,
+      periodStart: stay?.checkIn ?? today,
+      periodEnd: null,
+    });
+  });
+
+  if (roomBeds.length === 0) return rows;
+  const { MALE, SURN } = namePools;
+  const h = hashString(propertyName + room.name);
+  for (let i = 0; i < 3; i++) {
+    const name = `${SURN[(h + i * 5) % SURN.length]} ${MALE[(h + i * 3) % MALE.length]}`;
+    const periodEnd = addDays(today, -(60 + ((h + i * 29) % 200)));
+    rows.push({
+      name,
+      gender: 'M',
+      isReal: false,
+      place: `Place ${1 + ((h + i) % roomBeds.length)}`,
+      periodStart: addDays(periodEnd, -90),
+      periodEnd,
+    });
+  }
+  return rows;
 }
 
 export interface Bill {

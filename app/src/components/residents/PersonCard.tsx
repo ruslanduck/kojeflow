@@ -14,7 +14,8 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { Portal } from '@/components/ui/Portal';
-import type { Gender } from '@/domain/types';
+import { Lightbox } from '@/components/ui/Lightbox';
+import type { Gender, ResidentDocument } from '@/domain/types';
 
 interface PersonCardProps {
   residentId?: string;
@@ -28,6 +29,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
   const currency = useSessionStore((s) => s.currency);
+  const showToast = useSessionStore((s) => s.showToast);
   const roleConfig = ROLES[role];
 
   const residents = useEntityStore((s) => s.residents);
@@ -43,6 +45,11 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const [editing, setEditing] = useState(false);
   const [editName, setEditName] = useState('');
   const [editGender, setEditGender] = useState<Gender>('M');
+  const [editAvatarUrl, setEditAvatarUrl] = useState<string | undefined>(undefined);
+  const [editPassportDocs, setEditPassportDocs] = useState<ResidentDocument[]>([]);
+  const [editOtherDocs, setEditOtherDocs] = useState<ResidentDocument[]>([]);
+  const [aiBusy, setAiBusy] = useState(false);
+  const [zoomDoc, setZoomDoc] = useState<{ url: string; title: string } | null>(null);
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
@@ -97,14 +104,77 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const startEdit = () => {
     setEditName(name);
     setEditGender(gender);
+    setEditAvatarUrl(resident?.avatarUrl);
+    setEditPassportDocs(resident?.passportDocs ?? []);
+    setEditOtherDocs(resident?.otherDocs ?? []);
     setEditing(true);
   };
   const saveEdit = async () => {
-    if (resident) await residentsRepository.update(resident.id, { name: editName.trim() || name, gender: editGender });
+    if (resident) {
+      await residentsRepository.update(resident.id, {
+        name: editName.trim() || name,
+        gender: editGender,
+        avatarUrl: editAvatarUrl,
+        passportDocs: editPassportDocs,
+        otherDocs: editOtherDocs,
+      });
+    }
     setEditing(false);
+  };
+  const addDocs = (kind: 'passport' | 'other', files: FileList | null) => {
+    if (!files || !files.length) return;
+    const docs: ResidentDocument[] = Array.from(files).map((f) => ({ name: f.name, url: URL.createObjectURL(f) }));
+    if (kind === 'passport') setEditPassportDocs((prev) => [...prev, ...docs]);
+    else setEditOtherDocs((prev) => [...prev, ...docs]);
+    showToast(t('doc_n', { n: docs.length }));
+  };
+  const removeDoc = (kind: 'passport' | 'other', idx: number) => {
+    if (kind === 'passport') setEditPassportDocs((prev) => prev.filter((_, i) => i !== idx));
+    else setEditOtherDocs((prev) => prev.filter((_, i) => i !== idx));
+  };
+  const clearAvatar = () => setEditAvatarUrl(undefined);
+  const extractAvatar = () => {
+    if (!editPassportDocs.length) {
+      showToast(t('ai_needscan'));
+      return;
+    }
+    setAiBusy(true);
+    const img = new window.Image();
+    img.onload = () => {
+      const sw = img.width * 0.3;
+      const sh = sw * 1.28;
+      const sx = img.width * 0.045;
+      const sy = img.height * 0.22;
+      const c = document.createElement('canvas');
+      c.width = 420;
+      c.height = Math.round(420 * 1.28);
+      const g = c.getContext('2d');
+      if (!g) {
+        setAiBusy(false);
+        return;
+      }
+      g.fillStyle = '#fff';
+      g.fillRect(0, 0, c.width, c.height);
+      g.drawImage(img, sx, sy, sw, Math.min(sh, img.height - sy), 0, 0, c.width, c.height);
+      c.toBlob((blob) => {
+        if (!blob) {
+          setAiBusy(false);
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        setTimeout(() => {
+          setEditAvatarUrl(url);
+          setAiBusy(false);
+          showToast(t('ai_done'));
+        }, 900);
+      }, 'image/jpeg', 0.9);
+    };
+    img.onerror = () => setAiBusy(false);
+    img.src = editPassportDocs[0].url;
   };
 
   return (
+    <>
     <Portal>
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} onClick={onClose}>
         <div onClick={(e) => e.stopPropagation()} style={{ width: 560, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
@@ -125,10 +195,82 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
               <div style={FIELD_LABEL_STYLE}>{t('wz_fullname')}</div>
               <input value={editName} onChange={(e) => setEditName(e.target.value)} style={{ ...FIELD_STYLE, marginBottom: 12 }} />
               <div style={FIELD_LABEL_STYLE}>{t('wz_gender')}</div>
-              <select value={editGender} onChange={(e) => setEditGender(e.target.value as Gender)} style={FIELD_STYLE}>
+              <select value={editGender} onChange={(e) => setEditGender(e.target.value as Gender)} style={{ ...FIELD_STYLE, marginBottom: 18 }}>
                 <option value="M">{t('g_male')}</option>
                 <option value="F">{t('g_female')}</option>
               </select>
+
+              <div style={{ paddingTop: 16, borderTop: '1px solid #ECECF1', display: 'flex', alignItems: 'center', gap: 13, flexWrap: 'wrap' }}>
+                <div
+                  onClick={() => editAvatarUrl && setZoomDoc({ url: editAvatarUrl, title: editName })}
+                  style={{
+                    width: 56, height: 56, flex: 'none', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
+                    background: '#F1F1F5',
+                    backgroundImage: editAvatarUrl ? `url("${editAvatarUrl}")` : undefined,
+                    backgroundSize: 'cover', backgroundPosition: 'center',
+                    fontSize: 24, color: 'var(--color-muted)', fontWeight: 700,
+                    boxShadow: editAvatarUrl ? '0 0 0 2px #fff, 0 0 0 3px #ECECF1' : 'inset 0 0 0 1px rgba(20,20,20,.08)',
+                    cursor: editAvatarUrl ? 'zoom-in' : undefined,
+                  }}
+                >
+                  {!editAvatarUrl && editName.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('')}
+                </div>
+                <div style={{ flex: 1, minWidth: 170 }}>
+                  <button
+                    type="button"
+                    onClick={extractAvatar}
+                    disabled={aiBusy}
+                    style={{ display: 'flex', alignItems: 'center', gap: 8, background: aiBusy ? '#F6F6F8' : '#141414', color: aiBusy ? '#9A9AA6' : '#fff', border: 'none', borderRadius: 9, padding: '10px 16px', fontSize: 13, fontWeight: 600, cursor: aiBusy ? 'wait' : 'pointer', fontFamily: 'inherit' }}
+                  >
+                    <span>✦</span>
+                    <span>{aiBusy ? t('ai_busy') : t('ai_extract')}</span>
+                  </button>
+                  <div style={{ fontSize: 10.5, color: '#9A9AA6', marginTop: 5 }}>{t('ai_hint')}</div>
+                </div>
+                {editAvatarUrl && (
+                  <button type="button" onClick={clearAvatar} style={{ background: '#fff', border: '1px solid #ECECF1', borderRadius: 9, padding: '9px 14px', fontSize: 12.5, cursor: 'pointer', color: '#5C5C66', fontFamily: 'inherit' }}>
+                    {t('av_remove')}
+                  </button>
+                )}
+              </div>
+
+              {([
+                { kind: 'passport' as const, label: t('doc_passport'), docs: editPassportDocs },
+                { kind: 'other' as const, label: t('doc_other'), docs: editOtherDocs },
+              ]).map(({ kind, label, docs }) => (
+                <div key={kind} style={{ marginTop: 16 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 7 }}>
+                    <div style={{ fontSize: 12, color: '#5C5C66', fontWeight: 600 }}>{label}</div>
+                    <label style={{ background: '#F6F6F8', border: '1px solid #ECECF1', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer', color: '#141414' }}>
+                      {t('doc_add')}
+                      <input type="file" accept="image/*" multiple onChange={(e) => { addDocs(kind, e.target.files); e.target.value = ''; }} style={{ display: 'none' }} />
+                    </label>
+                  </div>
+                  {docs.length === 0 ? (
+                    <div style={{ border: '1px dashed #E0E0E8', borderRadius: 10, padding: 16, textAlign: 'center', fontSize: 12, color: '#9A9AA6' }}>{t('doc_none')}</div>
+                  ) : (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                      {docs.map((d, i) => (
+                        <div key={`${d.url}-${i}`} style={{ position: 'relative' }}>
+                          <div
+                            onClick={() => setZoomDoc({ url: d.url, title: d.name })}
+                            title={d.name}
+                            style={{ width: 62, height: 62, borderRadius: 9, cursor: 'zoom-in', backgroundColor: '#F1F1F5', backgroundImage: `url("${d.url}")`, backgroundSize: 'cover', backgroundPosition: 'center', boxShadow: 'inset 0 0 0 1px rgba(20,20,20,.1)' }}
+                          />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); removeDoc(kind, i); }}
+                            title={t('doc_remove')}
+                            style={{ position: 'absolute', top: -6, right: -6, background: '#fff', border: '1px solid #F6CBCB', color: '#C0392B', borderRadius: '50%', width: 19, height: 19, fontSize: 11, lineHeight: 1, cursor: 'pointer', fontFamily: 'inherit', boxShadow: '0 2px 6px rgba(20,20,20,.18)' }}
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           ) : (
             <>
@@ -203,5 +345,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
         </div>
       </div>
     </Portal>
+    {zoomDoc && <Lightbox url={zoomDoc.url} title={zoomDoc.title} onClose={() => setZoomDoc(null)} />}
+    </>
   );
 }

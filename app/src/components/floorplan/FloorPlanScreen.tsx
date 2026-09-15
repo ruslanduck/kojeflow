@@ -317,7 +317,7 @@ export function FloorPlanScreen() {
         })}
       </div>
 
-      {openRoomId && <RoomZonePanel roomId={openRoomId} onClose={() => setOpenRoomId(null)} />}
+      {openRoomId && <RoomZonePanel propertyId={propertyId} roomId={openRoomId} onClose={() => setOpenRoomId(null)} />}
       {mapDialog && (
         <MapZoneDialog unmappedRooms={unmappedRooms} onCancel={() => setMapDialog(null)} onConfirm={(roomId) => void confirmMap(roomId)} />
       )}

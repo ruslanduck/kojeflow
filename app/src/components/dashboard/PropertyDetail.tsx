@@ -13,6 +13,7 @@ import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_G
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
+import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
@@ -32,6 +33,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const stays = useEntityStore((s) => s.stays);
 
   const [tab, setTab] = useState<'rooms' | 'residents'>('rooms');
+  const [logRoomId, setLogRoomId] = useState<string | null>(null);
 
   const property = properties.find((p) => p.id === propertyId);
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
@@ -142,6 +144,14 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                       <div className="hd" style={{ fontSize: 17, whiteSpace: 'nowrap' }}>{translatePlace(room.name, lang)}</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                         <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={fg} bg={bg} />
+                        <button
+                          className="chip"
+                          onClick={() => setLogRoomId(room.id)}
+                          title={t('room_log')}
+                          style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 7, padding: '3px 8px', fontSize: 11, cursor: 'pointer', color: 'var(--color-muted)', whiteSpace: 'nowrap' }}
+                        >
+                          {t('log')}
+                        </button>
                       </div>
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 13 }}>
@@ -209,6 +219,8 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
           })}
         </div>
       )}
+
+      {logRoomId && <RoomHistoryModal propertyId={propertyId} roomId={logRoomId} onClose={() => setLogRoomId(null)} />}
     </section>
   );
 }

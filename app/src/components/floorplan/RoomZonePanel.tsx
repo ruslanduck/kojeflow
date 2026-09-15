@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
@@ -11,14 +12,16 @@ import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { Portal } from '@/components/ui/Portal';
+import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
 
-export function RoomZonePanel({ roomId, onClose }: { roomId: string; onClose: () => void }) {
+export function RoomZonePanel({ propertyId, roomId, onClose }: { propertyId: string; roomId: string; onClose: () => void }) {
   const t = useT();
   const router = useRouter();
   const lang = useSessionStore((s) => s.lang);
   const currency = useSessionStore((s) => s.currency);
   const role = useSessionStore((s) => s.role);
   const roleConfig = ROLES[role];
+  const [logOpen, setLogOpen] = useState(false);
 
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
@@ -36,6 +39,7 @@ export function RoomZonePanel({ roomId, onClose }: { roomId: string; onClose: ()
   const available = roomBeds.filter((b) => b.status !== 'unavailable').length;
 
   return (
+    <>
     <Portal>
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.42)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 64 }} onClick={onClose}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 400, maxHeight: '84vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -68,8 +72,26 @@ export function RoomZonePanel({ roomId, onClose }: { roomId: string; onClose: ()
               );
             })}
           </div>
+          <div style={{ padding: '13px 20px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
+            <button
+              className="chip"
+              onClick={() => setLogOpen(true)}
+              style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', fontFamily: 'inherit', color: 'var(--color-muted)' }}
+            >
+              {t('room_log')}
+            </button>
+            <button
+              className="pbtn"
+              onClick={onClose}
+              style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
+            >
+              {t('close')}
+            </button>
+          </div>
         </div>
       </div>
     </Portal>
+    {logOpen && <RoomHistoryModal propertyId={propertyId} roomId={roomId} onClose={() => setLogOpen(false)} />}
+    </>
   );
 }
