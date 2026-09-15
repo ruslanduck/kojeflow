@@ -64,6 +64,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   const screenTitle = t(SCREEN_TITLE_KEY[currentNavKey]) || 'Kojeflow';
 
+  if (pathname === '/login') {
+    return <>{children}</>;
+  }
+
+  async function handleLogout() {
+    await fetch('/api/logout', { method: 'POST' });
+    router.push('/login');
+    router.refresh();
+  }
+
   return (
     <div className="app-shell" style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--color-bg)' }}>
       {/* DESKTOP SIDEBAR */}
@@ -122,6 +132,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <div style={{ fontSize: 13, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{profileName}</div>
               <div style={{ fontSize: 11, color: 'var(--color-muted)' }}>{t(roleLabelKey(role))}</div>
             </div>
+            <button
+              onClick={handleLogout}
+              aria-label={t('logout')}
+              style={{ background: 'none', border: 'none', color: 'var(--color-muted)', fontSize: 12, fontWeight: 600, cursor: 'pointer', padding: '4px 6px' }}
+            >
+              {t('logout')}
+            </button>
           </div>
         </div>
       </aside>
@@ -211,6 +228,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     <option key={r} value={r}>{t(roleLabelKey(r))}</option>
                   ))}
                 </select>
+                <button
+                  onClick={() => { closeSheet(); handleLogout(); }}
+                  style={{ width: '100%', marginTop: 10, background: 'var(--color-bg)', color: 'var(--color-ink)', border: 'none', borderRadius: 11, padding: '12px 13px', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
+                >
+                  {t('logout')}
+                </button>
               </div>
             </div>
           </div>
