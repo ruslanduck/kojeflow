@@ -15,6 +15,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
+import { Portal } from '@/components/ui/Portal';
 import type { Booking, StayType } from '@/domain/types';
 
 interface BookingWizardProps {
@@ -147,6 +148,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const [typeFg, typeBg] = TYPE_PILL[type];
 
   return (
+    <Portal>
     <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()} style={{ width: 640, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px 0', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
@@ -343,5 +345,6 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
         </div>
       </div>
     </div>
+    </Portal>
   );
 }

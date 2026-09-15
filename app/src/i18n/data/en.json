@@ -428,5 +428,7 @@
   "kpi_free": "Free beds",
   "kpi_regs": "Registrations",
   "places_word": "beds",
-  "period_now": "{d} — now"
+  "period_now": "{d} — now",
+  "checkout_action": "Check out",
+  "checkout_confirm": "Check out {n}? This frees the bed."
 }

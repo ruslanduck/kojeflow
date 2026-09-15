@@ -6,6 +6,16 @@ function genId(prefix: string): string {
   return prefix + Math.random().toString(36).slice(2, 8);
 }
 
+/** Finds a resident by exact name, or creates one — used when checking in someone typed fresh in a wizard. */
+export async function resolveResident(name: string, gender: 'M' | 'F' = 'M'): Promise<string> {
+  const state = useEntityStore.getState();
+  const existing = state.residents.find((r) => r.name === name);
+  if (existing) return existing.id;
+  const resident = { id: genId('res-'), name, gender };
+  useEntityStore.setState((s) => ({ residents: [resident, ...s.residents] }));
+  return resident.id;
+}
+
 export interface CheckInInput {
   residentId: string;
   residentName: string;

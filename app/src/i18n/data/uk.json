@@ -428,5 +428,7 @@
   "kpi_free": "Вільні ліжка",
   "kpi_regs": "Реєстрації",
   "places_word": "ліжок",
-  "period_now": "{d} — зараз"
+  "period_now": "{d} — зараз",
+  "checkout_action": "Виселити",
+  "checkout_confirm": "Виселити {n}? Ліжко звільниться."
 }

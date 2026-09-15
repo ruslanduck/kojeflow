@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
@@ -36,6 +36,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const roleConfig = ROLES[role];
   const nav = roleConfig.nav;
   const currentNavKey = useCurrentNavKey(nav);
+
+  // A role whose nav omits a module (e.g. Client has no Check-in) can't reach it by typing the URL either.
+  useEffect(() => {
+    const blockedRoute = (Object.keys(NAV_ROUTE) as NavKey[]).find(
+      (k) => !nav.includes(k) && (pathname === NAV_ROUTE[k] || pathname.startsWith(NAV_ROUTE[k] + '/')),
+    );
+    if (blockedRoute) router.replace(NAV_ROUTE[nav[0]]);
+  }, [pathname, nav, router]);
 
   const canGoBack =
     !nav.some((k) => pathname === NAV_ROUTE[k]) || searchParams.toString() !== '';
