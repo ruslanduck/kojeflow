@@ -64,7 +64,7 @@ export function canBookProperty(freeBeds: number, bookedBeds: number): boolean {
   return bookedBeds < freeBeds;
 }
 
-function hashString(s: string): number {
+export function hashString(s: string): number {
   let h = 0;
   for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) & 0x7fffffff;
   return h;
