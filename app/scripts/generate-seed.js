@@ -177,6 +177,7 @@ function seedPayments(stays) {
         amount: Math.round(total / n), by: staff[(k + j) % staff.length],
         at: addDays(t.checkIn, Math.min(days - 1, 3 + ((k + j * 11) % 22))),
         docName: `bank-statement-${1000 + ((k + j) % 8999)}.pdf`,
+        docUrl: '',
         note: j ? 'top-up' : '',
       });
     }

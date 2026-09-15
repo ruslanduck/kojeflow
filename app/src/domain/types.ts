@@ -96,6 +96,7 @@ export interface Payment {
   by: string;
   at: string; // ISO date
   docName: string;
+  docUrl: string;
   note: string;
 }
 

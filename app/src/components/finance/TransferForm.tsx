@@ -29,7 +29,7 @@ export function TransferForm({ onClose, editing, onSaved }: TransferFormProps) {
 
   const save = async () => {
     const amt = Number(amount);
-    if (!amt) return setError(t('ff_amount') + ' required');
+    if (!amt) return setError(t('err_amount_required'));
     const payload = { propertyId, by, to, amount: amt, date, status };
     const saved = editing ? await transfersRepository.update(editing.id, payload) : await transfersRepository.create(payload);
     onSaved(saved);

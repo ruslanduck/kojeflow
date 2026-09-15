@@ -94,7 +94,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const goNext = () => {
     if (step === 1) {
       const name = pickMode ? residentName : newName.trim();
-      if (!name) return setError(pickMode ? t('pay_err_who') : t('ph_entername'));
+      if (!name) return setError(pickMode ? t('pay_err_who') : t('err_entername'));
       setResidentName(name);
       setStep(2);
       setError('');

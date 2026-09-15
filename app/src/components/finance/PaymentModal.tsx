@@ -79,7 +79,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
     if (!amt || amt <= 0) return setError(t('pay_err_amount'));
     if (!doc) return setError(t('pay_err_doc'));
     const payment = await paymentsRepository.create({
-      stayId: stay.id, propertyId: stay.propertyId, amount: amt, by: profileName, at: date, docName: doc.name, note,
+      stayId: stay.id, propertyId: stay.propertyId, amount: amt, by: profileName, at: date, docName: doc.name, docUrl: doc.url, note,
     });
     onSaved(payment);
   };

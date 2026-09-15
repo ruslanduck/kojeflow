@@ -10,6 +10,7 @@ import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { Portal } from '@/components/ui/Portal';
+import { Lightbox } from '@/components/ui/Lightbox';
 import type { Stay } from '@/domain/types';
 
 type LedgerScope = 'stay' | 'person' | 'bed';
@@ -33,6 +34,10 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
   const payments = useEntityStore((s) => s.payments);
 
   const [scope, setScope] = useState<LedgerScope>('stay');
+  const [zoomDoc, setZoomDoc] = useState<{ url: string; title: string } | null>(null);
+
+  const stays = useEntityStore((s) => s.stays);
+  const staysById = useMemo(() => new Map(stays.map((s) => [s.id, s])), [stays]);
 
   const property = properties.find((p) => p.id === stay.propertyId);
   const room = rooms.find((r) => r.id === stay.roomId);
@@ -42,22 +47,18 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
   const bill = billFor(stay, payments);
 
   const scopeMatch = useMemo(() => {
-    if (scope === 'person') return (p: (typeof payments)[number]) => {
-      const pStay = useEntityStore.getState().stays.find((s) => s.id === p.stayId);
-      return pStay?.residentName === stay.residentName;
-    };
-    if (scope === 'bed') return (p: (typeof payments)[number]) => {
-      const pStay = useEntityStore.getState().stays.find((s) => s.id === p.stayId);
-      return pStay?.bedId === stay.bedId;
-    };
+    if (scope === 'person') return (p: (typeof payments)[number]) => staysById.get(p.stayId)?.residentName === stay.residentName;
+    if (scope === 'bed') return (p: (typeof payments)[number]) => staysById.get(p.stayId)?.bedId === stay.bedId;
     return (p: (typeof payments)[number]) => p.stayId === stay.id;
-  }, [scope, stay]);
+  }, [scope, stay, staysById]);
 
   const scopedPayments = payments.filter(scopeMatch).sort((a, b) => (a.at < b.at ? 1 : -1));
   const scopeTotal = scopedPayments.reduce((sum, p) => sum + p.amount, 0);
   const scopeSubKey = scope === 'person' ? 'sc_person_sub' : scope === 'bed' ? 'sc_bed_sub' : 'sc_stay_sub';
+  const showWho = scope !== 'stay';
 
   return (
+    <>
     <Portal>
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 65 }} onClick={onClose}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 560, maxHeight: '88vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -94,16 +95,37 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
           <div style={{ padding: '7px 22px 0', fontSize: 11, color: 'var(--color-faint)' }}>{t(scopeSubKey)}</div>
           <div style={{ flex: 1, overflowY: 'auto', marginTop: 10 }}>
             {scopedPayments.length === 0 && <div style={{ padding: '26px 22px 34px', textAlign: 'center', fontSize: 13, color: 'var(--color-faint)' }}>{t('bl_no_pay')}</div>}
-            {scopedPayments.map((p) => (
-              <div key={p.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1fr)', gap: 11, padding: '11px 22px', borderTop: '1px solid #F2F2F6', alignItems: 'center' }}>
-                <div className="num" style={{ fontSize: 13.5, fontWeight: 700, color: '#1B7F52' }}>{formatCurrency(p.amount, currency)}</div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ fontSize: 12.5 }}>{p.by}</div>
-                  <div style={{ fontSize: 11, color: 'var(--color-faint)' }}>{t('col_recorded')}</div>
+            {scopedPayments.map((p) => {
+              const who = showWho ? safeName(staysById.get(p.stayId)?.residentName ?? '', !!roleConfig.hideNames, t('hidden_name')) : '';
+              return (
+                <div key={p.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.3fr)', gap: 11, padding: '11px 22px', borderTop: '1px solid #F2F2F6', alignItems: 'center' }}>
+                  <div className="num" style={{ fontSize: 13.5, fontWeight: 700, color: '#1B7F52' }}>{formatCurrency(p.amount, currency)}</div>
+                  <div style={{ minWidth: 0 }}>
+                    {showWho ? (
+                      <>
+                        <div style={{ fontSize: 12.5, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{who}</div>
+                        <div style={{ fontSize: 11, color: 'var(--color-faint)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.by}</div>
+                      </>
+                    ) : (
+                      <>
+                        <div style={{ fontSize: 12.5 }}>{p.by}</div>
+                        <div style={{ fontSize: 11, color: 'var(--color-faint)' }}>{t('col_recorded')}</div>
+                      </>
+                    )}
+                  </div>
+                  <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{formatDateDMY(p.at)}</div>
+                  <div
+                    onClick={() => p.docUrl && setZoomDoc({ url: p.docUrl, title: p.docName })}
+                    style={{
+                      fontSize: 11.5, color: p.docUrl ? 'var(--color-ink)' : 'var(--color-faint)', textDecoration: p.docUrl ? 'underline' : 'none',
+                      cursor: p.docUrl ? 'zoom-in' : 'default', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {p.docName}
+                  </div>
                 </div>
-                <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{formatDateDMY(p.at)}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
             <button onClick={onClose} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)' }}>{t('close')}</button>
@@ -112,5 +134,7 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
         </div>
       </div>
     </Portal>
+    {zoomDoc && <Lightbox url={zoomDoc.url} title={zoomDoc.title} onClose={() => setZoomDoc(null)} />}
+    </>
   );
 }
