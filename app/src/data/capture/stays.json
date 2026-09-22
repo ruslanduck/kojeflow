@@ -1,0 +1,7206 @@
+[
+ {
+  "id": "recwRUDygi2y5UMT6",
+  "createdTime": "2026-09-22T06:41:32.000Z",
+  "fields": {
+   "tenant": [
+    "recUnmtbsoPebEBdR"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "recC0GW6kWgUiU3xV"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Andrii"
+  }
+ },
+ {
+  "id": "recG4TsYOVSNjfVut",
+  "createdTime": "2026-09-22T07:14:37.000Z",
+  "fields": {
+   "tenant": [
+    "recKyF5mO2DOBE7He"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Voloshyn Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "recvw7JByUtmKNis7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Andrii"
+  }
+ },
+ {
+  "id": "recVShjQaegQJ1I6Q",
+  "createdTime": "2026-09-22T11:57:29.000Z",
+  "fields": {
+   "tenant": [
+    "rechfIMheeEngEKZj"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "reckjysqTV0XiGblS"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Andrii"
+  }
+ },
+ {
+  "id": "rec4rCfFnUyjCX07D",
+  "createdTime": "2026-09-22T12:00:17.000Z",
+  "fields": {
+   "tenant": [
+    "recj3YbudLfqIC7mu"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "recyaCvvmKr6PzfSa"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Andrii"
+  }
+ },
+ {
+  "id": "recVdUzqY1q7bx7Zz",
+  "createdTime": "2026-09-22T14:54:51.000Z",
+  "fields": {
+   "tenant": [
+    "recEocP2EE0iHTzyv"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "recIu3h43ZNZQYafF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Andrii"
+  }
+ },
+ {
+  "id": "recRDzha00S6pxJSD",
+  "createdTime": "2026-09-22T14:55:10.000Z",
+  "fields": {
+   "tenant": [
+    "recsPWoqQPVeE1yU9"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-22",
+   "Places": [
+    "recUYzVoM3gYdHeiE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Andrii"
+  }
+ },
+ {
+  "id": "recrlJhFN987lu2DO",
+  "createdTime": "2026-09-21T09:32:45.000Z",
+  "fields": {
+   "tenant": [
+    "recO87YJFF39vH1Hq"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recYFzgupvKA8lacG"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Andrii"
+  }
+ },
+ {
+  "id": "rec4LiaZXvNfKTh2O",
+  "createdTime": "2026-09-21T16:06:03.000Z",
+  "fields": {
+   "tenant": [
+    "recYlvhoBJ0n7AcT8"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "rec1t9KlkiBZECXHP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Andrii"
+  }
+ },
+ {
+  "id": "recuEV4YJth46EHJU",
+  "createdTime": "2026-09-21T20:40:45.000Z",
+  "fields": {
+   "tenant": [
+    "recyV9I7Sca39GP3X"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 210,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recj6JTDUulh7GMMd"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Andrii"
+  }
+ },
+ {
+  "id": "recYPLgvuzl6UaYJe",
+  "createdTime": "2026-09-21T20:41:17.000Z",
+  "fields": {
+   "tenant": [
+    "recyV9I7Sca39GP3X"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 210,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "rec0hOEF9Resh4SZF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Andrii"
+  }
+ },
+ {
+  "id": "reczJgh7xd02yeqzW",
+  "createdTime": "2026-09-21T20:41:35.000Z",
+  "fields": {
+   "tenant": [
+    "recyV9I7Sca39GP3X"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 210,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recPkUVGspDbNmPGX"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Andrii"
+  }
+ },
+ {
+  "id": "recXKsxVuZPJssV74",
+  "createdTime": "2026-09-21T20:41:57.000Z",
+  "fields": {
+   "tenant": [
+    "recyV9I7Sca39GP3X"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 210,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recG5lr4A5TwVqfwL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Andrii"
+  }
+ },
+ {
+  "id": "recBVX1uDg8lcu9dY",
+  "createdTime": "2026-09-21T20:42:14.000Z",
+  "fields": {
+   "tenant": [
+    "recyV9I7Sca39GP3X"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 210,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recr5PdeSSVWsjFfO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Andrii"
+  }
+ },
+ {
+  "id": "recvgYoleXrLt4lef",
+  "createdTime": "2026-09-21T20:42:40.000Z",
+  "fields": {
+   "tenant": [
+    "recBKHzU8x5KC4HzA"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 220,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "rec4cUCtD4b9LdfMB"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Andrii"
+  }
+ },
+ {
+  "id": "recnXRoneNXcCqURZ",
+  "createdTime": "2026-09-21T20:42:56.000Z",
+  "fields": {
+   "tenant": [
+    "recBKHzU8x5KC4HzA"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 220,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recxwjEipY8YNwcat"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Andrii"
+  }
+ },
+ {
+  "id": "rec68gnlRKpfHRL5A",
+  "createdTime": "2026-09-21T20:43:14.000Z",
+  "fields": {
+   "tenant": [
+    "recu0p8v7pPzfg1lz"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 220,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "rec3R6CINmOUmnJyO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Andrii"
+  }
+ },
+ {
+  "id": "recQc9PBM0IQ16n6i",
+  "createdTime": "2026-09-21T20:43:58.000Z",
+  "fields": {
+   "tenant": [
+    "recu0p8v7pPzfg1lz"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 250,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recpIKSIQTMedliNx"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Andrii"
+  }
+ },
+ {
+  "id": "recpfMKvHfuPJyBEy",
+  "createdTime": "2026-09-21T20:44:14.000Z",
+  "fields": {
+   "tenant": [
+    "recu0p8v7pPzfg1lz"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 250,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-21",
+   "Places": [
+    "recGfvDIy1qtWrZ08"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Andrii"
+  }
+ },
+ {
+  "id": "recugGJOhntnqKiSH",
+  "createdTime": "2026-09-20T16:38:05.000Z",
+  "fields": {
+   "tenant": [
+    "recdBACXEELWu7HTA"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Havryliuk Oksana",
+   "start date": "2026-09-20",
+   "Places": [
+    "recs4eKTmt1fGpdrH"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Andrii"
+  }
+ },
+ {
+  "id": "recbdg6N0Bhxsszjo",
+  "createdTime": "2026-09-20T16:41:05.000Z",
+  "fields": {
+   "tenant": [
+    "recDM3yqDO6UWIjWq"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Havryliuk Oksana",
+   "start date": "2026-09-20",
+   "Places": [
+    "recbP1Ue1blvgbrrv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Andrii"
+  }
+ },
+ {
+  "id": "recXYgM9m1uKnb55J",
+  "createdTime": "2026-09-19T13:21:11.000Z",
+  "fields": {
+   "tenant": [
+    "recNhHOZLjlwu3exw"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-19",
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Andrii"
+  }
+ },
+ {
+  "id": "recCr0Kn3aIoAeJzg",
+  "createdTime": "2026-09-19T13:38:38.000Z",
+  "fields": {
+   "tenant": [
+    "recNhHOZLjlwu3exw"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-19",
+   "Places": [
+    "recFLUltsuQYLott3"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Andrii"
+  }
+ },
+ {
+  "id": "rect4kh7UgSdlrE1u",
+  "createdTime": "2026-09-18T08:12:54.000Z",
+  "fields": {
+   "tenant": [
+    "rec2x04qjFSpPOZJ0"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 1000,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-18",
+   "Places": [
+    "reck9ouElvNiVWaNX"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Andrii"
+  }
+ },
+ {
+  "id": "recoFOm6A86Vf4iu3",
+  "createdTime": "2026-09-18T08:13:15.000Z",
+  "fields": {
+   "tenant": [
+    "rec2x04qjFSpPOZJ0"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 1000,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-18",
+   "Places": [
+    "rec574R94kQ3veb74"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Andrii"
+  }
+ },
+ {
+  "id": "recEzKQbbL5dYc8Ba",
+  "createdTime": "2026-09-18T11:05:31.000Z",
+  "fields": {
+   "tenant": [
+    "recgxWWr1GlnKqFET"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 920,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-18",
+   "Places": [
+    "recWJdl18s8xi4qv4"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Andrii"
+  }
+ },
+ {
+  "id": "recgPFrmMFcT09Ep3",
+  "createdTime": "2026-09-18T16:21:46.000Z",
+  "fields": {
+   "tenant": [
+    "recnPtcWYWU339BCa"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 680,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-18",
+   "Places": [
+    "recEUnz7jko8xjUlI"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Andrii"
+  }
+ },
+ {
+  "id": "recED4oHVBm5upgAn",
+  "createdTime": "2026-09-18T19:06:47.000Z",
+  "fields": {
+   "tenant": [
+    "recjIJ9ESb4f48hyi"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 680,
+   "status": "Зайнято",
+   "manger": "Sydorenko Oksana",
+   "start date": "2026-09-18",
+   "Places": [
+    "recpNKyeCZ9RB0MG5"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Andrii"
+  }
+ },
+ {
+  "id": "recNQtOrYHNx7CbEW",
+  "createdTime": "2026-09-17T10:42:42.000Z",
+  "fields": {
+   "tenant": [
+    "rec0wIylbnl86kL7g"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-09-17",
+   "Places": [
+    "recTf2WD9kTX09HyO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Andrii"
+  }
+ },
+ {
+  "id": "reckcWdq49Bu3r8bZ",
+  "createdTime": "2026-09-16T15:59:50.000Z",
+  "fields": {
+   "tenant": [
+    "rec60fMwPX3uJZWct"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Nazarenko Oksana",
+   "start date": "2026-09-16",
+   "Places": [
+    "recuHliLjFOPaqyee"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Andrii"
+  }
+ },
+ {
+  "id": "recRFGzbtMoFyyA8E",
+  "createdTime": "2026-09-15T07:11:01.000Z",
+  "fields": {
+   "tenant": [
+    "recn3zQo3xwSFqRGj"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-15",
+   "Places": [
+    "receaz1eDPKeOoaau"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Andrii"
+  }
+ },
+ {
+  "id": "recjhRznESttaWoMl",
+  "createdTime": "2026-09-15T13:23:28.000Z",
+  "fields": {
+   "tenant": [
+    "recbFHa7wp6AdjVKz"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 1610,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-15",
+   "Places": [
+    "recie35AnOJ4f3uAV"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Andrii"
+  }
+ },
+ {
+  "id": "reclIdIDXlTTzeF3C",
+  "createdTime": "2026-09-15T13:28:54.000Z",
+  "fields": {
+   "tenant": [
+    "recH61jHw5PU4pZ0k"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tymoshenko Oksana",
+   "start date": "2026-09-15",
+   "Places": [
+    "rec6S4MT0zfHWva9g"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Andrii"
+  }
+ },
+ {
+  "id": "recl92rVeLejlQQCu",
+  "createdTime": "2026-09-15T18:18:57.000Z",
+  "fields": {
+   "tenant": [
+    "recPjkPRq7p6xBeiX"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-09-15",
+   "Places": [
+    "rec3PcY4pHKX0hRzu"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Andrii"
+  }
+ },
+ {
+  "id": "recQDXztesuhwqPko",
+  "createdTime": "2026-09-14T17:44:36.000Z",
+  "fields": {
+   "tenant": [
+    "rec8RvxcIePwAGweS"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-09-14",
+   "Places": [
+    "recRSQnZhiD3c87z0"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Andrii"
+  }
+ },
+ {
+  "id": "recLYhCcNIGbRJ3gf",
+  "createdTime": "2026-09-14T18:30:36.000Z",
+  "fields": {
+   "tenant": [
+    "recnGZDsyhcdoiayJ"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 1680,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-14",
+   "Places": [
+    "recsYIHU1I3DWTw0A"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Andrii"
+  }
+ },
+ {
+  "id": "recuamtkk7tCq2nEr",
+  "createdTime": "2026-09-12T12:35:40.000Z",
+  "fields": {
+   "tenant": [
+    "recTKKRTErJoqD8qr"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 2500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-12",
+   "Places": [
+    "reciZmaA8Urgy52zL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Andrii"
+  }
+ },
+ {
+  "id": "reclM2Fs1heEJ1rKL",
+  "createdTime": "2026-09-12T15:31:09.000Z",
+  "fields": {
+   "tenant": [
+    "rec6Qtrg592oi5lve"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 2000,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-12",
+   "Places": [
+    "rec3bwY1roiN4OXSE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Andrii"
+  }
+ },
+ {
+  "id": "rechWg4Iy4cVGKhL0",
+  "createdTime": "2026-09-11T07:22:37.000Z",
+  "fields": {
+   "tenant": [
+    "recmqXFuU8FWkwTRs"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Yatsenko Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "reckFMXgiDjYoMNWS"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Andrii"
+  }
+ },
+ {
+  "id": "recW3709SrefL934H",
+  "createdTime": "2026-09-11T07:25:35.000Z",
+  "fields": {
+   "tenant": [
+    "recXhe0Nl3GVRcSxl"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recbTaugimdGZB03O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Andrii"
+  }
+ },
+ {
+  "id": "reckjL4Bh6vzVlqp6",
+  "createdTime": "2026-09-11T09:20:39.000Z",
+  "fields": {
+   "tenant": [
+    "recb60Ox7Rlf9NWXe"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Chernenko Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recIzp7zE4wL4Jnzl"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Andrii"
+  }
+ },
+ {
+  "id": "recw1SGHlEXzadnjV",
+  "createdTime": "2026-09-11T19:25:57.000Z",
+  "fields": {
+   "tenant": [
+    "recJprnqc1Re63R1h"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recV5Mi5dHU8Q41R6"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Andrii"
+  }
+ },
+ {
+  "id": "recDNSOmWbWvORoL9",
+  "createdTime": "2026-09-11T19:26:28.000Z",
+  "fields": {
+   "tenant": [
+    "recLlz0qvwAjBoBXE"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recpsY8FP30sQNRRv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Andrii"
+  }
+ },
+ {
+  "id": "receHgUoGxl13ylJ2",
+  "createdTime": "2026-09-11T19:26:53.000Z",
+  "fields": {
+   "tenant": [
+    "recFbnTwZl0WNQ6sh"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2420,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recwxoKKLIzCRXpbQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Andrii"
+  }
+ },
+ {
+  "id": "recVKFKZrDzSrZgve",
+  "createdTime": "2026-09-11T19:27:12.000Z",
+  "fields": {
+   "tenant": [
+    "rechJDNKzFJzZgYp5"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2420,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recU0NygHcsdIMv0U"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Andrii"
+  }
+ },
+ {
+  "id": "rechbaQDpVANUZZSM",
+  "createdTime": "2026-09-11T19:27:35.000Z",
+  "fields": {
+   "tenant": [
+    "recbwvdhylM4Nr1Fn"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recRU1JJOkXUvKe8M"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Andrii"
+  }
+ },
+ {
+  "id": "recC6IyrAndu1ddqH",
+  "createdTime": "2026-09-11T19:27:58.000Z",
+  "fields": {
+   "tenant": [
+    "recfETcOebEsCqRWr"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec9yGultNvpWgInL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Andrii"
+  }
+ },
+ {
+  "id": "recyfWaP2Gv4ur6At",
+  "createdTime": "2026-09-11T19:29:52.000Z",
+  "fields": {
+   "tenant": [
+    "rechIPXlBJP86ZWch"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recmia36hMAjkLeVo"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Andrii"
+  }
+ },
+ {
+  "id": "rechFSTQ7vfaibd9K",
+  "createdTime": "2026-09-11T19:30:21.000Z",
+  "fields": {
+   "tenant": [
+    "recjnhtR0bESgQjii"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recdkfvZhPb236I2w"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Andrii"
+  }
+ },
+ {
+  "id": "rec3iiCs4gxHLwA3O",
+  "createdTime": "2026-09-11T19:30:50.000Z",
+  "fields": {
+   "tenant": [
+    "recaD6TfSZVVePbLu"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "reccKgAKvXKe0DypP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Andrii"
+  }
+ },
+ {
+  "id": "recG5Y9TgfVlt62VG",
+  "createdTime": "2026-09-11T19:31:10.000Z",
+  "fields": {
+   "tenant": [
+    "recDHyXxSxB1x5Y4U"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recxdFb0Vnogd3wbs"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Olena"
+  }
+ },
+ {
+  "id": "recF1c6uwt7xuFxfW",
+  "createdTime": "2026-09-11T19:32:25.000Z",
+  "fields": {
+   "tenant": [
+    "recC009hk2gO7tzoM"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec2yauKZavwt13lO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Olena"
+  }
+ },
+ {
+  "id": "reccSerN8NRehlzOg",
+  "createdTime": "2026-09-11T19:33:04.000Z",
+  "fields": {
+   "tenant": [
+    "recmPjzhMOaCXGV3i"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recGDLl3qdmJr5w30"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Olena"
+  }
+ },
+ {
+  "id": "recxG2633RLujmrb7",
+  "createdTime": "2026-09-11T19:33:41.000Z",
+  "fields": {
+   "tenant": [
+    "recK9CREoEnOtoGQQ"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recyKlu76nJhGjCcF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Olena"
+  }
+ },
+ {
+  "id": "recZ9IxY0axiZTAAV",
+  "createdTime": "2026-09-11T19:34:04.000Z",
+  "fields": {
+   "tenant": [
+    "recisBa65mdQd8iLv"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2420,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec7fcykDjjpF23bZ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Olena"
+  }
+ },
+ {
+  "id": "rec35pNm4QbvDysGP",
+  "createdTime": "2026-09-11T19:34:28.000Z",
+  "fields": {
+   "tenant": [
+    "recED7mDTABSyn12t"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recJaDjQLBxYw5D94"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Olena"
+  }
+ },
+ {
+  "id": "reckK6eXVPGevjGnR",
+  "createdTime": "2026-09-11T19:35:08.000Z",
+  "fields": {
+   "tenant": [
+    "recnrsOjSZ22peFah"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recRK6PsXmwThI1nD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Olena"
+  }
+ },
+ {
+  "id": "recdk5peS9yyCOgW1",
+  "createdTime": "2026-09-11T19:35:32.000Z",
+  "fields": {
+   "tenant": [
+    "recV5qHl73V75PQbE"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recdPxOpWbGkMUPza"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Olena"
+  }
+ },
+ {
+  "id": "rectUUX2oNKKZMN43",
+  "createdTime": "2026-09-11T19:35:54.000Z",
+  "fields": {
+   "tenant": [
+    "rec1J13E6RvRVWg4Y"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "reccGJ958JnHSlgLz"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Olena"
+  }
+ },
+ {
+  "id": "rec5sM3ZlMBqKrCWJ",
+  "createdTime": "2026-09-11T19:36:22.000Z",
+  "fields": {
+   "tenant": [
+    "recBKfVgJnCmnBsBK"
+   ],
+   "price per day": 357,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3927,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recFuQLOPhotoPVIH",
+    "recFW5DIOTkxMcOsE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Olena"
+  }
+ },
+ {
+  "id": "recYkrDMeKvczEWX1",
+  "createdTime": "2026-09-11T19:36:44.000Z",
+  "fields": {
+   "tenant": [
+    "recEPOkumneXZWJqc"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec782TYKCf0yChXw"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Olena"
+  }
+ },
+ {
+  "id": "recITSf1tekBQyM5j",
+  "createdTime": "2026-09-11T19:37:11.000Z",
+  "fields": {
+   "tenant": [
+    "recnFhxNIIMqZU7lq"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec9fh5NSIID2eNpH"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Olena"
+  }
+ },
+ {
+  "id": "rec7ikodmkPXh8If6",
+  "createdTime": "2026-09-11T19:37:34.000Z",
+  "fields": {
+   "tenant": [
+    "recymHl8x0RHq2ZUo"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recoSAyFVUi5oRwX1"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Olena"
+  }
+ },
+ {
+  "id": "recfNhvqZGxOjXwYB",
+  "createdTime": "2026-09-11T19:38:22.000Z",
+  "fields": {
+   "tenant": [
+    "reccqhzqmFMdnbTgm"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recg4Nr7IsBTdI7Nq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Olena"
+  }
+ },
+ {
+  "id": "recDm3WRjsQciKZkJ",
+  "createdTime": "2026-09-11T19:39:06.000Z",
+  "fields": {
+   "tenant": [
+    "recOPR54QOfE4gnSr"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recRiV7wK9uFXpDnl"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Olena"
+  }
+ },
+ {
+  "id": "recNpBx6mvqRTzXR1",
+  "createdTime": "2026-09-11T19:39:30.000Z",
+  "fields": {
+   "tenant": [
+    "recfrhKfOGT7VEENH"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "rec2WYUxD9n1Q5Smy"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Olena"
+  }
+ },
+ {
+  "id": "rec2Q2BSzkxLedxlj",
+  "createdTime": "2026-09-11T19:40:06.000Z",
+  "fields": {
+   "tenant": [
+    "reccJqmzqVDhU6u9n"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recmydRcyCPfJ61oO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Olena"
+  }
+ },
+ {
+  "id": "recAp3QeBvLPG5NOE",
+  "createdTime": "2026-09-11T19:40:32.000Z",
+  "fields": {
+   "tenant": [
+    "recENj2nNicsoyKaS"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 2310,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-11",
+   "Places": [
+    "recOzUZY2Xb5wlNqF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Olena"
+  }
+ },
+ {
+  "id": "rec64DepTDeEzWqrX",
+  "createdTime": "2026-09-09T17:23:50.000Z",
+  "fields": {
+   "tenant": [
+    "recgP8gp5PE5O4mPl"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Yatsenko Oksana",
+   "start date": "2026-09-09",
+   "Places": [
+    "recY2E9GrlUGnYuPg"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Olena"
+  }
+ },
+ {
+  "id": "recgDjY06YIT3D2HE",
+  "createdTime": "2026-09-08T08:06:45.000Z",
+  "fields": {
+   "tenant": [
+    "recOSs6rcLjAhV4wE"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 2800,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-08",
+   "Places": [
+    "recLgG5zI1LZ2exVE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Olena"
+  }
+ },
+ {
+  "id": "recbFDqiYLurCHUXR",
+  "createdTime": "2026-09-07T16:28:14.000Z",
+  "fields": {
+   "tenant": [
+    "reca9W75WI1wOMQuC"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-07",
+   "Places": [
+    "recLtY7rjKUGPx6Ww"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Olena"
+  }
+ },
+ {
+  "id": "rec3rjduAolgVcr0c",
+  "createdTime": "2026-09-07T16:28:32.000Z",
+  "fields": {
+   "tenant": [
+    "recUKPeJxwwE5kC8g"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-07",
+   "Places": [
+    "rec4pFunMavX5K7Ym"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Olena"
+  }
+ },
+ {
+  "id": "recMhRdgutpNUde8V",
+  "createdTime": "2026-09-05T13:34:29.000Z",
+  "fields": {
+   "tenant": [
+    "reczvuCgpHpxDahja"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-09-05",
+   "Places": [
+    "recQi9iXQ73wEPSmQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Olena"
+  }
+ },
+ {
+  "id": "rechhZG13dpqr2B42",
+  "createdTime": "2026-09-03T07:21:40.000Z",
+  "fields": {
+   "tenant": [
+    "recHdEtkrjGAoW2LV"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Nazarenko Oksana",
+   "start date": "2026-09-03",
+   "Places": [
+    "recjBNlvjHaQAwPTU"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Olena"
+  }
+ },
+ {
+  "id": "recYPMfOaNWvddsUi",
+  "createdTime": "2026-09-03T18:21:21.000Z",
+  "fields": {
+   "tenant": [
+    "rec8x3QgjysOvh6aK"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Didyk Oksana",
+   "start date": "2026-09-03",
+   "Places": [
+    "recJfnWtiLyZHB0ft"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Olena"
+  }
+ },
+ {
+  "id": "recogrjNoHfOy53bZ",
+  "createdTime": "2026-09-03T18:21:33.000Z",
+  "fields": {
+   "tenant": [
+    "rec5VNXiawEG0iQwO"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 4750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-03",
+   "Places": [
+    "recF6Q07hhvZnLwuQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Olena"
+  }
+ },
+ {
+  "id": "recH0zNUUrBojiau3",
+  "createdTime": "2026-09-02T15:56:21.000Z",
+  "fields": {
+   "tenant": [
+    "recyy19uX2N3uvjju"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Havryliuk Oksana",
+   "start date": "2026-09-02",
+   "Places": [
+    "recqBrAif0rdZO5sA"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Olena"
+  }
+ },
+ {
+  "id": "recpcOYy69i56hQtc",
+  "createdTime": "2026-09-01T00:04:38.000Z",
+  "fields": {
+   "tenant": [
+    "recirDufaV8AHWrPo"
+   ],
+   "price per day": 300,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recSHnM1LwhWiuWRS"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Olena"
+  }
+ },
+ {
+  "id": "recndZnKLnRzpBYUU",
+  "createdTime": "2026-09-01T00:04:41.000Z",
+  "fields": {
+   "tenant": [
+    "recSKtzNZ3RQgOCpv"
+   ],
+   "projectName": "Metrostav Hasičarna",
+   "price per day": 300,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recx62a9BLWWS7LFP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Olena"
+  }
+ },
+ {
+  "id": "recCP6MlvyHfcRyZn",
+  "createdTime": "2026-09-01T00:04:43.000Z",
+  "fields": {
+   "tenant": [
+    "reciBWYKNTMIL6Y3w"
+   ],
+   "price per day": 500,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "reciaaXw4i5PBsSV4",
+    "recoBOP0R0XUMVRwB"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Olena"
+  }
+ },
+ {
+  "id": "recikmtYGz56Bdrn0",
+  "createdTime": "2026-09-01T00:04:43.000Z",
+  "fields": {
+   "tenant": [
+    "recJSfvNgWuBakqsv"
+   ],
+   "price per day": 242,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5082,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recpx1kfbqdS7sFFe"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Olena"
+  }
+ },
+ {
+  "id": "recn7iVC1tkPru7jp",
+  "createdTime": "2026-09-01T00:04:45.000Z",
+  "fields": {
+   "tenant": [
+    "recymup3N4vhbWNeZ"
+   ],
+   "price per day": 367,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 7707,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec9HZjYrYw4P2y2N"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Olena"
+  }
+ },
+ {
+  "id": "reckUlYdo4vlAIE4X",
+  "createdTime": "2026-09-01T00:04:52.000Z",
+  "fields": {
+   "tenant": [
+    "reczcSNg8ItJw2Gij"
+   ],
+   "price per day": 267,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5607,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recpxZ1Ad32XdDSCY",
+    "rec8In0ulJYiblsB7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Olena"
+  }
+ },
+ {
+  "id": "rec0wT9ehvttgTt78",
+  "createdTime": "2026-09-01T00:04:54.000Z",
+  "fields": {
+   "tenant": [
+    "recRKWRs0DuqNoK4G"
+   ],
+   "price per day": 467,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 9807,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recAValUvyU358zL3",
+    "recnNcP1fPcvOTFCc"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Olena"
+  }
+ },
+ {
+  "id": "recWRn5SmSyQHyLMk",
+  "createdTime": "2026-09-01T00:04:57.000Z",
+  "fields": {
+   "tenant": [
+    "rece4wQNPEImPe9H4"
+   ],
+   "projectName": "Stavby  uvnitř",
+   "price per day": 317,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Romaniuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recs7pOlkpE1LXsmY"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Olena"
+  }
+ },
+ {
+  "id": "recZKod6dvi79N49P",
+  "createdTime": "2026-09-01T00:05:01.000Z",
+  "fields": {
+   "tenant": [
+    "recX38JIhlpuEBnLC"
+   ],
+   "price per day": 375,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Kulyk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recitauw7BL54QB83"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Olena"
+  }
+ },
+ {
+  "id": "recvRr5I4iKB83uzH",
+  "createdTime": "2026-09-01T00:05:04.000Z",
+  "fields": {
+   "tenant": [
+    "recKx2SI5ElHz4nd1"
+   ],
+   "projectName": "Stavby  uvnitř",
+   "price per day": 266,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recbSslxwjjGaKQeG"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Olena"
+  }
+ },
+ {
+  "id": "recPwMtC4yBnkxjrN",
+  "createdTime": "2026-09-01T00:05:06.000Z",
+  "fields": {
+   "tenant": [
+    "reciBWYKNTMIL6Y3w"
+   ],
+   "price per day": 500,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "reciaaXw4i5PBsSV4",
+    "recoBOP0R0XUMVRwB"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Olena"
+  }
+ },
+ {
+  "id": "recxb1naWXlBiHiYL",
+  "createdTime": "2026-09-01T00:05:08.000Z",
+  "fields": {
+   "tenant": [
+    "recpeO3QyJPeHjo5N"
+   ],
+   "projectName": "Stavby  uvnitř",
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recFpVWe82nc3B2tp"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Olena"
+  }
+ },
+ {
+  "id": "recOD5lohFvkYNteK",
+  "createdTime": "2026-09-01T00:05:12.000Z",
+  "fields": {
+   "tenant": [
+    "rechSkOBGJ40EBxh7"
+   ],
+   "price per day": 375,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Kulyk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recdPc99BNbJ54O9T"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Olena"
+  }
+ },
+ {
+  "id": "recXX6hlolAi4g6rW",
+  "createdTime": "2026-09-01T00:05:16.000Z",
+  "fields": {
+   "tenant": [
+    "recydTXvVSHtzJBOh"
+   ],
+   "projectName": "Schenker Rudna",
+   "price per day": 133,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 2793,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recvOlNGi8Ih30Efj"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Olena"
+  }
+ },
+ {
+  "id": "recgJuPczmGcfT9qz",
+  "createdTime": "2026-09-01T00:05:20.000Z",
+  "fields": {
+   "tenant": [
+    "recI4m6GcZRbTYupW"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "reciydOABjL6BXmdR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Serhii"
+  }
+ },
+ {
+  "id": "recmpGO9U9gBAjP9h",
+  "createdTime": "2026-09-01T00:05:42.000Z",
+  "fields": {
+   "tenant": [
+    "recOc00yXkCW9I01U"
+   ],
+   "price per day": 267,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5607,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recXJQvzuF5LAOU3M",
+    "reciHJqXJZ9CDIH7i"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Serhii"
+  }
+ },
+ {
+  "id": "recLKNJrfRKYLQqz1",
+  "createdTime": "2026-09-01T00:05:43.000Z",
+  "fields": {
+   "tenant": [
+    "recLZudcegSSQDOEO"
+   ],
+   "projectName": "Stavby  uvnitř",
+   "price per day": 266,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Panchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recVItEX92dtpCYHO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Serhii"
+  }
+ },
+ {
+  "id": "recesZN0fZrudKWDC",
+  "createdTime": "2026-09-01T00:05:50.000Z",
+  "fields": {
+   "tenant": [
+    "rechhGIQWpRNtQjkc"
+   ],
+   "price per day": 451,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Stelmakh Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec7cTQMKwHeMgsPm",
+    "reciLfBk1K96fBnVj"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Serhii"
+  }
+ },
+ {
+  "id": "recrAkXCS5eBXXPDM",
+  "createdTime": "2026-09-01T00:05:56.000Z",
+  "fields": {
+   "tenant": [
+    "recVKZ7JoiJXoRt12"
+   ],
+   "price per day": 232,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Stelmakh Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recnN0GfH0fei5KW4"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Serhii"
+  }
+ },
+ {
+  "id": "rec2XZI1NxY6g9ckl",
+  "createdTime": "2026-09-01T00:05:59.000Z",
+  "fields": {
+   "tenant": [
+    "recjKBr71xFgU06mP"
+   ],
+   "price per day": 227,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 4767,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recikxTP52r6ddfK3"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Serhii"
+  }
+ },
+ {
+  "id": "recN6S9E9xifDHYXe",
+  "createdTime": "2026-09-01T00:06:02.000Z",
+  "fields": {
+   "tenant": [
+    "recIlWcnH1E2D4k00"
+   ],
+   "price per day": 227,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 4767,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recdSmNyvLbhg0IUz"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Serhii"
+  }
+ },
+ {
+  "id": "rec8GPqjmMP05L1iP",
+  "createdTime": "2026-09-01T00:06:05.000Z",
+  "fields": {
+   "tenant": [
+    "recj0qU6VgJsdbTDL"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 5250,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recTWqURVqTiozox2"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Serhii"
+  }
+ },
+ {
+  "id": "rec9iSZgaLVznloeW",
+  "createdTime": "2026-09-01T00:06:05.000Z",
+  "fields": {
+   "tenant": [
+    "rechBhUN0DFeojshj"
+   ],
+   "projectName": "Stavby uvnitř",
+   "price per day": 317,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recHuPASTlk9MmshF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Serhii"
+  }
+ },
+ {
+  "id": "recBncK8dqQcBgbGP",
+  "createdTime": "2026-09-01T00:06:10.000Z",
+  "fields": {
+   "tenant": [
+    "recMEjcnRWRR4XnX6"
+   ],
+   "price per day": 367,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": -25290,
+   "status": "Зайнято",
+   "paid": 32997,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recW9fkNxNyQ6vbex"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Serhii"
+  }
+ },
+ {
+  "id": "recrSJvrcQy15ehwC",
+  "createdTime": "2026-09-01T00:06:12.000Z",
+  "fields": {
+   "tenant": [
+    "recdBW8M3otovnksb"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 5250,
+   "status": "Зайнято",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec9dTkU6ZORQFfti"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Serhii"
+  }
+ },
+ {
+  "id": "reccaSHshp2I9ofEe",
+  "createdTime": "2026-09-01T00:06:16.000Z",
+  "fields": {
+   "tenant": [
+    "recCTI7YJaqebi83c"
+   ],
+   "price per day": 242,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5082,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recZhBihbx6YtH2w8"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Serhii"
+  }
+ },
+ {
+  "id": "rec9BajPIjLmssqBT",
+  "createdTime": "2026-09-01T00:06:18.000Z",
+  "fields": {
+   "tenant": [
+    "recCAgOKWbDORbFrq"
+   ],
+   "price per day": 183,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3843,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recMUu2dnOiHLYvzM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Serhii"
+  }
+ },
+ {
+  "id": "reck3IKaMdP4EGQRt",
+  "createdTime": "2026-09-01T00:06:20.000Z",
+  "fields": {
+   "tenant": [
+    "recbw7EkyqbaDzvge"
+   ],
+   "projectName": "Schenker Rudna",
+   "price per day": 133,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 2793,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recXvAz1rdCb8EL3M"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Serhii"
+  }
+ },
+ {
+  "id": "recLjuOwvXw7NjUDh",
+  "createdTime": "2026-09-01T00:06:23.000Z",
+  "fields": {
+   "tenant": [
+    "recQUmenikh8zWNVU"
+   ],
+   "price per day": 317,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 6657,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rectTAYf0MjxFteun"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Serhii"
+  }
+ },
+ {
+  "id": "recfSadMx4D8fJar0",
+  "createdTime": "2026-09-01T00:06:25.000Z",
+  "fields": {
+   "tenant": [
+    "recYjHWL5Jo0b2Onx"
+   ],
+   "price per day": 217,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4557,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recEB7SfBmm71Zoau"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Serhii"
+  }
+ },
+ {
+  "id": "recrvOUztX4JYX4ag",
+  "createdTime": "2026-09-01T00:06:27.000Z",
+  "fields": {
+   "tenant": [
+    "recVKZ7JoiJXoRt12"
+   ],
+   "projectName": "Archeologicky viskum",
+   "price per day": 232,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Verbytskyi Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec7CH97FEzcI6c7r"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Serhii"
+  }
+ },
+ {
+  "id": "recMraThupwmCXxyw",
+  "createdTime": "2026-09-01T00:06:30.000Z",
+  "fields": {
+   "tenant": [
+    "rec1HifU6z2k3gGna"
+   ],
+   "projectName": "Schenker Rudna",
+   "price per day": 267,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": -23939,
+   "status": "Зайнято",
+   "paid": 29546,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recDbPZ8XC6eF5QjI",
+    "recL8yqAOxh3pwE9O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Serhii"
+  }
+ },
+ {
+  "id": "recBjytMrTKjkhK6X",
+  "createdTime": "2026-09-01T00:06:32.000Z",
+  "fields": {
+   "tenant": [
+    "reco4lntPgWGHAaze"
+   ],
+   "price per day": 483,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 10143,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recCCvRaLhb5B323e",
+    "recCiZHniTJ51h7B9"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Serhii"
+  }
+ },
+ {
+  "id": "recupxc6CuHzcMBwD",
+  "createdTime": "2026-09-01T00:06:34.000Z",
+  "fields": {
+   "tenant": [
+    "recFV9q7CsicDGO3l"
+   ],
+   "projectName": "Rootvin",
+   "price per day": 283,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recUwE6HDy7HmlU46"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Serhii"
+  }
+ },
+ {
+  "id": "recl5B229T9GEa1Qt",
+  "createdTime": "2026-09-01T00:06:36.000Z",
+  "fields": {
+   "tenant": [
+    "reco4lntPgWGHAaze"
+   ],
+   "price per day": 517,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 10857,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recIeg2oje1HJbhnN",
+    "recGyDHO4YHTQ4jZr"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Serhii"
+  }
+ },
+ {
+  "id": "recIC9bkSS4ft9Eab",
+  "createdTime": "2026-09-01T00:06:38.000Z",
+  "fields": {
+   "tenant": [
+    "rec5xyz1o4KHrF0Gm"
+   ],
+   "price per day": 217,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4557,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recNHVtro0HgnwND7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Serhii"
+  }
+ },
+ {
+  "id": "reczmj3p5nzkvaNmX",
+  "createdTime": "2026-09-01T00:06:42.000Z",
+  "fields": {
+   "tenant": [
+    "recMxoO9ZpAFMVS8q"
+   ],
+   "projectName": "Rootvin",
+   "price per day": 283,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recN7TsuWiT07W6zA"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Serhii"
+  }
+ },
+ {
+  "id": "recPWoZKv20hUOLAM",
+  "createdTime": "2026-09-01T00:06:44.000Z",
+  "fields": {
+   "tenant": [
+    "recV3z3cYJK6sbbUd"
+   ],
+   "price per day": 393,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 8253,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recsbDLPNVfY1qLld",
+    "reczQ8geD0PX8FSGp"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Serhii"
+  }
+ },
+ {
+  "id": "recWLolx2F9rs0J3J",
+  "createdTime": "2026-09-01T00:06:44.000Z",
+  "fields": {
+   "tenant": [
+    "recZWhXBvGzpdTYPp"
+   ],
+   "price per day": 217,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4557,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec1Wk6iL4wdtxTax"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Serhii"
+  }
+ },
+ {
+  "id": "rec0MRnYzNADGfTeT",
+  "createdTime": "2026-09-01T00:06:46.000Z",
+  "fields": {
+   "tenant": [
+    "rechyTTYqMeh5yllg"
+   ],
+   "price per day": 183,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3843,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recj95cLUlik9XQ5O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Serhii"
+  }
+ },
+ {
+  "id": "recTmgN6hc9Jar383",
+  "createdTime": "2026-09-01T00:06:51.000Z",
+  "fields": {
+   "tenant": [
+    "recsYFMXbvvhgkNPv"
+   ],
+   "price per day": 183,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3843,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recgHEMcHcUA1WNUx"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Serhii"
+  }
+ },
+ {
+  "id": "recDjd7nDVdNqPlSK",
+  "createdTime": "2026-09-01T00:06:54.000Z",
+  "fields": {
+   "tenant": [
+    "recLEzr81sOG3GvSw"
+   ],
+   "price per day": 183,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 3843,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recfmAgPxWSSYZUqH"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Serhii"
+  }
+ },
+ {
+  "id": "recdhFhsQ8dyqcpJI",
+  "createdTime": "2026-09-01T00:06:58.000Z",
+  "fields": {
+   "tenant": [
+    "recVnCIbZOeCpogj7"
+   ],
+   "price per day": 217,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4557,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recNuhj1FAjNnZYdg"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Serhii"
+  }
+ },
+ {
+  "id": "recqBLk7m1OK2IKNT",
+  "createdTime": "2026-09-01T00:07:00.000Z",
+  "fields": {
+   "tenant": [
+    "rect2Vyr6NBnRCq3V"
+   ],
+   "price per day": 201,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4221,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec2LguOAKzA6azqs"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Serhii"
+  }
+ },
+ {
+  "id": "rec1fRH9R1iHywY21",
+  "createdTime": "2026-09-01T00:07:04.000Z",
+  "fields": {
+   "tenant": [
+    "recgqTyH9TF8TEE0h"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5670,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recvW7CeA7PM1NB4U"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Serhii"
+  }
+ },
+ {
+  "id": "recqdBC1Qrn7Bn6sZ",
+  "createdTime": "2026-09-01T00:07:06.000Z",
+  "fields": {
+   "tenant": [
+    "recDcp6scSTJ7f8hY"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec0gmp8at7qSPMBZ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Serhii"
+  }
+ },
+ {
+  "id": "recZNSJw6umDe78ta",
+  "createdTime": "2026-09-01T00:07:08.000Z",
+  "fields": {
+   "tenant": [
+    "recFiSLMJpQkWlpxC"
+   ],
+   "price per day": 167,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 3507,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recBjPs19LSSj6WZK"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Serhii"
+  }
+ },
+ {
+  "id": "recscDJjDie3jh3YO",
+  "createdTime": "2026-09-01T00:07:12.000Z",
+  "fields": {
+   "tenant": [
+    "rect2Vyr6NBnRCq3V"
+   ],
+   "price per day": 402,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 8442,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recURBHT19WTVA37I",
+    "recUJq3d1pmrWh8qU"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Serhii"
+  }
+ },
+ {
+  "id": "recDENq1FaGR10LxC",
+  "createdTime": "2026-09-01T00:07:13.000Z",
+  "fields": {
+   "tenant": [
+    "recxA2FcuNp1998St"
+   ],
+   "price per day": 333,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Prokopenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec1CQjKR0P7PeAAW"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Serhii"
+  }
+ },
+ {
+  "id": "recs3zlnFa1NImLXO",
+  "createdTime": "2026-09-01T00:07:15.000Z",
+  "fields": {
+   "tenant": [
+    "recL9jxyCW5DDOwvH"
+   ],
+   "price per day": 333,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 6993,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec7fH5V40BUebjl3"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Serhii"
+  }
+ },
+ {
+  "id": "recQK7F8E4corD6hV",
+  "createdTime": "2026-09-01T00:07:18.000Z",
+  "fields": {
+   "tenant": [
+    "recHWgkSrPGR4O4yV"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Lytvyn Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recefRZFZNGAOPS6K"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Serhii"
+  }
+ },
+ {
+  "id": "recQUFd5jfKqTv0mu",
+  "createdTime": "2026-09-01T00:07:18.000Z",
+  "fields": {
+   "tenant": [
+    "recapytyqDLVFrzJJ"
+   ],
+   "price per day": 278,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5838,
+   "status": "Зайнято",
+   "manger": "Stelmakh Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recDG9OO68YjkIv0W"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Serhii"
+  }
+ },
+ {
+  "id": "recT29aaDt0hYUnoB",
+  "createdTime": "2026-09-01T00:07:23.000Z",
+  "fields": {
+   "tenant": [
+    "rectjGd4hcVfgYLPt"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 5250,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recYVBA3ceHR7ExGU"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Serhii"
+  }
+ },
+ {
+  "id": "recJuvo8ttBOHmQS0",
+  "createdTime": "2026-09-01T00:07:25.000Z",
+  "fields": {
+   "tenant": [
+    "recq4fOocSUHvnP7l"
+   ],
+   "price per day": 167,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 3507,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rectci2S6hwsg3Pam"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Serhii"
+  }
+ },
+ {
+  "id": "recibCovbRoX1WPXL",
+  "createdTime": "2026-09-01T00:07:25.000Z",
+  "fields": {
+   "tenant": [
+    "recFiSLMJpQkWlpxC"
+   ],
+   "price per day": 167,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 3507,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rectIrJGH4MSDm9a8"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Serhii"
+  }
+ },
+ {
+  "id": "recnicNU6wJMElxYv",
+  "createdTime": "2026-09-01T00:07:30.000Z",
+  "fields": {
+   "tenant": [
+    "recq4fOocSUHvnP7l"
+   ],
+   "price per day": 167,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 3507,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recynHfQLj98cLTI9"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Serhii"
+  }
+ },
+ {
+  "id": "recs6AEMrEIgjQkpd",
+  "createdTime": "2026-09-01T00:07:30.000Z",
+  "fields": {
+   "tenant": [
+    "recHD87ANkZp6KHx4"
+   ],
+   "price per day": 278,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5838,
+   "status": "Зайнято",
+   "manger": "Stelmakh Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recdzCVh8adwd1jLM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Serhii"
+  }
+ },
+ {
+  "id": "recezBWSJXdn6efVl",
+  "createdTime": "2026-09-01T00:07:33.000Z",
+  "fields": {
+   "tenant": [
+    "rech1g0UKp7X8zPSC"
+   ],
+   "price per day": 242,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 5082,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recvV2ol1UKEXK7ia"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Serhii"
+  }
+ },
+ {
+  "id": "recWnRgsiGI370shJ",
+  "createdTime": "2026-09-01T00:07:42.000Z",
+  "fields": {
+   "tenant": [
+    "recFTBIVHwdg1lR6e"
+   ],
+   "price per day": 367,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 7707,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "reciKk5NCr0mOyiGq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Serhii"
+  }
+ },
+ {
+  "id": "recIaBkJEY8fH7VFb",
+  "createdTime": "2026-09-01T00:07:44.000Z",
+  "fields": {
+   "tenant": [
+    "recRs7ea83T5SbrHv"
+   ],
+   "price per day": 300,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 6300,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recDa4sZhXbJLjMjK"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Iryna"
+  }
+ },
+ {
+  "id": "rec4HEJnrEqcvGdOG",
+  "createdTime": "2026-09-01T00:07:46.000Z",
+  "fields": {
+   "tenant": [
+    "recW97BcACCM6k0my"
+   ],
+   "price per day": 367,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 7707,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recRWnaCJ2DsAQsAk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Iryna"
+  }
+ },
+ {
+  "id": "rec1uNLgV7mZYIGFz",
+  "createdTime": "2026-09-01T00:07:49.000Z",
+  "fields": {
+   "tenant": [
+    "recwK8C0rYTm2vPna"
+   ],
+   "price per day": 300,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 6300,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recqoqGy1jjCtX5w0"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Iryna"
+  }
+ },
+ {
+  "id": "recqFBikbNExTaD8E",
+  "createdTime": "2026-09-01T00:07:53.000Z",
+  "fields": {
+   "tenant": [
+    "recW97BcACCM6k0my"
+   ],
+   "price per day": 367,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 7707,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recRWnaCJ2DsAQsAk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Iryna"
+  }
+ },
+ {
+  "id": "recTBNR4fexZXSZ82",
+  "createdTime": "2026-09-01T00:07:55.000Z",
+  "fields": {
+   "tenant": [
+    "recOA6JNYZ5R8RwaT"
+   ],
+   "projectName": "Vnitřní stavby",
+   "price per day": 267,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "receDm8HACti9QU80"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Iryna"
+  }
+ },
+ {
+  "id": "reccvhLlwgwwtKlq7",
+  "createdTime": "2026-09-01T00:07:57.000Z",
+  "fields": {
+   "tenant": [
+    "recZUN0IvwL4SbCxZ"
+   ],
+   "price per day": 232,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": -108760,
+   "status": "Зайнято",
+   "paid": 113632,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "rec2AI6kUS7d2Lb3G"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Iryna"
+  }
+ },
+ {
+  "id": "rec2VW9I46XL4lZE5",
+  "createdTime": "2026-09-01T00:08:00.000Z",
+  "fields": {
+   "tenant": [
+    "recOA6JNYZ5R8RwaT"
+   ],
+   "price per day": 267,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recuMowpuoRQZTEo8"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Iryna"
+  }
+ },
+ {
+  "id": "recmaPJGQMEaHmiD4",
+  "createdTime": "2026-09-01T00:08:03.000Z",
+  "fields": {
+   "tenant": [
+    "recZUN0IvwL4SbCxZ"
+   ],
+   "price per day": 232,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": -22360,
+   "status": "Зайнято",
+   "paid": 27232,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recbnWFWzp8K1RuA2"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Iryna"
+  }
+ },
+ {
+  "id": "recqcXs719FZ8HCt6",
+  "createdTime": "2026-09-01T00:08:09.000Z",
+  "fields": {
+   "tenant": [
+    "recl47b89H3TcLsJJ"
+   ],
+   "price per day": 217,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 4557,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recupPyypa95az7My"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Iryna"
+  }
+ },
+ {
+  "id": "recimS3j4lC3X3SVv",
+  "createdTime": "2026-09-01T00:08:11.000Z",
+  "fields": {
+   "tenant": [
+    "recJiOi1BhsrPU73S"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 217,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recJMAP01x8nbD8eJ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Iryna"
+  }
+ },
+ {
+  "id": "recsSYjNJ31vRqOOs",
+  "createdTime": "2026-09-01T00:08:14.000Z",
+  "fields": {
+   "tenant": [
+    "recsUnDIC4uFErqcU"
+   ],
+   "price per day": 317,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 6657,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recphyafwk5DpmcgR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Iryna"
+  }
+ },
+ {
+  "id": "recKqFUBpsN5qTW9M",
+  "createdTime": "2026-09-01T02:16:55.000Z",
+  "fields": {
+   "tenant": [
+    "rec4tFUtNA668nz4X"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 4620,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recjzfZdVc3vFugcR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Iryna"
+  }
+ },
+ {
+  "id": "recYdCtJ8bLgKsmqR",
+  "createdTime": "2026-09-01T07:36:17.000Z",
+  "fields": {
+   "tenant": [
+    "recahVwp9DbT9AgYn"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Yatsenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recd5n6cIGTkSOXz8"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Iryna"
+  }
+ },
+ {
+  "id": "rec2VyrQcrpeirI9i",
+  "createdTime": "2026-09-01T15:01:35.000Z",
+  "fields": {
+   "tenant": [
+    "recVPgYQu4lfqFoPR"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 3570,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recjftbfmuTfx3uyo"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Iryna"
+  }
+ },
+ {
+  "id": "rec2SaQ2hXHn4nlUc",
+  "createdTime": "2026-09-01T15:55:19.000Z",
+  "fields": {
+   "tenant": [
+    "recDqUH7utRQ4DJNn"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 3570,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recI07dKGN5WpD9jD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Iryna"
+  }
+ },
+ {
+  "id": "recY8pOja6Va09iu8",
+  "createdTime": "2026-09-01T15:55:57.000Z",
+  "fields": {
+   "tenant": [
+    "recFWtjvWYpSYgEzE"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 3570,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recdKtZIDn3kOiCAF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Iryna"
+  }
+ },
+ {
+  "id": "recmuEUmPCLJDeZDH",
+  "createdTime": "2026-09-01T17:20:20.000Z",
+  "fields": {
+   "tenant": [
+    "recBLFgQBa9UAtKBY"
+   ],
+   "price per day": 242,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 5082,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recOPpvalXilhdc6O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Iryna"
+  }
+ },
+ {
+  "id": "recun0jjy4tc6FnlR",
+  "createdTime": "2026-09-01T18:25:57.000Z",
+  "fields": {
+   "tenant": [
+    "rec0gLy7b8mHR9alU"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tymoshenko Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "recrYlCll98NRPKXP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Iryna"
+  }
+ },
+ {
+  "id": "rec83iG51HXmBJkSY",
+  "createdTime": "2026-09-07T13:19:30.000Z",
+  "fields": {
+   "tenant": [
+    "reckXa7DQXv6C95Xn"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 5250,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-09-01",
+   "Places": [
+    "reca7aR6CHwV2M7Qj"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Iryna"
+  }
+ },
+ {
+  "id": "recRpuaNpF14oTJNO",
+  "createdTime": "2026-08-31T19:30:35.000Z",
+  "fields": {
+   "tenant": [
+    "rec2B8iPZiEx7flQi"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Didyk Oksana",
+   "start date": "2026-08-31",
+   "Places": [
+    "reccTRWn8V61GQ5T2"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Iryna"
+  }
+ },
+ {
+  "id": "recsQsa25ImKhnhQf",
+  "createdTime": "2026-08-26T06:19:44.000Z",
+  "fields": {
+   "tenant": [
+    "recp3U6Om0I99yp0E"
+   ],
+   "price per day": 357,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Reznik Oksana",
+   "start date": "2026-08-26",
+   "Places": [
+    "recKpyosQ2sp4yysL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Iryna"
+  }
+ },
+ {
+  "id": "recPGBKEzXH1nTdIO",
+  "createdTime": "2026-08-26T06:20:26.000Z",
+  "fields": {
+   "tenant": [
+    "recbEveUQ3EdpjXlp"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-08-26",
+   "Places": [
+    "recTBbZhWh2nSGfmm"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Iryna"
+  }
+ },
+ {
+  "id": "recoentdaeNPEnIvj",
+  "createdTime": "2026-08-26T06:20:55.000Z",
+  "fields": {
+   "tenant": [
+    "rectf0gyXLcvMkKJs"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Reznik Oksana",
+   "start date": "2026-08-26",
+   "Places": [
+    "rec0y7vKO1CYi5snG"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Iryna"
+  }
+ },
+ {
+  "id": "recXmMjO7AWQiilLG",
+  "createdTime": "2026-08-26T09:13:05.000Z",
+  "fields": {
+   "tenant": [
+    "recT51sEjjam1lUoc"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 4590,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-26",
+   "Places": [
+    "recyCYCsJHp91QlAT"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Iryna"
+  }
+ },
+ {
+  "id": "recpfcsiAOgzqvL5t",
+  "createdTime": "2026-08-25T07:02:55.000Z",
+  "fields": {
+   "tenant": [
+    "recnGNLiOzTdQWBX4"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 4760,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-25",
+   "Places": [
+    "recJrpd27qso4Up7H"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Iryna"
+  }
+ },
+ {
+  "id": "recQf9oJIrZT5Fb3T",
+  "createdTime": "2026-08-25T07:03:24.000Z",
+  "fields": {
+   "tenant": [
+    "recVA2itodSrKMy1B"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 4760,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-25",
+   "Places": [
+    "recHSpE3kUIRkqMnB"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Iryna"
+  }
+ },
+ {
+  "id": "recB4nijg6hT3Ifuz",
+  "createdTime": "2026-08-24T08:58:43.000Z",
+  "fields": {
+   "tenant": [
+    "recSwnA8ijlED00or"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-08-24",
+   "Places": [
+    "recJEz03FxXMjKz9k"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Iryna"
+  }
+ },
+ {
+  "id": "recql5MS1kDvTEnoS",
+  "createdTime": "2026-08-24T18:10:55.000Z",
+  "fields": {
+   "tenant": [
+    "rec30L2Q87P99GFiL"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 7830,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-24",
+   "Places": [
+    "recAbHsfYxIgntWnR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Iryna"
+  }
+ },
+ {
+  "id": "recKXgsanACM1R4Mg",
+  "createdTime": "2026-08-21T12:13:42.000Z",
+  "fields": {
+   "tenant": [
+    "reczlq53NdNVU4Ebi"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-08-21",
+   "Places": [
+    "reckOcShW0REbSPdN"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Iryna"
+  }
+ },
+ {
+  "id": "recBXTLhqjpkpxajH",
+  "createdTime": "2026-08-21T12:26:10.000Z",
+  "fields": {
+   "tenant": [
+    "recAe2TjAY01t2sSs"
+   ],
+   "projectName": "FAST ČR, a.s.",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-08-21",
+   "Places": [
+    "recsWpmPoZDWZmfyH"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Iryna"
+  }
+ },
+ {
+  "id": "rec9ChZlNRVWSJLUt",
+  "createdTime": "2026-08-20T06:35:49.000Z",
+  "fields": {
+   "tenant": [
+    "recKUhndpaJ7IITXP"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 5610,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-20",
+   "Places": [
+    "recatdG1M26ciSgbW"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Iryna"
+  }
+ },
+ {
+  "id": "reclROvo9wKV5brH6",
+  "createdTime": "2026-08-20T18:27:25.000Z",
+  "fields": {
+   "tenant": [
+    "recnfFRZHLPnaBFF2"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Havryliuk Oksana",
+   "start date": "2026-08-20",
+   "Places": [
+    "recNTo2GPpKgWgmtK"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Iryna"
+  }
+ },
+ {
+  "id": "rec9J2omAsyIGLMZt",
+  "createdTime": "2026-08-17T02:32:49.000Z",
+  "fields": {
+   "tenant": [
+    "rec5h4J7aONZW6zNo"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 8280,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-17",
+   "Places": [
+    "recP3ECFpkpoKVR7H"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Iryna"
+  }
+ },
+ {
+  "id": "recOSdKBmlYmDDiQy",
+  "createdTime": "2026-08-17T02:33:16.000Z",
+  "fields": {
+   "tenant": [
+    "rec5h4J7aONZW6zNo"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 8280,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-17",
+   "Places": [
+    "rechbSeY4kcp0Dt2O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Iryna"
+  }
+ },
+ {
+  "id": "recVFn2dFqCo968Lo",
+  "createdTime": "2026-08-14T15:06:29.000Z",
+  "fields": {
+   "tenant": [
+    "recn8mJUkCNx769pg"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Nazarenko Oksana",
+   "start date": "2026-08-14",
+   "Places": [
+    "rec7GzfOjY1JA2n9O"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Iryna"
+  }
+ },
+ {
+  "id": "recXrn7LGlbovaipW",
+  "createdTime": "2026-08-13T18:53:45.000Z",
+  "fields": {
+   "tenant": [
+    "recSQEF2Y8YobHZJf"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 9200,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-13",
+   "Places": [
+    "recL1WcTxwSB9yU8W"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Iryna"
+  }
+ },
+ {
+  "id": "rectv9cn9lSktUAIY",
+  "createdTime": "2026-08-06T16:28:34.000Z",
+  "fields": {
+   "tenant": [
+    "recT05GcV5vL2ZyAX"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-08-06",
+   "Places": [
+    "recvVcxlSOjQ0GCOK"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Iryna"
+  }
+ },
+ {
+  "id": "recxNHBXTLLFbnJ5A",
+  "createdTime": "2026-08-06T07:32:04.000Z",
+  "fields": {
+   "tenant": [
+    "recaQIobrrOprENY8"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-05",
+   "Places": [
+    "recoup21vDJyppLrn"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Iryna"
+  }
+ },
+ {
+  "id": "recbjzhq4PIydlbgr",
+  "createdTime": "2026-08-02T21:10:40.000Z",
+  "fields": {
+   "tenant": [
+    "recz1HDqhQEdx5SLf"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 12750,
+   "status": "Зайнято",
+   "manger": "Tkachuk Oksana",
+   "start date": "2026-08-02",
+   "Places": [
+    "recnpEu134y67sNiv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Iryna"
+  }
+ },
+ {
+  "id": "recfG12CmKiGasUXg",
+  "createdTime": "2026-08-02T21:12:25.000Z",
+  "fields": {
+   "tenant": [
+    "recBTOC1fBbNoufgQ"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 12750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-02",
+   "Places": [
+    "recqYHNYZpnW63j6B"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Iryna"
+  }
+ },
+ {
+  "id": "recD04k0huydtlTMD",
+  "createdTime": "2026-08-02T21:13:40.000Z",
+  "fields": {
+   "tenant": [
+    "recyk0LMYxJ8LGNdN"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 12750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-08-02",
+   "Places": [
+    "recS8tIylRTDFBpAL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Iryna"
+  }
+ },
+ {
+  "id": "rec8NQ2UpA7ADtPns",
+  "createdTime": "2026-07-31T11:59:22.000Z",
+  "fields": {
+   "tenant": [
+    "recalIiMiQU8zUTnL"
+   ],
+   "price per day": 240,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-08-01",
+   "Places": [
+    "recNG5kiAacvZkJ0d"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Iryna"
+  }
+ },
+ {
+  "id": "recWsYaBrBjkf5CCa",
+  "createdTime": "2026-07-28T14:40:01.000Z",
+  "fields": {
+   "tenant": [
+    "recWYv9xaYBsXBjGe"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-07-28",
+   "Places": [
+    "recoz0gtWhvPya3mx"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Iryna"
+  }
+ },
+ {
+  "id": "rec3cvATFg9r25wRK",
+  "createdTime": "2026-07-27T12:49:31.000Z",
+  "fields": {
+   "tenant": [
+    "recVuhz0QEGPfK0ve"
+   ],
+   "price per day": 240,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-07-27",
+   "Places": [
+    "recBQPNaMu87cf6Gl"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Iryna"
+  }
+ },
+ {
+  "id": "recMvKi4092J0NHq4",
+  "createdTime": "2026-07-27T12:55:59.000Z",
+  "fields": {
+   "tenant": [
+    "recP3rAcAHX2QW3JD"
+   ],
+   "projectName": "Coca Cola ENG",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-07-27",
+   "Places": [
+    "recFsKIJSS7RZSJLP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Mykola"
+  }
+ },
+ {
+  "id": "recojDx4rQUIi3QIJ",
+  "createdTime": "2026-07-27T16:45:43.000Z",
+  "fields": {
+   "tenant": [
+    "recOD26wsacrFcSPZ"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 15390,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-27",
+   "Places": [
+    "recsLTPW2c8hB1TVq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Mykola"
+  }
+ },
+ {
+  "id": "recqAAvWJbR971mLX",
+  "createdTime": "2026-07-28T14:30:37.000Z",
+  "fields": {
+   "tenant": [
+    "recuyemcTWWvdMDQX"
+   ],
+   "projectName": "Breadway",
+   "price per day": 240,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-07-27",
+   "Places": [
+    "rec3ZGJOQfVCVvX7W"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Mykola"
+  }
+ },
+ {
+  "id": "recWjTn4Cbrcez3Xk",
+  "createdTime": "2026-07-24T12:57:51.000Z",
+  "fields": {
+   "tenant": [
+    "recMb48uQjd6tcBSt"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Chernenko Oksana",
+   "start date": "2026-07-24",
+   "Places": [
+    "rec2iaZIDRE2vSLNq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Mykola"
+  }
+ },
+ {
+  "id": "reckOpD5A3uWnV0yZ",
+  "createdTime": "2026-07-23T18:19:14.000Z",
+  "fields": {
+   "tenant": [
+    "recntKTMktvjZ7uqB"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Chernenko Oksana",
+   "start date": "2026-07-23",
+   "Places": [
+    "recX4t42caVtcNvCx"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Mykola"
+  }
+ },
+ {
+  "id": "recsDsD73AC1xLOW8",
+  "createdTime": "2026-07-22T09:27:41.000Z",
+  "fields": {
+   "tenant": [
+    "recdmXdIrqcAvygxz"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-22",
+   "Places": [
+    "rec5Wr14v7ghv06eq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Mykola"
+  }
+ },
+ {
+  "id": "recOZE9OZ2WcTczOL",
+  "createdTime": "2026-07-21T12:11:54.000Z",
+  "fields": {
+   "tenant": [
+    "recOSs6rcLjAhV4wE"
+   ],
+   "price per day": 289,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 18207,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-21",
+   "Places": [
+    "reczZhFBHiZDREJbK"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Olena"
+  }
+ },
+ {
+  "id": "rechLle0vK9X789oD",
+  "createdTime": "2026-07-19T15:28:25.000Z",
+  "fields": {
+   "tenant": [
+    "recItP0xXwkYTaweb"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-07-19",
+   "Places": [
+    "recqmwLHRG5EQO0gD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Mykola"
+  }
+ },
+ {
+  "id": "recAzRqdGeAxkLouh",
+  "createdTime": "2026-07-17T11:53:57.000Z",
+  "fields": {
+   "tenant": [
+    "reco7zFHZc5inLHeh"
+   ],
+   "price per day": 425,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Voloshyn Oksana",
+   "start date": "2026-07-17",
+   "Places": [
+    "rec7f6zEeL0musz5j",
+    "rec4COlKvsdTYDExy"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Mykola"
+  }
+ },
+ {
+  "id": "rec4LDuexyx0Lb5CV",
+  "createdTime": "2026-07-16T01:29:44.000Z",
+  "fields": {
+   "tenant": [
+    "rec6JlO878A2LVX7f"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-07-16",
+   "Places": [
+    "recgsrcU4SJ2GwQv7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Mykola"
+  }
+ },
+ {
+  "id": "recU4HZYGEzDUkPQJ",
+  "createdTime": "2026-07-15T08:49:00.000Z",
+  "fields": {
+   "tenant": [
+    "recLHbjbBsKl8vOU4"
+   ],
+   "price per day": 442,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 30498,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-15",
+   "Places": [
+    "rec3uajvhvIIxrFtp",
+    "recC03ECsI7Q8n7lR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Mykola"
+  }
+ },
+ {
+  "id": "recRiJIV6uTj4MdN0",
+  "createdTime": "2026-07-15T08:50:07.000Z",
+  "fields": {
+   "tenant": [
+    "recLHbjbBsKl8vOU4"
+   ],
+   "price per day": 442,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 30498,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-15",
+   "Places": [
+    "recj4DtEWNDKLtN0I",
+    "recJjLdqJCJSTBXWs"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Mykola"
+  }
+ },
+ {
+  "id": "rec0z3PAljHdmw0Yf",
+  "createdTime": "2026-07-15T15:03:38.000Z",
+  "fields": {
+   "tenant": [
+    "recT62Teva3csthhM"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-07-15",
+   "Places": [
+    "recMqDQ8BFKXzeYRv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Mykola"
+  }
+ },
+ {
+  "id": "rec2jlW3gorcfH7TW",
+  "createdTime": "2026-07-13T10:55:24.000Z",
+  "fields": {
+   "tenant": [
+    "rec0HXI8QbyHJCe6E"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 16330,
+   "status": "Зайнято",
+   "manger": "Yurchenko Oksana",
+   "start date": "2026-07-13",
+   "Places": [
+    "recv5wpSx7jJIpCRs"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Mykola"
+  }
+ },
+ {
+  "id": "reci4G8iChdPvHV2b",
+  "createdTime": "2026-07-13T10:55:46.000Z",
+  "fields": {
+   "tenant": [
+    "recW74oTrcgN47R20"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 16330,
+   "status": "Зайнято",
+   "manger": "Yurchenko Oksana",
+   "start date": "2026-07-13",
+   "Places": [
+    "reczrPaCkDj6rCS1E"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Mykola"
+  }
+ },
+ {
+  "id": "recsZyF3Vx7wsc7c2",
+  "createdTime": "2026-07-12T14:00:44.000Z",
+  "fields": {
+   "tenant": [
+    "recbzkD7Mcgq17Vqu"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-07-12",
+   "Places": [
+    "recX3vjcpAtSgMxex"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Mykola"
+  }
+ },
+ {
+  "id": "reckVbZIeLURpPx2G",
+  "createdTime": "2026-07-10T12:25:26.000Z",
+  "fields": {
+   "tenant": [
+    "recLHbjbBsKl8vOU4"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 17020,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-10",
+   "Places": [
+    "rec0by8yetBowAZtj"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Mykola"
+  }
+ },
+ {
+  "id": "recrYgFcxzU9wbMCL",
+  "createdTime": "2026-07-10T12:47:42.000Z",
+  "fields": {
+   "tenant": [
+    "recZmmg3i8pbrqpya"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 19980,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-10",
+   "Places": [
+    "recb7FM1vUjh1xjxZ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Mykola"
+  }
+ },
+ {
+  "id": "rececB5XYM6jqsXMa",
+  "createdTime": "2026-07-07T07:26:49.000Z",
+  "fields": {
+   "tenant": [
+    "recaE4Fa6SgGDkhXs"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 13090,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-07",
+   "Places": [
+    "recrTnMkwEgjPejRg"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Mykola"
+  }
+ },
+ {
+  "id": "recwO623jYM14g4Pp",
+  "createdTime": "2026-07-07T08:05:06.000Z",
+  "fields": {
+   "tenant": [
+    "reccTla4aYbvSfOlJ"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 17710,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-07",
+   "Places": [
+    "recZRX7AK3V3NCYTD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Mykola"
+  }
+ },
+ {
+  "id": "recspq5CvNPHVizrb",
+  "createdTime": "2026-07-06T11:03:30.000Z",
+  "fields": {
+   "tenant": [
+    "rec9IgzXg5Rh3Sq9W"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 15600,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-06",
+   "Places": [
+    "rec5a1vdgDUAlNYLs"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Mykola"
+  }
+ },
+ {
+  "id": "recbqz1pLAUG9rYcp",
+  "createdTime": "2026-07-06T19:25:12.000Z",
+  "fields": {
+   "tenant": [
+    "recIqKDZpE67gzqhD"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 19500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-06",
+   "Places": [
+    "recykyAIVzJqtP01e"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Mykola"
+  }
+ },
+ {
+  "id": "recoOITi018QVovaf",
+  "createdTime": "2026-07-04T12:49:38.000Z",
+  "fields": {
+   "tenant": [
+    "recieVH99eLSdFuv4"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-07-04",
+   "Places": [
+    "recwdwYlz0KsCV7NU"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Mykola"
+  }
+ },
+ {
+  "id": "recrHdtKdFoASG65B",
+  "createdTime": "2026-07-04T12:50:41.000Z",
+  "fields": {
+   "tenant": [
+    "rec3C6KVxT3a3l5XG"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-04",
+   "Places": [
+    "recyQ0b1cd2d5Rnu0"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Mykola"
+  }
+ },
+ {
+  "id": "recTPvpCUD1HpQIle",
+  "createdTime": "2026-07-03T11:48:21.000Z",
+  "fields": {
+   "tenant": [
+    "recmh26RXHwazCz09"
+   ],
+   "projectName": "Workintense",
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-07-03",
+   "Places": [
+    "recVyyobYc8WUXIfh"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Mykola"
+  }
+ },
+ {
+  "id": "recCZ1b9r86f5B63J",
+  "createdTime": "2026-07-02T11:37:43.000Z",
+  "fields": {
+   "tenant": [
+    "recF7JHBVdKaAXBGT"
+   ],
+   "price per day": 240,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Kovalenko Vasyl",
+   "start date": "2026-07-02",
+   "Places": [
+    "rec9wKIwMmJwslsfD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Mykola"
+  }
+ },
+ {
+  "id": "recebENX4XBFl0A7O",
+  "createdTime": "2026-07-01T19:58:36.000Z",
+  "fields": {
+   "tenant": [
+    "recSQKGGa6AuN76X5"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-07-01",
+   "Places": [
+    "rec3MllHTOOjXkhJA"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Mykola"
+  }
+ },
+ {
+  "id": "recNA3diQMTk25880",
+  "createdTime": "2026-07-01T19:59:32.000Z",
+  "fields": {
+   "tenant": [
+    "recmh26RXHwazCz09"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-07-01",
+   "Places": [
+    "reclkqu9Em3Dd489N"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Mykola"
+  }
+ },
+ {
+  "id": "recaTPe9w8PExnyww",
+  "createdTime": "2026-06-30T08:11:38.000Z",
+  "fields": {
+   "tenant": [
+    "recn8NOqZYOHPKIlv"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 19320,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-30",
+   "Places": [
+    "recfEJMwzgYJoohHe"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Mykola"
+  }
+ },
+ {
+  "id": "recyGJvg7qOIhtfdU",
+  "createdTime": "2026-06-29T14:37:01.000Z",
+  "fields": {
+   "tenant": [
+    "recIAWh1WDaazakd7"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zhuravel Oksana",
+   "start date": "2026-06-29",
+   "Places": [
+    "rectqV64oDEIcLJhk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Mykola"
+  }
+ },
+ {
+  "id": "recZzJikZs3joKDrR",
+  "createdTime": "2026-06-28T04:10:35.000Z",
+  "fields": {
+   "tenant": [
+    "recldsKAVQ5eQ1lJM"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Voloshyn Oksana",
+   "start date": "2026-06-28",
+   "Places": [
+    "recS1P8Y8QslCCz91"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Mykola"
+  }
+ },
+ {
+  "id": "rec2Iw6oainbUaC7B",
+  "createdTime": "2026-06-28T10:25:52.000Z",
+  "fields": {
+   "tenant": [
+    "rechpQHjWt2gtJlMh"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-06-28",
+   "Places": [
+    "reclF3Ujm4kRf3SBP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Mykola"
+  }
+ },
+ {
+  "id": "recy5kSe4thj5hSsK",
+  "createdTime": "2026-06-21T07:41:04.000Z",
+  "fields": {
+   "tenant": [
+    "rec9WLQcuCO4aec7N"
+   ],
+   "projectName": "3.BHV, s.r.o. ",
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-21",
+   "Places": [
+    "recf98oTFsAU3evr6"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Mykola"
+  }
+ },
+ {
+  "id": "recv56eWrTgHUbH3C",
+  "createdTime": "2026-06-22T07:15:23.000Z",
+  "fields": {
+   "tenant": [
+    "recOCXEpL9CmYnLlz"
+   ],
+   "projectName": "Kunc Steel",
+   "price per day": 150,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-06-20",
+   "Places": [
+    "recrcD20vBIj8ssM1"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Mykola"
+  }
+ },
+ {
+  "id": "recvHOIZUtK5ky615",
+  "createdTime": "2026-06-15T08:57:44.000Z",
+  "fields": {
+   "tenant": [
+    "recnVwwgY1qS6v6cA"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-06-15",
+   "Places": [
+    "rec7Qd9tGLuZOY8PQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Mykola"
+  }
+ },
+ {
+  "id": "recPrtAAJJRihwSkp",
+  "createdTime": "2026-06-15T10:04:32.000Z",
+  "fields": {
+   "tenant": [
+    "recHLSxN3xNuGzwhL"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 24750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-15",
+   "Places": [
+    "recACsuGJ81etKKp9"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Mykola"
+  }
+ },
+ {
+  "id": "recZnPZUlAxQupDdM",
+  "createdTime": "2026-06-15T10:05:19.000Z",
+  "fields": {
+   "tenant": [
+    "recYeTyDSIPrq2Ulp"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 24750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-15",
+   "Places": [
+    "recVMmbEIC0SduRYn"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Mykola"
+  }
+ },
+ {
+  "id": "recFDeeav57lLk40Z",
+  "createdTime": "2026-06-15T10:05:45.000Z",
+  "fields": {
+   "tenant": [
+    "recOPc5TjrQKVJ5rF"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 24750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-15",
+   "Places": [
+    "recDq99JIxPPcCXwJ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Mykola"
+  }
+ },
+ {
+  "id": "recVHqZorrLfq9uYJ",
+  "createdTime": "2026-06-12T02:21:42.000Z",
+  "fields": {
+   "tenant": [
+    "recdWnyXQLldB2jqE"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 22440,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-12",
+   "Places": [
+    "recw1sgrdHXyKLqTR"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Mykola"
+  }
+ },
+ {
+  "id": "recdn8twIk5rglH5q",
+  "createdTime": "2026-06-12T19:08:39.000Z",
+  "fields": {
+   "tenant": [
+    "rec0NYTp4dQlcxqBi"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 25500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-12",
+   "Places": [
+    "reci4ET1HplqC8sRm"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Mykola"
+  }
+ },
+ {
+  "id": "rec7ZTlhYVoQ3Yedn",
+  "createdTime": "2026-06-12T19:08:57.000Z",
+  "fields": {
+   "tenant": [
+    "recXhyqqj1towErKc"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 25500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-12",
+   "Places": [
+    "rec0PkRMwiG2O6czk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Mykola"
+  }
+ },
+ {
+  "id": "recYVJC1GM6r9bo7s",
+  "createdTime": "2026-06-11T14:43:31.000Z",
+  "fields": {
+   "tenant": [
+    "reclVzOoYfX6a8003"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 25750,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-11",
+   "Places": [
+    "recInc7rdtysZF4lU"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Mykola"
+  }
+ },
+ {
+  "id": "recp1NLIw5u9Vby9f",
+  "createdTime": "2026-06-08T08:27:51.000Z",
+  "fields": {
+   "tenant": [
+    "recV7gVf599gysGCv"
+   ],
+   "projectName": "ECOLOGISTICS",
+   "price per day": 240,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-06-06",
+   "Places": [
+    "recjSelo05rR2ffb9"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Mykola"
+  }
+ },
+ {
+  "id": "recsqM4kAcafnd3NO",
+  "createdTime": "2026-06-03T17:49:28.000Z",
+  "fields": {
+   "tenant": [
+    "recTzKCa9noSrMDLy"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tymoshenko Oksana",
+   "start date": "2026-06-03",
+   "Places": [
+    "recVBamQO7SQy7sAh"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Mykola"
+  }
+ },
+ {
+  "id": "rec4htaKxcqKVcgBT",
+  "createdTime": "2026-06-02T15:05:06.000Z",
+  "fields": {
+   "tenant": [
+    "recyW2tiafuh4VGcV"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 25760,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-02",
+   "Places": [
+    "rechNCqkQGKStkN2J"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Nataliia"
+  }
+ },
+ {
+  "id": "recqfcz8tLYbuqUwC",
+  "createdTime": "2026-06-02T21:11:14.000Z",
+  "fields": {
+   "tenant": [
+    "recuFpq2hnD0xL8Mr"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 23520,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-02",
+   "Places": [
+    "rec2RrVoMquYoa3iE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Nataliia"
+  }
+ },
+ {
+  "id": "recPlnoj35bBj2h0j",
+  "createdTime": "2026-06-02T21:12:18.000Z",
+  "fields": {
+   "tenant": [
+    "recE416EOsv1amriW"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-02",
+   "Places": [
+    "recjJa7lIpnfVU4Qq"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Nataliia"
+  }
+ },
+ {
+  "id": "rec7jRo5M6GuV3Fub",
+  "createdTime": "2026-06-01T10:23:12.000Z",
+  "fields": {
+   "tenant": [
+    "recS1IjtxiNC2Do0V"
+   ],
+   "price per day": 240,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Kovalenko Vasyl",
+   "start date": "2026-06-01",
+   "Places": [
+    "recxZxPDxuH9ZU2ZM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Nataliia"
+  }
+ },
+ {
+  "id": "recToLQlR3Ci5sIfZ",
+  "createdTime": "2026-06-01T14:27:44.000Z",
+  "fields": {
+   "tenant": [
+    "recdjQn4lONSmkjDy"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-06-01",
+   "Places": [
+    "recuVEoPQx8dgwMh6"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Nataliia"
+  }
+ },
+ {
+  "id": "recX28GeOTegTjWag",
+  "createdTime": "2026-05-29T10:43:50.000Z",
+  "fields": {
+   "tenant": [
+    "reccU2I1xYsu1ROvF"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-05-29",
+   "Places": [
+    "rec66QPAWwAlths4R"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Nataliia"
+  }
+ },
+ {
+  "id": "recM0vUzVfH6ECowi",
+  "createdTime": "2026-05-29T10:44:31.000Z",
+  "fields": {
+   "tenant": [
+    "recsOKRrFr2hrN62B"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Osypenko Oksana",
+   "start date": "2026-05-29",
+   "Places": [
+    "recy246YEX7Q7jEi0"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Nataliia"
+  }
+ },
+ {
+  "id": "recFkr0dX387LqGcF",
+  "createdTime": "2026-05-28T13:25:13.000Z",
+  "fields": {
+   "tenant": [
+    "recs0n0zJcKUoVsSU"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 31590,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-28",
+   "Places": [
+    "recBJ8DjEK6B7cOCw"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Nataliia"
+  }
+ },
+ {
+  "id": "recU2BZiKprn77vUr",
+  "createdTime": "2026-05-26T08:11:08.000Z",
+  "fields": {
+   "tenant": [
+    "recajRvr0SDGHTI9B"
+   ],
+   "price per day": 425,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Reznik Oksana",
+   "start date": "2026-05-26",
+   "Places": [
+    "rec8gYhu6OG7Gbuzs",
+    "recATx8fLgrUb3Lsm"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Nataliia"
+  }
+ },
+ {
+  "id": "recF5FSNRkE2dcAf9",
+  "createdTime": "2026-05-26T15:47:00.000Z",
+  "fields": {
+   "tenant": [
+    "recXFnYX2WXbo7oCJ"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 30940,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-26",
+   "Places": [
+    "recBgctuxFiW2iVu3"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Nataliia"
+  }
+ },
+ {
+  "id": "recIvaQZOyaNMS1LZ",
+  "createdTime": "2026-05-26T15:47:25.000Z",
+  "fields": {
+   "tenant": [
+    "recvo2QBqmUL2st8E"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 30940,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-26",
+   "Places": [
+    "recCk3nMpP7YpQdKg"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Nataliia"
+  }
+ },
+ {
+  "id": "recQeX5ECezz8WMKM",
+  "createdTime": "2026-05-21T13:19:38.000Z",
+  "fields": {
+   "tenant": [
+    "rec1kxmtmyP99B7RU"
+   ],
+   "projectName": "POP Airport",
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-21",
+   "Places": [
+    "recTT8DSsAdDzTFHO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Nataliia"
+  }
+ },
+ {
+  "id": "reck9wnzICxhCmvuf",
+  "createdTime": "2026-05-13T07:44:04.000Z",
+  "fields": {
+   "tenant": [
+    "recmm6TaPwp508Ef1"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 29900,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-05-15",
+   "Places": [
+    "recCipEOCqPEptGUo"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Nataliia"
+  }
+ },
+ {
+  "id": "rec6o27sGZRnN6ARr",
+  "createdTime": "2026-05-13T07:42:42.000Z",
+  "fields": {
+   "tenant": [
+    "recIeh8witTLaE4cq"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-13",
+   "Places": [
+    "reclsOKsQglsb807G"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Nataliia"
+  }
+ },
+ {
+  "id": "recK5U1NUGtju1PQ2",
+  "createdTime": "2026-05-10T18:21:20.000Z",
+  "fields": {
+   "tenant": [
+    "recAytZuXapFGUuyu"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Bondarenko Vasyl",
+   "start date": "2026-05-10",
+   "Places": [
+    "recddY8yJzJNPbHrd"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Nataliia"
+  }
+ },
+ {
+  "id": "recivHmhJV3Ga1NSa",
+  "createdTime": "2026-05-08T08:53:26.000Z",
+  "fields": {
+   "tenant": [
+    "recomuacntpJy2It2"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-05-08",
+   "Places": [
+    "recAyywVCOp8N7aNO"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Nataliia"
+  }
+ },
+ {
+  "id": "recQrpAxyGVcoKNfG",
+  "createdTime": "2026-05-08T08:39:20.000Z",
+  "fields": {
+   "tenant": [
+    "recqiNuhOwdBK3VTq"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-05-07",
+   "Places": [
+    "recG03rpivPlG8sWh"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Nataliia"
+  }
+ },
+ {
+  "id": "recIAh2F8REBMnBO0",
+  "createdTime": "2026-05-06T16:03:06.000Z",
+  "fields": {
+   "tenant": [
+    "recs4csa8W8DA5qd6"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2026-05-06",
+   "Places": [
+    "rec5VOcjud9vd4QXt"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Nataliia"
+  }
+ },
+ {
+  "id": "rec7hQDtqYBog1Kr0",
+  "createdTime": "2026-05-06T16:03:32.000Z",
+  "fields": {
+   "tenant": [
+    "recs4csa8W8DA5qd6"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-06",
+   "Places": [
+    "recWbZUo7kw4btShZ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Nataliia"
+  }
+ },
+ {
+  "id": "recM7ON0bufbuyn8t",
+  "createdTime": "2026-05-05T20:20:00.000Z",
+  "fields": {
+   "tenant": [
+    "recsU2Kg3Hrx4D3mC"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 37800,
+   "status": "Зайнято",
+   "manger": "Verbytskyi Oksana",
+   "start date": "2026-05-05",
+   "Places": [
+    "recXIfLf9ZtQgqseE"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Nataliia"
+  }
+ },
+ {
+  "id": "recXq51V1Bh7h1j2m",
+  "createdTime": "2026-05-04T15:32:18.000Z",
+  "fields": {
+   "tenant": [
+    "recyBadmKJApHE1sg"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 19870,
+   "status": "Зайнято",
+   "paid": 4100,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-05-04",
+   "Places": [
+    "reclYKUTjYkNFBlzu"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Nataliia"
+  }
+ },
+ {
+  "id": "rec26ATkUAGS5OTkD",
+  "createdTime": "2026-04-28T13:33:19.000Z",
+  "fields": {
+   "tenant": [
+    "recg1SndzoP8tNgWF"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 33810,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-04-28",
+   "Places": [
+    "recHMCo7sczFFuEK6"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Nataliia"
+  }
+ },
+ {
+  "id": "recpXxP2FwCW4qvNO",
+  "createdTime": "2026-04-16T19:26:08.000Z",
+  "fields": {
+   "tenant": [
+    "recgIPPkFb7bYmqTU"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 41340,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-04-16",
+   "Places": [
+    "recj1Xai81GHdswOP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Nataliia"
+  }
+ },
+ {
+  "id": "recqWiqXbzwuk2KYU",
+  "createdTime": "2026-04-10T18:01:58.000Z",
+  "fields": {
+   "tenant": [
+    "rec0RiEmFc9eKV2X9"
+   ],
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tymoshenko Oksana",
+   "start date": "2026-04-10",
+   "Places": [
+    "rec1EHQYGVHyiXVJH"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Nataliia"
+  }
+ },
+ {
+  "id": "recr533OUGCBfVnBK",
+  "createdTime": "2026-04-10T18:03:01.000Z",
+  "fields": {
+   "tenant": [
+    "recTNBPWqK6byROJG"
+   ],
+   "projectName": "Schenker Kosmonosy",
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 36300,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-04-10",
+   "Places": [
+    "recWKF8MmRmlYKJ6b"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Nataliia"
+  }
+ },
+ {
+  "id": "recUUJPmnzbwALdIf",
+  "createdTime": "2026-04-07T07:35:41.000Z",
+  "fields": {
+   "tenant": [
+    "recirTckmtQ7YZGo2"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 46170,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-04-04",
+   "Places": [
+    "recL6ZCuvGXfgJx63"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Nataliia"
+  }
+ },
+ {
+  "id": "recLF5i2uuPP1Vqkg",
+  "createdTime": "2026-03-30T16:02:28.000Z",
+  "fields": {
+   "tenant": [
+    "recp7o2xn68bXvKFq"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 45760,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-03-30",
+   "Places": [
+    "rec6PWQwyU9Do9Yw1"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Nataliia"
+  }
+ },
+ {
+  "id": "recdZwS3PokxVozEt",
+  "createdTime": "2026-03-27T09:34:13.000Z",
+  "fields": {
+   "tenant": [
+    "rec0UHcSDEVKBGx3j"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 41170,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-03-27",
+   "Places": [
+    "recRWdbo2fYVuUA9Z"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Nataliia"
+  }
+ },
+ {
+  "id": "recKcKPRa3RhppMuT",
+  "createdTime": "2026-03-26T08:36:38.000Z",
+  "fields": {
+   "tenant": [
+    "recH3GHp3XwmXfR6M"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 30600,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-03-26",
+   "Places": [
+    "recxYJTi5OoJ6lP7B"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Nataliia"
+  }
+ },
+ {
+  "id": "recyHfOg7IGNdOCQ7",
+  "createdTime": "2026-03-20T16:23:07.000Z",
+  "fields": {
+   "tenant": [
+    "rect1UrPn85ZO77y6"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-03-20",
+   "Places": [
+    "recpP23TeXXxMMU1w"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Nataliia"
+  }
+ },
+ {
+  "id": "rec7XWF1tZ9TYlFIn",
+  "createdTime": "2026-03-13T09:43:53.000Z",
+  "fields": {
+   "tenant": [
+    "recFs5anFM1jGO6fk"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Yatsenko Oksana",
+   "start date": "2026-03-13",
+   "Places": [
+    "recE8SkFIbLyuSEUp"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Nataliia"
+  }
+ },
+ {
+  "id": "recmM1VFxxv3odu5m",
+  "createdTime": "2026-03-07T20:19:24.000Z",
+  "fields": {
+   "tenant": [
+    "rec07BpnKb5waoFfZ"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-03-07",
+   "Places": [
+    "reckQdX6Cyq8CUihQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Nataliia"
+  }
+ },
+ {
+  "id": "recWQtKSDLL8RkpYs",
+  "createdTime": "2026-03-06T15:32:21.000Z",
+  "fields": {
+   "tenant": [
+    "recRjWGGCEMWWY5Bm"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 46000,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-03-06",
+   "Places": [
+    "recYHyjx0vA6eRmsM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Nataliia"
+  }
+ },
+ {
+  "id": "recb48aa7uvlmOZGA",
+  "createdTime": "2026-02-28T19:16:20.000Z",
+  "fields": {
+   "tenant": [
+    "recirTckmtQ7YZGo2"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 46770,
+   "status": "Зайнято",
+   "paid": 8850,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-02-28",
+   "Places": [
+    "rec85YYWpDkfcvxzh"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Nataliia"
+  }
+ },
+ {
+  "id": "reclpeZ5EKv8I1pLS",
+  "createdTime": "2026-02-24T09:12:54.000Z",
+  "fields": {
+   "tenant": [
+    "recCaWrVF7kMINpye"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 41070,
+   "status": "Зайнято",
+   "paid": 15900,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-02-23",
+   "Places": [
+    "recOupnIutodtEPgY",
+    "recUxItduKSye4x0U"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Nataliia"
+  }
+ },
+ {
+  "id": "recKbZ3oLIHASAqq2",
+  "createdTime": "2026-02-02T08:25:58.000Z",
+  "fields": {
+   "tenant": [
+    "recEoTAUcZWalp542"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2026-02-02",
+   "Places": [
+    "recMoazLwr0XXu3nT"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Nataliia"
+  }
+ },
+ {
+  "id": "recx4Ppr3z3ujYj69",
+  "createdTime": "2026-02-02T17:54:54.000Z",
+  "fields": {
+   "tenant": [
+    "recW1AHKpPh0PJVhC"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Yatsenko Oksana",
+   "start date": "2026-02-02",
+   "Places": [
+    "recHgNvvoYcDyxKG3"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Nataliia"
+  }
+ },
+ {
+  "id": "recrBDQ4wff74WVMj",
+  "createdTime": "2026-02-02T17:57:47.000Z",
+  "fields": {
+   "tenant": [
+    "receSi8AUfzkWpJuB"
+   ],
+   "projectName": "Workintense režie",
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 62640,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-02-02",
+   "Places": [
+    "reckUJ5OW4YnyZbFN"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Nataliia"
+  }
+ },
+ {
+  "id": "recR0vAN07gSYMtGX",
+  "createdTime": "2026-02-02T17:58:58.000Z",
+  "fields": {
+   "tenant": [
+    "rec1EFMLrCPqI2UUY"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 62640,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-02-02",
+   "Places": [
+    "recdPGJwCih79A5rF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Nataliia"
+  }
+ },
+ {
+  "id": "recCVI8LFUTydE5oc",
+  "createdTime": "2026-01-20T16:13:09.000Z",
+  "fields": {
+   "tenant": [
+    "recqtkx3JnbuuFNU9"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Didyk Oksana",
+   "start date": "2026-01-20",
+   "Places": [
+    "recoSmdigxmTDu0vf"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Nataliia"
+  }
+ },
+ {
+  "id": "recCRvae3weFYmjg2",
+  "createdTime": "2026-01-19T21:26:11.000Z",
+  "fields": {
+   "tenant": [
+    "recoYEJTyjsUZrUFl"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 41820,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-01-19",
+   "Places": [
+    "rec5d4HEEbDtNa2XN"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Nataliia"
+  }
+ },
+ {
+  "id": "recAvhrD5Z5S79gAk",
+  "createdTime": "2026-01-15T19:18:53.000Z",
+  "fields": {
+   "tenant": [
+    "recT51sEjjam1lUoc"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 42500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-01-15",
+   "Places": [
+    "recnb51z3ED7XRKAA"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Iryna"
+  }
+ },
+ {
+  "id": "rect1KaLKSMGKRru0",
+  "createdTime": "2026-01-15T19:20:11.000Z",
+  "fields": {
+   "tenant": [
+    "rec3aGDtxiTX6YuzP"
+   ],
+   "price per day": 170,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 42500,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-01-15",
+   "Places": [
+    "recTQ6oyUrhCSRtjA"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Nataliia"
+  }
+ },
+ {
+  "id": "recEsMfVUEtEyaaZH",
+  "createdTime": "2026-01-12T08:20:43.000Z",
+  "fields": {
+   "tenant": [
+    "reco3S8tCfo1ZNpZR"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2026-01-05",
+   "Places": [
+    "rec0b8OfioJzMZvlm"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Petro"
+  }
+ },
+ {
+  "id": "rechH4dnQo48vwAps",
+  "createdTime": "2026-01-03T09:17:28.000Z",
+  "fields": {
+   "tenant": [
+    "recZeDp4LkqxImkiL"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 34750,
+   "status": "Зайнято",
+   "paid": 35990,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2026-01-03",
+   "Places": [
+    "recdQKGnPeHDlzVRD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Petro"
+  }
+ },
+ {
+  "id": "recGRgwZEbjXJFpgk",
+  "createdTime": "2025-12-17T16:00:59.000Z",
+  "fields": {
+   "tenant": [
+    "recvtawMYD31b5dRq"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-17",
+   "Places": [
+    "recUGJ421rD5i65eo"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Petro"
+  }
+ },
+ {
+  "id": "rect8TsOnxct7o0Nd",
+  "createdTime": "2025-12-11T19:16:52.000Z",
+  "fields": {
+   "tenant": [
+    "recddAwJDfU2cSnQw"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 65550,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2025-12-11",
+   "Places": [
+    "recFbbgBLkVloaoOP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Petro"
+  }
+ },
+ {
+  "id": "recdRZGjnskpCz1Pn",
+  "createdTime": "2025-12-08T09:38:59.000Z",
+  "fields": {
+   "tenant": [
+    "recA49SaSBG9B3ZGc"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 50856,
+   "status": "Зайнято",
+   "paid": 26904,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recrabcJUJw3jABNr"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Petro"
+  }
+ },
+ {
+  "id": "reclhzkMER1Vq7yOx",
+  "createdTime": "2025-12-08T09:44:15.000Z",
+  "fields": {
+   "tenant": [
+    "reckJbexfugpTmUaW"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recNHBL7xehKHSM7g"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Petro"
+  }
+ },
+ {
+  "id": "recV8zTWTRZgMYN7U",
+  "createdTime": "2025-12-08T09:47:27.000Z",
+  "fields": {
+   "tenant": [
+    "recG1L9AOgkvNAQ0E"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 57374,
+   "status": "Зайнято",
+   "paid": 20386,
+   "manger": "Zahorodnii Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recS45aUpb7a9l2RM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Petro"
+  }
+ },
+ {
+  "id": "rec53vD1knX96raFR",
+  "createdTime": "2025-12-08T09:50:20.000Z",
+  "fields": {
+   "tenant": [
+    "recnReSTY5v9z5pUl"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 24369,
+   "status": "Зайнято",
+   "paid": 53391,
+   "manger": "Zahorodnii Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recFLH2Mto1oA1wSv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Petro"
+  }
+ },
+ {
+  "id": "recSleVxRqv1Wp7CC",
+  "createdTime": "2025-12-08T11:42:05.000Z",
+  "fields": {
+   "tenant": [
+    "rec0cwnF6DMMSAriC"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recY6gCa0dvK4KyPL"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Petro"
+  }
+ },
+ {
+  "id": "recdmuv2SAs9Y6U6u",
+  "createdTime": "2025-12-08T11:42:42.000Z",
+  "fields": {
+   "tenant": [
+    "recpiQfBX8P4GklIZ"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": -64208,
+   "status": "Зайнято",
+   "paid": 64208,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-08",
+   "Places": [
+    "recTNsr59iEkFHsYM"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Petro"
+  }
+ },
+ {
+  "id": "recps6ahmycw9C4MM",
+  "createdTime": "2025-12-05T12:29:47.000Z",
+  "fields": {
+   "tenant": [
+    "rechpU1KqnzfHtavE"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Shulha Oksana",
+   "start date": "2025-12-05",
+   "Places": [
+    "recWktQW5b3qwJI4W"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Petro"
+  }
+ },
+ {
+  "id": "rec29Y5sR3eQ74stD",
+  "createdTime": "2025-12-01T14:20:42.000Z",
+  "fields": {
+   "tenant": [
+    "recrwXWMybmC0IZyL"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-01",
+   "Places": [
+    "recOkO7SiDPyfrIrC",
+    "recTvzx8WjMrCEOTp"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Petro"
+  }
+ },
+ {
+  "id": "rec8ygU0Dy5kTcv6b",
+  "createdTime": "2025-12-01T14:24:55.000Z",
+  "fields": {
+   "tenant": [
+    "recf9XDbFfUriDe4n"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-12-01",
+   "Places": [
+    "recGODSABRyqXlnNF",
+    "recCPgkUAoEVNQrJ9"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Petro"
+  }
+ },
+ {
+  "id": "rechmZ5Xa4Cg06Aiv",
+  "createdTime": "2025-11-18T08:36:38.000Z",
+  "fields": {
+   "tenant": [
+    "recVMkOFUe7V1ihfh"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 68590,
+   "status": "Зайнято",
+   "paid": 14570,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-11-18",
+   "Places": [
+    "recR5Ynl1ce39Z25J"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Petro"
+  }
+ },
+ {
+  "id": "rec2qtinHeL7jtWmH",
+  "createdTime": "2025-11-16T12:11:50.000Z",
+  "fields": {
+   "tenant": [
+    "recV6hIJRjE4q0ZfL"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Voloshyn Oksana",
+   "start date": "2025-11-16",
+   "Places": [
+    "rec5yoOBsS8SVVVSn"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Petro"
+  }
+ },
+ {
+  "id": "recrBJ91a2fQpasaG",
+  "createdTime": "2025-11-04T09:03:05.000Z",
+  "fields": {
+   "tenant": [
+    "recBB4sbxCEIEqZ7i"
+   ],
+   "projectName": "Purem",
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 83200,
+   "status": "Зайнято",
+   "paid": 3740,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-11-04",
+   "Places": [
+    "reccAW6tK6Bo9tzJ7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Petro"
+  }
+ },
+ {
+  "id": "rectG7AQgFY9rkdk9",
+  "createdTime": "2025-11-04T13:37:55.000Z",
+  "fields": {
+   "tenant": [
+    "rec0OaHS3S1Kf7Nvj"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-11-04",
+   "Places": [
+    "recKptNdeztiotfP7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Petro"
+  }
+ },
+ {
+  "id": "reckQ79xfvnUAPIWB",
+  "createdTime": "2025-10-22T15:04:09.000Z",
+  "fields": {
+   "tenant": [
+    "recQD6A3A6KLUnywb"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "paid": 4100,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-10-22",
+   "Places": [
+    "rec3IoQc2Tn6x6Iov"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Palamarchuk Petro"
+  }
+ },
+ {
+  "id": "rece1Y4ZteYof39Et",
+  "createdTime": "2025-10-22T07:04:16.000Z",
+  "fields": {
+   "tenant": [
+    "recP3eAdckaTwdPSK"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-10-21",
+   "Places": [
+    "recZgITVYdRKtBxW7"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Voloshyn Petro"
+  }
+ },
+ {
+  "id": "recdOwrZnTwH7oUBq",
+  "createdTime": "2025-10-13T10:16:06.000Z",
+  "fields": {
+   "tenant": [
+    "recxTuDesJmFVFXCK"
+   ],
+   "projectName": "Schenker",
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 79120,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-10-13",
+   "Places": [
+    "recW8JOryaXYn3nmC"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zhuravel Petro"
+  }
+ },
+ {
+  "id": "rec0B1HTjbkGRhR04",
+  "createdTime": "2025-10-09T09:42:16.000Z",
+  "fields": {
+   "tenant": [
+    "recJLRpMVoh6NrD8D"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Didyk Oksana",
+   "start date": "2025-10-09",
+   "Places": [
+    "recjSp3DsFFZYdPnm"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Sydorenko Petro"
+  }
+ },
+ {
+  "id": "reci5leUvPhf7LRVn",
+  "createdTime": "2025-10-02T07:23:33.000Z",
+  "fields": {
+   "tenant": [
+    "recDEyTHHHhmcEc1H"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Romaniuk Oksana",
+   "start date": "2025-10-02",
+   "Places": [
+    "recrZMcsLg4o6aRkW"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Havryliuk Petro"
+  }
+ },
+ {
+  "id": "recxw1ytEqL7pmHUr",
+  "createdTime": "2025-10-03T06:11:16.000Z",
+  "fields": {
+   "tenant": [
+    "recocoqvBoH87JjqQ"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 92300,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2025-10-02",
+   "Places": [
+    "recQsNtbpr4lwOXwr"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Osypenko Petro"
+  }
+ },
+ {
+  "id": "recn97pUWBUrhCzN5",
+  "createdTime": "2025-09-24T20:16:56.000Z",
+  "fields": {
+   "tenant": [
+    "recP7oxVIvICRrr8t"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 74460,
+   "status": "Зайнято",
+   "paid": 23550,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-09-24",
+   "Places": [
+    "recyagkZ7NNotR8NF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Nazarenko Petro"
+  }
+ },
+ {
+  "id": "recZsa5lrW03w1Vf1",
+  "createdTime": "2025-09-12T06:47:14.000Z",
+  "fields": {
+   "tenant": [
+    "recQkIubrb8kOEo9S"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Zahorodnii Oksana",
+   "start date": "2025-09-12",
+   "Places": [
+    "recmSPojMzxB4ZQcV"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tymoshenko Petro"
+  }
+ },
+ {
+  "id": "rec89uiqQfDH0vKYg",
+  "createdTime": "2025-08-27T10:36:30.000Z",
+  "fields": {
+   "tenant": [
+    "recFu36PF2jp8SUa1"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 101660,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-08-27",
+   "Places": [
+    "reczPd37app1xEdAN"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yatsenko Petro"
+  }
+ },
+ {
+  "id": "recXJ1ZIXZ0WigM1w",
+  "createdTime": "2025-08-01T09:59:10.000Z",
+  "fields": {
+   "tenant": [
+    "recBCIS7IIw4MUZsK"
+   ],
+   "projectName": "LKY",
+   "price per day": 240,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-08-01",
+   "Places": [
+    "reckZWwSBLBAlcPyz"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Chernenko Petro"
+  }
+ },
+ {
+  "id": "rechLEmot2mZL15C1",
+  "createdTime": "2025-08-01T10:01:29.000Z",
+  "fields": {
+   "tenant": [
+    "recEIdy53d86dRVgi"
+   ],
+   "projectName": "LKY",
+   "price per day": 240,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-08-01",
+   "Places": [
+    "recJNKzvtr5vUpW7c"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Didyk Petro"
+  }
+ },
+ {
+  "id": "recFpZjgmgft7HO7R",
+  "createdTime": "2025-07-28T09:17:02.000Z",
+  "fields": {
+   "tenant": [
+    "recI0ji7qiXPOXrkN"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-07-31",
+   "activity status": "Активнi",
+   "tenant name": "Panchenko Petro"
+  }
+ },
+ {
+  "id": "recRuqBm3GrBYOWZx",
+  "createdTime": "2025-07-28T09:19:09.000Z",
+  "fields": {
+   "tenant": [
+    "rectAPjfVHMqdqwyU"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-07-31",
+   "activity status": "Активнi",
+   "tenant name": "Romaniuk Petro"
+  }
+ },
+ {
+  "id": "recAXrOsR4pJQl26G",
+  "createdTime": "2025-07-29T14:28:07.000Z",
+  "fields": {
+   "tenant": [
+    "rec58o0QMgpOOOdu4"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tkachenko Vasyl",
+   "start date": "2025-07-29",
+   "Places": [
+    "recWLFSqlMKTPgIT5"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kulyk Petro"
+  }
+ },
+ {
+  "id": "recjVXmsAuJ4XzE8V",
+  "createdTime": "2025-07-03T08:18:50.000Z",
+  "fields": {
+   "tenant": [
+    "recCNTnbLineSpvoM"
+   ],
+   "price per day": 210,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Tkachenko Vasyl",
+   "start date": "2025-07-03",
+   "Places": [
+    "recKQMMrETCU8EEUJ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Stelmakh Petro"
+  }
+ },
+ {
+  "id": "recWmuwUPCRYFskKG",
+  "createdTime": "2025-07-16T14:49:38.000Z",
+  "fields": {
+   "tenant": [
+    "rec7A3AuKrGBbFn4A"
+   ],
+   "projectName": "TESCO sklad",
+   "price per day": 230,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 103040,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-07-01",
+   "Places": [
+    "recGZZPt0OtzUy3bJ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Verbytskyi Petro"
+  }
+ },
+ {
+  "id": "recxpgrDjkKh2NRFn",
+  "createdTime": "2025-09-11T17:01:35.000Z",
+  "fields": {
+   "tenant": [
+    "reccYU1xcxd734WVl"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 120960,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-07-01",
+   "Places": [
+    "rec4lo8mfcCW7deBv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Zahorodnii Petro"
+  }
+ },
+ {
+  "id": "rec7aJGBMErZOdR8b",
+  "createdTime": "2025-06-11T14:01:01.000Z",
+  "fields": {
+   "tenant": [
+    "recnLqNST4dFOGS84"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 76215,
+   "status": "Зайнято",
+   "paid": 31425,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-06-11",
+   "Places": [
+    "recsXfVhOruTWD2ft"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Prokopenko Petro"
+  }
+ },
+ {
+  "id": "recEHtCJSEAVi4ZxD",
+  "createdTime": "2025-05-10T16:52:50.000Z",
+  "fields": {
+   "tenant": [
+    "recG4yMn7vnNVFOUZ"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Romaniuk Oksana",
+   "start date": "2025-05-10",
+   "Places": [
+    "rec2UmomyfzPThMBk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lytvyn Petro"
+  }
+ },
+ {
+  "id": "recmRYsagbY8aoLXe",
+  "createdTime": "2025-05-26T15:29:01.000Z",
+  "fields": {
+   "tenant": [
+    "recmY55oEZXJh2aNf"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 85098,
+   "status": "Зайнято",
+   "paid": 31972,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-05-01",
+   "Places": [
+    "recruOEliPVomvNTf"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Onyshchenko Petro"
+  }
+ },
+ {
+  "id": "rec3ftUgF4X1DkB78",
+  "createdTime": "2025-04-30T13:17:09.000Z",
+  "fields": {
+   "tenant": [
+    "rechRr5tXp98GrSVy"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 69775,
+   "status": "Зайнято",
+   "paid": 67925,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-04-30",
+   "Places": [
+    "recjqIduhR7rUQHRQ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Reznik Petro"
+  }
+ },
+ {
+  "id": "recW8xxxD18AaWgAc",
+  "createdTime": "2025-04-29T10:51:39.000Z",
+  "fields": {
+   "tenant": [
+    "recg4YxrS5ZO3TDod"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 87441,
+   "status": "Зайнято",
+   "paid": 45419,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-04-29",
+   "Places": [
+    "rechnR8bltpvLXmJF"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shulha Petro"
+  }
+ },
+ {
+  "id": "receBa2rfNDgr15su",
+  "createdTime": "2025-04-18T15:29:48.000Z",
+  "fields": {
+   "tenant": [
+    "recRQB7SKS9C8MMCg"
+   ],
+   "projectName": "Pekárna Kabát",
+   "price per day": 210,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-04-18",
+   "Places": [
+    "recOySi9Kst4oIYov"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachuk Petro"
+  }
+ },
+ {
+  "id": "recH9UGAz8Cu7qYYs",
+  "createdTime": "2025-05-07T08:19:10.000Z",
+  "fields": {
+   "tenant": [
+    "recOmQuSHONzwXDHH"
+   ],
+   "projectName": "Coca Cola",
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Onyshchenko Oksana",
+   "start date": "2025-04-06",
+   "Places": [
+    "recJCCOVZodWj9OrP"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Yurchenko Petro"
+  }
+ },
+ {
+  "id": "rectdIbsVSleeewYe",
+  "createdTime": "2025-03-13T17:02:30.000Z",
+  "fields": {
+   "tenant": [
+    "recbiNjT99xGnLcfw"
+   ],
+   "projectName": "MANDÍK",
+   "price per day": 200,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2025-03-12",
+   "Places": [
+    "reclB9Ds0SsKd9U0v"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kovalenko Oksana"
+  }
+ },
+ {
+  "id": "recMnQloqX2rgJq4N",
+  "createdTime": "2024-12-02T17:48:05.000Z",
+  "fields": {
+   "tenant": [
+    "recMbb6HB8e1UGi3f"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 100077,
+   "status": "Зайнято",
+   "paid": 51493,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-12-02",
+   "Places": [
+    "recOUDY9NbZ52kP6X"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Bondarenko Oksana"
+  }
+ },
+ {
+  "id": "recpfBDuqavIfRRJB",
+  "createdTime": "2024-12-30T10:53:58.000Z",
+  "fields": {
+   "tenant": [
+    "rec2193ocMj2djQlF"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-12-01",
+   "Places": [
+    "recw7pEgsKcY35WH2"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Tkachenko Oksana"
+  }
+ },
+ {
+  "id": "recgabYzcma49WzAG",
+  "createdTime": "2024-10-30T13:48:11.000Z",
+  "fields": {
+   "tenant": [
+    "recfJbb1sDVpSeLki"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-30",
+   "Places": [
+    "rec518ceDuta3SpVd"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Shevchuk Oksana"
+  }
+ },
+ {
+  "id": "rec96f52IQjijdMay",
+  "createdTime": "2024-10-22T13:06:35.000Z",
+  "fields": {
+   "tenant": [
+    "recJOzwoKiQlIKj7y"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 111177,
+   "status": "Зайнято",
+   "paid": 49823,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-22",
+   "Places": [
+    "recpBeBrkGbHKobBv"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Melnyk Oksana"
+  }
+ },
+ {
+  "id": "recbQWpqdTzSzP9gy",
+  "createdTime": "2024-10-14T07:31:28.000Z",
+  "fields": {
+   "tenant": [
+    "recaqomKb2ClfjzRf"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-14",
+   "Places": [
+    "recYUyRgGCDVMtARn"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Boiko Oksana"
+  }
+ },
+ {
+  "id": "rect7WydOmmIbUBrJ",
+  "createdTime": "2024-10-12T17:15:24.000Z",
+  "fields": {
+   "tenant": [
+    "rechhs9jpWDs7smwF"
+   ],
+   "price per day": 250,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-12",
+   "Places": [
+    "recprGPUk6AHh0IKe"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Kravets Oksana"
+  }
+ },
+ {
+  "id": "recQgdTyiwXVK7cCt",
+  "createdTime": "2024-10-12T17:17:01.000Z",
+  "fields": {
+   "tenant": [
+    "recSx8vwitxiaTEwa"
+   ],
+   "price per day": 270,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 169530,
+   "status": "Зайнято",
+   "paid": 22170,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-12",
+   "Places": [
+    "recQzbHNbUICfWC7H"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Polishchuk Oksana"
+  }
+ },
+ {
+  "id": "reckgPjdxreiu8kEJ",
+  "createdTime": "2024-10-11T15:03:07.000Z",
+  "fields": {
+   "tenant": [
+    "recJejdlMXwtUtN1P"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Didyk Oksana",
+   "start date": "2024-10-11",
+   "Places": [
+    "recKWODkJONC4H8J8"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Savchenko Oksana"
+  }
+ },
+ {
+  "id": "recQ9tTMW7UyoXFVL",
+  "createdTime": "2024-10-11T15:08:13.000Z",
+  "fields": {
+   "tenant": [
+    "recefa8gyrko2Wf0d"
+   ],
+   "price per day": 0,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Lytvyn Oksana",
+   "start date": "2024-10-11",
+   "Places": [
+    "recVoa01GYx8aY8xk"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Rudenko Oksana"
+  }
+ },
+ {
+  "id": "recJxpwjbuAdVxy7i",
+  "createdTime": "2024-10-11T15:10:19.000Z",
+  "fields": {
+   "tenant": [
+    "recdWeOCGM3bRcNni"
+   ],
+   "projectName": "KBJ",
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-11",
+   "Places": [
+    "recU2w9ILDQYa6zPB"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Marchenko Oksana"
+  }
+ },
+ {
+  "id": "recJC6Onge7TQKkU4",
+  "createdTime": "2024-10-11T15:10:39.000Z",
+  "fields": {
+   "tenant": [
+    "recgqULIDxV43PUzz"
+   ],
+   "projectName": "KBJ",
+   "price per day": 0,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 0,
+   "status": "Зайнято",
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-10-11",
+   "Places": [
+    "recmjBVd5YMKflGoo"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Lysenko Oksana"
+  }
+ },
+ {
+  "id": "recAFkVqYU7BWuAbw",
+  "createdTime": "2024-08-21T08:57:43.000Z",
+  "fields": {
+   "tenant": [
+    "recT9LyYzyTrWgdPA"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 165830,
+   "status": "Зайнято",
+   "paid": 9430,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-08-21",
+   "Places": [
+    "recqFasM06O0LV7jJ"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Moroz Oksana"
+  }
+ },
+ {
+  "id": "recEfC5T3pLu2Yhfv",
+  "createdTime": "2024-08-07T13:14:25.000Z",
+  "fields": {
+   "tenant": [
+    "recMaoVmeYcvq9e5P"
+   ],
+   "price per day": 374,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 269654,
+   "status": "Зайнято",
+   "paid": 20570,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-08-07",
+   "Places": [
+    "recetj1YWWBLxpv4Z",
+    "rec1J0IN0bhqAe1ET"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Oksana"
+  }
+ },
+ {
+  "id": "recXpVUy14iRKDnJy",
+  "createdTime": "2024-08-05T16:17:37.000Z",
+  "fields": {
+   "tenant": [
+    "recMaoVmeYcvq9e5P"
+   ],
+   "price per day": 220,
+   "hostel rel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "debt": 158620,
+   "status": "Зайнято",
+   "paid": 12540,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-08-05",
+   "Places": [
+    "recGKRKg6OuNH1fp0"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Klymenko Oksana"
+  }
+ },
+ {
+  "id": "recf35gyskj2TQ4YR",
+  "createdTime": "2024-04-25T12:15:40.000Z",
+  "fields": {
+   "tenant": [
+    "recunmTj4xI4H1I7D"
+   ],
+   "price per day": 230,
+   "hostel rel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "debt": 111195,
+   "status": "Зайнято",
+   "paid": 91205,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-04-25",
+   "Places": [
+    "rec0HQNKUpV29E4ub"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Hrytsenko Oksana"
+  }
+ },
+ {
+  "id": "rec4A7bKoYKAzd4W3",
+  "createdTime": "2024-02-01T14:12:17.000Z",
+  "fields": {
+   "tenant": [
+    "recRTsnmd5QTmHD0o"
+   ],
+   "price per day": 260,
+   "hostel rel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "debt": 184960,
+   "status": "Зайнято",
+   "paid": 65680,
+   "manger": "Palamarchuk Oksana",
+   "start date": "2024-02-01",
+   "Places": [
+    "reczOY2EJuVzv0RaD"
+   ],
+   "activity status": "Активнi",
+   "tenant name": "Danyliuk Oksana"
+  }
+ }
+]

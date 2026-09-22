@@ -1,0 +1,3158 @@
+[
+ {
+  "id": "rec0EOoQZJ2pLtXeb",
+  "createdTime": "2024-12-19T14:04:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Savchenko Halyna",
+   "courier": "Rudenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 35500,
+   "created": "2024-12-19T14:04:04.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec0kloQxwoyZp4iL",
+  "createdTime": "2024-09-17T14:58:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Marchenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 114440,
+   "created": "2024-09-17T14:58:55.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec0mQFrz9PvG7J2D",
+  "createdTime": "2025-01-13T05:41:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Lysenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 3750,
+   "created": "2025-01-13T05:41:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec1a0fLj8cTPphq8",
+  "createdTime": "2025-03-04T16:39:00.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 42236,
+   "created": "2025-03-04T16:39:00.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec26yKsIKcng89Xa",
+  "createdTime": "2026-02-14T12:07:50.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Danyliuk Halyna",
+   "sum": 12295,
+   "created": "2026-02-14T12:07:50.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec2eGNgp1Y7UDnwQ",
+  "createdTime": "2026-01-21T08:36:44.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 83635,
+   "created": "2026-01-21T08:36:44.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec2m5UwqeburWt2i",
+  "createdTime": "2024-10-31T15:01:43.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Savchenko Halyna",
+   "courier": "Voloshyn Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 81400,
+   "created": "2024-10-31T15:01:43.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec2rpT1k159OHB4f",
+  "createdTime": "2026-02-23T17:31:52.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Zhuravel Halyna",
+   "sum": 5720,
+   "created": "2026-02-23T17:31:52.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec36Xy1rhuKhgwxi",
+  "createdTime": "2025-06-19T13:03:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Sydorenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 102412,
+   "created": "2025-06-19T13:03:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec3CaZKO0euj8z8g",
+  "createdTime": "2025-10-14T11:59:33.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 9875,
+   "created": "2025-10-14T11:59:33.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec3DV3f3UTO3Fn0p",
+  "createdTime": "2025-02-07T15:49:45.000Z",
+  "fields": {
+   "Hostels": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "hostel": "Behovice",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Havryliuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 1017820,
+   "created": "2025-02-07T15:49:45.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec3HjlPGBpMbxNF3",
+  "createdTime": "2026-03-10T08:54:36.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 67385,
+   "created": "2026-03-10T08:54:36.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec3qNA2f24gp1aBb",
+  "createdTime": "2025-09-22T18:21:19.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Nazarenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 30890,
+   "created": "2025-09-22T18:21:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec4AmMhcHxVTCfg7",
+  "createdTime": "2025-02-07T16:52:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 133230,
+   "created": "2025-02-07T16:52:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec4Q2AqiK6IhBK4j",
+  "createdTime": "2026-03-04T15:21:15.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 9520,
+   "created": "2026-03-04T15:21:15.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec5O07iDArkHsF69",
+  "createdTime": "2025-08-25T23:29:07.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 83470,
+   "created": "2025-08-25T23:29:07.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec5cV3OlxT14TkNa",
+  "createdTime": "2025-09-25T17:30:16.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 2070,
+   "created": "2025-09-25T17:30:16.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec5yKXrnOPhSOt9L",
+  "createdTime": "2025-12-08T17:40:43.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 86860,
+   "created": "2025-12-08T17:40:43.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec6IzhenqGBOYpdn",
+  "createdTime": "2025-07-17T16:43:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 59210,
+   "created": "2025-07-17T16:43:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec6KLekXrmwF7EoC",
+  "createdTime": "2024-09-25T07:44:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Chernenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 47870,
+   "created": "2024-09-25T07:44:55.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec6cjreqPDxGrKX8",
+  "createdTime": "2025-04-22T13:17:19.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Didyk Halyna",
+   "courier": "Panchenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 50540,
+   "created": "2025-04-22T13:17:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec6pNlybd4XCfepY",
+  "createdTime": "2025-09-29T13:20:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 9200,
+   "created": "2025-09-29T13:20:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec72pgXiLx1TRNL7",
+  "createdTime": "2025-09-09T15:25:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 8010,
+   "created": "2025-09-09T15:25:55.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec7hOVRkESRtnBRv",
+  "createdTime": "2025-03-18T09:36:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 118460,
+   "created": "2025-03-18T09:36:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rec8eWb2sOhl0xXvq",
+  "createdTime": "2026-05-20T06:43:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 44990,
+   "created": "2026-05-20T06:43:04.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec8kjZ8sjwQ3zBnu",
+  "createdTime": "2026-05-06T17:01:42.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Romaniuk Halyna",
+   "sum": 20520,
+   "created": "2026-05-06T17:01:42.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec9RLxe9QIGJNHQP",
+  "createdTime": "2026-03-10T13:31:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 13070,
+   "created": "2026-03-10T13:31:55.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "rec9wuML8XkgMte8V",
+  "createdTime": "2026-01-14T09:32:25.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "sum": 105403,
+   "created": "2026-01-14T09:32:25.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recA2ZvIiNwtMK7yj",
+  "createdTime": "2026-03-26T11:46:14.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 125815,
+   "created": "2026-03-26T11:46:14.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recAHb9qUbI5EdpgX",
+  "createdTime": "2025-03-10T17:49:59.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 880,
+   "created": "2025-03-10T17:49:59.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recAHj12s42iJO72L",
+  "createdTime": "2025-05-06T14:25:06.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 43990,
+   "created": "2025-05-06T14:25:06.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recATBEoGO3QmBWQm",
+  "createdTime": "2025-08-16T19:55:42.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 9900,
+   "created": "2025-08-16T19:55:42.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recAlxOLr25g7wXFr",
+  "createdTime": "2026-01-15T12:11:57.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 102538,
+   "created": "2026-01-15T12:11:57.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recAzvVBHps4aBcgx",
+  "createdTime": "2026-05-24T19:28:19.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "sum": 6770,
+   "created": "2026-05-24T19:28:19.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recBvquaSohjO47CB",
+  "createdTime": "2026-02-24T17:08:10.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 20364,
+   "created": "2026-02-24T17:08:10.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recC8dk3AxHvDHd59",
+  "createdTime": "2026-08-03T08:46:21.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Kulyk Halyna",
+   "sum": 64425,
+   "created": "2026-08-03T08:46:21.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recCSqYHKGYsdLjUQ",
+  "createdTime": "2025-07-28T16:21:16.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Nazarenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 30880,
+   "created": "2025-07-28T16:21:16.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recDBnEfQk0KDwMVR",
+  "createdTime": "2026-04-14T11:26:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 13320,
+   "created": "2026-04-14T11:26:55.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recE9UmaS3aVrGYFO",
+  "createdTime": "2024-10-04T13:28:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 105310,
+   "created": "2024-10-04T13:28:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recEIvfa3lXwWt40p",
+  "createdTime": "2025-03-03T18:40:24.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 74357,
+   "created": "2025-03-03T18:40:24.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recEq5HyESbo0EPLn",
+  "createdTime": "2025-08-11T13:17:27.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 6750,
+   "created": "2025-08-11T13:17:27.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recErqiUJOD7yzf99",
+  "createdTime": "2026-04-23T16:37:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Stelmakh Halyna",
+   "sum": 23350,
+   "created": "2026-04-23T16:37:26.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recF5B6N2BgkEJIYl",
+  "createdTime": "2025-06-26T10:16:14.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 43174,
+   "created": "2025-06-26T10:16:14.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recF60HecRuabgmka",
+  "createdTime": "2026-02-05T15:03:56.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Verbytskyi Halyna",
+   "sum": 108787,
+   "created": "2026-02-05T15:03:56.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recFjdcYoL3h72lVU",
+  "createdTime": "2025-03-20T08:32:34.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 75406,
+   "created": "2025-03-20T08:32:34.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recGVAvUKbInMx2HR",
+  "createdTime": "2025-05-11T17:11:47.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 81770,
+   "created": "2025-05-11T17:11:47.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recGa3xTPRhMu5suY",
+  "createdTime": "2025-04-14T18:41:20.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Stelmakh Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 20370,
+   "created": "2025-04-14T18:41:20.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recGdbJXw2Gmzrawl",
+  "createdTime": "2026-01-28T13:18:52.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 16052,
+   "created": "2026-01-28T13:18:52.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recGuUnQVBMe0uvAO",
+  "createdTime": "2025-01-10T09:54:40.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Savchenko Halyna",
+   "courier": "Zahorodnii Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 44900,
+   "created": "2025-01-10T09:54:40.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recGyNumWyDAaR7ei",
+  "createdTime": "2024-10-23T13:17:31.000Z",
+  "fields": {
+   "Hostels": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "hostel": "Behovice",
+   "sender": "Prokopenko Halyna",
+   "courier": "Lytvyn Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 10000,
+   "created": "2024-10-23T13:17:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recHIhaWk2BaebtNB",
+  "createdTime": "2025-09-17T11:24:17.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 113696,
+   "created": "2025-09-17T11:24:17.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recHUUAHqjZP8MI4b",
+  "createdTime": "2025-10-03T15:54:44.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 41300,
+   "created": "2025-10-03T15:54:44.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIMnpyU7yBBMEVW",
+  "createdTime": "2025-06-08T13:53:33.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 81490,
+   "created": "2025-06-08T13:53:33.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIWIXFpkIKPIT5n",
+  "createdTime": "2025-10-29T14:26:42.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Romaniuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 15460,
+   "created": "2025-10-29T14:26:42.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIbGgYNlWOHvshR",
+  "createdTime": "2025-07-21T14:02:42.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 80950,
+   "created": "2025-07-21T14:02:42.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIjQeP38TUae4v6",
+  "createdTime": "2025-05-31T06:07:55.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 55650,
+   "created": "2025-05-31T06:07:55.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIr2AgJ6bfMsoeB",
+  "createdTime": "2024-12-15T13:27:45.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Onyshchenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 22940,
+   "created": "2024-12-15T13:27:45.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recIwCoblrDpX0bI0",
+  "createdTime": "2025-12-30T13:05:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 16912,
+   "created": "2025-12-30T13:05:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recJAbZBJsiU6llr5",
+  "createdTime": "2025-10-20T13:20:56.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Reznik Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 92182,
+   "created": "2025-10-20T13:20:56.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recJtKGGA7rUcU18u",
+  "createdTime": "2026-08-17T08:58:49.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 30700,
+   "created": "2026-08-17T08:58:49.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recK6fSXX9swWCUJ7",
+  "createdTime": "2025-07-02T14:19:14.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Zahorodnii Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 121902,
+   "created": "2025-07-02T14:19:14.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKJOOWHUyr5WZyy",
+  "createdTime": "2026-09-16T06:33:32.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Reznik Halyna",
+   "sum": 43175,
+   "created": "2026-09-16T06:33:32.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recKLpmeO7IKrmgr6",
+  "createdTime": "2025-05-26T14:43:24.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Shulha Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 6510,
+   "created": "2025-05-26T14:43:24.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKWKLpBX3WK5q22",
+  "createdTime": "2024-09-11T13:20:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Chernenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 101800,
+   "created": "2024-09-11T13:20:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKYg9oWO2rIYg3U",
+  "createdTime": "2025-05-17T10:03:56.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 45272,
+   "created": "2025-05-17T10:03:56.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKb7utzdZdrcUsQ",
+  "createdTime": "2025-01-16T16:58:23.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 113.11,
+   "created": "2025-01-16T16:58:23.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKi5fHa1V5H2GwQ",
+  "createdTime": "2025-06-09T18:44:20.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 2070,
+   "created": "2025-06-09T18:44:20.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recKrJEXTsEpRhDmc",
+  "createdTime": "2025-08-06T11:11:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 1300,
+   "created": "2025-08-06T11:11:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recLfo0nf8FmMrxeJ",
+  "createdTime": "2025-11-05T03:20:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 58.02,
+   "created": "2025-11-05T03:20:04.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recM64kmiknWkPZGQ",
+  "createdTime": "2025-07-05T12:41:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 78354,
+   "created": "2025-07-05T12:41:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recMZqmzF6J5MljxF",
+  "createdTime": "2026-03-03T12:20:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Tkachuk Halyna",
+   "sum": 48650,
+   "created": "2026-03-03T12:20:04.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recN0PRJYCg1OeOHo",
+  "createdTime": "2025-12-11T16:41:06.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 14960,
+   "created": "2025-12-11T16:41:06.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recN84hzbeNOEAKaC",
+  "createdTime": "2026-06-04T06:05:38.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 28515,
+   "created": "2026-06-04T06:05:38.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recNEz9TcRLdNsEQr",
+  "createdTime": "2025-04-25T12:11:17.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 12810,
+   "created": "2025-04-25T12:11:17.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recNtR6UIzp2mVAoe",
+  "createdTime": "2026-05-06T13:26:03.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Yurchenko Halyna",
+   "sum": 95980,
+   "created": "2026-05-06T13:26:03.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recOA1hKFDCo17J9y",
+  "createdTime": "2025-05-06T12:23:57.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Shulha Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 7500,
+   "created": "2025-05-06T12:23:57.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recOZMQDTbYG7WG2C",
+  "createdTime": "2026-01-12T13:38:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 25740,
+   "created": "2026-01-12T13:38:04.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recOlciJ2JvRTQjnp",
+  "createdTime": "2024-10-09T09:44:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 85030,
+   "created": "2024-10-09T09:44:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recPHyNMQRWiHTa5y",
+  "createdTime": "2026-04-07T07:27:43.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "sum": 169385,
+   "created": "2026-04-07T07:27:43.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recPzvlvCQ15y7lKk",
+  "createdTime": "2025-10-01T14:48:43.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Kovalenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 23475,
+   "created": "2025-10-01T14:48:43.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recQ7NAaxOPzXJcEw",
+  "createdTime": "2025-08-12T14:47:49.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 16890,
+   "created": "2025-08-12T14:47:49.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recQFFWL0DcOM6FSY",
+  "createdTime": "2026-02-18T16:27:12.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 101995,
+   "created": "2026-02-18T16:27:12.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recQTEPbkNgN1wgW7",
+  "createdTime": "2025-07-18T08:55:37.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 65359,
+   "created": "2025-07-18T08:55:37.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recQj5HWfYBnycFE2",
+  "createdTime": "2025-10-07T16:21:29.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 20990,
+   "created": "2025-10-07T16:21:29.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recR65jrVSLbCMi3u",
+  "createdTime": "2025-02-13T16:29:02.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Bondarenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 2085804.3,
+   "created": "2025-02-13T16:29:02.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recRFMgrccgFqJZV3",
+  "createdTime": "2025-05-27T13:57:02.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Reznik Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 103836,
+   "created": "2025-05-27T13:57:02.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recRrRHQFcKYITqk1",
+  "createdTime": "2025-08-27T13:39:44.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 6510,
+   "created": "2025-08-27T13:39:44.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recSYgNgCMcYNlfSC",
+  "createdTime": "2025-09-16T09:23:56.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 29385,
+   "created": "2025-09-16T09:23:56.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recT55t0TIsKLt5dC",
+  "createdTime": "2024-10-28T15:19:18.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 114610,
+   "created": "2024-10-28T15:19:18.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recTB2NIjqB49JVVh",
+  "createdTime": "2026-02-27T15:28:09.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Tkachuk Halyna",
+   "sum": 43112,
+   "created": "2026-02-27T15:28:09.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recTSaP9e3a16SFyf",
+  "createdTime": "2024-12-16T15:25:00.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 47150,
+   "created": "2024-12-16T15:25:00.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recTh4L5fvL9pSF5S",
+  "createdTime": "2026-03-03T11:54:52.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 19673,
+   "created": "2026-03-03T11:54:52.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recU9KBL9jWUJ5QAN",
+  "createdTime": "2025-03-31T11:13:23.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 51320,
+   "created": "2025-03-31T11:13:23.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recUA5PlFC6UTmsua",
+  "createdTime": "2025-02-04T19:37:18.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 76490,
+   "created": "2025-02-04T19:37:18.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recUM5gORneNYUNjS",
+  "createdTime": "2025-09-03T17:47:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 87760,
+   "created": "2025-09-03T17:47:04.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recUZmr2UC4eGrJKO",
+  "createdTime": "2025-11-24T12:25:19.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 36320,
+   "created": "2025-11-24T12:25:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recUmnbtK9K9oz5cP",
+  "createdTime": "2025-07-07T17:49:09.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 24581,
+   "created": "2025-07-07T17:49:09.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recVSvzcDVHOaH3c5",
+  "createdTime": "2026-04-01T14:13:21.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 6686,
+   "created": "2026-04-01T14:13:21.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recVUvb0vGXRUQxXP",
+  "createdTime": "2025-03-26T12:02:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 81836,
+   "created": "2025-03-26T12:02:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recVV37dtVccZPSjY",
+  "createdTime": "2025-04-16T18:40:58.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 1600,
+   "created": "2025-04-16T18:40:58.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recVtSYpN6fECjIWL",
+  "createdTime": "2024-11-10T18:07:06.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 56420,
+   "created": "2024-11-10T18:07:06.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recWS4I1xsPNAKE8T",
+  "createdTime": "2026-03-18T15:05:39.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 100448,
+   "created": "2026-03-18T15:05:39.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recWUOqYaMDUpSHnp",
+  "createdTime": "2024-12-05T17:56:10.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Stelmakh Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 28810,
+   "created": "2024-12-05T17:56:10.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recWVPu1QZJpk67qN",
+  "createdTime": "2025-01-21T16:35:03.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 56800,
+   "created": "2025-01-21T16:35:03.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recWaSj5NByZ60pnH",
+  "createdTime": "2025-05-26T19:17:19.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Didyk Halyna",
+   "courier": "Nazarenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 32350,
+   "created": "2025-05-26T19:17:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recWbbVn8yqXxmLYp",
+  "createdTime": "2026-01-19T16:25:28.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 6035,
+   "created": "2026-01-19T16:25:28.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recX7zH27K9MnDYx8",
+  "createdTime": "2025-02-15T14:21:42.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 104645,
+   "created": "2025-02-15T14:21:42.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recXCr3AJIsxbzgs4",
+  "createdTime": "2025-03-11T08:42:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Tkachenko Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 31200,
+   "created": "2025-03-11T08:42:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recXLCHKT8nk5YMpe",
+  "createdTime": "2025-02-20T11:24:35.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 102711,
+   "created": "2025-02-20T11:24:35.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recXgrhfwUDvY8l9t",
+  "createdTime": "2025-05-20T12:28:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 15164,
+   "created": "2025-05-20T12:28:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recYJuN3vulX0xv51",
+  "createdTime": "2025-12-18T14:21:11.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 17020,
+   "created": "2025-12-18T14:21:11.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recYMdy6BcOqTd1FO",
+  "createdTime": "2026-03-03T12:18:16.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Shevchuk Taras",
+   "sum": 48650,
+   "created": "2026-03-03T12:18:16.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recYmeB5qwKunJVAC",
+  "createdTime": "2025-04-09T14:26:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 65172,
+   "created": "2025-04-09T14:26:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recYzNWiNTZlSKVI7",
+  "createdTime": "2025-04-17T12:51:23.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 28050,
+   "created": "2025-04-17T12:51:23.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZ15vNr9akxpqYY",
+  "createdTime": "2025-08-20T13:02:16.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 154819,
+   "created": "2025-08-20T13:02:16.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZ3FZ5zxY89Dw6r",
+  "createdTime": "2025-01-08T12:38:50.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Melnyk Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 38710,
+   "created": "2025-01-08T12:38:50.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZMij3o63kRnVwG",
+  "createdTime": "2025-08-26T07:33:42.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 157830,
+   "created": "2025-08-26T07:33:42.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZgWvNmYxsnG1Ku",
+  "createdTime": "2025-04-30T13:30:56.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 7565,
+   "created": "2025-04-30T13:30:56.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZhsr1HYGBElozR",
+  "createdTime": "2026-01-23T12:08:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 90792,
+   "created": "2026-01-23T12:08:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZjbBTbnVmmseVj",
+  "createdTime": "2025-04-12T17:27:50.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Didyk Halyna",
+   "courier": "Nazarenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 24840,
+   "created": "2025-04-12T17:27:50.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recZtEecGX2KxS2wR",
+  "createdTime": "2025-02-28T11:12:21.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Boiko Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 19310,
+   "created": "2025-02-28T11:12:21.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recaFMQ8JWdFA45O3",
+  "createdTime": "2025-08-03T16:46:14.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 45120,
+   "created": "2025-08-03T16:46:14.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recaPBdiqiqd52SFF",
+  "createdTime": "2026-04-06T18:01:23.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "sum": 19780,
+   "created": "2026-04-06T18:01:23.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recaX3v60fPe1kjHU",
+  "createdTime": "2025-04-04T12:58:11.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Danyliuk Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 20580,
+   "created": "2025-04-04T12:58:11.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recag9uxk8ccpTEjt",
+  "createdTime": "2025-07-22T14:55:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 13125,
+   "created": "2025-07-22T14:55:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recaz1GxAmAlQfjmb",
+  "createdTime": "2025-06-19T08:43:50.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Tymoshenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 7300,
+   "created": "2025-06-19T08:43:50.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recbU6Uerkph0JWIb",
+  "createdTime": "2026-03-03T17:40:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Stelmakh Halyna",
+   "sum": 54300,
+   "created": "2026-03-03T17:40:48.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recbgROP5Tmtz3VEz",
+  "createdTime": "2024-08-19T14:16:36.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Kulyk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 121730,
+   "created": "2024-08-19T14:16:36.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recbquOBAlbwkho7n",
+  "createdTime": "2026-02-05T12:54:41.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 22630,
+   "created": "2026-02-05T12:54:41.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "reccVuWZfkrBmUCWT",
+  "createdTime": "2025-01-11T15:04:39.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Kulyk Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 68040,
+   "created": "2025-01-11T15:04:39.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recctPubkoO91HdxU",
+  "createdTime": "2025-03-11T13:02:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 27500,
+   "created": "2025-03-11T13:02:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recdEdPghmHpY7yJv",
+  "createdTime": "2024-11-04T14:04:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 45510,
+   "created": "2024-11-04T14:04:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recdlkwwbXlNgHkeZ",
+  "createdTime": "2025-04-04T10:54:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Bondarenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 24366,
+   "created": "2025-04-04T10:54:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recdwVsJUNkYhaHn8",
+  "createdTime": "2026-04-14T11:26:05.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "sum": 53560,
+   "created": "2026-04-14T11:26:05.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "receCLf44MrUBIHR6",
+  "createdTime": "2025-10-14T07:55:50.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 182001,
+   "created": "2025-10-14T07:55:50.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "receD6RmGV9z1MgqS",
+  "createdTime": "2025-05-14T12:14:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Reznik Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 35814,
+   "created": "2025-05-14T12:14:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recek318jL9DnGHLm",
+  "createdTime": "2025-07-14T10:08:52.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 60780,
+   "created": "2025-07-14T10:08:52.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recfmqjk6rsmOXxzC",
+  "createdTime": "2025-02-07T16:14:00.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Bondarenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 1599373,
+   "created": "2025-02-07T16:14:00.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recfx1poPbKuFZM62",
+  "createdTime": "2025-04-01T18:32:08.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 59100,
+   "created": "2025-04-01T18:32:08.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recfxWvLJwvNOQYdm",
+  "createdTime": "2024-08-23T12:26:53.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 84160,
+   "created": "2024-08-23T12:26:53.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recg8VOvwzykbPQ7D",
+  "createdTime": "2025-09-06T17:49:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 99530,
+   "created": "2025-09-06T17:49:31.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recgkUHFZgOZZHhfa",
+  "createdTime": "2024-10-16T09:51:11.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Kravets Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 111810,
+   "created": "2024-10-16T09:51:11.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rech7E3XeuGfYrd2i",
+  "createdTime": "2025-02-13T16:25:03.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Bondarenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 1288500,
+   "created": "2025-02-13T16:25:03.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rechgmS5dUVT29a5X",
+  "createdTime": "2025-09-09T13:24:19.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 44190,
+   "created": "2025-09-09T13:24:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rechiDzyhfSMbbKt3",
+  "createdTime": "2024-12-03T11:22:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Polishchuk Taras",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 121782,
+   "created": "2024-12-03T11:22:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rechq3ZsY98uuGtrO",
+  "createdTime": "2025-06-03T13:33:44.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 7750,
+   "created": "2025-06-03T13:33:44.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reci5WdIhWbfx2bfG",
+  "createdTime": "2025-09-29T14:30:32.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 61860,
+   "created": "2025-09-29T14:30:32.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reciJ5dM7FmR3iU0V",
+  "createdTime": "2026-08-20T06:29:47.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Savchenko Taras",
+   "sum": 15880,
+   "created": "2026-08-20T06:29:47.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "reciWLUUPlfZVUzI5",
+  "createdTime": "2025-12-18T15:37:33.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 90971,
+   "created": "2025-12-18T15:37:33.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recic5QUurLC3w2yO",
+  "createdTime": "2025-12-03T09:17:07.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 55530,
+   "created": "2025-12-03T09:17:07.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recizE9c70UfznXJ3",
+  "createdTime": "2025-10-29T13:15:38.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 116909,
+   "created": "2025-10-29T13:15:38.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recjBKq8aHZUR7V4j",
+  "createdTime": "2025-05-12T08:56:24.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Rudenko Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 71040,
+   "created": "2025-05-12T08:56:24.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recjVjsodeVueuqPK",
+  "createdTime": "2024-09-13T13:51:19.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Chernenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 125580,
+   "created": "2024-09-13T13:51:19.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recjcXi8SYRa0LoPK",
+  "createdTime": "2025-04-22T12:10:17.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 11500,
+   "created": "2025-04-22T12:10:17.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recjrZS0hcPsfJYQh",
+  "createdTime": "2026-02-11T14:26:32.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Tkachuk Halyna",
+   "sum": 97174,
+   "created": "2026-02-11T14:26:32.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "reckJHwgN1VEFcGDz",
+  "createdTime": "2025-02-07T14:12:27.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Bondarenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 9321419.15,
+   "created": "2025-02-07T14:12:27.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reckN8dm3OEYH5obb",
+  "createdTime": "2025-02-26T08:17:32.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 92090,
+   "created": "2025-02-26T08:17:32.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reckYkfshlXWafpLZ",
+  "createdTime": "2026-07-15T06:19:16.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Zahorodnii Halyna",
+   "sum": 12390,
+   "created": "2026-07-15T06:19:16.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "reckkv14eTp5fr5Fx",
+  "createdTime": "2025-03-26T16:13:59.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Marchenko Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 15730,
+   "created": "2025-03-26T16:13:59.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reclPEERrMW8RQue9",
+  "createdTime": "2024-10-06T18:07:46.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Stelmakh Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 70990,
+   "created": "2024-10-06T18:07:46.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reclfOH2zPdcnZdl6",
+  "createdTime": "2025-07-11T11:09:24.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 67805,
+   "created": "2025-07-11T11:09:24.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recmCZNDLj1ohBWfv",
+  "createdTime": "2025-06-16T12:53:09.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 6300,
+   "created": "2025-06-16T12:53:09.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recmkqJXfLnNtYtz2",
+  "createdTime": "2025-10-05T18:45:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 64760,
+   "created": "2025-10-05T18:45:04.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recoqIQawfIBWPJlz",
+  "createdTime": "2025-03-07T15:23:04.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Zahorodnii Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 12540,
+   "created": "2025-03-07T15:23:04.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recoyKLNYMxLZxvp9",
+  "createdTime": "2024-09-03T07:34:54.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Lysenko Taras",
+   "sum": 50000,
+   "created": "2024-09-03T07:34:54.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recp2uOu2QYDp5Bjd",
+  "createdTime": "2025-04-14T09:19:11.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 78825,
+   "created": "2025-04-14T09:19:11.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recp468Apj5z6mgwG",
+  "createdTime": "2025-07-17T13:12:17.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 5260,
+   "created": "2025-07-17T13:12:17.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recp9NhS4CBMW6euQ",
+  "createdTime": "2025-11-04T14:21:48.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Zahorodnii Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 88690,
+   "created": "2025-11-04T14:21:48.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recpwBruEanV5Y9Tp",
+  "createdTime": "2025-06-13T16:55:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 62000,
+   "created": "2025-06-13T16:55:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recr8w8Jd7b6njlWR",
+  "createdTime": "2025-12-01T15:06:01.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 10250,
+   "created": "2025-12-01T15:06:01.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recrA50HBFQAO067V",
+  "createdTime": "2025-11-24T12:28:09.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 100070,
+   "created": "2025-11-24T12:28:09.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recrW7pcoFIukeWhm",
+  "createdTime": "2026-04-10T05:46:28.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "sum": 13500,
+   "created": "2026-04-10T05:46:28.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recrWkUX34WROSVaX",
+  "createdTime": "2026-01-23T16:06:02.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 19934,
+   "created": "2026-01-23T16:06:02.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recraFEzz03cIlHRw",
+  "createdTime": "2025-06-06T20:59:05.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Nazarenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 46190,
+   "created": "2025-06-06T20:59:05.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recrkMBbnEH5MqtVI",
+  "createdTime": "2026-02-02T17:47:08.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 59320,
+   "created": "2026-02-02T17:47:08.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recrkXiEbqC0Zuy2e",
+  "createdTime": "2025-01-21T18:38:09.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Kovalenko Serhii",
+   "reciever": "Moroz Halyna",
+   "sum": 9920,
+   "created": "2025-01-21T18:38:09.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recrwWECtZMxMpaNN",
+  "createdTime": "2025-09-24T12:47:34.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 148500,
+   "created": "2025-09-24T12:47:34.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recsALUpRyIZkprSa",
+  "createdTime": "2025-04-29T12:40:36.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Marchenko Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 111320,
+   "created": "2025-04-29T12:40:36.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recsRMcfABmvbA1EZ",
+  "createdTime": "2025-02-26T10:39:05.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Verbytskyi Oksana",
+   "courier": "Kulyk Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 77610,
+   "created": "2025-02-26T10:39:05.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recsccRxt7pIYXLVm",
+  "createdTime": "2025-12-02T17:16:56.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Moroz Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 28588,
+   "created": "2025-12-02T17:16:56.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recsoCKDh5S4UN9t0",
+  "createdTime": "2026-06-30T16:29:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Reznik Halyna",
+   "sum": 37460,
+   "created": "2026-06-30T16:29:26.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recsz8ix4CaeBmdZ8",
+  "createdTime": "2025-09-21T13:51:27.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 10880,
+   "created": "2025-09-21T13:51:27.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rectYlQ3cYJ98PRHy",
+  "createdTime": "2025-02-14T08:49:52.000Z",
+  "fields": {
+   "Hostels": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "hostel": "Behovice",
+   "sender": "Prokopenko Halyna",
+   "courier": "Klymenko Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 36500,
+   "created": "2025-02-14T08:49:52.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rectfxCOooxeY4GVv",
+  "createdTime": "2025-09-29T10:42:12.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Osypenko Halyna",
+   "courier": "Rudenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 21500,
+   "created": "2025-09-29T10:42:12.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "rectwRldInpOi9qxy",
+  "createdTime": "2026-02-03T11:18:35.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 99889,
+   "created": "2026-02-03T11:18:35.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recu9Kb1WElAbBD2F",
+  "createdTime": "2025-12-31T07:28:46.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 140377,
+   "created": "2025-12-31T07:28:46.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recv4OnXfzeWjJIP7",
+  "createdTime": "2025-04-22T08:35:13.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Zahorodnii Halyna",
+   "reciever": "Moroz Halyna",
+   "sum": 91530,
+   "created": "2025-04-22T08:35:13.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recv5Okufua95oy02",
+  "createdTime": "2025-03-24T19:52:16.000Z",
+  "fields": {
+   "Hostels": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "hostel": "Hostivice",
+   "sender": "Didyk Halyna",
+   "courier": "Hrytsenko Taras",
+   "reciever": "Moroz Halyna",
+   "sum": 95945,
+   "created": "2025-03-24T19:52:16.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recvblpnq6y1qEG1m",
+  "createdTime": "2026-03-05T08:19:31.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "sum": 93034,
+   "created": "2026-03-05T08:19:31.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recvdYOaGbiS1DNjd",
+  "createdTime": "2025-08-07T08:28:26.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 57520,
+   "created": "2025-08-07T08:28:26.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recviKXB94lJQp1u6",
+  "createdTime": "2026-01-13T14:32:17.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 13500,
+   "created": "2026-01-13T14:32:17.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recwPCCYATxrMsEUI",
+  "createdTime": "2026-02-23T10:54:44.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Danyliuk Taras",
+   "sum": 61136,
+   "created": "2026-02-23T10:54:44.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recxD6pkY330DTIsm",
+  "createdTime": "2024-12-12T16:54:10.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Polishchuk Taras",
+   "courier": "Klymenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 160420,
+   "created": "2024-12-12T16:54:10.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recxEPaM6xi0Zu3S7",
+  "createdTime": "2026-07-23T07:06:07.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "sum": 300,
+   "created": "2026-07-23T07:06:07.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recy6iYDoy0dpj0CP",
+  "createdTime": "2026-01-04T16:59:11.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 85520,
+   "created": "2026-01-04T16:59:11.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recyFPudVQzd0hNon",
+  "createdTime": "2026-06-23T10:02:07.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Taras",
+   "sum": 51000,
+   "created": "2026-06-23T10:02:07.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "recyQKYC9KtJHpU2x",
+  "createdTime": "2025-06-25T14:01:07.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Voloshyn Taras",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 127898,
+   "created": "2025-06-25T14:01:07.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "recyRbX1ypaw8xU5l",
+  "createdTime": "2026-03-04T16:02:06.000Z",
+  "fields": {
+   "Hostels": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "hostel": "Korycany",
+   "sender": "Hrytsenko Halyna",
+   "courier": "Palamarchuk Halyna",
+   "sum": 17460,
+   "created": "2026-03-04T16:02:06.000Z",
+   "status": "Передано"
+  }
+ },
+ {
+  "id": "reczNPjcNIzjhcCxa",
+  "createdTime": "2025-09-21T16:46:33.000Z",
+  "fields": {
+   "Hostels": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "hostel": "Morina",
+   "sender": "Lytvyn Oksana",
+   "courier": "Yatsenko Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 2100,
+   "created": "2025-09-21T16:46:33.000Z",
+   "status": "Отримано"
+  }
+ },
+ {
+  "id": "reczip1hVGBZpvhsb",
+  "createdTime": "2025-12-15T15:39:07.000Z",
+  "fields": {
+   "Hostels": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "hostel": "Chuchle",
+   "sender": "Stelmakh Oksana",
+   "courier": "Palamarchuk Halyna",
+   "reciever": "Palamarchuk Oksana",
+   "sum": 168978,
+   "created": "2025-12-15T15:39:07.000Z",
+   "status": "Отримано"
+  }
+ }
+]

@@ -1,4 +1,5 @@
 import { useEntityStore } from '@/store/entities';
+import { markLocal } from '@/store/dataSource';
 import { rateFor, TODAY } from '@/domain/logic';
 import type { Stay } from '@/domain/types';
 
@@ -13,6 +14,7 @@ export async function resolveResident(name: string, gender: 'M' | 'F' = 'M'): Pr
   if (existing) return existing.id;
   const resident = { id: genId('res-'), name, gender };
   useEntityStore.setState((s) => ({ residents: [resident, ...s.residents] }));
+  markLocal(resident.id);
   return resident.id;
 }
 
@@ -59,6 +61,7 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
     stays: [stay, ...s.stays],
     beds: s.beds.map((b) => (b.id === bed.id ? { ...b, status: 'occupied', residentId: input.residentId } : b)),
   }));
+  markLocal(stay.id);
 
   return stay;
 }

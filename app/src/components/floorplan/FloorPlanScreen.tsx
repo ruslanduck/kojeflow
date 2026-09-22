@@ -15,6 +15,7 @@ import { UploadPlanDialog } from './UploadPlanDialog';
 import { PlanSettingsDialog } from './PlanSettingsDialog';
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import type { FloorPlan, FloorZone } from '@/domain/types';
+import { MappingNotice } from '@/components/ui/Unmapped';
 
 const OCC_COLOR_RGB: Record<string, string> = { '#22A06B': '34,160,107', '#F5A524': '245,165,36', '#E5484D': '229,72,77' };
 type Rect = { x: number; y: number; w: number; h: number };
@@ -162,6 +163,12 @@ export function FloorPlanScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'FloorPlan', field: 'imageUrl' },
+          { entity: 'FloorZone', field: 'roomId' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('fp_title')}</h1>

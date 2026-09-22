@@ -2,11 +2,15 @@ import type { Bed, Payment, Resident, Room, RoomGender, Stay } from './types';
 import namePools from './data/name-pools.json';
 
 /**
- * Fixed reference date the prototype (and this Stage 1 fake-data build) is anchored
- * to — all seeded check-in dates, bookings and billing math are authored relative to
- * it. Stage 2, wired to a real database, should switch this to the real clock.
+ * Reference date all billing and expiry math is measured from.
+ *
+ * It must not fall behind the Airtable data: a stay that starts after this date
+ * yields a negative day count, which clamps to one day and quietly shows a full
+ * occupancy as owing a single night. Kept a constant rather than the real clock so
+ * that server prerender and client hydration agree — move it to an actual clock
+ * (resolved client-side) once the demo stops being rebuilt alongside its data.
  */
-export const TODAY = '2026-07-25';
+export const TODAY = '2026-09-22';
 
 export function diffDays(fromIso: string, toIso: string): number {
   return Math.round((new Date(toIso + 'T00:00:00Z').getTime() - new Date(fromIso + 'T00:00:00Z').getTime()) / 86400000);
@@ -140,13 +144,24 @@ export interface Bill {
   covered: number; // 0-100
 }
 
-/** debt = nights lived x per-bed rate - payments recorded against the stay. */
+/**
+ * What a stay has run up and what is still owed.
+ *
+ * Airtable carries the authoritative balance in its own `debt` formula, and cannot
+ * be made to agree with our nights x rate arithmetic: the payment ledger that fed
+ * that figure was never recorded transaction by transaction, so `paid` is present
+ * on only a fraction of stays. Recomputing the balance ourselves would therefore
+ * show almost every resident owing their full stay — a plausible-looking number
+ * that is simply wrong. So `debt` wins whenever Airtable supplied one, and only
+ * stays created in this session fall back to charged-minus-paid.
+ */
 export function billFor(stay: Stay, payments: Payment[], today: string = TODAY): Bill {
   const days = Math.max(1, diffDays(stay.checkIn, stay.checkOut ?? today));
   const rate = stay.rate;
   const charged = days * rate;
-  const paid = payments.filter((p) => p.stayId === stay.id).reduce((sum, p) => sum + p.amount, 0);
-  const balance = charged - paid;
+  const localPaid = payments.filter((p) => p.stayId === stay.id).reduce((sum, p) => sum + p.amount, 0);
+  const paid = (stay.paidTotal ?? 0) + localPaid;
+  const balance = stay.debt !== undefined ? stay.debt - localPaid : charged - paid;
   return {
     days,
     rate,

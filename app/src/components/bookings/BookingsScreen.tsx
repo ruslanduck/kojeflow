@@ -14,6 +14,8 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { BookingWizard } from './BookingWizard';
 import type { Booking, BookingStatus } from '@/domain/types';
+import { MappingNotice, LocalOnly } from '@/components/ui/Unmapped';
+import { useDataSourceStore } from '@/store/dataSource';
 
 const TABS: (BookingStatus | 'All')[] = ['All', 'New', 'Checked-in', 'Cancelled'];
 
@@ -31,6 +33,7 @@ export function BookingsScreen() {
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
   const bookings = useEntityStore((s) => s.bookings);
+  const localIds = useDataSourceStore((s) => s.localIds);
 
   const [tab, setTab] = useState<BookingStatus | 'All'>('All');
   const [search, setSearch] = useState('');
@@ -77,6 +80,14 @@ export function BookingsScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Booking', field: 'project' },
+          { entity: 'Booking', field: 'payer' },
+          { entity: 'Booking', field: 'discount' },
+          { entity: 'Booking', field: 'comment' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('bk_title')}</h1>
@@ -143,7 +154,10 @@ export function BookingsScreen() {
                   <Avatar name={name} size={36} />
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontWeight: 600, fontSize: 14, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
-                    <Pill label={t(TYPE_LABEL_KEY[b.type])} fg={typeFg} bg={typeBg} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                      <Pill label={t(TYPE_LABEL_KEY[b.type])} fg={typeFg} bg={typeBg} />
+                      {localIds.has(b.id) && <LocalOnly />}
+                    </div>
                   </div>
                 </div>
                 <div className="bkcell"><div style={{ fontSize: 13, fontWeight: 500 }}>{property?.name}</div><div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{assignLabel}</div></div>

@@ -11,6 +11,9 @@ interface SessionState {
   profileName: string;
   toast: string | null;
   sheetOpen: boolean;
+  /** Verification mode: flags values whose Airtable source is unknown or ambiguous. */
+  showMapping: boolean;
+  toggleMapping: () => void;
   setRole: (role: RoleName) => void;
   setLang: (lang: Lang) => void;
   setCurrency: (currency: string) => void;
@@ -28,6 +31,10 @@ export const useSessionStore = create<SessionState>((set) => ({
   profileName: 'Anna Kovalenko',
   toast: null,
   sheetOpen: false,
+  // On by default: this build exists to be checked against Airtable, so the flags
+  // should be visible unless someone deliberately turns them off to demo.
+  showMapping: true,
+  toggleMapping: () => set((s) => ({ showMapping: !s.showMapping })),
   setRole: (role) => set({ role }),
   setLang: (lang) => set({ lang }),
   setCurrency: (currency) => set({ currency }),

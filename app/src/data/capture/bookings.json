@@ -1,0 +1,2768 @@
+[
+ {
+  "id": "recGhzmbSNOwd19fj",
+  "createdTime": "2026-09-21T11:28:13.000Z",
+  "fields": {
+   "tenant": [
+    "recACBQoA26rJ6eBk"
+   ],
+   "tenant name": "Shevchuk Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Новий",
+   "discount": 0,
+   "discount_percentage": 0.3
+  }
+ },
+ {
+  "id": "recX6B51Gd4ih4ooH",
+  "createdTime": "2026-09-21T11:31:03.000Z",
+  "fields": {
+   "tenant": [
+    "rec9OCNTIWTueHrV1"
+   ],
+   "tenant name": "Boiko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Новий",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recO3rzaniXWdRmLe",
+  "createdTime": "2026-09-22T14:16:15.000Z",
+  "fields": {
+   "tenant": [
+    "recPLWuhBm32NA6bs"
+   ],
+   "tenant name": "Kravets Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-25",
+   "creator": "Savchenko Vasyl",
+   "status": "Новий",
+   "manager": "Polishchuk Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "receeAq3gShjqdDyT",
+  "createdTime": "2026-09-22T14:06:05.000Z",
+  "fields": {
+   "tenant": [
+    "recEuYuj3kHknwYoh"
+   ],
+   "tenant name": "Rudenko Vasyl",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-09-24",
+   "creator": "Lysenko Vasyl",
+   "status": "Новий",
+   "manager": "Marchenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recKB6nqBdsker3pq",
+  "createdTime": "2026-09-22T08:14:20.000Z",
+  "fields": {
+   "tenant": [
+    "recEocP2EE0iHTzyv"
+   ],
+   "tenant name": "Moroz Vasyl",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-22",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec1cq9T7lLqNXXgF",
+  "createdTime": "2026-09-22T08:15:48.000Z",
+  "fields": {
+   "tenant": [
+    "recsPWoqQPVeE1yU9"
+   ],
+   "tenant name": "Hrytsenko Vasyl",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-22",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recPc9DqVzpp4XLY6",
+  "createdTime": "2026-09-22T09:21:46.000Z",
+  "fields": {
+   "tenant": [
+    "rechfIMheeEngEKZj"
+   ],
+   "tenant name": "Danyliuk Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-22",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reccPcTf83CLGJMGr",
+  "createdTime": "2026-09-22T09:28:27.000Z",
+  "fields": {
+   "tenant": [
+    "recj3YbudLfqIC7mu"
+   ],
+   "tenant name": "Palamarchuk Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-22",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recDnj84HWdIZmBWo",
+  "createdTime": "2026-09-22T14:40:24.000Z",
+  "fields": {
+   "tenant": [
+    "recNhHOZLjlwu3exw"
+   ],
+   "tenant name": "Voloshyn Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-22",
+   "creator": "Zhuravel Vasyl",
+   "status": "Новий",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec25tfQ7vUySjUQS",
+  "createdTime": "2026-09-15T08:48:52.000Z",
+  "fields": {
+   "tenant": [
+    "recU2VGAEXqra0JaQ"
+   ],
+   "tenant name": "Sydorenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-21",
+   "creator": "Klymenko Vasyl",
+   "status": "Новий",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recypTAtOm5IVgirX",
+  "createdTime": "2026-09-15T08:49:18.000Z",
+  "fields": {
+   "tenant": [
+    "recU2VGAEXqra0JaQ"
+   ],
+   "tenant name": "Sydorenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-21",
+   "creator": "Klymenko Vasyl",
+   "status": "Новий",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recUD34LzWlzYAwq3",
+  "createdTime": "2026-09-18T08:52:57.000Z",
+  "fields": {
+   "tenant": [
+    "recYlvhoBJ0n7AcT8"
+   ],
+   "tenant name": "Havryliuk Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-21",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recw3FfX7WiiEx7Nl",
+  "createdTime": "2026-09-18T11:45:49.000Z",
+  "fields": {
+   "tenant": [
+    "recKyF5mO2DOBE7He"
+   ],
+   "tenant name": "Nazarenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-21",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recb6bRn5RjOX0Bjt",
+  "createdTime": "2026-09-20T07:50:12.000Z",
+  "fields": {
+   "tenant": [
+    "recDM3yqDO6UWIjWq"
+   ],
+   "tenant name": "Yatsenko Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-20",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Chernenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recskEA7UTPTuoceE",
+  "createdTime": "2026-09-16T15:38:02.000Z",
+  "fields": {
+   "tenant": [
+    "recWtuWCXIisUbKyc"
+   ],
+   "tenant name": "Didyk Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-19",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recdVsFPp1owVdeoH",
+  "createdTime": "2026-09-18T19:05:52.000Z",
+  "fields": {
+   "tenant": [
+    "recjIJ9ESb4f48hyi"
+   ],
+   "tenant name": "Panchenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-19",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recyO1eHc2eD9PqTJ",
+  "createdTime": "2026-09-19T13:37:56.000Z",
+  "fields": {
+   "tenant": [
+    "recNhHOZLjlwu3exw"
+   ],
+   "tenant name": "Voloshyn Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-19",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recI2X2rR87Zu5lxS",
+  "createdTime": "2026-09-18T12:27:20.000Z",
+  "fields": {
+   "tenant": [
+    "recnPtcWYWU339BCa"
+   ],
+   "tenant name": "Romaniuk Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-18",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec3G806f8WzSJkS2",
+  "createdTime": "2026-09-18T14:58:01.000Z",
+  "fields": {
+   "tenant": [
+    "recNhHOZLjlwu3exw"
+   ],
+   "tenant name": "Voloshyn Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-18",
+   "creator": "Zhuravel Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recNQ95g4fpMmCQBY",
+  "createdTime": "2026-09-14T14:12:21.000Z",
+  "fields": {
+   "tenant": [
+    "recH61jHw5PU4pZ0k"
+   ],
+   "tenant name": "Kulyk Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-17",
+   "creator": "Osypenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recRZpy9jXoEoXS5P",
+  "createdTime": "2026-09-15T09:36:28.000Z",
+  "fields": {
+   "tenant": [
+    "recEuYuj3kHknwYoh"
+   ],
+   "tenant name": "Rudenko Vasyl",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-09-17",
+   "creator": "Lysenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recRbUNt5PHGdFtDJ",
+  "createdTime": "2026-09-16T11:50:35.000Z",
+  "fields": {
+   "tenant": [
+    "rec0wIylbnl86kL7g"
+   ],
+   "tenant name": "Verbytskyi Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-17",
+   "creator": "Zahorodnii Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recZaLRaC8v2EODVc",
+  "createdTime": "2026-09-16T09:04:35.000Z",
+  "fields": {
+   "tenant": [
+    "rec60fMwPX3uJZWct"
+   ],
+   "tenant name": "Prokopenko Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-16",
+   "creator": "Lytvyn Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recv1Dr9smf2ZVwrM",
+  "createdTime": "2026-09-16T15:34:41.000Z",
+  "fields": {
+   "tenant": [
+    "recjIJ9ESb4f48hyi"
+   ],
+   "tenant name": "Panchenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-16",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recylXmTQAjFLMcfP",
+  "createdTime": "2026-09-15T12:36:55.000Z",
+  "fields": {
+   "tenant": [
+    "recPjkPRq7p6xBeiX"
+   ],
+   "tenant name": "Onyshchenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-15",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recLrspyGliV1P68d",
+  "createdTime": "2026-09-14T07:29:17.000Z",
+  "fields": {
+   "tenant": [
+    "recnGZDsyhcdoiayJ"
+   ],
+   "tenant name": "Reznik Vasyl",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-14",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec4DWJHGsON8lQ5M",
+  "createdTime": "2026-09-14T07:55:35.000Z",
+  "fields": {
+   "tenant": [
+    "recRczcoQLNJJJ39y"
+   ],
+   "tenant name": "Shulha Vasyl",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-14",
+   "creator": "Tkachuk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recAldg9NMNLoYZUe",
+  "createdTime": "2026-09-14T09:44:29.000Z",
+  "fields": {
+   "tenant": [
+    "rec8RvxcIePwAGweS"
+   ],
+   "tenant name": "Yurchenko Vasyl",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-14",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recIrmh5NlTI0Y2m0",
+  "createdTime": "2026-09-03T09:14:42.000Z",
+  "fields": {
+   "tenant": [
+    "recTKKRTErJoqD8qr"
+   ],
+   "tenant name": "Kovalenko Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-12",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recCigp3FgJEokkch",
+  "createdTime": "2026-09-10T08:55:10.000Z",
+  "fields": {
+   "tenant": [
+    "rec6Qtrg592oi5lve"
+   ],
+   "tenant name": "Bondarenko Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-12",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recL3dU3IoBmQTf3f",
+  "createdTime": "2026-09-10T08:56:03.000Z",
+  "fields": {
+   "tenant": [
+    "rec2jygMNO0Ji1JYj"
+   ],
+   "tenant name": "Tkachenko Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-12",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recSPTAOiDmDkD8os",
+  "createdTime": "2026-09-10T08:59:51.000Z",
+  "fields": {
+   "tenant": [
+    "recTIrGhMoqTI1Xy8"
+   ],
+   "tenant name": "Shevchuk Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-12",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recZdFXfxp6vV0MLX",
+  "createdTime": "2026-08-28T11:14:29.000Z",
+  "fields": {
+   "tenant": [
+    "recJprnqc1Re63R1h"
+   ],
+   "tenant name": "Melnyk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recRZPTLlzdIE79e3",
+  "createdTime": "2026-08-28T11:15:22.000Z",
+  "fields": {
+   "tenant": [
+    "recLlz0qvwAjBoBXE"
+   ],
+   "tenant name": "Boiko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recilJfJoURj2hXqJ",
+  "createdTime": "2026-08-28T11:16:52.000Z",
+  "fields": {
+   "tenant": [
+    "recFbnTwZl0WNQ6sh"
+   ],
+   "tenant name": "Kravets Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recOqic119rQ12ufP",
+  "createdTime": "2026-08-28T11:22:58.000Z",
+  "fields": {
+   "tenant": [
+    "rechJDNKzFJzZgYp5"
+   ],
+   "tenant name": "Polishchuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recQ0njWjkZVBPju0",
+  "createdTime": "2026-08-28T11:25:31.000Z",
+  "fields": {
+   "tenant": [
+    "recbwvdhylM4Nr1Fn"
+   ],
+   "tenant name": "Savchenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recFfc5WMUoDlKSSh",
+  "createdTime": "2026-08-28T11:26:40.000Z",
+  "fields": {
+   "tenant": [
+    "recfETcOebEsCqRWr"
+   ],
+   "tenant name": "Rudenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recOFclKiJ4p2eZ2k",
+  "createdTime": "2026-08-28T11:29:56.000Z",
+  "fields": {
+   "tenant": [
+    "rechIPXlBJP86ZWch"
+   ],
+   "tenant name": "Marchenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rechapPv4tASu1poD",
+  "createdTime": "2026-08-28T11:35:30.000Z",
+  "fields": {
+   "tenant": [
+    "recjnhtR0bESgQjii"
+   ],
+   "tenant name": "Lysenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recA0ThZUKXRUXSr4",
+  "createdTime": "2026-08-28T11:37:40.000Z",
+  "fields": {
+   "tenant": [
+    "recaD6TfSZVVePbLu"
+   ],
+   "tenant name": "Moroz Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recW6SWGfeT1z0hlv",
+  "createdTime": "2026-08-28T11:40:22.000Z",
+  "fields": {
+   "tenant": [
+    "recDHyXxSxB1x5Y4U"
+   ],
+   "tenant name": "Klymenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec0HZ8X420IvPW7y",
+  "createdTime": "2026-08-28T11:57:44.000Z",
+  "fields": {
+   "tenant": [
+    "recC009hk2gO7tzoM"
+   ],
+   "tenant name": "Hrytsenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recGe69WKONTQp4E6",
+  "createdTime": "2026-08-28T11:59:07.000Z",
+  "fields": {
+   "tenant": [
+    "recmPjzhMOaCXGV3i"
+   ],
+   "tenant name": "Danyliuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recfREk8ewafOSvxR",
+  "createdTime": "2026-08-28T12:01:07.000Z",
+  "fields": {
+   "tenant": [
+    "recK9CREoEnOtoGQQ"
+   ],
+   "tenant name": "Palamarchuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recKlsmAi4fhTl7Zf",
+  "createdTime": "2026-08-28T12:03:22.000Z",
+  "fields": {
+   "tenant": [
+    "recisBa65mdQd8iLv"
+   ],
+   "tenant name": "Voloshyn Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recBV2L9WBnH8mJD6",
+  "createdTime": "2026-08-28T12:05:15.000Z",
+  "fields": {
+   "tenant": [
+    "recED7mDTABSyn12t"
+   ],
+   "tenant name": "Zhuravel Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "receClkCghcIBrtyD",
+  "createdTime": "2026-08-28T12:06:21.000Z",
+  "fields": {
+   "tenant": [
+    "recnrsOjSZ22peFah"
+   ],
+   "tenant name": "Sydorenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recroSiqzjRCBnT4I",
+  "createdTime": "2026-08-28T12:07:31.000Z",
+  "fields": {
+   "tenant": [
+    "recV5qHl73V75PQbE"
+   ],
+   "tenant name": "Havryliuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "receYCr7IkQczrMER",
+  "createdTime": "2026-08-28T12:08:26.000Z",
+  "fields": {
+   "tenant": [
+    "rec1J13E6RvRVWg4Y"
+   ],
+   "tenant name": "Osypenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec7yEfmuO3AiQtRG",
+  "createdTime": "2026-08-28T12:09:57.000Z",
+  "fields": {
+   "tenant": [
+    "recBKfVgJnCmnBsBK"
+   ],
+   "tenant name": "Nazarenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recWXBoh9vrOjjjC1",
+  "createdTime": "2026-08-28T12:11:41.000Z",
+  "fields": {
+   "tenant": [
+    "recEPOkumneXZWJqc"
+   ],
+   "tenant name": "Tymoshenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recPrCbNfUMUM1Vbk",
+  "createdTime": "2026-08-28T12:14:07.000Z",
+  "fields": {
+   "tenant": [
+    "recnFhxNIIMqZU7lq"
+   ],
+   "tenant name": "Yatsenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recy71m2ppoBr66Ej",
+  "createdTime": "2026-08-28T12:25:41.000Z",
+  "fields": {
+   "tenant": [
+    "recymHl8x0RHq2ZUo"
+   ],
+   "tenant name": "Chernenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recjV9b84HiIISBp2",
+  "createdTime": "2026-08-28T12:26:52.000Z",
+  "fields": {
+   "tenant": [
+    "reccqhzqmFMdnbTgm"
+   ],
+   "tenant name": "Didyk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recHfriCCSFwsoApz",
+  "createdTime": "2026-08-28T13:13:49.000Z",
+  "fields": {
+   "tenant": [
+    "recOPR54QOfE4gnSr"
+   ],
+   "tenant name": "Panchenko Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recjMbYtjZTSPaIYW",
+  "createdTime": "2026-08-28T13:14:57.000Z",
+  "fields": {
+   "tenant": [
+    "recfrhKfOGT7VEENH"
+   ],
+   "tenant name": "Romaniuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recvXKFgYPTBJpjUh",
+  "createdTime": "2026-08-28T13:16:46.000Z",
+  "fields": {
+   "tenant": [
+    "reccJqmzqVDhU6u9n"
+   ],
+   "tenant name": "Kulyk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recAvEnS4PDku3wIj",
+  "createdTime": "2026-08-28T13:23:57.000Z",
+  "fields": {
+   "tenant": [
+    "recENj2nNicsoyKaS"
+   ],
+   "tenant name": "Stelmakh Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recNbYso8nul1t6u3",
+  "createdTime": "2026-09-11T07:31:00.000Z",
+  "fields": {
+   "tenant": [
+    "recb60Ox7Rlf9NWXe"
+   ],
+   "tenant name": "Verbytskyi Tetiana",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Zahorodnii Tetiana",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recVxDM8wxC9CcJ1M",
+  "createdTime": "2026-09-20T07:35:13.000Z",
+  "fields": {
+   "tenant": [
+    "recFRo8DyTNYCPIeJ"
+   ],
+   "tenant name": "Yatsenko Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-11",
+   "creator": "Savchenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Prokopenko Tetiana",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recoTm338qnqHllFj",
+  "createdTime": "2026-09-09T07:15:43.000Z",
+  "fields": {
+   "tenant": [
+    "recm6zWfjPr6xRaqc"
+   ],
+   "tenant name": "Lytvyn Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-09",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recf3V0cX334y3xFu",
+  "createdTime": "2026-09-09T10:34:09.000Z",
+  "fields": {
+   "tenant": [
+    "recgP8gp5PE5O4mPl"
+   ],
+   "tenant name": "Onyshchenko Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-09",
+   "creator": "Stelmakh Vasyl",
+   "status": "Заселен",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recwkiankkNaqUO5Z",
+  "createdTime": "2026-09-07T06:20:02.000Z",
+  "fields": {
+   "tenant": [
+    "recnOFMuiozLLAUCh"
+   ],
+   "tenant name": "Reznik Tetiana",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-07",
+   "creator": "Shulha Tetiana",
+   "status": "Скасовано",
+   "manager": "Marchenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec7hn2VZBI580coo",
+  "createdTime": "2026-09-07T07:12:07.000Z",
+  "fields": {
+   "tenant": [
+    "recHVfrgPQ7kugmsV"
+   ],
+   "tenant name": "Reznik Tetiana",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-07",
+   "creator": "Shulha Tetiana",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reclAwDPnFKfQyq8G",
+  "createdTime": "2026-09-07T13:18:23.000Z",
+  "fields": {
+   "tenant": [
+    "reckXa7DQXv6C95Xn"
+   ],
+   "tenant name": "Tkachuk Tetiana",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-07",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recjWr72DuTYsWoUN",
+  "createdTime": "2026-09-05T14:12:22.000Z",
+  "fields": {
+   "tenant": [
+    "recfaL8d9T0q1xA1O"
+   ],
+   "tenant name": "Yurchenko Tetiana",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-06",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recFzp9vslkeltlDS",
+  "createdTime": "2026-09-01T14:49:04.000Z",
+  "fields": {
+   "tenant": [
+    "recvwqce8Yxhnk05K"
+   ],
+   "tenant name": "Kovalenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-05",
+   "creator": "Bondarenko Dmytro",
+   "status": "Заселен",
+   "manager": "Stelmakh Vasyl",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recVcq6xDmCbTelHi",
+  "createdTime": "2026-09-03T08:47:02.000Z",
+  "fields": {
+   "tenant": [
+    "recXhe0Nl3GVRcSxl"
+   ],
+   "tenant name": "Tkachenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-05",
+   "creator": "Zahorodnii Vasyl",
+   "status": "Заселен",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recHAZyy4k9fMQa5E",
+  "createdTime": "2026-09-03T08:49:44.000Z",
+  "fields": {
+   "tenant": [
+    "reczvuCgpHpxDahja"
+   ],
+   "tenant name": "Shevchuk Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-05",
+   "creator": "Zahorodnii Vasyl",
+   "status": "Заселен",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recsbxEcITkIoTiFI",
+  "createdTime": "2026-09-04T14:11:34.000Z",
+  "fields": {
+   "tenant": [
+    "recl9df206dRbyzJx"
+   ],
+   "tenant name": "Melnyk Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-05",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recOje8Aw1Bnzcklo",
+  "createdTime": "2026-09-04T14:12:37.000Z",
+  "fields": {
+   "tenant": [
+    "rechY2cDkp0op5SRj"
+   ],
+   "tenant name": "Boiko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-05",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reci0WZVccMS4XE4Q",
+  "createdTime": "2026-09-04T12:16:59.000Z",
+  "fields": {
+   "tenant": [
+    "rec4YsqlBzv6O1YrQ"
+   ],
+   "tenant name": "Kravets Dmytro",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-09-04",
+   "creator": "Zahorodnii Vasyl",
+   "status": "Скасовано",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0.3
+  }
+ },
+ {
+  "id": "rec9JOVB73Lk2neZf",
+  "createdTime": "2026-09-01T14:48:21.000Z",
+  "fields": {
+   "tenant": [
+    "recKUyX6usK2oQeh6"
+   ],
+   "tenant name": "Polishchuk Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-03",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recUMwj0tMc56VDgJ",
+  "createdTime": "2026-09-03T15:10:00.000Z",
+  "fields": {
+   "tenant": [
+    "recr27G8Z6LCBhmZh"
+   ],
+   "tenant name": "Savchenko Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-03",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recKL5KnbT4cGIrPK",
+  "createdTime": "2026-09-01T14:45:31.000Z",
+  "fields": {
+   "tenant": [
+    "recyy19uX2N3uvjju"
+   ],
+   "tenant name": "Rudenko Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-02",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recDYmfR5KFZfm2N5",
+  "createdTime": "2026-09-02T14:06:07.000Z",
+  "fields": {
+   "tenant": [
+    "recPud9nWOeUv9nL5"
+   ],
+   "tenant name": "Marchenko Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-02",
+   "creator": "Savchenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Prokopenko Tetiana",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recjp2w1mZg2xezIQ",
+  "createdTime": "2026-09-02T15:13:37.000Z",
+  "fields": {
+   "tenant": [
+    "rec5yaiTt3Mte0t78"
+   ],
+   "tenant name": "Lysenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-02",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec7mp55FuRVDyzQx",
+  "createdTime": "2026-08-28T13:43:11.000Z",
+  "fields": {
+   "tenant": [
+    "recotFva3JseaaQcU"
+   ],
+   "tenant name": "Moroz Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recFsuqvVHaXYW1Js",
+  "createdTime": "2026-08-31T12:53:12.000Z",
+  "fields": {
+   "tenant": [
+    "rec0gLy7b8mHR9alU"
+   ],
+   "tenant name": "Klymenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Osypenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recr1dHFFycGiQ3Fb",
+  "createdTime": "2026-09-01T13:57:04.000Z",
+  "fields": {
+   "tenant": [
+    "recCzd6CAcHF5Lril"
+   ],
+   "tenant name": "Hrytsenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recvaYX5bLiWFcgok",
+  "createdTime": "2026-09-01T13:58:42.000Z",
+  "fields": {
+   "tenant": [
+    "recVPgYQu4lfqFoPR"
+   ],
+   "tenant name": "Danyliuk Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recnexWqrpUTHPC3K",
+  "createdTime": "2026-09-01T14:01:36.000Z",
+  "fields": {
+   "tenant": [
+    "recVPgYQu4lfqFoPR"
+   ],
+   "tenant name": "Danyliuk Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recDMmxEvmo3lpaKQ",
+  "createdTime": "2026-09-01T14:03:31.000Z",
+  "fields": {
+   "tenant": [
+    "reciWBV8lO7xIAun7"
+   ],
+   "tenant name": "Palamarchuk Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recu7lKJPBFOkCGNq",
+  "createdTime": "2026-09-01T14:40:39.000Z",
+  "fields": {
+   "tenant": [
+    "recDqUH7utRQ4DJNn"
+   ],
+   "tenant name": "Voloshyn Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recITqZh2brV8Gcly",
+  "createdTime": "2026-09-01T14:42:12.000Z",
+  "fields": {
+   "tenant": [
+    "recFWtjvWYpSYgEzE"
+   ],
+   "tenant name": "Zhuravel Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recO4WFOOCyE27lCh",
+  "createdTime": "2026-09-02T15:49:31.000Z",
+  "fields": {
+   "tenant": [
+    "rec5yaiTt3Mte0t78"
+   ],
+   "tenant name": "Lysenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-09-01",
+   "creator": "Melnyk Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recQKbsOOrn9S53pJ",
+  "createdTime": "2026-08-26T08:35:11.000Z",
+  "fields": {
+   "tenant": [
+    "recahVwp9DbT9AgYn"
+   ],
+   "tenant name": "Sydorenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-31",
+   "creator": "Stelmakh Vasyl",
+   "status": "Заселен",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recJZFPgrPd5y9NLn",
+  "createdTime": "2026-08-27T07:32:53.000Z",
+  "fields": {
+   "tenant": [
+    "recBLFgQBa9UAtKBY"
+   ],
+   "tenant name": "Havryliuk Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-31",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recIBfJgLgFw9gZTh",
+  "createdTime": "2026-08-31T06:30:04.000Z",
+  "fields": {
+   "tenant": [
+    "recCzd6CAcHF5Lril"
+   ],
+   "tenant name": "Hrytsenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-31",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recW2c4JCTAzk7089",
+  "createdTime": "2026-08-26T08:11:14.000Z",
+  "fields": {
+   "tenant": [
+    "recKZpv3556vP5W6C"
+   ],
+   "tenant name": "Osypenko Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-28",
+   "creator": "Bondarenko Dmytro",
+   "status": "Скасовано",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rectILgWJ5kTg2wMR",
+  "createdTime": "2026-08-27T06:51:05.000Z",
+  "fields": {
+   "tenant": [
+    "recWWQAiR8SEQ7M4m"
+   ],
+   "tenant name": "Nazarenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-27",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rech5WjLuZ2aBMLuz",
+  "createdTime": "2026-08-26T08:26:01.000Z",
+  "fields": {
+   "tenant": [
+    "recdBACXEELWu7HTA"
+   ],
+   "tenant name": "Tymoshenko Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Savchenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Yatsenko Dmytro",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recck8jyy0NTjm6Nu",
+  "createdTime": "2026-08-26T09:46:03.000Z",
+  "fields": {
+   "tenant": [
+    "recdBACXEELWu7HTA"
+   ],
+   "tenant name": "Tymoshenko Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recaKCUHkdw8Ai6vG",
+  "createdTime": "2026-08-26T15:26:20.000Z",
+  "fields": {
+   "tenant": [
+    "recP3FS0YTRn1TiKy"
+   ],
+   "tenant name": "Chernenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reconW7mbhbafXbaZ",
+  "createdTime": "2026-08-26T15:27:11.000Z",
+  "fields": {
+   "tenant": [
+    "recP3FS0YTRn1TiKy"
+   ],
+   "tenant name": "Chernenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recBB8K7CzzQu9dWb",
+  "createdTime": "2026-08-26T15:27:59.000Z",
+  "fields": {
+   "tenant": [
+    "rec6rgZpRpYYe19kH"
+   ],
+   "tenant name": "Didyk Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recYPV3boyfeRM033",
+  "createdTime": "2026-08-26T15:28:43.000Z",
+  "fields": {
+   "tenant": [
+    "rec6rgZpRpYYe19kH"
+   ],
+   "tenant name": "Didyk Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-26",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recQ9BtzIFqGW4N0B",
+  "createdTime": "2026-08-24T07:28:45.000Z",
+  "fields": {
+   "tenant": [
+    "recnGNLiOzTdQWBX4"
+   ],
+   "tenant name": "Panchenko Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec7OZNGNCH9Ss3fI",
+  "createdTime": "2026-08-24T11:52:27.000Z",
+  "fields": {
+   "tenant": [
+    "recp3U6Om0I99yp0E"
+   ],
+   "tenant name": "Romaniuk Dmytro",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Tkachuk Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec9Pfk5fLNXUrlfL",
+  "createdTime": "2026-08-24T12:44:18.000Z",
+  "fields": {
+   "tenant": [
+    "recbEveUQ3EdpjXlp"
+   ],
+   "tenant name": "Kulyk Dmytro",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Zahorodnii Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reciqKY4WoFCwiHKz",
+  "createdTime": "2026-08-25T07:02:50.000Z",
+  "fields": {
+   "tenant": [
+    "recVA2itodSrKMy1B"
+   ],
+   "tenant name": "Stelmakh Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recvUY1lhKvqfP70f",
+  "createdTime": "2026-08-25T09:44:48.000Z",
+  "fields": {
+   "tenant": [
+    "recUtd6hnViYdoTC4"
+   ],
+   "tenant name": "Verbytskyi Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recYMk2eRc2e2Y4mo",
+  "createdTime": "2026-08-25T11:03:59.000Z",
+  "fields": {
+   "tenant": [
+    "rectf0gyXLcvMkKJs"
+   ],
+   "tenant name": "Zahorodnii Dmytro",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-25",
+   "creator": "Tkachuk Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recJU0advOtgSBc42",
+  "createdTime": "2026-08-21T07:27:43.000Z",
+  "fields": {
+   "tenant": [
+    "recxxBHRJwcmv7p6W"
+   ],
+   "tenant name": "Prokopenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-24",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recCNSMDqXumPWX5h",
+  "createdTime": "2026-08-24T07:43:04.000Z",
+  "fields": {
+   "tenant": [
+    "recLHbjbBsKl8vOU4"
+   ],
+   "tenant name": "Lytvyn Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-24",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recO5hUdw2LhXxmgX",
+  "createdTime": "2026-08-24T08:38:23.000Z",
+  "fields": {
+   "tenant": [
+    "recO87YJFF39vH1Hq"
+   ],
+   "tenant name": "Onyshchenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-24",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recCU4CLITyVTxdKM",
+  "createdTime": "2026-08-24T08:46:00.000Z",
+  "fields": {
+   "tenant": [
+    "recSwnA8ijlED00or"
+   ],
+   "tenant name": "Reznik Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-24",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recitcPkJdmYpwhx6",
+  "createdTime": "2026-08-19T08:47:40.000Z",
+  "fields": {
+   "tenant": [
+    "recVA2itodSrKMy1B"
+   ],
+   "tenant name": "Stelmakh Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-23",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rece0VMySEZrY74j1",
+  "createdTime": "2026-08-20T08:50:47.000Z",
+  "fields": {
+   "tenant": [
+    "recMaRJ3tc3o4kneF"
+   ],
+   "tenant name": "Shulha Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-23",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recFcQ9lCKFJaC1eP",
+  "createdTime": "2026-08-20T10:23:23.000Z",
+  "fields": {
+   "tenant": [
+    "rec16NDHJy7RSai9L"
+   ],
+   "tenant name": "Tkachuk Dmytro",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-23",
+   "creator": "Stelmakh Vasyl",
+   "status": "Скасовано",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recmS5BNPm2gBqN1x",
+  "createdTime": "2026-08-20T14:04:27.000Z",
+  "fields": {
+   "tenant": [
+    "recj7QskLUwK0uHgC"
+   ],
+   "tenant name": "Yurchenko Dmytro",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-23",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recm5bMELdGqOvO9H",
+  "createdTime": "2026-08-20T14:05:43.000Z",
+  "fields": {
+   "tenant": [
+    "recGlNH4TxPuK5Jx7"
+   ],
+   "tenant name": "Kovalenko Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-23",
+   "creator": "Lysenko Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recJbDVPULCnVBn98",
+  "createdTime": "2026-08-19T12:25:38.000Z",
+  "fields": {
+   "tenant": [
+    "recnGNLiOzTdQWBX4"
+   ],
+   "tenant name": "Panchenko Dmytro",
+   "hostel": [
+    "recXsgHK2Rx7BZYvR"
+   ],
+   "start date": "2026-08-21",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reciTOPptXEDbhaEE",
+  "createdTime": "2026-08-21T13:14:01.000Z",
+  "fields": {
+   "tenant": [
+    "recQmtu3KMhjxCJ1F"
+   ],
+   "tenant name": "Bondarenko Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-21",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recYt4RpT3dnOvTqc",
+  "createdTime": "2026-08-21T13:50:07.000Z",
+  "fields": {
+   "tenant": [
+    "recX1RXoNsK91IL0C"
+   ],
+   "tenant name": "Tkachenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-21",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec8y75uTPHzwT7xf",
+  "createdTime": "2026-08-21T14:05:20.000Z",
+  "fields": {
+   "tenant": [
+    "recX1RXoNsK91IL0C"
+   ],
+   "tenant name": "Tkachenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-21",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reccg4tvotMlRYfg5",
+  "createdTime": "2026-08-20T12:44:02.000Z",
+  "fields": {
+   "tenant": [
+    "recGlNH4TxPuK5Jx7"
+   ],
+   "tenant name": "Kovalenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-20",
+   "creator": "Lysenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Osypenko Vasyl",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recDlZNkeihWl277P",
+  "createdTime": "2026-08-20T12:45:48.000Z",
+  "fields": {
+   "tenant": [
+    "recj7QskLUwK0uHgC"
+   ],
+   "tenant name": "Yurchenko Dmytro",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-20",
+   "creator": "Lysenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Osypenko Vasyl",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recUZcFCVB6rNAEQk",
+  "createdTime": "2026-08-20T15:48:27.000Z",
+  "fields": {
+   "tenant": [
+    "recnfFRZHLPnaBFF2"
+   ],
+   "tenant name": "Shevchuk Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-20",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec5kCTa2fxbs94fl",
+  "createdTime": "2026-08-18T15:44:03.000Z",
+  "fields": {
+   "tenant": [
+    "recDdVsRgKJ3HIqT0"
+   ],
+   "tenant name": "Melnyk Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-19",
+   "creator": "Lysenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Osypenko Vasyl",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reccsm09lskhORZvc",
+  "createdTime": "2026-08-19T14:34:44.000Z",
+  "fields": {
+   "tenant": [
+    "rec5yaiTt3Mte0t78"
+   ],
+   "tenant name": "Lysenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-19",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reczlh2hsydZ7WD9X",
+  "createdTime": "2026-08-19T14:36:06.000Z",
+  "fields": {
+   "tenant": [
+    "recxx8G1gOhDYry75"
+   ],
+   "tenant name": "Boiko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-19",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "rec0dX4Lkx9pSHsVU",
+  "createdTime": "2026-08-18T11:42:45.000Z",
+  "fields": {
+   "tenant": [
+    "recAe2TjAY01t2sSs"
+   ],
+   "tenant name": "Kravets Kateryna",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-18",
+   "creator": "Tkachuk Vasyl",
+   "status": "Скасовано",
+   "manager": "Stelmakh Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recKHB7Y9wvmVXM7n",
+  "createdTime": "2026-08-18T15:10:51.000Z",
+  "fields": {
+   "tenant": [
+    "recrU7YwVvok74u8Z"
+   ],
+   "tenant name": "Polishchuk Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-18",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recxuqIHUzprEnFqh",
+  "createdTime": "2026-08-18T15:11:55.000Z",
+  "fields": {
+   "tenant": [
+    "recrU7YwVvok74u8Z"
+   ],
+   "tenant name": "Polishchuk Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-18",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recgfQG6Lj0KUmPSC",
+  "createdTime": "2026-08-18T15:26:42.000Z",
+  "fields": {
+   "tenant": [
+    "recDM3yqDO6UWIjWq"
+   ],
+   "tenant name": "Yatsenko Vasyl",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-18",
+   "creator": "Savchenko Vasyl",
+   "status": "Заселен",
+   "manager": "Prokopenko Tetiana",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recmjSrAeqooSx76h",
+  "createdTime": "2026-08-17T09:30:15.000Z",
+  "fields": {
+   "tenant": [
+    "rectutw9fg3MZhJMU"
+   ],
+   "tenant name": "Savchenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-17",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recCTzhSTvSpqGZJi",
+  "createdTime": "2026-08-17T11:28:52.000Z",
+  "fields": {
+   "tenant": [
+    "recDEulLHNoDRWv84"
+   ],
+   "tenant name": "Rudenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-17",
+   "creator": "Zhuravel Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recdJsUpCOhc9Tj1r",
+  "createdTime": "2026-08-17T14:33:59.000Z",
+  "fields": {
+   "tenant": [
+    "rec5yaiTt3Mte0t78"
+   ],
+   "tenant name": "Lysenko Dmytro",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-17",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recei96KTJcealPXn",
+  "createdTime": "2026-08-14T18:15:33.000Z",
+  "fields": {
+   "tenant": [
+    "recMIaURpWI32ge70"
+   ],
+   "tenant name": "Marchenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-15",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recucwniZ9Zh212lS",
+  "createdTime": "2026-08-17T09:57:24.000Z",
+  "fields": {
+   "tenant": [
+    "recUgiF2Flzq5cduU"
+   ],
+   "tenant name": "Lysenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-15",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recq0CLjFyQFOKJ5Y",
+  "createdTime": "2026-08-13T08:07:03.000Z",
+  "fields": {
+   "tenant": [
+    "recn8mJUkCNx769pg"
+   ],
+   "tenant name": "Moroz Kateryna",
+   "hostel": [
+    "rec5vw7wOy9e8Ajqw"
+   ],
+   "start date": "2026-08-14",
+   "creator": "Lytvyn Vasyl",
+   "status": "Заселен",
+   "manager": "Osypenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recR20C00TkQoCQfe",
+  "createdTime": "2026-08-14T10:34:49.000Z",
+  "fields": {
+   "tenant": [
+    "recQbjsM85qrsqkrt"
+   ],
+   "tenant name": "Klymenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-14",
+   "creator": "Shulha Tetiana",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recc8UsB6A34o8VAS",
+  "createdTime": "2026-08-11T15:17:32.000Z",
+  "fields": {
+   "tenant": [
+    "recP6wOTxacepzHUM"
+   ],
+   "tenant name": "Hrytsenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-12",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recYjVDBsAOWvMfeQ",
+  "createdTime": "2026-08-11T15:27:27.000Z",
+  "fields": {
+   "tenant": [
+    "recI9JebGti8MLGMp"
+   ],
+   "tenant name": "Danyliuk Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-12",
+   "creator": "Melnyk Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recHqHQwLiqU6lOuN",
+  "createdTime": "2026-08-07T14:12:11.000Z",
+  "fields": {
+   "tenant": [
+    "recoNk4f4gzf8g1tc"
+   ],
+   "tenant name": "Marchenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recP9oFhBMskNq5lm",
+  "createdTime": "2026-08-07T14:13:44.000Z",
+  "fields": {
+   "tenant": [
+    "recoNk4f4gzf8g1tc"
+   ],
+   "tenant name": "Marchenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recndtzPt0hrfUmjs",
+  "createdTime": "2026-08-10T16:39:35.000Z",
+  "fields": {
+   "tenant": [
+    "reckJjw4maLGjTiHw"
+   ],
+   "tenant name": "Palamarchuk Kateryna",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recpEvjb6D4oIZ6Bx",
+  "createdTime": "2026-08-10T16:40:31.000Z",
+  "fields": {
+   "tenant": [
+    "recn0EtbBEvlUeL9r"
+   ],
+   "tenant name": "Voloshyn Kateryna",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Скасовано",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recwJU36UttoOWaMh",
+  "createdTime": "2026-08-11T06:45:49.000Z",
+  "fields": {
+   "tenant": [
+    "recicrxwU89po4opx"
+   ],
+   "tenant name": "Zhuravel Kateryna",
+   "hostel": [
+    "recqPqIVwu8lAMZny"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Zhuravel Vasyl",
+   "status": "Скасовано",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recgTTumzP2x9u9ey",
+  "createdTime": "2026-08-11T11:16:41.000Z",
+  "fields": {
+   "tenant": [
+    "recesZd74rP5R8CHj"
+   ],
+   "tenant name": "Sydorenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Havryliuk Kateryna",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recN5gl9TchPgBPa3",
+  "createdTime": "2026-08-11T11:17:16.000Z",
+  "fields": {
+   "tenant": [
+    "recesZd74rP5R8CHj"
+   ],
+   "tenant name": "Sydorenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Havryliuk Kateryna",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "reccw9eqbUaOlTQUb",
+  "createdTime": "2026-08-11T15:43:47.000Z",
+  "fields": {
+   "tenant": [
+    "recsUnDIC4uFErqcU"
+   ],
+   "tenant name": "Osypenko Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recL8YU8s2ZW5QXNw",
+  "createdTime": "2026-08-11T17:30:28.000Z",
+  "fields": {
+   "tenant": [
+    "reckJjw4maLGjTiHw"
+   ],
+   "tenant name": "Palamarchuk Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recd9rUM2lYcPJJbB",
+  "createdTime": "2026-08-11T17:31:22.000Z",
+  "fields": {
+   "tenant": [
+    "recn0EtbBEvlUeL9r"
+   ],
+   "tenant name": "Voloshyn Kateryna",
+   "hostel": [
+    "rec8DWZmv5Pp85oxj"
+   ],
+   "start date": "2026-08-11",
+   "creator": "Tymoshenko Vasyl",
+   "status": "Заселен",
+   "manager": "Tymoshenko Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recF7Ivu0biC5TtHV",
+  "createdTime": "2026-08-07T09:01:19.000Z",
+  "fields": {
+   "tenant": [
+    "recGZCQvLVECARvWW"
+   ],
+   "tenant name": "Nazarenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-10",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "family": true,
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recsb5SOIWAL6DkEt",
+  "createdTime": "2026-08-07T09:01:46.000Z",
+  "fields": {
+   "tenant": [
+    "recGZCQvLVECARvWW"
+   ],
+   "tenant name": "Nazarenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-10",
+   "creator": "Klymenko Vasyl",
+   "status": "Скасовано",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recafJhbl5W42ruZm",
+  "createdTime": "2026-08-10T08:12:09.000Z",
+  "fields": {
+   "tenant": [
+    "reclZl7WgHe0htQEZ"
+   ],
+   "tenant name": "Tymoshenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-10",
+   "creator": "Klymenko Vasyl",
+   "status": "Заселен",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ },
+ {
+  "id": "recZYeShVtgU25MBY",
+  "createdTime": "2026-08-09T09:14:56.000Z",
+  "fields": {
+   "tenant": [
+    "recyTe52RqLqQWcok"
+   ],
+   "tenant name": "Yatsenko Kateryna",
+   "hostel": [
+    "rec1X931yV8BpL3Hd"
+   ],
+   "start date": "2026-08-09",
+   "creator": "Zhuravel Vasyl",
+   "status": "Заселен",
+   "manager": "Zhuravel Vasyl",
+   "discount": 0,
+   "discount_percentage": 0
+  }
+ }
+]

@@ -1,0 +1,2742 @@
+[
+  {
+    "id": "rec0cJQhOt8uUoMFz",
+    "createdTime": "2023-01-04T18:48:18.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 12",
+      "room number": 12,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec14UcsDrFTC4GbS",
+    "createdTime": "2023-02-28T10:52:12.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 7",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec1dSju4TgIy8GQZ",
+    "createdTime": "2023-01-04T18:48:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 10",
+      "room number": 10,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec1gs6PI9pW2WGA2",
+    "createdTime": "2023-12-27T10:40:29.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 14",
+      "room number": 14,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "rec26AuI5rx2Mpk30",
+    "createdTime": "2023-01-04T18:48:24.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 11",
+      "room number": 11,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec2DWn20XhvEivyJ",
+    "createdTime": "2023-01-04T18:48:16.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 4",
+      "room number": 4,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec2SCwKK8r5ERiZM",
+    "createdTime": "2023-01-04T18:48:26.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 6",
+      "room number": 6,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 190,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec2V4c8wdJEvqhJW",
+    "createdTime": "2022-11-04T19:22:03.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 2",
+      "room number": 2,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "rec2qjIDbnLwN1ZzM",
+    "createdTime": "2022-11-04T19:22:33.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 1",
+      "room number": 1,
+      "type": "Квартира",
+      "internal price": 259,
+      "external price": 259,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec2uuP33EyKUyW7l",
+    "createdTime": "2023-02-28T10:52:09.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 4",
+      "room number": 4,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec3BTDbu1RnSYNgH",
+    "createdTime": "2023-02-28T10:52:11.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 6",
+      "room number": 6,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec3fEAFFyGYsv5t4",
+    "createdTime": "2023-01-20T17:50:03.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 20",
+      "room number": 20,
+      "type": "Квартира",
+      "internal price": 379,
+      "external price": 379,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec3nFD9ivfPib1BW",
+    "createdTime": "2022-11-04T19:21:49.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 1",
+      "room number": 1,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "rec4CPybInlE0BPyr",
+    "createdTime": "2023-08-23T07:18:50.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 10A",
+      "room number": 10,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "rec4Ev1Lmy2D0nmxY",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 11",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec4cX9u0HwrIYZll",
+    "createdTime": "2024-07-11T14:30:09.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 20",
+      "room number": 20,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 200,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "rec4yGetzh5PJa5Dq",
+    "createdTime": "2023-01-04T18:48:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 23",
+      "room number": 23,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec5Dmh7UVVDUoL0B",
+    "createdTime": "2022-11-04T19:24:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Вагончик 4",
+      "room number": 4,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec5Pw1MHkIgmpjok",
+    "createdTime": "2022-11-04T19:16:29.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 1",
+      "room number": 1,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec5qNm4Cb2VJCZrc",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 17",
+      "room number": 17,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec6IeYNjYz87dElZ",
+    "createdTime": "2022-11-04T19:24:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Вагончик 5",
+      "room number": 5,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec6eqCa0dEWTaMS3",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 14",
+      "room number": 14,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec7002aZJNK3bUjP",
+    "createdTime": "2023-01-04T18:48:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 3",
+      "room number": 3,
+      "type": "Квартира",
+      "internal price": 224,
+      "external price": 224,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec7Vu0da7jWvbLoe",
+    "createdTime": "2023-01-04T18:48:16.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 5",
+      "room number": 5,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "rec84o1bsqIiQDPWQ",
+    "createdTime": "2023-01-04T18:48:15.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 2",
+      "room number": 2,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec8SOFAMgcB3bPIQ",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 12",
+      "room number": 12,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "rec8gwjyDoUjLnYoX",
+    "createdTime": "2024-06-24T08:07:37.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 29   ",
+      "room number": 29,
+      "type": "Квартира",
+      "internal price": 267,
+      "external price": {
+        "specialValue": "NaN"
+      },
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rec9ZQ9EhUHsHEjoE",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 9",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "rec9qFOsEBrP5cyPT",
+    "createdTime": "2023-02-28T10:52:14.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Вагончик 6",
+      "room number": 6,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recAS1ks790LCvuQk",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 9",
+      "room number": 9,
+      "type": "Квартира",
+      "external price": 208,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recAdQXDT7G03Tii9",
+    "createdTime": "2023-02-28T10:52:08.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 2",
+      "room number": 2,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recB8ezta1nFeoq8y",
+    "createdTime": "2023-01-20T17:50:00.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 14",
+      "room number": 14,
+      "type": "Квартира",
+      "internal price": 328,
+      "external price": 328,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recBGw1Fsjr10iU3m",
+    "createdTime": "2023-01-20T17:50:03.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 19",
+      "room number": 19,
+      "type": "Квартира",
+      "internal price": 288,
+      "external price": 288,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recBS9NGxAMTrmTnI",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 8",
+      "room number": 8,
+      "type": "Квартира",
+      "external price": 202,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recBonIAMQXQtCE8A",
+    "createdTime": "2023-01-04T18:48:21.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 27",
+      "room number": 27,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recCHGekDB3kveNEb",
+    "createdTime": "2023-02-23T13:26:58.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 12",
+      "room number": 12,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recCUaoxgQ88yvc4M",
+    "createdTime": "2023-01-20T17:50:04.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 21",
+      "room number": 21,
+      "type": "Квартира",
+      "internal price": 241,
+      "external price": 241,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recCWbURAIO775KCW",
+    "createdTime": "2023-01-04T18:48:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 11",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recCnjeqXvYSx5YGg",
+    "createdTime": "2025-12-05T15:28:15.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 6A",
+      "room number": 6,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recD1LzieqqWuUryX",
+    "createdTime": "2023-01-04T18:48:15.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 3",
+      "room number": 3,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recD79dITYiFy2vHe",
+    "createdTime": "2023-01-04T18:48:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 2",
+      "room number": 2,
+      "type": "Квартира",
+      "internal price": 138,
+      "external price": 138,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recDCPCJGTMMb8ONt",
+    "createdTime": "2023-01-20T17:49:58.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 12",
+      "room number": 12,
+      "type": "Квартира",
+      "internal price": 240,
+      "external price": 240,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recDZQmlIbRZcuFP7",
+    "createdTime": "2023-01-04T18:48:24.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 9",
+      "room number": 9,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recDavM3r3QfJDH8A",
+    "createdTime": "2024-08-23T14:22:30.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 30",
+      "room number": 30,
+      "type": "Квартира",
+      "internal price": 153,
+      "external price": 153,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recFmSvtwhcIZcGq4",
+    "createdTime": "2025-04-04T09:47:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Квартира 1",
+      "room number": 1,
+      "type": "Квартира",
+      "internal price": 183,
+      "external price": 183,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recG3Voqa2HPgIE69",
+    "createdTime": "2023-02-28T10:52:08.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 3",
+      "room number": 3,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recGitkTBF0Eqp65Q",
+    "createdTime": "2025-12-08T10:02:35.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 32",
+      "room number": 32,
+      "type": "Квартира",
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recHGFJduxrtoe6V1",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 13",
+      "room number": 13,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recHJHdkxYnZgdTg2",
+    "createdTime": "2023-01-04T18:48:23.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 8",
+      "room number": 8,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recHKnJX8sGEQAyF8",
+    "createdTime": "2023-01-04T18:48:23.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 5",
+      "room number": 5,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recIAZki1lEeHr29K",
+    "createdTime": "2023-01-20T17:50:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 24",
+      "room number": 24,
+      "type": "Квартира",
+      "internal price": 310,
+      "external price": 310,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recIAicItsuAmKaZk",
+    "createdTime": "2022-11-04T19:24:06.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Вагончик 1",
+      "room number": 1,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recIP01smj9BPMRKR",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 15",
+      "room number": 15,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recIqst8TZNNkCduw",
+    "createdTime": "2023-02-28T10:52:12.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 9",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recJJOk6rundYAD0B",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 9",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recJThGyAuMQVlrfa",
+    "createdTime": "2023-02-22T10:20:08.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 8",
+      "room number": 8,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recJdif8RYQV7pNqY",
+    "createdTime": "2023-02-28T10:52:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 11",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recJujm0ud0CWzWwy",
+    "createdTime": "2023-01-04T18:48:19.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 17",
+      "room number": 17,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recLLUTh1nHrFgrdJ",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 5",
+      "room number": 5,
+      "type": "Квартира",
+      "internal price": 210,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recLsuXOTQSsSDsV3",
+    "createdTime": "2023-01-20T17:50:01.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 16",
+      "room number": 16,
+      "type": "Квартира",
+      "internal price": 279,
+      "external price": 279,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recMCmNXcVg9AKxao",
+    "createdTime": "2023-01-04T18:48:24.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 10",
+      "room number": 10,
+      "type": "Квартира",
+      "internal price": 267,
+      "external price": 267,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recMUYUaPub7mIPfe",
+    "createdTime": "2023-01-04T18:48:18.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 13",
+      "room number": 13,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recNG6bi4IWqw1ojM",
+    "createdTime": "2023-02-22T10:20:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 4",
+      "room number": 4,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recNRGCA3bAoyKzKf",
+    "createdTime": "2023-01-04T18:48:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 5",
+      "room number": 5,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recOAh9DTxWvO34ia",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 7",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recODpzyWV3dgViZt",
+    "createdTime": "2023-02-22T10:20:07.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 5",
+      "room number": 5,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recOcpgJTv6DfexYl",
+    "createdTime": "2023-01-04T18:48:21.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 26",
+      "room number": 26,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recOe489zutQIBfB1",
+    "createdTime": "2023-01-04T18:48:18.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 15",
+      "room number": 15,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recOltVHGG8vHZsrT",
+    "createdTime": "2023-02-22T10:20:04.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 1",
+      "room number": 1,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recOyHk7qrZbm6OTp",
+    "createdTime": "2023-01-04T18:48:26.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 7",
+      "room number": 7,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 190,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recP5tnUbvCaRqFD1",
+    "createdTime": "2023-01-04T18:48:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 21",
+      "room number": 21,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recPGNYEn05AE3DGo",
+    "createdTime": "2024-05-29T11:18:44.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 16",
+      "room number": 16,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recPMJ1NRQ5vcXVJo",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 10",
+      "room number": 10,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recPYpdCUMrcxKLz4",
+    "createdTime": "2024-02-07T08:28:47.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 15",
+      "room number": 15,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 200,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recPhTzXiJpv1MIZv",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 11",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recQHzYtfLimR3WCI",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 5",
+      "room number": 5,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recQQylHEdehcFMqh",
+    "createdTime": "2023-01-20T17:50:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 25",
+      "room number": 25,
+      "type": "Квартира",
+      "internal price": 310,
+      "external price": 310,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recQTdVwlYz57sXLW",
+    "createdTime": "2022-11-04T19:23:35.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 7",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recQgkONuWu1q4IRI",
+    "createdTime": "2023-02-28T10:52:12.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 8",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recRFNyswiOTq5eHw",
+    "createdTime": "2023-01-04T18:48:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 22",
+      "room number": 22,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recRflzrC6n0N8DFz",
+    "createdTime": "2023-02-28T10:52:00.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 1",
+      "room number": 1,
+      "type": "Кімната",
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recRz8uMuQsOrOTXv",
+    "createdTime": "2026-02-11T09:05:36.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 7a",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recSCazIwg8Xzu5pS",
+    "createdTime": "2023-02-22T10:20:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 2",
+      "room number": 2,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recSCrgcNWbAJeazT",
+    "createdTime": "2023-01-04T18:48:21.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 25",
+      "room number": 25,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recSvqjUdwG2wjCwA",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 4",
+      "room number": 4,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recT1WbzWodKntLXv",
+    "createdTime": "2023-01-04T18:48:19.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 19",
+      "room number": 19,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recTin75HTZyOvJ4J",
+    "createdTime": "2023-01-04T18:48:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 9",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recTms2DRey0Xqj4c",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 15",
+      "room number": 15,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recUF6zA4jDZYTgzJ",
+    "createdTime": "2023-01-20T17:49:59.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 13",
+      "room number": 13,
+      "type": "Квартира",
+      "internal price": 233,
+      "external price": 233,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recUWeC9nX0VSYURG",
+    "createdTime": "2023-01-20T17:50:06.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 26",
+      "room number": 26,
+      "type": "Квартира",
+      "internal price": 293,
+      "external price": 293,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recV5k7Fw3QJ3jES1",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 3",
+      "room number": 3,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recVF5PmGesiU1dKG",
+    "createdTime": "2023-02-22T10:20:08.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 6",
+      "room number": 6,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recVFUkFRYtirXDRl",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 2",
+      "room number": 2,
+      "type": "Кімната",
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recVYsbOcmDpUbFsw",
+    "createdTime": "2023-01-04T18:48:18.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 14",
+      "room number": 14,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recVdMk70iFy9bg19",
+    "createdTime": "2024-05-29T11:19:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 17",
+      "room number": 17,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recW0wsJgsIQ5AfeF",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 8",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recWNdA6XMX3UBQ2Y",
+    "createdTime": "2023-02-28T10:52:14.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Вагончик 5",
+      "room number": 5,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": {
+        "specialValue": "NaN"
+      },
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recWRCLQ5jwtIR3i7",
+    "createdTime": "2023-01-04T18:48:21.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 24",
+      "room number": 24,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recWZY1si023ApArv",
+    "createdTime": "2023-01-04T18:48:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 4",
+      "room number": 4,
+      "type": "Квартира",
+      "internal price": 138,
+      "external price": 138,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recXAz5Uinj3nskGh",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 13",
+      "room number": 13,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recXGmveTFH4SfCzj",
+    "createdTime": "2023-02-28T10:52:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Вагончик 3",
+      "room number": 3,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recXSbiYLGrCuz0UW",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 8",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recXn3FwoBfWLK6aP",
+    "createdTime": "2023-01-04T18:48:16.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 6",
+      "room number": 6,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recYHA8t7GCbYccdn",
+    "createdTime": "2023-05-05T09:58:06.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 3A",
+      "room number": 3,
+      "type": "Кімната",
+      "internal price": 220,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recYNe0Yc08emyIX4",
+    "createdTime": "2023-01-04T18:48:16.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 7",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recYSDqdtkshPeGCd",
+    "createdTime": "2023-01-04T18:48:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 8",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recYvBDFfkVmpNVTc",
+    "createdTime": "2023-01-04T18:48:19.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 18",
+      "room number": 18,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recZ6r760C1T2Vjul",
+    "createdTime": "2024-06-12T12:19:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 28",
+      "room number": 28,
+      "type": "Квартира",
+      "internal price": 292,
+      "external price": {
+        "specialValue": "NaN"
+      },
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recZ7wsOkjgT42Z5G",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 18",
+      "room number": 18,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recZy2rfT9uEWywak",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 16",
+      "room number": 16,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reca4wyZYMnRJFNQy",
+    "createdTime": "2026-02-11T09:06:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 11a",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recaGIFNAeeq1UapW",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 17",
+      "room number": 17,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recaOfjDqYzAeBFLO",
+    "createdTime": "2023-01-20T17:50:02.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 17",
+      "room number": 17,
+      "type": "Квартира",
+      "internal price": 275,
+      "external price": 275,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recaXtNNhjirZIQ6j",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 7",
+      "room number": 7,
+      "type": "Квартира",
+      "internal price": 161,
+      "external price": 161,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recbWNbatR126ODoq",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 14",
+      "room number": 14,
+      "type": "Кімната",
+      "internal price": 210,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "reccSdrrwG5AIxqLV",
+    "createdTime": "2023-02-28T10:52:14.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Вагончик 4",
+      "room number": 4,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "reccmOFe4ag65wMHP",
+    "createdTime": "2023-01-04T18:48:23.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 7",
+      "room number": 7,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recdfc76hayf3ArOf",
+    "createdTime": "2023-01-04T18:48:19.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 16",
+      "room number": 16,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recdovzLAmIg6LSfo",
+    "createdTime": "2023-02-22T10:20:08.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 7",
+      "room number": 7,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recemO7rY7IIWEGC9",
+    "createdTime": "2023-01-26T10:04:06.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 12",
+      "room number": 12,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recfTCZFwyrZbouGj",
+    "createdTime": "2023-01-04T18:48:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 4",
+      "room number": 4,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recfZDgYdluQ0CcDP",
+    "createdTime": "2023-01-04T18:48:09.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 11",
+      "room number": 11,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recfuknsDAbLUtYv7",
+    "createdTime": "2023-02-28T10:52:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 10",
+      "room number": 10,
+      "type": "Кімната",
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recfwtOkdV33uMOZI",
+    "createdTime": "2023-01-04T18:48:27.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 9",
+      "room number": 9,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recg71AaTmglPmQgc",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 10",
+      "room number": 10,
+      "type": "Квартира",
+      "internal price": 250,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recgAo9E5Kl2jPMh7",
+    "createdTime": "2023-02-22T10:19:24.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 18",
+      "room number": 18,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recgKAT8d0NpZFwyF",
+    "createdTime": "2023-01-04T18:48:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 20",
+      "room number": 20,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recgeynawjJCSAoQb",
+    "createdTime": "2023-02-28T10:52:11.000Z",
+    "fields": {
+      "hostel rel": [
+        "recqPqIVwu8lAMZny"
+      ],
+      "room": "Behovice - Кімната 5",
+      "room number": 5,
+      "type": "Кімната",
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recgjQfZa8hRXtVmB",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 16",
+      "room number": 16,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "rechdXVrirsCe8zMG",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 9",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 220,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 1
+    }
+  },
+  {
+    "id": "rechi7KNWtcJQK6Hw",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 12",
+      "room number": 12,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reci69dDBMwea9UUL",
+    "createdTime": "2024-10-11T09:33:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 31",
+      "room number": 31,
+      "type": "Квартира",
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reci7r9XfSIqAzbRC",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 11",
+      "room number": 11,
+      "type": "Кімната",
+      "internal price": 220,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reciQgecyd7xsNbzf",
+    "createdTime": "2023-01-20T17:50:04.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 22",
+      "room number": 22,
+      "type": "Квартира",
+      "internal price": 379,
+      "external price": 379,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recihyYo3QseW1GYx",
+    "createdTime": "2024-06-17T13:53:33.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 19",
+      "room number": 19,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "reckSrw3R03ZIEeoV",
+    "createdTime": "2023-03-13T15:27:33.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Вагончик 6",
+      "room number": 6,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reckX52qFveRowjbG",
+    "createdTime": "2023-01-04T18:48:09.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 1",
+      "room number": 1,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "reclGdrQZh28w4m92",
+    "createdTime": "2024-05-29T11:19:50.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 18",
+      "room number": 18,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 150,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recli001cgPb5vyEo",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 7",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recm6oJKecRC08dEP",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 6",
+      "room number": 6,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 5
+    }
+  },
+  {
+    "id": "recmTYxHsFtqH58sE",
+    "createdTime": "2023-01-04T18:48:27.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 10",
+      "room number": 10,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recnIT45zfEbnrxT8",
+    "createdTime": "2025-12-05T15:28:31.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 7A",
+      "room number": 7,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recoEcCuCWjw9GSqf",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 8",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recoHwpT9e39sfDIk",
+    "createdTime": "2023-01-04T18:48:26.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 8",
+      "room number": 8,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 200,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recoJ9pJTseuKAUSD",
+    "createdTime": "2023-02-22T10:20:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Вагончик 3",
+      "room number": 3,
+      "type": "Вагончик",
+      "internal price": 140,
+      "external price": 160,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recohHOo9gUwKTqmi",
+    "createdTime": "2023-01-20T17:50:05.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 23",
+      "room number": 23,
+      "type": "Квартира",
+      "internal price": 345,
+      "external price": 345,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recoijVchDeSfb33A",
+    "createdTime": "2023-01-20T17:50:03.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 18",
+      "room number": 18,
+      "type": "Квартира",
+      "internal price": 235,
+      "external price": 235,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recpInihV7dySTku4",
+    "createdTime": "2025-12-08T08:24:39.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 8A",
+      "room number": 8,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recpU9HWnejgXIZH8",
+    "createdTime": "2023-01-04T18:48:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 3",
+      "room number": 3,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recpp2NLCRL5II0DB",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 2",
+      "room number": 2,
+      "type": "Квартира",
+      "internal price": 259,
+      "external price": 259,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recptAN0J6CEqZekB",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 4",
+      "room number": 4,
+      "type": "Кімната",
+      "internal price": 190,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recq6JgYy3r3DRb0t",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 3",
+      "room number": 3,
+      "type": "Кімната",
+      "internal price": 220,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recqrX5TjJgAVSVt2",
+    "createdTime": "2023-01-04T18:48:22.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 1",
+      "room number": 1,
+      "type": "Квартира",
+      "internal price": 310,
+      "external price": 310,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recqwBHkEx8F4hZDk",
+    "createdTime": "2022-11-04T19:24:20.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Вагончик 3",
+      "room number": 3,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recrGqrjs4cdUbpT9",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 4",
+      "room number": 4,
+      "type": "Квартира",
+      "internal price": 259,
+      "external price": 259,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recrcmy6xuN8bTiea",
+    "createdTime": "2023-02-07T10:49:04.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 28",
+      "room number": 28,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 1
+    }
+  },
+  {
+    "id": "recrhgC7wtGGd1oV7",
+    "createdTime": "2023-01-20T17:50:01.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 15",
+      "room number": 15,
+      "type": "Квартира",
+      "internal price": 240,
+      "external price": 240,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recrphCdDH1wHWdBn",
+    "createdTime": "2022-11-04T19:23:46.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Кімната 10",
+      "room number": 10,
+      "type": "Кімната",
+      "internal price": 240,
+      "external price": 260,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recsCQn8iLG4KBgys",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 11",
+      "room number": 11,
+      "type": "Квартира",
+      "internal price": 259,
+      "external price": 259,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recsGCnSHvd4D2ksT",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 6",
+      "room number": 6,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 220,
+      "status": "Доступна",
+      "capacity": 3
+    }
+  },
+  {
+    "id": "recsRkv5gatDfKpk2",
+    "createdTime": "2023-01-04T18:48:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 1",
+      "room number": 1,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recsjWEAmBJpchHfb",
+    "createdTime": "2022-11-04T19:16:40.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec1X931yV8BpL3Hd"
+      ],
+      "room": "Korycany - Кімната 10",
+      "room number": 10,
+      "type": "Кімната",
+      "internal price": 230,
+      "external price": 250,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rect7sdse0O7dMGxH",
+    "createdTime": "2023-01-04T18:48:25.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 2",
+      "room number": 2,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "rectYg3m1rjwSFcqn",
+    "createdTime": "2022-11-04T19:22:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Кімната 5",
+      "room number": 5,
+      "type": "Кімната",
+      "internal price": 200,
+      "external price": 230,
+      "status": "Доступна",
+      "capacity": 1
+    }
+  },
+  {
+    "id": "recuTDW1TwVo03KxK",
+    "createdTime": "2025-12-08T08:24:53.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Кімната 9A",
+      "room number": 9,
+      "type": "Кімната",
+      "internal price": 250,
+      "external price": 270,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recui3CJzyjLILu2D",
+    "createdTime": "2023-01-04T18:48:23.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 6",
+      "room number": 6,
+      "type": "Квартира",
+      "internal price": 224,
+      "external price": 224,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recvQA3HJJSPBqfRb",
+    "createdTime": "2026-03-19T14:55:28.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Вагончик 1",
+      "room number": 1,
+      "type": "Вагончик",
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recwpmZ2nUeBTEdDK",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 6",
+      "room number": 6,
+      "type": "Квартира",
+      "internal price": 210,
+      "external price": 210,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  },
+  {
+    "id": "recxATxlcRSACSTBS",
+    "createdTime": "2023-10-16T07:11:50.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Вагончик 13",
+      "room number": 13,
+      "type": "Вагончик",
+      "internal price": 150,
+      "external price": 170,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "recyOQ4IsJjTdT3Jk",
+    "createdTime": "2025-07-15T11:03:14.000Z",
+    "fields": {
+      "hostel rel": [
+        "recXsgHK2Rx7BZYvR"
+      ],
+      "room": "Hostivice - Квартира 1",
+      "room number": 1,
+      "type": "Квартира",
+      "status": "Доступна",
+      "capacity": 4
+    }
+  },
+  {
+    "id": "recyigm4yBdN6jMZx",
+    "createdTime": "2024-04-29T13:08:13.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec8DWZmv5Pp85oxj"
+      ],
+      "room": "Chuchle - Квартира 27",
+      "room number": 27,
+      "type": "Квартира",
+      "internal price": 333,
+      "external price": 333,
+      "status": "Недоступна",
+      "capacity": 0
+    }
+  },
+  {
+    "id": "reczM94wgGSBf0gUP",
+    "createdTime": "2022-11-04T19:23:17.000Z",
+    "fields": {
+      "hostel rel": [
+        "rec5vw7wOy9e8Ajqw"
+      ],
+      "room": "Morina - Квартира 3",
+      "room number": 3,
+      "type": "Квартира",
+      "internal price": 190,
+      "external price": 190,
+      "status": "Доступна",
+      "capacity": 2
+    }
+  }
+]

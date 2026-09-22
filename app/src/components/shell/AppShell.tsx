@@ -8,6 +8,8 @@ import { ROLES, ROLE_NAMES, NAV_LABEL_KEY, NAV_ROUTE, roleLabelKey, type NavKey,
 import { SCREEN_TITLE_KEY } from '@/domain/screenTitles';
 import { initials } from '@/lib/text';
 import { NavIcon } from './NavIcon';
+import { DataProvider } from '@/components/data/DataProvider';
+import { MappingToggle } from '@/components/data/MappingToggle';
 
 const LOGO_GRADIENT = 'linear-gradient(135deg,#FFD600 0%,#E500E5 100%)';
 const TAB_PREFERENCE: NavKey[] = ['dashboard', 'bookings', 'checkin', 'residents'];
@@ -112,6 +114,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           })}
         </nav>
         <div style={{ padding: '12px 12px 0', borderTop: '1px solid var(--color-border)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 6px 10px', flexWrap: 'wrap' }}>
+            <MappingToggle />
+            <button
+              onClick={() => router.push('/integration')}
+              style={{ background: 'none', border: 'none', padding: '4px 2px', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 600, color: 'var(--color-muted)', textDecoration: 'underline' }}
+            >
+              {t('nav_integration')}
+            </button>
+          </div>
           <div style={{ fontSize: 9.5, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.8, padding: '0 6px 6px', fontWeight: 700 }}>
             {t('viewAsRole')}
           </div>
@@ -159,7 +170,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <div style={{ flex: 1, overflowY: 'auto' }}>{children}</div>
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <DataProvider>{children}</DataProvider>
+        </div>
       </main>
 
       {/* MOBILE TAB BAR */}

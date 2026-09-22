@@ -11,6 +11,8 @@ import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { PersonCard } from './PersonCard';
+import { MappingNotice, LocalOnly } from '@/components/ui/Unmapped';
+import { useDataSourceStore } from '@/store/dataSource';
 
 export function ResidentsScreen() {
   const t = useT();
@@ -24,6 +26,7 @@ export function ResidentsScreen() {
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
+  const localIds = useDataSourceStore((s) => s.localIds);
 
   const [hostelFilter, setHostelFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
@@ -58,6 +61,13 @@ export function ResidentsScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Stay', field: 'type' },
+          { entity: 'Stay', field: 'bedId' },
+          { entity: 'Resident', field: 'avatarUrl' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('rs_title')}</h1>
@@ -113,6 +123,7 @@ export function ResidentsScreen() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
                   <Avatar name={name} size={32} />
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
+                  {localIds.has(s.id) && <LocalOnly />}
                 </div>
                 <div><Pill label={t(TYPE_LABEL_KEY[s.type])} fg={typeFg} bg={typeBg} /></div>
                 <div style={{ fontSize: 12.5 }}>{placeLabel}</div>

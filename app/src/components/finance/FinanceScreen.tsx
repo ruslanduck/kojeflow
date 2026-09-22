@@ -15,6 +15,7 @@ import { PaymentModal } from './PaymentModal';
 import { StayLedgerModal } from './StayLedgerModal';
 import { TransferForm } from './TransferForm';
 import type { Stay, Transfer, TransferStatus } from '@/domain/types';
+import { MappingNotice, Flagged } from '@/components/ui/Unmapped';
 
 type Section = 'billing' | 'handover';
 type BillingFilter = 'All' | 'Debtors' | 'Settled';
@@ -58,7 +59,10 @@ export function FinanceScreen() {
   // ---- billing ----
   const debtorStays = activeStays.filter((s) => billFor(s, payments).debtor);
   const debtTotal = debtorStays.reduce((sum, s) => sum + billFor(s, payments).balance, 0);
-  const collected = payments.reduce((sum, p) => sum + p.amount, 0);
+  // Summed per stay rather than from the payment list: Airtable supplies a running
+  // paid total but no individual transactions, so the list is empty for everything
+  // it loaded and would report nothing collected against very real balances.
+  const collected = activeStays.reduce((sum, s) => sum + billFor(s, payments).paid, 0);
   const chargedAll = activeStays.reduce((sum, s) => sum + billFor(s, payments).charged, 0);
 
   const billingRows = activeStays
@@ -84,6 +88,13 @@ export function FinanceScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Payment', field: 'amount' },
+          { entity: 'Transfer', field: 'to' },
+          { entity: 'Transfer', field: 'date' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('fn_title')}</h1>
@@ -232,7 +243,9 @@ export function FinanceScreen() {
                   <div key={tr.id} className="rowh" onClick={() => { setEditingTransfer(tr); setTransferFormOpen(true); }} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,1.3fr) minmax(82px,1fr) minmax(112px,1.2fr) minmax(76px,.9fr)', gap: 11, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}>
                     <div style={{ fontWeight: 600, fontSize: 13.5 }}>{propertiesById.get(tr.propertyId)?.name}</div>
                     <div style={{ fontSize: 12.5 }}>{tr.by}</div>
-                    <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{tr.to}</div>
+                    <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>
+                      <Flagged entity="Transfer" field="to">{tr.to}</Flagged>
+                    </div>
                     <div className="num" style={{ fontSize: 13.5, fontWeight: 600 }}>{formatCurrency(tr.amount, currency)}</div>
                     <div className="num" style={{ fontSize: 12, color: 'var(--color-faint)' }}>{tr.date}</div>
                     <div><Pill label={t(STATUS_LABEL_KEY[tr.status])} fg={statusFg} bg={statusBg} /></div>

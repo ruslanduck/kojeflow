@@ -70,6 +70,14 @@ export interface Stay {
   checkOut: string | null; // ISO date
   status: StayStatus;
   rate: number;
+  /**
+   * Running totals Airtable keeps on the stay itself. It has no per-transaction
+   * ledger, so without these the app would sum an empty Payment list and report
+   * every resident as owing their full charge. Absent on stays created in-session,
+   * which do fall back to summing their local payments.
+   */
+  paidTotal?: number;
+  debt?: number;
 }
 
 export interface Booking {

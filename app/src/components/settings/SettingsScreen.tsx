@@ -9,6 +9,7 @@ import { ROLE_NAMES, roleLabelKey, type RoleName } from '@/domain/roles';
 import { initials } from '@/lib/text';
 import { formatCurrency } from '@/lib/format';
 import type { Lang } from '@/i18n';
+import { MappingNotice } from '@/components/ui/Unmapped';
 
 const CURRENCIES = ['$', '€', '₴', 'Kč', 'zł'];
 
@@ -60,6 +61,7 @@ export function SettingsScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice items={[{ entity: 'User', field: 'role' }]} />
       <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('set_title')}</h1>
       <p style={{ color: 'var(--color-muted)', fontSize: 13.5, marginTop: 2, marginBottom: 20 }}>{t('set_sub')}</p>
 

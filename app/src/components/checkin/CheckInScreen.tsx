@@ -14,6 +14,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { CheckInWizard } from './CheckInWizard';
 import type { Booking } from '@/domain/types';
+import { MappingNotice } from '@/components/ui/Unmapped';
 
 export function CheckInScreen() {
   const t = useT();
@@ -64,6 +65,12 @@ export function CheckInScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Bed', field: 'status' },
+          { entity: 'Payment', field: 'amount' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('ci_title')}</h1>

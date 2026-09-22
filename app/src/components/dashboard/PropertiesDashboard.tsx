@@ -12,6 +12,7 @@ import { GENDER_EMOJI } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Pill } from '@/components/ui/Pill';
+import { MappingNotice, Flagged } from '@/components/ui/Unmapped';
 
 export function PropertiesDashboard() {
   const t = useT();
@@ -84,6 +85,13 @@ export function PropertiesDashboard() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Property', field: 'price' },
+          { entity: 'Property', field: 'inProcess' },
+          { entity: 'Payment', field: 'amount' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 22 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('dash_title')}</h1>
@@ -178,7 +186,9 @@ export function PropertiesDashboard() {
                   b.pill ? <Pill key={i} label={b.label} fg="#6B5300" bg="#FFF3B8" /> : <span key={i} className="num" style={{ fontSize: 12, color: 'var(--color-faint-2)' }}>{b.label}</span>,
                 )}
               </div>
-              <div className="num" style={{ fontSize: 12.5 }}>{formatCurrency(property.price, currency)}</div>
+              <div className="num" style={{ fontSize: 12.5 }}>
+                <Flagged entity="Property" field="price">{formatCurrency(property.price, currency)}</Flagged>
+              </div>
             </div>
           ))}
         </div>
