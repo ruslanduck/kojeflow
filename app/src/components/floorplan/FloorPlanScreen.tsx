@@ -7,7 +7,7 @@ import { useEntityStore } from '@/store/entities';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { floorZonesRepository } from '@/repositories/floorZonesRepository';
 import { ROLES } from '@/domain/roles';
-import { occupancyColor } from '@/domain/logic';
+import { occupancyColor, planAspect, planIsWide } from '@/domain/logic';
 import { translatePlace, BED_TILE_COLORS } from '@/domain/labels';
 import { RoomZonePanel } from './RoomZonePanel';
 import { MapZoneDialog } from './MapZoneDialog';
@@ -228,9 +228,9 @@ export function FloorPlanScreen() {
                   onMouseDown={(e) => {
                     if (e.target === e.currentTarget || (e.target as HTMLElement).dataset.fpImg) startDraw(plan, e.currentTarget, e);
                   }}
-                  style={{ position: 'relative', display: 'block', width: '100%', minWidth: 1080, userSelect: 'none', cursor: editMode ? 'crosshair' : 'default' }}
+                  style={{ position: 'relative', display: 'block', width: '100%', minWidth: planIsWide(plan) ? 1080 : 620, maxWidth: planIsWide(plan) ? undefined : 820, userSelect: 'none', cursor: editMode ? 'crosshair' : 'default' }}
                 >
-                  <div data-fp-img="1" style={{ width: '100%', aspectRatio: '1539/679', backgroundImage: `url("${plan.imageUrl}")`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat', pointerEvents: 'none' }} />
+                  <div data-fp-img="1" style={{ width: '100%', aspectRatio: planAspect(plan), backgroundImage: `url("${plan.imageUrl}")`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat', pointerEvents: 'none' }} />
                   {zones.map((zone) => {
                     const room = rooms.find((r) => r.id === zone.roomId);
                     if (!room) return null;

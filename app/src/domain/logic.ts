@@ -1,4 +1,4 @@
-import type { Bed, Payment, Resident, Room, RoomGender, Stay } from './types';
+import type { Bed, FloorPlan, Payment, Resident, Room, RoomGender, Stay } from './types';
 import namePools from './data/name-pools.json';
 
 /**
@@ -7,6 +7,26 @@ import namePools from './data/name-pools.json';
  * it. Stage 2, wired to a real database, should switch this to the real clock.
  */
 export const TODAY = '2026-07-25';
+
+/** Aspect ratio of the seeded plan image, used when a plan has no stored size. */
+export const DEFAULT_PLAN_ASPECT = '1539/679';
+
+/**
+ * CSS `aspect-ratio` for a floor plan image, so plans of any shape (square schemes
+ * included) render undistorted while still stretching to the container width.
+ */
+export function planAspect(plan: FloorPlan): string {
+  return plan.imageWidth && plan.imageHeight ? `${plan.imageWidth}/${plan.imageHeight}` : DEFAULT_PLAN_ASPECT;
+}
+
+/**
+ * Wide plans get the generous min width that keeps room labels readable; near-square
+ * or portrait schemes stay narrower so they do not grow taller than the viewport.
+ */
+export function planIsWide(plan: FloorPlan): boolean {
+  if (!plan.imageWidth || !plan.imageHeight) return true;
+  return plan.imageWidth / plan.imageHeight >= 1.3;
+}
 
 export function diffDays(fromIso: string, toIso: string): number {
   return Math.round((new Date(toIso + 'T00:00:00Z').getTime() - new Date(fromIso + 'T00:00:00Z').getTime()) / 86400000);

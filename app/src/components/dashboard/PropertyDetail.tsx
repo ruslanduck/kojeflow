@@ -14,6 +14,7 @@ import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
+import { CheckInWizard } from '@/components/checkin/CheckInWizard';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
@@ -34,6 +35,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
 
   const [tab, setTab] = useState<'rooms' | 'residents'>('rooms');
   const [logRoomId, setLogRoomId] = useState<string | null>(null);
+  const [checkInTarget, setCheckInTarget] = useState<{ roomId: string; bedId: string } | null>(null);
 
   const property = properties.find((p) => p.id === propertyId);
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
@@ -67,7 +69,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const onBedClick = (bed: Bed, room: Room) => {
     if (bed.status === 'occupied' && bed.residentId) router.push(`/residents?person=${bed.residentId}`);
     else if (bed.status === 'booked') router.push(`/bookings?property=${propertyId}`);
-    else if (bed.status === 'free') router.push(`/checkin?property=${propertyId}&room=${room.id}&bed=${bed.id}`);
+    else if (bed.status === 'free') setCheckInTarget({ roomId: room.id, bedId: bed.id });
   };
 
   const roomGroups = GROUP_ORDER.map((type) => {
@@ -221,6 +223,18 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       )}
 
       {logRoomId && <RoomHistoryModal propertyId={propertyId} roomId={logRoomId} onClose={() => setLogRoomId(null)} />}
+
+      {checkInTarget && (
+        <CheckInWizard
+          key={checkInTarget.bedId}
+          fromBooking={null}
+          defaultPropertyId={propertyId}
+          defaultRoomId={checkInTarget.roomId}
+          defaultBedIds={[checkInTarget.bedId]}
+          onClose={() => setCheckInTarget(null)}
+          onSaved={() => setCheckInTarget(null)}
+        />
+      )}
     </section>
   );
 }

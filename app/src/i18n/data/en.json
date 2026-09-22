@@ -434,5 +434,13 @@
   "places_word": "beds",
   "period_now": "{d} — now",
   "checkout_action": "Check out",
-  "checkout_confirm": "Check out {n}? This frees the bed."
+  "checkout_confirm": "Check out {n}? This frees the bed.",
+  "checkout_title": "Check out resident",
+  "cancel_booking_title": "Cancel booking",
+  "cancel_booking_confirm": "Cancel the booking for {n}? The held bed will be released.",
+  "remove_member_title": "Remove from team",
+  "remove_member_confirm": "Remove {n} from the team? They will lose access to the workspace.",
+  "keep_booking": "Keep booking",
+  "keep_member": "Keep member",
+  "stay_checked_in": "Stay checked in"
 }

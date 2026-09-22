@@ -135,6 +135,9 @@ export interface FloorPlan {
   name: string;
   sort: number;
   imageUrl: string;
+  /** Natural pixel size of the uploaded image, used to keep its aspect ratio. */
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 export interface FloorZone {

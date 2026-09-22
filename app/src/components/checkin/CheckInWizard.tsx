@@ -22,10 +22,13 @@ interface CheckInWizardProps {
   onClose: () => void;
   fromBooking: Booking | null;
   defaultPropertyId?: string;
+  /** Pre-selected place, e.g. when check-in starts from a free bed on the dashboard. */
+  defaultRoomId?: string;
+  defaultBedIds?: string[];
   onSaved: (stays: Stay[]) => void;
 }
 
-export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, onSaved }: CheckInWizardProps) {
+export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, defaultRoomId, defaultBedIds, onSaved }: CheckInWizardProps) {
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
@@ -47,8 +50,8 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, onSaved
   const [newName, setNewName] = useState('');
   const [newGender, setNewGender] = useState<'Male' | 'Female'>('Male');
   const [propertyId, setPropertyId] = useState(fromBooking?.propertyId ?? defaultPropertyId ?? '');
-  const [roomId, setRoomId] = useState('');
-  const [selectedBedIds, setSelectedBedIds] = useState<string[]>(defaultPropertyId ? [] : []);
+  const [roomId, setRoomId] = useState(defaultRoomId ?? '');
+  const [selectedBedIds, setSelectedBedIds] = useState<string[]>(defaultBedIds ?? []);
   const [type, setType] = useState<StayType>(fromBooking?.type ?? 'Internal');
   const [manager, setManager] = useState(fromBooking?.manager ?? '');
   const [project, setProject] = useState(fromBooking?.project ?? '');

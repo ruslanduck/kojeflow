@@ -12,6 +12,7 @@ import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, 
 import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
+import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { BookingWizard } from './BookingWizard';
 import type { Booking, BookingStatus } from '@/domain/types';
 
@@ -40,6 +41,7 @@ export function BookingsScreen() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
   const [editing, setEditing] = useState<Booking | null>(null);
+  const [confirmCancel, setConfirmCancel] = useState<Booking | null>(null);
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
@@ -73,6 +75,7 @@ export function BookingsScreen() {
   const openEdit = (b: Booking) => { setEditing(b); setWizardOpen(true); };
   const cancelBooking = async (b: Booking) => {
     await bookingsRepository.update(b.id, { status: 'Cancelled' });
+    setConfirmCancel(null);
   };
 
   return (
@@ -182,7 +185,7 @@ export function BookingsScreen() {
                       {t('edit')}
                     </button>
                     {!done && !cancelled && (
-                      <button className="chip" onClick={(e) => { e.stopPropagation(); void cancelBooking(b); }} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', color: 'var(--color-red)', fontWeight: 600 }}>
+                      <button className="chip" onClick={(e) => { e.stopPropagation(); setConfirmCancel(b); }} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', color: 'var(--color-red)', fontWeight: 600 }}>
                         {t('cancel_booking')}
                       </button>
                     )}
@@ -196,6 +199,17 @@ export function BookingsScreen() {
           <div style={{ textAlign: 'center', padding: 46, color: 'var(--color-faint)', background: '#fff', border: '1px dashed var(--color-border)', borderRadius: 13 }}>{emptyMessage}</div>
         )}
       </div>
+
+      {confirmCancel && (
+        <ConfirmDialog
+          title={t('cancel_booking_title')}
+          sub={t('cancel_booking_confirm', { n: safeName(confirmCancel.residentName, !!roleConfig.hideNames, t('hidden_name')) })}
+          confirmLabel={t('cancel_booking')}
+          cancelLabel={t('keep_booking')}
+          onCancel={() => setConfirmCancel(null)}
+          onConfirm={() => void cancelBooking(confirmCancel)}
+        />
+      )}
 
       {wizardOpen && (
         <BookingWizard

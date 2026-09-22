@@ -4,6 +4,8 @@
     "propertyId": "behovice",
     "name": "1st Floor",
     "sort": 1,
-    "imageUrl": "/floorplan-1.png"
+    "imageUrl": "/floorplan-1.png",
+    "imageWidth": 1539,
+    "imageHeight": 679
   }
 ]

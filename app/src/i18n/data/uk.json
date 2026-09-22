@@ -434,5 +434,13 @@
   "places_word": "ліжок",
   "period_now": "{d} — зараз",
   "checkout_action": "Виселити",
-  "checkout_confirm": "Виселити {n}? Ліжко звільниться."
+  "checkout_confirm": "Виселити {n}? Ліжко звільниться.",
+  "checkout_title": "Виселення мешканця",
+  "cancel_booking_title": "Скасування бронювання",
+  "cancel_booking_confirm": "Скасувати бронювання для {n}? Зарезервоване ліжко звільниться.",
+  "remove_member_title": "Видалення з команди",
+  "remove_member_confirm": "Видалити {n} з команди? Користувач втратить доступ до робочого простору.",
+  "keep_booking": "Залишити бронювання",
+  "keep_member": "Залишити в команді",
+  "stay_checked_in": "Залишити заселеним"
 }
