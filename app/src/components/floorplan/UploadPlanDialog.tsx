@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
+import { DEFAULT_PLAN_ASPECT } from '@/domain/logic';
 import type { FloorPlan } from '@/domain/types';
 
 interface UploadPlanDialogProps {
@@ -19,18 +20,31 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
   const [sort, setSort] = useState(String(nextSort));
   const [imageUrl, setImageUrl] = useState('');
   const [fileName, setFileName] = useState('');
+  const [size, setSize] = useState<{ width: number; height: number } | null>(null);
 
   const pickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    setImageUrl(URL.createObjectURL(f));
+    const url = URL.createObjectURL(f);
+    setImageUrl(url);
     setFileName(f.name);
+    setSize(null);
+    const img = new Image();
+    img.onload = () => setSize({ width: img.naturalWidth, height: img.naturalHeight });
+    img.src = url;
   };
 
   const canSave = name.trim() !== '' && !!imageUrl;
   const save = async () => {
     if (!canSave) return;
-    const plan = await floorPlansRepository.create({ propertyId, name: name.trim(), sort: Number(sort) || 1, imageUrl });
+    const plan = await floorPlansRepository.create({
+      propertyId,
+      name: name.trim(),
+      sort: Number(sort) || 1,
+      imageUrl,
+      imageWidth: size?.width,
+      imageHeight: size?.height,
+    });
     onSaved(plan);
   };
 
@@ -57,7 +71,7 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
                 <input type="file" accept="image/*" onChange={pickFile} style={{ display: 'none' }} />
               </label>
             </div>
-            {imageUrl && <div style={{ width: '100%', aspectRatio: '1539/679', backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: 9 }} />}
+            {imageUrl && <div style={{ width: '100%', aspectRatio: size ? `${size.width}/${size.height}` : DEFAULT_PLAN_ASPECT, backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', borderRadius: 9 }} />}
           </div>
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
             <button onClick={onClose} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer' }}>{t('cancel')}</button>

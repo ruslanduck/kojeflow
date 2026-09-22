@@ -6,11 +6,16 @@ import { Portal } from './Portal';
 interface ConfirmDialogProps {
   title: string;
   sub: string;
+  /** Label of the destructive action. Defaults to the generic "Confirm". */
+  confirmLabel?: string;
+  /** Label of the dismiss action. Defaults to the generic "Cancel". */
+  cancelLabel?: string;
+  tone?: 'danger' | 'neutral';
   onCancel: () => void;
   onConfirm: () => void;
 }
 
-export function ConfirmDialog({ title, sub, onCancel, onConfirm }: ConfirmDialogProps) {
+export function ConfirmDialog({ title, sub, confirmLabel, cancelLabel, tone = 'danger', onCancel, onConfirm }: ConfirmDialogProps) {
   const t = useT();
   return (
     <Portal>
@@ -21,8 +26,8 @@ export function ConfirmDialog({ title, sub, onCancel, onConfirm }: ConfirmDialog
             <div style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.5 }}>{sub}</div>
           </div>
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
-            <button onClick={onCancel} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer' }}>{t('cancel')}</button>
-            <button onClick={onConfirm} style={{ background: 'var(--color-red)', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>{t('confirm')}</button>
+            <button onClick={onCancel} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer' }}>{cancelLabel ?? t('cancel')}</button>
+            <button onClick={onConfirm} style={{ background: tone === 'danger' ? 'var(--color-red)' : '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>{confirmLabel ?? t('confirm')}</button>
           </div>
         </div>
       </div>

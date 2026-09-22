@@ -7,6 +7,7 @@ import { useEntityStore } from '@/store/entities';
 import { usersRepository } from '@/repositories/usersRepository';
 import { ROLE_NAMES, roleLabelKey, type RoleName } from '@/domain/roles';
 import { initials } from '@/lib/text';
+import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { formatCurrency } from '@/lib/format';
 import type { Lang } from '@/i18n';
 import { MappingNotice } from '@/components/ui/Unmapped';
@@ -26,6 +27,7 @@ export function SettingsScreen() {
   const users = useEntityStore((s) => s.users);
 
   const [tab, setTab] = useState<'profile' | 'team' | 'system'>('profile');
+  const [confirmRemove, setConfirmRemove] = useState<{ id: string; name: string } | null>(null);
   const [curPw, setCurPw] = useState('');
   const [newPw, setNewPw] = useState('');
   const [repPw, setRepPw] = useState('');
@@ -56,6 +58,7 @@ export function SettingsScreen() {
   };
   const removeUser = async (userId: string, name: string) => {
     await usersRepository.remove(userId);
+    setConfirmRemove(null);
     showToast(t('toast_removed', { n: name }));
   };
 
@@ -150,7 +153,7 @@ export function SettingsScreen() {
                   </select>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <button className="chip" onClick={() => void removeUser(u.id, u.name)} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 8, padding: '6px 11px', fontSize: 12, cursor: 'pointer', color: 'var(--color-red)' }}>
+                  <button className="chip" onClick={() => setConfirmRemove({ id: u.id, name: u.name })} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 8, padding: '6px 11px', fontSize: 12, cursor: 'pointer', color: 'var(--color-red)' }}>
                     {t('remove')}
                   </button>
                 </div>
@@ -176,6 +179,17 @@ export function SettingsScreen() {
             <div className="fig" style={{ fontSize: 26 }}>{formatCurrency(128450, currency)}</div>
           </div>
         </div>
+      )}
+
+      {confirmRemove && (
+        <ConfirmDialog
+          title={t('remove_member_title')}
+          sub={t('remove_member_confirm', { n: confirmRemove.name })}
+          confirmLabel={t('remove')}
+          cancelLabel={t('keep_member')}
+          onCancel={() => setConfirmRemove(null)}
+          onConfirm={() => void removeUser(confirmRemove.id, confirmRemove.name)}
+        />
       )}
     </section>
   );

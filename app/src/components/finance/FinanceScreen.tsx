@@ -45,8 +45,11 @@ export function FinanceScreen() {
   const [handoverFilter, setHandoverFilter] = useState<HandoverFilter>('All');
 
   const stayParam = searchParams.get('stay');
-  const [ledgerStayId, setLedgerStayId] = useState<string | null>(stayParam);
-  const [paymentOpen, setPaymentOpen] = useState(searchParams.get('openPay') === '1');
+  const openPayParam = searchParams.get('openPay') === '1';
+  // With ?openPay=1 the caller wants the payment form only — opening the ledger
+  // underneath it would stack two modals on top of each other.
+  const [ledgerStayId, setLedgerStayId] = useState<string | null>(openPayParam ? null : stayParam);
+  const [paymentOpen, setPaymentOpen] = useState(openPayParam);
   const [paymentStay, setPaymentStay] = useState<Stay | null>(stays.find((s) => s.id === stayParam) ?? null);
   const [transferFormOpen, setTransferFormOpen] = useState(false);
   const [editingTransfer, setEditingTransfer] = useState<Transfer | null>(null);

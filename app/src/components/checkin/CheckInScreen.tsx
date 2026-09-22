@@ -12,6 +12,7 @@ import { translatePlace, safeName, TYPE_LABEL_KEY, TYPE_PILL, DEFAULT_PILL } fro
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
+import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { CheckInWizard } from './CheckInWizard';
 import type { Booking } from '@/domain/types';
 import { MappingNotice } from '@/components/ui/Unmapped';
@@ -35,8 +36,13 @@ export function CheckInScreen() {
   const [propertyFilter, setPropertyFilter] = useState('All');
   const [search, setSearch] = useState('');
   const bookingParam = searchParams.get('booking');
-  const [wizardOpen, setWizardOpen] = useState(!!bookingParam);
+  const propertyParam = searchParams.get('property');
+  const roomParam = searchParams.get('room');
+  const bedParam = searchParams.get('bed');
+  const [wizardOpen, setWizardOpen] = useState(!!bookingParam || !!propertyParam);
+  const [confirmCheckout, setConfirmCheckout] = useState<{ stayId: string; name: string } | null>(null);
   const fromBooking: Booking | null = bookingParam ? (bookings.find((b) => b.id === bookingParam) ?? null) : null;
+  const hasWizardParams = !!bookingParam || !!propertyParam;
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
@@ -140,7 +146,7 @@ export function CheckInScreen() {
                   </button>
                   <button
                     className="pbtn"
-                    onClick={(e) => { e.stopPropagation(); if (window.confirm(t('checkout_confirm', { n: name }))) void checkOut(s.id, TODAY); }}
+                    onClick={(e) => { e.stopPropagation(); setConfirmCheckout({ stayId: s.id, name }); }}
                     title={t('checkout_action')}
                     style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 8, padding: '6px 11px', fontSize: 11.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', color: 'var(--color-red)', whiteSpace: 'nowrap' }}
                   >
@@ -153,13 +159,26 @@ export function CheckInScreen() {
         </div>
       </div>
 
+      {confirmCheckout && (
+        <ConfirmDialog
+          title={t('checkout_title')}
+          sub={t('checkout_confirm', { n: confirmCheckout.name })}
+          confirmLabel={t('checkout_action')}
+          cancelLabel={t('stay_checked_in')}
+          onCancel={() => setConfirmCheckout(null)}
+          onConfirm={() => { void checkOut(confirmCheckout.stayId, TODAY); setConfirmCheckout(null); }}
+        />
+      )}
+
       {wizardOpen && (
         <CheckInWizard
-          key={fromBooking?.id ?? 'new'}
+          key={fromBooking?.id ?? bedParam ?? 'new'}
           fromBooking={fromBooking}
-          defaultPropertyId={propertyFilter !== 'All' ? propertyFilter : undefined}
-          onClose={() => { setWizardOpen(false); if (bookingParam) router.replace('/checkin'); }}
-          onSaved={() => { setWizardOpen(false); if (bookingParam) router.replace('/checkin'); }}
+          defaultPropertyId={propertyParam ?? (propertyFilter !== 'All' ? propertyFilter : undefined)}
+          defaultRoomId={roomParam ?? undefined}
+          defaultBedIds={bedParam ? [bedParam] : undefined}
+          onClose={() => { setWizardOpen(false); if (hasWizardParams) router.replace('/checkin'); }}
+          onSaved={() => { setWizardOpen(false); if (hasWizardParams) router.replace('/checkin'); }}
         />
       )}
     </section>

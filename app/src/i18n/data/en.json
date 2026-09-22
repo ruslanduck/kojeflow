@@ -473,5 +473,13 @@
   "nav_integration": "Integration",
   "map_notice_title": "Not backed by Airtable on this screen",
   "ig_pseudo": "People are pseudonymised",
-  "ig_pseudo_sub": "This repository is public, so every name in the snapshot is an invented stand-in and these fields were removed. Occupancy, rooms, prices, balances and dates are the real figures. Live mode reads the genuine records."
+  "ig_pseudo_sub": "This repository is public, so every name in the snapshot is an invented stand-in and these fields were removed. Occupancy, rooms, prices, balances and dates are the real figures. Live mode reads the genuine records.",
+  "checkout_title": "Check out resident",
+  "cancel_booking_title": "Cancel booking",
+  "cancel_booking_confirm": "Cancel the booking for {n}? The held bed will be released.",
+  "remove_member_title": "Remove from team",
+  "remove_member_confirm": "Remove {n} from the team? They will lose access to the workspace.",
+  "keep_booking": "Keep booking",
+  "keep_member": "Keep member",
+  "stay_checked_in": "Stay checked in"
 }
