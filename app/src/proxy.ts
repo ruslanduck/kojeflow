@@ -1,24 +1,22 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { updateSession } from '@/lib/supabase/proxy';
 
-const AUTH_COOKIE = 'kf_auth';
-const PUBLIC_PATHS = ['/login', '/api/login'];
+const PUBLIC_PATHS = ['/login'];
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const isAuthenticated = request.cookies.get(AUTH_COOKIE)?.value === '1';
+  const { response, signedIn } = await updateSession(request);
 
   if (pathname === '/login') {
-    if (isAuthenticated) {
-      return NextResponse.redirect(new URL('/dashboard', request.url));
-    }
-    return NextResponse.next();
+    return signedIn ? NextResponse.redirect(new URL('/dashboard', request.url)) : response;
   }
 
-  if (PUBLIC_PATHS.includes(pathname) || isAuthenticated) {
-    return NextResponse.next();
-  }
+  if (signedIn || PUBLIC_PATHS.includes(pathname)) return response;
 
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.json({ error: 'Not signed in' }, { status: 401 });
+  }
   return NextResponse.redirect(new URL('/login', request.url));
 }
 

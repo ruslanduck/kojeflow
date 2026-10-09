@@ -1,13 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import type { SnapshotPayload } from '@/domain/snapshot';
 import { hydrateEntities } from '@/store/entities';
 import { setLoadStatus, setSnapshotMeta, useDataSourceStore } from '@/store/dataSource';
+import { useSessionStore } from '@/store/session';
 import { useT } from '@/i18n/useT';
 
 /**
- * Hydrates the entity store from /api/airtable/snapshot before any screen renders.
+ * Hydrates the entity store from /api/snapshot (Supabase) before any screen renders.
  *
  * Every screen below reads the store synchronously and assumes its data is already
  * there, so the loading state has to be held here rather than in each of them —
@@ -15,8 +17,10 @@ import { useT } from '@/i18n/useT';
  */
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const t = useT();
+  const router = useRouter();
   const status = useDataSourceStore((s) => s.status);
   const error = useDataSourceStore((s) => s.error);
+  const setCurrentUser = useSessionStore((s) => s.setCurrentUser);
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
@@ -25,10 +29,15 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
 
     (async () => {
       try {
-        const response = await fetch('/api/airtable/snapshot', { cache: 'no-store' });
+        const response = await fetch('/api/snapshot', { cache: 'no-store' });
+        if (response.status === 401) {
+          router.replace('/login');
+          return;
+        }
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const payload: SnapshotPayload = await response.json();
         if (cancelled) return;
+        if (payload.me) setCurrentUser(payload.me);
         hydrateEntities(payload.entities);
         setSnapshotMeta(payload.meta);
         setLoadStatus('ready');
@@ -41,7 +50,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [attempt]);
+  }, [attempt, router, setCurrentUser]);
 
   if (status === 'ready') return <>{children}</>;
 
