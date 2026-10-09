@@ -8,6 +8,7 @@ import { ROLES, ROLE_NAMES, NAV_LABEL_KEY, NAV_ROUTE, roleLabelKey, type NavKey,
 import { SCREEN_TITLE_KEY } from '@/domain/screenTitles';
 import { initials } from '@/lib/text';
 import { NavIcon } from './NavIcon';
+import { DataProvider } from '@/components/data/DataProvider';
 
 const LOGO_GRADIENT = 'linear-gradient(135deg,#FFD600 0%,#E500E5 100%)';
 const TAB_PREFERENCE: NavKey[] = ['dashboard', 'bookings', 'checkin', 'residents'];
@@ -27,6 +28,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const role = useSessionStore((s) => s.role);
   const setRole = useSessionStore((s) => s.setRole);
   const profileName = useSessionStore((s) => s.profileName);
+  // Only admins may preview the UI as another role; data access is enforced by RLS regardless.
+  const isAdmin = useSessionStore((s) => s.actualRole === 'Administrator');
   const toast = useSessionStore((s) => s.toast);
   const sheetOpen = useSessionStore((s) => s.sheetOpen);
   const openSheet = useSessionStore((s) => s.openSheet);
@@ -112,18 +115,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           })}
         </nav>
         <div style={{ padding: '12px 12px 0', borderTop: '1px solid var(--color-border)' }}>
-          <div style={{ fontSize: 9.5, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.8, padding: '0 6px 6px', fontWeight: 700 }}>
-            {t('viewAsRole')}
-          </div>
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value as RoleName)}
-            style={{ width: '100%', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 30px 9px 11px', fontSize: 13, outline: 'none', cursor: 'pointer', fontWeight: 500 }}
-          >
-            {ROLE_NAMES.map((r) => (
-              <option key={r} value={r}>{t(roleLabelKey(r))}</option>
-            ))}
-          </select>
+          {isAdmin && (
+            <>
+              <div style={{ fontSize: 9.5, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.8, padding: '0 6px 6px', fontWeight: 700 }}>
+                {t('viewAsRole')}
+              </div>
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value as RoleName)}
+                style={{ width: '100%', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 30px 9px 11px', fontSize: 13, outline: 'none', cursor: 'pointer', fontWeight: 500 }}
+              >
+                {ROLE_NAMES.map((r) => (
+                  <option key={r} value={r}>{t(roleLabelKey(r))}</option>
+                ))}
+              </select>
+            </>
+          )}
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 6px 0' }}>
             <div style={{ width: 36, height: 36, flex: 'none', borderRadius: '50%', background: 'var(--color-yellow)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 14, color: 'var(--color-ink)' }}>
               {initials(profileName)}
@@ -164,7 +171,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <div style={{ flex: 1, overflowY: 'auto' }}>{children}</div>
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <DataProvider>{children}</DataProvider>
+        </div>
       </main>
 
       {/* MOBILE TAB BAR */}
@@ -221,18 +230,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 })}
               </div>
               <div style={{ marginTop: 18, paddingTop: 14, borderTop: '1px solid var(--color-border)' }}>
-                <div style={{ fontSize: 9.5, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.8, padding: '0 4px 7px', fontWeight: 700 }}>
-                  {t('viewAsRole')}
-                </div>
-                <select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value as RoleName)}
-                  style={{ width: '100%', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 11, padding: '12px 32px 12px 13px', fontSize: 14, outline: 'none', cursor: 'pointer', fontWeight: 500 }}
-                >
-                  {ROLE_NAMES.map((r) => (
-                    <option key={r} value={r}>{t(roleLabelKey(r))}</option>
-                  ))}
-                </select>
+                {isAdmin && (
+                  <>
+                    <div style={{ fontSize: 9.5, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.8, padding: '0 4px 7px', fontWeight: 700 }}>
+                      {t('viewAsRole')}
+                    </div>
+                    <select
+                      value={role}
+                      onChange={(e) => setRole(e.target.value as RoleName)}
+                      style={{ width: '100%', backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 11, padding: '12px 32px 12px 13px', fontSize: 14, outline: 'none', cursor: 'pointer', fontWeight: 500 }}
+                    >
+                      {ROLE_NAMES.map((r) => (
+                        <option key={r} value={r}>{t(roleLabelKey(r))}</option>
+                      ))}
+                    </select>
+                  </>
+                )}
                 <button
                   onClick={() => { closeSheet(); handleLogout(); }}
                   style={{ width: '100%', marginTop: 10, background: 'var(--color-bg)', color: 'var(--color-ink)', border: 'none', borderRadius: 11, padding: '12px 13px', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}

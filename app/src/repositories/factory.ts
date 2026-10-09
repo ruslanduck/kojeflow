@@ -1,14 +1,16 @@
 import { useEntityStore, type EntityState } from '@/store/entities';
+import { markLocal } from '@/store/dataSource';
 
 function genId(prefix: string): string {
   return prefix + Math.random().toString(36).slice(2, 8);
 }
 
 /**
- * Generic async CRUD over one slice of the entity store. Every method is async and
- * shaped like a future `fetch()` call — Stage 2 swaps only the method bodies (to call
- * a real API backed by a database) without touching any calling component. See
- * src/store/entities.ts.
+ * Generic async CRUD over one slice of the entity store.
+ *
+ * The Airtable integration is read-only, so these writes land in the store and
+ * nowhere else: they live until reload and are tagged via markLocal() so the UI can
+ * say so rather than implying the record reached the base.
  */
 export function createRepository<T extends { id: string }>(key: keyof EntityState, idPrefix: string) {
   return {
@@ -21,6 +23,7 @@ export function createRepository<T extends { id: string }>(key: keyof EntityStat
     async create(input: Omit<T, 'id'>): Promise<T> {
       const record = { ...input, id: genId(idPrefix) } as T;
       useEntityStore.setState((s) => ({ [key]: [record, ...(s[key] as unknown as T[])] }) as Partial<EntityState>);
+      markLocal(record.id);
       return record;
     },
     async update(id: string, patch: Partial<T>): Promise<T> {

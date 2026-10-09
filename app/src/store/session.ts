@@ -5,12 +5,21 @@ import type { Lang } from '@/i18n';
 import type { RoleName } from '@/domain/roles';
 
 interface SessionState {
+  /** Role the UI renders as; admins may switch it to preview other roles. */
   role: RoleName;
+  /** Role of the signed-in account, from its Supabase profile. */
+  actualRole: RoleName | null;
+  /** Properties a house manager or client is limited to. */
+  ownPropertyIds: string[];
+  setCurrentUser: (user: { name: string; role: RoleName; propertyIds: string[] }) => void;
   lang: Lang;
   currency: string;
   profileName: string;
   toast: string | null;
   sheetOpen: boolean;
+  /** Verification mode: flags values whose Airtable source is unknown or ambiguous. */
+  showMapping: boolean;
+  toggleMapping: () => void;
   setRole: (role: RoleName) => void;
   setLang: (lang: Lang) => void;
   setCurrency: (currency: string) => void;
@@ -22,12 +31,19 @@ interface SessionState {
 }
 
 export const useSessionStore = create<SessionState>((set) => ({
-  role: 'Administrator',
+  role: 'Client',
+  actualRole: null,
+  ownPropertyIds: [],
+  setCurrentUser: ({ name, role, propertyIds }) =>
+    set({ profileName: name, role, actualRole: role, ownPropertyIds: propertyIds }),
   lang: 'EN',
   currency: 'Kč',
-  profileName: 'Anna Kovalenko',
+  profileName: '',
   toast: null,
   sheetOpen: false,
+  // Airtable mapping flags; data now comes from Supabase, so they start hidden.
+  showMapping: false,
+  toggleMapping: () => set((s) => ({ showMapping: !s.showMapping })),
   setRole: (role) => set({ role }),
   setLang: (lang) => set({ lang }),
   setCurrency: (currency) => set({ currency }),

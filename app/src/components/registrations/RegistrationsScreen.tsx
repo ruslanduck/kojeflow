@@ -12,6 +12,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { RegistrationForm } from './RegistrationForm';
 import type { Registration } from '@/domain/types';
+import { MappingNotice, Flagged } from '@/components/ui/Unmapped';
 
 type ExpiryBucket = 'Expired' | 'Soon' | 'Valid';
 
@@ -73,6 +74,13 @@ export function RegistrationsScreen() {
 
   return (
     <section className="screen">
+      <MappingNotice
+        items={[
+          { entity: 'Registration', field: 'status' },
+          { entity: 'Registration', field: 'coordinator' },
+          { entity: 'Registration', field: 'docs' },
+        ]}
+      />
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 18 }}>
         <div>
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('rg_title')}</h1>
@@ -161,8 +169,14 @@ export function RegistrationsScreen() {
                 <div style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>{place}</div>
                 <div className="num" style={{ fontSize: 12, color: 'var(--color-muted)' }}>{formatDateDMY(r.issued)}</div>
                 <div className="num" style={{ fontSize: 12, fontWeight: 600, color: expiryColor }}>{formatDateDMY(r.expires)}</div>
-                <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>📎 {r.docs}</div>
-                <div><Pill label={t(STATUS_LABEL_KEY[r.status])} fg={statusFg} bg={statusBg} /></div>
+                <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>
+                  <Flagged entity="Registration" field="docs">📎 {r.docs}</Flagged>
+                </div>
+                <div>
+                  <Flagged entity="Registration" field="status">
+                    <Pill label={t(STATUS_LABEL_KEY[r.status])} fg={statusFg} bg={statusBg} />
+                  </Flagged>
+                </div>
               </div>
             );
           })}

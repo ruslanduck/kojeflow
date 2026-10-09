@@ -1,0 +1,2730 @@
+[
+ {
+  "id": "recUnmtbsoPebEBdR",
+  "createdTime": "2026-02-26T16:33:06.000Z",
+  "fields": {
+   "name": "Kovalenko Andrii",
+   "name_inp": "Kovalenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recKyF5mO2DOBE7He",
+  "createdTime": "2026-09-18T11:44:41.000Z",
+  "fields": {
+   "name": "Bondarenko Andrii",
+   "name_inp": "Bondarenko Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechfIMheeEngEKZj",
+  "createdTime": "2026-09-22T09:21:27.000Z",
+  "fields": {
+   "name": "Tkachenko Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recj3YbudLfqIC7mu",
+  "createdTime": "2026-09-22T09:28:15.000Z",
+  "fields": {
+   "name": "Shevchuk Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recEocP2EE0iHTzyv",
+  "createdTime": "2026-09-22T08:14:07.000Z",
+  "fields": {
+   "name": "Melnyk Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recsPWoqQPVeE1yU9",
+  "createdTime": "2026-09-22T08:15:38.000Z",
+  "fields": {
+   "name": "Boiko Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recO87YJFF39vH1Hq",
+  "createdTime": "2026-08-24T08:37:53.000Z",
+  "fields": {
+   "name": "Kravets Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recYlvhoBJ0n7AcT8",
+  "createdTime": "2026-09-17T12:08:41.000Z",
+  "fields": {
+   "name": "Polishchuk Andrii",
+   "name_inp": "Polishchuk Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recyV9I7Sca39GP3X",
+  "createdTime": "2026-09-21T08:52:52.000Z",
+  "fields": {
+   "name": "Savchenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recBKHzU8x5KC4HzA",
+  "createdTime": "2026-09-21T10:57:28.000Z",
+  "fields": {
+   "name": "Rudenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recu0p8v7pPzfg1lz",
+  "createdTime": "2026-09-21T13:50:00.000Z",
+  "fields": {
+   "name": "Marchenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recdBACXEELWu7HTA",
+  "createdTime": "2026-08-26T08:21:22.000Z",
+  "fields": {
+   "name": "Lysenko Andrii",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recDM3yqDO6UWIjWq",
+  "createdTime": "2026-07-11T10:36:28.000Z",
+  "fields": {
+   "name": "Moroz Andrii",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recNhHOZLjlwu3exw",
+  "createdTime": "2026-09-18T14:57:42.000Z",
+  "fields": {
+   "name": "Klymenko Andrii",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec2x04qjFSpPOZJ0",
+  "createdTime": "2026-09-17T16:32:36.000Z",
+  "fields": {
+   "name": "Hrytsenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recgxWWr1GlnKqFET",
+  "createdTime": "2026-09-18T11:04:41.000Z",
+  "fields": {
+   "name": "Danyliuk Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnPtcWYWU339BCa",
+  "createdTime": "2026-09-07T08:37:14.000Z",
+  "fields": {
+   "name": "Palamarchuk Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recjIJ9ESb4f48hyi",
+  "createdTime": "2026-09-16T15:34:28.000Z",
+  "fields": {
+   "name": "Voloshyn Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0wIylbnl86kL7g",
+  "createdTime": "2025-12-23T16:34:56.000Z",
+  "fields": {
+   "name": "Zhuravel Andrii",
+   "name_inp": "Zhuravel Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec60fMwPX3uJZWct",
+  "createdTime": "2024-07-25T11:15:04.000Z",
+  "fields": {
+   "name": "Sydorenko Andrii",
+   "name_inp": "Sydorenko Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recn3zQo3xwSFqRGj",
+  "createdTime": "2025-02-04T16:52:45.000Z",
+  "fields": {
+   "name": "Havryliuk Andrii",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recbFHa7wp6AdjVKz",
+  "createdTime": "2024-05-31T14:05:34.000Z",
+  "fields": {
+   "name": "Osypenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recH61jHw5PU4pZ0k",
+  "createdTime": "2026-07-06T09:35:48.000Z",
+  "fields": {
+   "name": "Nazarenko Andrii",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recPjkPRq7p6xBeiX",
+  "createdTime": "2026-09-15T12:29:03.000Z",
+  "fields": {
+   "name": "Tymoshenko Andrii",
+   "name_inp": "Tymoshenko Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec8RvxcIePwAGweS",
+  "createdTime": "2026-09-14T09:38:25.000Z",
+  "fields": {
+   "name": "Yatsenko Andrii",
+   "name_inp": "Yatsenko Andrii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recnGZDsyhcdoiayJ",
+  "createdTime": "2026-09-14T07:28:56.000Z",
+  "fields": {
+   "name": "Chernenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recTKKRTErJoqD8qr",
+  "createdTime": "2023-10-01T07:51:32.000Z",
+  "fields": {
+   "name": "Didyk Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec6Qtrg592oi5lve",
+  "createdTime": "2026-09-10T08:54:58.000Z",
+  "fields": {
+   "name": "Panchenko Andrii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recmqXFuU8FWkwTRs",
+  "createdTime": "2026-02-03T16:50:53.000Z",
+  "fields": {
+   "name": "Romaniuk Andrii",
+   "name_inp": "Romaniuk Andrii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recXhe0Nl3GVRcSxl",
+  "createdTime": "2026-09-03T08:46:32.000Z",
+  "fields": {
+   "name": "Kulyk Andrii",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recb60Ox7Rlf9NWXe",
+  "createdTime": "2026-09-02T13:21:09.000Z",
+  "fields": {
+   "name": "Stelmakh Andrii",
+   "name_inp": "Stelmakh Andrii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recJprnqc1Re63R1h",
+  "createdTime": "2026-08-28T11:14:06.000Z",
+  "fields": {
+   "name": "Verbytskyi Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recLlz0qvwAjBoBXE",
+  "createdTime": "2026-08-28T11:15:06.000Z",
+  "fields": {
+   "name": "Zahorodnii Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recFbnTwZl0WNQ6sh",
+  "createdTime": "2026-08-28T11:16:41.000Z",
+  "fields": {
+   "name": "Prokopenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechJDNKzFJzZgYp5",
+  "createdTime": "2026-08-28T11:21:54.000Z",
+  "fields": {
+   "name": "Lytvyn Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recbwvdhylM4Nr1Fn",
+  "createdTime": "2026-08-28T11:24:53.000Z",
+  "fields": {
+   "name": "Onyshchenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recfETcOebEsCqRWr",
+  "createdTime": "2026-08-28T11:26:30.000Z",
+  "fields": {
+   "name": "Reznik Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechIPXlBJP86ZWch",
+  "createdTime": "2026-08-28T11:28:52.000Z",
+  "fields": {
+   "name": "Shulha Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recjnhtR0bESgQjii",
+  "createdTime": "2026-08-28T11:35:12.000Z",
+  "fields": {
+   "name": "Tkachuk Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recaD6TfSZVVePbLu",
+  "createdTime": "2026-08-28T11:37:26.000Z",
+  "fields": {
+   "name": "Yurchenko Andrii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recDHyXxSxB1x5Y4U",
+  "createdTime": "2026-08-28T11:40:08.000Z",
+  "fields": {
+   "name": "Kovalenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recC009hk2gO7tzoM",
+  "createdTime": "2026-08-28T11:57:15.000Z",
+  "fields": {
+   "name": "Bondarenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recmPjzhMOaCXGV3i",
+  "createdTime": "2026-08-28T11:58:46.000Z",
+  "fields": {
+   "name": "Tkachenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recK9CREoEnOtoGQQ",
+  "createdTime": "2026-08-28T12:00:52.000Z",
+  "fields": {
+   "name": "Shevchuk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recisBa65mdQd8iLv",
+  "createdTime": "2026-08-28T12:03:05.000Z",
+  "fields": {
+   "name": "Melnyk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recED7mDTABSyn12t",
+  "createdTime": "2026-08-28T12:05:05.000Z",
+  "fields": {
+   "name": "Boiko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnrsOjSZ22peFah",
+  "createdTime": "2026-08-28T12:06:09.000Z",
+  "fields": {
+   "name": "Kravets Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recV5qHl73V75PQbE",
+  "createdTime": "2026-08-28T12:07:17.000Z",
+  "fields": {
+   "name": "Polishchuk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec1J13E6RvRVWg4Y",
+  "createdTime": "2026-08-28T12:08:15.000Z",
+  "fields": {
+   "name": "Savchenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recBKfVgJnCmnBsBK",
+  "createdTime": "2026-08-28T12:09:26.000Z",
+  "fields": {
+   "name": "Rudenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recEPOkumneXZWJqc",
+  "createdTime": "2026-08-28T12:11:30.000Z",
+  "fields": {
+   "name": "Marchenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnFhxNIIMqZU7lq",
+  "createdTime": "2026-08-28T12:13:48.000Z",
+  "fields": {
+   "name": "Lysenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recymHl8x0RHq2ZUo",
+  "createdTime": "2026-08-28T12:25:29.000Z",
+  "fields": {
+   "name": "Moroz Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reccqhzqmFMdnbTgm",
+  "createdTime": "2026-08-28T12:26:40.000Z",
+  "fields": {
+   "name": "Klymenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOPR54QOfE4gnSr",
+  "createdTime": "2026-08-28T13:13:36.000Z",
+  "fields": {
+   "name": "Hrytsenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recfrhKfOGT7VEENH",
+  "createdTime": "2026-08-28T13:14:45.000Z",
+  "fields": {
+   "name": "Danyliuk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reccJqmzqVDhU6u9n",
+  "createdTime": "2026-08-28T13:16:34.000Z",
+  "fields": {
+   "name": "Palamarchuk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recENj2nNicsoyKaS",
+  "createdTime": "2026-08-28T12:27:46.000Z",
+  "fields": {
+   "name": "Voloshyn Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recgP8gp5PE5O4mPl",
+  "createdTime": "2026-09-09T10:28:50.000Z",
+  "fields": {
+   "name": "Zhuravel Olena",
+   "name_inp": "Zhuravel Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOSs6rcLjAhV4wE",
+  "createdTime": "2026-07-20T08:37:58.000Z",
+  "fields": {
+   "name": "Sydorenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reca9W75WI1wOMQuC",
+  "createdTime": "2026-06-15T09:39:28.000Z",
+  "fields": {
+   "name": "Havryliuk Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recUKPeJxwwE5kC8g",
+  "createdTime": "2026-06-15T09:40:48.000Z",
+  "fields": {
+   "name": "Osypenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reczvuCgpHpxDahja",
+  "createdTime": "2026-09-03T08:49:23.000Z",
+  "fields": {
+   "name": "Nazarenko Olena",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recHdEtkrjGAoW2LV",
+  "createdTime": "2026-08-03T15:07:22.000Z",
+  "fields": {
+   "name": "Tymoshenko Olena",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec8x3QgjysOvh6aK",
+  "createdTime": "2023-01-09T13:02:23.000Z",
+  "fields": {
+   "name": "Yatsenko Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec5VNXiawEG0iQwO",
+  "createdTime": "2026-06-15T09:34:43.000Z",
+  "fields": {
+   "name": "Chernenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recyy19uX2N3uvjju",
+  "createdTime": "2025-12-30T14:32:45.000Z",
+  "fields": {
+   "name": "Didyk Olena",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recirDufaV8AHWrPo",
+  "createdTime": "2023-01-09T13:17:37.000Z",
+  "fields": {
+   "name": "Panchenko Olena",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recSKtzNZ3RQgOCpv",
+  "createdTime": "2023-01-09T13:03:08.000Z",
+  "fields": {
+   "name": "Romaniuk Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reciBWYKNTMIL6Y3w",
+  "createdTime": "2023-06-22T09:01:19.000Z",
+  "fields": {
+   "name": "Kulyk Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recJSfvNgWuBakqsv",
+  "createdTime": "2023-01-09T11:53:45.000Z",
+  "fields": {
+   "name": "Stelmakh Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recymup3N4vhbWNeZ",
+  "createdTime": "2023-08-08T12:28:01.000Z",
+  "fields": {
+   "name": "Verbytskyi Olena",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "reczcSNg8ItJw2Gij",
+  "createdTime": "2023-01-09T13:10:22.000Z",
+  "fields": {
+   "name": "Zahorodnii Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recRKWRs0DuqNoK4G",
+  "createdTime": "2023-06-28T12:15:54.000Z",
+  "fields": {
+   "name": "Prokopenko Olena",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rece4wQNPEImPe9H4",
+  "createdTime": "2023-01-09T11:54:21.000Z",
+  "fields": {
+   "name": "Lytvyn Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recX38JIhlpuEBnLC",
+  "createdTime": "2024-08-07T13:28:34.000Z",
+  "fields": {
+   "name": "Onyshchenko Olena",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recKx2SI5ElHz4nd1",
+  "createdTime": "2023-01-09T12:23:05.000Z",
+  "fields": {
+   "name": "Reznik Olena",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recpeO3QyJPeHjo5N",
+  "createdTime": "2023-01-09T13:13:12.000Z",
+  "fields": {
+   "name": "Shulha Olena",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rechSkOBGJ40EBxh7",
+  "createdTime": "2024-08-08T08:14:07.000Z",
+  "fields": {
+   "name": "Tkachuk Olena",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recydTXvVSHtzJBOh",
+  "createdTime": "2023-10-06T09:56:15.000Z",
+  "fields": {
+   "name": "Yurchenko Olena",
+   "name_inp": "Yurchenko Olena",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recI4m6GcZRbTYupW",
+  "createdTime": "2023-01-09T13:03:44.000Z",
+  "fields": {
+   "name": "Kovalenko Serhii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOc00yXkCW9I01U",
+  "createdTime": "2023-05-25T06:55:12.000Z",
+  "fields": {
+   "name": "Bondarenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recLZudcegSSQDOEO",
+  "createdTime": "2023-01-09T12:01:53.000Z",
+  "fields": {
+   "name": "Tkachenko Serhii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rechhGIQWpRNtQjkc",
+  "createdTime": "2023-01-09T12:19:42.000Z",
+  "fields": {
+   "name": "Shevchuk Serhii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recVKZ7JoiJXoRt12",
+  "createdTime": "2023-01-09T13:05:57.000Z",
+  "fields": {
+   "name": "Melnyk Serhii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recjKBr71xFgU06mP",
+  "createdTime": "2023-01-09T12:23:36.000Z",
+  "fields": {
+   "name": "Boiko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recIlWcnH1E2D4k00",
+  "createdTime": "2023-01-09T09:53:47.000Z",
+  "fields": {
+   "name": "Kravets Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recj0qU6VgJsdbTDL",
+  "createdTime": "2023-01-09T13:12:37.000Z",
+  "fields": {
+   "name": "Polishchuk Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechBhUN0DFeojshj",
+  "createdTime": "2023-02-16T09:13:16.000Z",
+  "fields": {
+   "name": "Savchenko Serhii",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recMEjcnRWRR4XnX6",
+  "createdTime": "2023-08-08T12:24:30.000Z",
+  "fields": {
+   "name": "Rudenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recdBW8M3otovnksb",
+  "createdTime": "2023-01-09T09:27:37.000Z",
+  "fields": {
+   "name": "Marchenko Serhii",
+   "type": "Комерційний"
+  }
+ },
+ {
+  "id": "recCTI7YJaqebi83c",
+  "createdTime": "2023-01-09T09:45:15.000Z",
+  "fields": {
+   "name": "Lysenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recCAgOKWbDORbFrq",
+  "createdTime": "2024-06-28T14:42:03.000Z",
+  "fields": {
+   "name": "Moroz Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recbw7EkyqbaDzvge",
+  "createdTime": "2023-10-06T09:56:16.000Z",
+  "fields": {
+   "name": "Klymenko Serhii",
+   "name_inp": "Klymenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recQUmenikh8zWNVU",
+  "createdTime": "2024-10-14T07:40:48.000Z",
+  "fields": {
+   "name": "Hrytsenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recYjHWL5Jo0b2Onx",
+  "createdTime": "2024-08-19T15:01:06.000Z",
+  "fields": {
+   "name": "Danyliuk Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec1HifU6z2k3gGna",
+  "createdTime": "2023-10-11T14:56:25.000Z",
+  "fields": {
+   "name": "Palamarchuk Serhii",
+   "name_inp": "Palamarchuk Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reco4lntPgWGHAaze",
+  "createdTime": "2024-08-30T15:06:52.000Z",
+  "fields": {
+   "name": "Voloshyn Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recFV9q7CsicDGO3l",
+  "createdTime": "2023-04-13T08:17:05.000Z",
+  "fields": {
+   "name": "Zhuravel Serhii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec5xyz1o4KHrF0Gm",
+  "createdTime": "2025-01-24T10:11:39.000Z",
+  "fields": {
+   "name": "Sydorenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recMxoO9ZpAFMVS8q",
+  "createdTime": "2024-01-15T14:13:00.000Z",
+  "fields": {
+   "name": "Havryliuk Serhii",
+   "name_inp": "Havryliuk Serhii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recV3z3cYJK6sbbUd",
+  "createdTime": "2024-11-25T15:08:13.000Z",
+  "fields": {
+   "name": "Osypenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recZWhXBvGzpdTYPp",
+  "createdTime": "2023-02-23T14:10:11.000Z",
+  "fields": {
+   "name": "Nazarenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rechyTTYqMeh5yllg",
+  "createdTime": "2024-06-28T14:51:02.000Z",
+  "fields": {
+   "name": "Tymoshenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recsYFMXbvvhgkNPv",
+  "createdTime": "2024-06-28T14:47:16.000Z",
+  "fields": {
+   "name": "Yatsenko Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recLEzr81sOG3GvSw",
+  "createdTime": "2024-06-28T14:53:17.000Z",
+  "fields": {
+   "name": "Chernenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recVnCIbZOeCpogj7",
+  "createdTime": "2023-01-09T09:38:14.000Z",
+  "fields": {
+   "name": "Didyk Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rect2Vyr6NBnRCq3V",
+  "createdTime": "2025-08-08T09:10:41.000Z",
+  "fields": {
+   "name": "Panchenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recgqTyH9TF8TEE0h",
+  "createdTime": "2023-06-30T10:30:55.000Z",
+  "fields": {
+   "name": "Romaniuk Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recDcp6scSTJ7f8hY",
+  "createdTime": "2023-01-09T13:12:17.000Z",
+  "fields": {
+   "name": "Kulyk Serhii",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recFiSLMJpQkWlpxC",
+  "createdTime": "2024-04-22T12:14:45.000Z",
+  "fields": {
+   "name": "Stelmakh Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recxA2FcuNp1998St",
+  "createdTime": "2023-10-21T13:32:06.000Z",
+  "fields": {
+   "name": "Verbytskyi Serhii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recL9jxyCW5DDOwvH",
+  "createdTime": "2023-04-06T14:10:59.000Z",
+  "fields": {
+   "name": "Zahorodnii Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recHWgkSrPGR4O4yV",
+  "createdTime": "2023-01-09T09:44:24.000Z",
+  "fields": {
+   "name": "Prokopenko Serhii",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recapytyqDLVFrzJJ",
+  "createdTime": "2023-07-11T20:45:03.000Z",
+  "fields": {
+   "name": "Lytvyn Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rectjGd4hcVfgYLPt",
+  "createdTime": "2023-01-09T12:58:49.000Z",
+  "fields": {
+   "name": "Onyshchenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recq4fOocSUHvnP7l",
+  "createdTime": "2024-03-27T10:30:07.000Z",
+  "fields": {
+   "name": "Reznik Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recHD87ANkZp6KHx4",
+  "createdTime": "2023-08-24T12:59:19.000Z",
+  "fields": {
+   "name": "Shulha Serhii",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rech1g0UKp7X8zPSC",
+  "createdTime": "2025-09-01T15:50:47.000Z",
+  "fields": {
+   "name": "Tkachuk Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recFTBIVHwdg1lR6e",
+  "createdTime": "2024-06-12T13:32:31.000Z",
+  "fields": {
+   "name": "Yurchenko Serhii",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recRs7ea83T5SbrHv",
+  "createdTime": "2026-01-08T18:56:44.000Z",
+  "fields": {
+   "name": "Kovalenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recW97BcACCM6k0my",
+  "createdTime": "2024-06-12T13:34:00.000Z",
+  "fields": {
+   "name": "Bondarenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recwK8C0rYTm2vPna",
+  "createdTime": "2026-01-08T19:16:22.000Z",
+  "fields": {
+   "name": "Tkachenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOA6JNYZ5R8RwaT",
+  "createdTime": "2026-02-05T09:13:05.000Z",
+  "fields": {
+   "name": "Shevchuk Iryna",
+   "name_inp": "Shevchuk Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recZUN0IvwL4SbCxZ",
+  "createdTime": "2023-06-28T12:23:34.000Z",
+  "fields": {
+   "name": "Melnyk Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recl47b89H3TcLsJJ",
+  "createdTime": "2024-06-17T13:56:13.000Z",
+  "fields": {
+   "name": "Boiko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recJiOi1BhsrPU73S",
+  "createdTime": "2023-01-09T09:51:32.000Z",
+  "fields": {
+   "name": "Kravets Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recsUnDIC4uFErqcU",
+  "createdTime": "2026-08-11T15:43:32.000Z",
+  "fields": {
+   "name": "Polishchuk Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec4tFUtNA668nz4X",
+  "createdTime": "2025-09-22T13:45:15.000Z",
+  "fields": {
+   "name": "Savchenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recahVwp9DbT9AgYn",
+  "createdTime": "2026-08-21T12:05:22.000Z",
+  "fields": {
+   "name": "Rudenko Iryna",
+   "name_inp": "Rudenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recVPgYQu4lfqFoPR",
+  "createdTime": "2026-09-01T13:58:32.000Z",
+  "fields": {
+   "name": "Marchenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recDqUH7utRQ4DJNn",
+  "createdTime": "2026-09-01T14:40:20.000Z",
+  "fields": {
+   "name": "Lysenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recFWtjvWYpSYgEzE",
+  "createdTime": "2026-09-01T14:42:00.000Z",
+  "fields": {
+   "name": "Moroz Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recBLFgQBa9UAtKBY",
+  "createdTime": "2026-08-27T07:32:20.000Z",
+  "fields": {
+   "name": "Klymenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec0gLy7b8mHR9alU",
+  "createdTime": "2026-08-31T12:51:35.000Z",
+  "fields": {
+   "name": "Hrytsenko Iryna",
+   "name_inp": "Hrytsenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "reckXa7DQXv6C95Xn",
+  "createdTime": "2026-09-07T13:18:07.000Z",
+  "fields": {
+   "name": "Danyliuk Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec2B8iPZiEx7flQi",
+  "createdTime": "2023-10-20T19:15:14.000Z",
+  "fields": {
+   "name": "Palamarchuk Iryna",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recp3U6Om0I99yp0E",
+  "createdTime": "2026-08-24T11:43:19.000Z",
+  "fields": {
+   "name": "Voloshyn Iryna",
+   "name_inp": "Voloshyn Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recbEveUQ3EdpjXlp",
+  "createdTime": "2023-01-09T12:25:49.000Z",
+  "fields": {
+   "name": "Zhuravel Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rectf0gyXLcvMkKJs",
+  "createdTime": "2026-08-25T10:52:07.000Z",
+  "fields": {
+   "name": "Sydorenko Iryna",
+   "name_inp": "Sydorenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recT51sEjjam1lUoc",
+  "createdTime": "2026-01-14T16:18:40.000Z",
+  "fields": {
+   "name": "Havryliuk Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnGNLiOzTdQWBX4",
+  "createdTime": "2026-08-19T08:48:25.000Z",
+  "fields": {
+   "name": "Osypenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recVA2itodSrKMy1B",
+  "createdTime": "2026-08-19T08:47:26.000Z",
+  "fields": {
+   "name": "Nazarenko Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recSwnA8ijlED00or",
+  "createdTime": "2026-08-21T08:34:59.000Z",
+  "fields": {
+   "name": "Tymoshenko Iryna",
+   "name_inp": "Tymoshenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec30L2Q87P99GFiL",
+  "createdTime": "2024-06-05T08:45:39.000Z",
+  "fields": {
+   "name": "Yatsenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reczlq53NdNVU4Ebi",
+  "createdTime": "2026-08-03T13:05:40.000Z",
+  "fields": {
+   "name": "Chernenko Iryna",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recAe2TjAY01t2sSs",
+  "createdTime": "2026-08-18T11:33:04.000Z",
+  "fields": {
+   "name": "Didyk Iryna",
+   "name_inp": "Didyk Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recKUhndpaJ7IITXP",
+  "createdTime": "2026-08-03T14:08:09.000Z",
+  "fields": {
+   "name": "Panchenko Iryna",
+   "name_inp": "Panchenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnfFRZHLPnaBFF2",
+  "createdTime": "2026-08-20T13:08:42.000Z",
+  "fields": {
+   "name": "Romaniuk Iryna",
+   "name_inp": "Romaniuk Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec5h4J7aONZW6zNo",
+  "createdTime": "2024-08-14T09:01:34.000Z",
+  "fields": {
+   "name": "Kulyk Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recn8mJUkCNx769pg",
+  "createdTime": "2026-08-06T11:26:16.000Z",
+  "fields": {
+   "name": "Stelmakh Iryna",
+   "name_inp": "Stelmakh Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recSQEF2Y8YobHZJf",
+  "createdTime": "2026-02-09T12:38:13.000Z",
+  "fields": {
+   "name": "Verbytskyi Iryna",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recT05GcV5vL2ZyAX",
+  "createdTime": "2023-01-09T13:04:04.000Z",
+  "fields": {
+   "name": "Zahorodnii Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recaQIobrrOprENY8",
+  "createdTime": "2026-01-08T15:08:21.000Z",
+  "fields": {
+   "name": "Prokopenko Iryna",
+   "name_inp": "Prokopenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recz1HDqhQEdx5SLf",
+  "createdTime": "2026-06-11T18:24:52.000Z",
+  "fields": {
+   "name": "Lytvyn Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recBTOC1fBbNoufgQ",
+  "createdTime": "2026-06-12T13:55:46.000Z",
+  "fields": {
+   "name": "Onyshchenko Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recyk0LMYxJ8LGNdN",
+  "createdTime": "2026-06-12T15:38:30.000Z",
+  "fields": {
+   "name": "Reznik Iryna",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recalIiMiQU8zUTnL",
+  "createdTime": "2023-01-09T12:09:27.000Z",
+  "fields": {
+   "name": "Shulha Iryna",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recWYv9xaYBsXBjGe",
+  "createdTime": "2026-07-28T07:54:47.000Z",
+  "fields": {
+   "name": "Tkachuk Iryna",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recVuhz0QEGPfK0ve",
+  "createdTime": "2026-06-29T16:00:43.000Z",
+  "fields": {
+   "name": "Yurchenko Iryna",
+   "name_inp": "Yurchenko Iryna",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recP3rAcAHX2QW3JD",
+  "createdTime": "2026-07-27T12:53:50.000Z",
+  "fields": {
+   "name": "Kovalenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOD26wsacrFcSPZ",
+  "createdTime": "2024-02-03T13:53:38.000Z",
+  "fields": {
+   "name": "Bondarenko Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recuyemcTWWvdMDQX",
+  "createdTime": "2026-06-29T15:43:23.000Z",
+  "fields": {
+   "name": "Tkachenko Mykola",
+   "name_inp": "Tkachenko Mykola",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recMb48uQjd6tcBSt",
+  "createdTime": "2026-07-24T10:00:10.000Z",
+  "fields": {
+   "name": "Shevchuk Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recntKTMktvjZ7uqB",
+  "createdTime": "2026-07-23T08:16:27.000Z",
+  "fields": {
+   "name": "Melnyk Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recdmXdIrqcAvygxz",
+  "createdTime": "2025-07-21T09:01:33.000Z",
+  "fields": {
+   "name": "Boiko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recItP0xXwkYTaweb",
+  "createdTime": "2026-07-10T15:15:46.000Z",
+  "fields": {
+   "name": "Kravets Mykola",
+   "name_inp": "Kravets Mykola",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "reco7zFHZc5inLHeh",
+  "createdTime": "2026-07-16T09:36:36.000Z",
+  "fields": {
+   "name": "Polishchuk Mykola",
+   "name_inp": "Polishchuk Mykola",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec6JlO878A2LVX7f",
+  "createdTime": "2026-07-08T08:52:43.000Z",
+  "fields": {
+   "name": "Savchenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recLHbjbBsKl8vOU4",
+  "createdTime": "2026-07-08T11:23:04.000Z",
+  "fields": {
+   "name": "Rudenko Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recT62Teva3csthhM",
+  "createdTime": "2026-07-11T11:18:11.000Z",
+  "fields": {
+   "name": "Marchenko Mykola",
+   "name_inp": "Marchenko Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0HXI8QbyHJCe6E",
+  "createdTime": "2026-07-13T07:36:00.000Z",
+  "fields": {
+   "name": "Lysenko Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recW74oTrcgN47R20",
+  "createdTime": "2026-07-13T07:40:12.000Z",
+  "fields": {
+   "name": "Moroz Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recbzkD7Mcgq17Vqu",
+  "createdTime": "2026-03-30T10:52:35.000Z",
+  "fields": {
+   "name": "Klymenko Mykola",
+   "name_inp": "Klymenko Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recZmmg3i8pbrqpya",
+  "createdTime": "2026-06-26T14:31:41.000Z",
+  "fields": {
+   "name": "Hrytsenko Mykola",
+   "name_inp": "Hrytsenko Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recaE4Fa6SgGDkhXs",
+  "createdTime": "2025-03-11T12:07:33.000Z",
+  "fields": {
+   "name": "Danyliuk Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reccTla4aYbvSfOlJ",
+  "createdTime": "2025-06-24T15:59:15.000Z",
+  "fields": {
+   "name": "Palamarchuk Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec9IgzXg5Rh3Sq9W",
+  "createdTime": "2026-07-06T10:59:23.000Z",
+  "fields": {
+   "name": "Voloshyn Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recIqKDZpE67gzqhD",
+  "createdTime": "2026-06-22T15:26:11.000Z",
+  "fields": {
+   "name": "Zhuravel Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recieVH99eLSdFuv4",
+  "createdTime": "2026-06-19T14:52:12.000Z",
+  "fields": {
+   "name": "Sydorenko Mykola",
+   "name_inp": "Sydorenko Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec3C6KVxT3a3l5XG",
+  "createdTime": "2026-02-04T09:54:52.000Z",
+  "fields": {
+   "name": "Havryliuk Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recmh26RXHwazCz09",
+  "createdTime": "2025-08-20T16:57:40.000Z",
+  "fields": {
+   "name": "Osypenko Mykola",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recF7JHBVdKaAXBGT",
+  "createdTime": "2026-07-01T11:00:06.000Z",
+  "fields": {
+   "name": "Nazarenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recSQKGGa6AuN76X5",
+  "createdTime": "2026-05-29T09:41:41.000Z",
+  "fields": {
+   "name": "Tymoshenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recn8NOqZYOHPKIlv",
+  "createdTime": "2025-01-16T14:54:17.000Z",
+  "fields": {
+   "name": "Yatsenko Mykola",
+   "name_inp": "Yatsenko Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recIAWh1WDaazakd7",
+  "createdTime": "2026-06-26T15:01:38.000Z",
+  "fields": {
+   "name": "Chernenko Mykola",
+   "name_inp": "Chernenko Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recldsKAVQ5eQ1lJM",
+  "createdTime": "2026-04-30T11:54:32.000Z",
+  "fields": {
+   "name": "Didyk Mykola",
+   "name_inp": "Didyk Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechpQHjWt2gtJlMh",
+  "createdTime": "2026-05-06T11:04:19.000Z",
+  "fields": {
+   "name": "Panchenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec9WLQcuCO4aec7N",
+  "createdTime": "2025-10-09T14:15:32.000Z",
+  "fields": {
+   "name": "Romaniuk Mykola",
+   "name_inp": "Romaniuk Mykola",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recOCXEpL9CmYnLlz",
+  "createdTime": "2023-01-09T13:05:43.000Z",
+  "fields": {
+   "name": "Kulyk Mykola",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnVwwgY1qS6v6cA",
+  "createdTime": "2023-01-09T13:04:58.000Z",
+  "fields": {
+   "name": "Stelmakh Mykola",
+   "type": "Внутрішній"
+  }
+ },
+ {
+  "id": "recHLSxN3xNuGzwhL",
+  "createdTime": "2026-06-15T09:14:11.000Z",
+  "fields": {
+   "name": "Verbytskyi Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recYeTyDSIPrq2Ulp",
+  "createdTime": "2026-06-15T09:32:07.000Z",
+  "fields": {
+   "name": "Zahorodnii Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOPc5TjrQKVJ5rF",
+  "createdTime": "2026-06-15T09:33:34.000Z",
+  "fields": {
+   "name": "Prokopenko Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recdWnyXQLldB2jqE",
+  "createdTime": "2024-10-19T13:35:27.000Z",
+  "fields": {
+   "name": "Lytvyn Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0NYTp4dQlcxqBi",
+  "createdTime": "2026-06-12T15:40:01.000Z",
+  "fields": {
+   "name": "Onyshchenko Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recXhyqqj1towErKc",
+  "createdTime": "2026-06-12T15:42:46.000Z",
+  "fields": {
+   "name": "Reznik Mykola",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "reclVzOoYfX6a8003",
+  "createdTime": "2026-02-03T15:13:26.000Z",
+  "fields": {
+   "name": "Shulha Mykola",
+   "name_inp": "Shulha Mykola",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recV7gVf599gysGCv",
+  "createdTime": "2024-05-02T14:02:55.000Z",
+  "fields": {
+   "name": "Tkachuk Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recTzKCa9noSrMDLy",
+  "createdTime": "2024-11-04T14:27:05.000Z",
+  "fields": {
+   "name": "Yurchenko Mykola",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recyW2tiafuh4VGcV",
+  "createdTime": "2025-05-16T07:43:41.000Z",
+  "fields": {
+   "name": "Kovalenko Nataliia",
+   "name_inp": "Kovalenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recuFpq2hnD0xL8Mr",
+  "createdTime": "2026-01-29T14:21:42.000Z",
+  "fields": {
+   "name": "Bondarenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recE416EOsv1amriW",
+  "createdTime": "2024-09-16T15:18:50.000Z",
+  "fields": {
+   "name": "Tkachenko Nataliia",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recS1IjtxiNC2Do0V",
+  "createdTime": "2026-05-28T09:43:23.000Z",
+  "fields": {
+   "name": "Shevchuk Nataliia",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recdjQn4lONSmkjDy",
+  "createdTime": "2026-05-27T10:55:10.000Z",
+  "fields": {
+   "name": "Melnyk Nataliia",
+   "name_inp": "Melnyk Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reccU2I1xYsu1ROvF",
+  "createdTime": "2026-05-21T08:59:29.000Z",
+  "fields": {
+   "name": "Boiko Nataliia",
+   "name_inp": "Boiko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recsOKRrFr2hrN62B",
+  "createdTime": "2026-05-21T09:02:49.000Z",
+  "fields": {
+   "name": "Kravets Nataliia",
+   "name_inp": "Kravets Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recs0n0zJcKUoVsSU",
+  "createdTime": "2023-10-04T15:52:42.000Z",
+  "fields": {
+   "name": "Polishchuk Nataliia",
+   "name_inp": "Polishchuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recajRvr0SDGHTI9B",
+  "createdTime": "2023-01-09T11:48:47.000Z",
+  "fields": {
+   "name": "Savchenko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recXFnYX2WXbo7oCJ",
+  "createdTime": "2026-05-22T14:09:57.000Z",
+  "fields": {
+   "name": "Rudenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recvo2QBqmUL2st8E",
+  "createdTime": "2026-05-22T14:28:01.000Z",
+  "fields": {
+   "name": "Marchenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec1kxmtmyP99B7RU",
+  "createdTime": "2026-03-10T09:39:47.000Z",
+  "fields": {
+   "name": "Lysenko Nataliia",
+   "name_inp": "Lysenko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recmm6TaPwp508Ef1",
+  "createdTime": "2026-05-11T15:31:57.000Z",
+  "fields": {
+   "name": "Moroz Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recIeh8witTLaE4cq",
+  "createdTime": "2026-03-27T09:14:36.000Z",
+  "fields": {
+   "name": "Klymenko Nataliia",
+   "name_inp": "Klymenko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recAytZuXapFGUuyu",
+  "createdTime": "2025-05-30T07:21:12.000Z",
+  "fields": {
+   "name": "Hrytsenko Nataliia",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recomuacntpJy2It2",
+  "createdTime": "2026-05-08T08:42:40.000Z",
+  "fields": {
+   "name": "Danyliuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recqiNuhOwdBK3VTq",
+  "createdTime": "2026-05-08T08:37:03.000Z",
+  "fields": {
+   "name": "Palamarchuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recs4csa8W8DA5qd6",
+  "createdTime": "2024-08-22T12:48:47.000Z",
+  "fields": {
+   "name": "Voloshyn Nataliia",
+   "name_inp": "Voloshyn Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recsU2Kg3Hrx4D3mC",
+  "createdTime": "2023-01-09T13:17:43.000Z",
+  "fields": {
+   "name": "Zhuravel Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recyBadmKJApHE1sg",
+  "createdTime": "2025-03-11T12:06:17.000Z",
+  "fields": {
+   "name": "Sydorenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recg1SndzoP8tNgWF",
+  "createdTime": "2024-11-05T14:51:40.000Z",
+  "fields": {
+   "name": "Havryliuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recgIPPkFb7bYmqTU",
+  "createdTime": "2026-04-16T15:53:33.000Z",
+  "fields": {
+   "name": "Osypenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0RiEmFc9eKV2X9",
+  "createdTime": "2024-09-09T14:39:29.000Z",
+  "fields": {
+   "name": "Nazarenko Nataliia",
+   "name_inp": "Nazarenko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recTNBPWqK6byROJG",
+  "createdTime": "2023-01-09T12:22:03.000Z",
+  "fields": {
+   "name": "Tymoshenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recirTckmtQ7YZGo2",
+  "createdTime": "2026-02-24T16:24:42.000Z",
+  "fields": {
+   "name": "Yatsenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recp7o2xn68bXvKFq",
+  "createdTime": "2026-03-02T16:20:39.000Z",
+  "fields": {
+   "name": "Chernenko Nataliia",
+   "name_inp": "Chernenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0UHcSDEVKBGx3j",
+  "createdTime": "2025-11-03T13:58:15.000Z",
+  "fields": {
+   "name": "Didyk Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recH3GHp3XwmXfR6M",
+  "createdTime": "2024-06-25T09:42:46.000Z",
+  "fields": {
+   "name": "Panchenko Nataliia",
+   "name_inp": "Panchenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rect1UrPn85ZO77y6",
+  "createdTime": "2026-03-19T12:37:08.000Z",
+  "fields": {
+   "name": "Romaniuk Nataliia",
+   "name_inp": "Romaniuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recFs5anFM1jGO6fk",
+  "createdTime": "2023-01-09T11:49:26.000Z",
+  "fields": {
+   "name": "Kulyk Nataliia",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec07BpnKb5waoFfZ",
+  "createdTime": "2025-11-21T14:28:22.000Z",
+  "fields": {
+   "name": "Stelmakh Nataliia",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recRjWGGCEMWWY5Bm",
+  "createdTime": "2026-03-05T15:50:06.000Z",
+  "fields": {
+   "name": "Verbytskyi Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recCaWrVF7kMINpye",
+  "createdTime": "2026-02-23T08:39:26.000Z",
+  "fields": {
+   "name": "Zahorodnii Nataliia",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recEoTAUcZWalp542",
+  "createdTime": "2023-01-09T12:14:05.000Z",
+  "fields": {
+   "name": "Prokopenko Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recW1AHKpPh0PJVhC",
+  "createdTime": "2023-01-09T13:00:34.000Z",
+  "fields": {
+   "name": "Lytvyn Nataliia",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "receSi8AUfzkWpJuB",
+  "createdTime": "2023-01-09T12:06:42.000Z",
+  "fields": {
+   "name": "Onyshchenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec1EFMLrCPqI2UUY",
+  "createdTime": "2025-08-11T08:32:56.000Z",
+  "fields": {
+   "name": "Reznik Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recqtkx3JnbuuFNU9",
+  "createdTime": "2023-01-09T13:04:59.000Z",
+  "fields": {
+   "name": "Shulha Nataliia",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recoYEJTyjsUZrUFl",
+  "createdTime": "2025-12-27T09:58:12.000Z",
+  "fields": {
+   "name": "Tkachuk Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec3aGDtxiTX6YuzP",
+  "createdTime": "2026-01-14T16:19:57.000Z",
+  "fields": {
+   "name": "Yurchenko Nataliia",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reco3S8tCfo1ZNpZR",
+  "createdTime": "2023-01-09T11:50:38.000Z",
+  "fields": {
+   "name": "Kovalenko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recZeDp4LkqxImkiL",
+  "createdTime": "2025-11-27T10:00:50.000Z",
+  "fields": {
+   "name": "Bondarenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recvtawMYD31b5dRq",
+  "createdTime": "2023-01-09T13:09:08.000Z",
+  "fields": {
+   "name": "Tkachenko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recddAwJDfU2cSnQw",
+  "createdTime": "2025-12-11T10:10:04.000Z",
+  "fields": {
+   "name": "Shevchuk Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recA49SaSBG9B3ZGc",
+  "createdTime": "2025-08-14T15:03:39.000Z",
+  "fields": {
+   "name": "Melnyk Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "reckJbexfugpTmUaW",
+  "createdTime": "2023-01-09T12:19:57.000Z",
+  "fields": {
+   "name": "Boiko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recG1L9AOgkvNAQ0E",
+  "createdTime": "2025-08-05T14:40:08.000Z",
+  "fields": {
+   "name": "Kravets Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recnReSTY5v9z5pUl",
+  "createdTime": "2025-08-05T14:49:34.000Z",
+  "fields": {
+   "name": "Kravets Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0cwnF6DMMSAriC",
+  "createdTime": "2023-01-09T13:05:19.000Z",
+  "fields": {
+   "name": "Polishchuk Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recpiQfBX8P4GklIZ",
+  "createdTime": "2023-01-09T13:14:20.000Z",
+  "fields": {
+   "name": "Savchenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rechpU1KqnzfHtavE",
+  "createdTime": "2023-01-09T12:16:50.000Z",
+  "fields": {
+   "name": "Rudenko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recrwXWMybmC0IZyL",
+  "createdTime": "2023-10-19T12:53:24.000Z",
+  "fields": {
+   "name": "Marchenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recf9XDbFfUriDe4n",
+  "createdTime": "2025-08-13T16:16:10.000Z",
+  "fields": {
+   "name": "Lysenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recVMkOFUe7V1ihfh",
+  "createdTime": "2023-06-06T13:19:40.000Z",
+  "fields": {
+   "name": "Moroz Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recV6hIJRjE4q0ZfL",
+  "createdTime": "2025-11-06T14:19:42.000Z",
+  "fields": {
+   "name": "Klymenko Petro",
+   "name_inp": "Klymenko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recBB4sbxCEIEqZ7i",
+  "createdTime": "2024-04-26T20:35:30.000Z",
+  "fields": {
+   "name": "Hrytsenko Petro",
+   "name_inp": "Hrytsenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec0OaHS3S1Kf7Nvj",
+  "createdTime": "2023-01-09T12:59:44.000Z",
+  "fields": {
+   "name": "Danyliuk Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recQD6A3A6KLUnywb",
+  "createdTime": "2025-10-06T07:35:53.000Z",
+  "fields": {
+   "name": "Palamarchuk Petro",
+   "name_inp": "Palamarchuk Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recP3eAdckaTwdPSK",
+  "createdTime": "2023-01-09T09:50:39.000Z",
+  "fields": {
+   "name": "Voloshyn Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recxTuDesJmFVFXCK",
+  "createdTime": "2025-08-07T12:47:03.000Z",
+  "fields": {
+   "name": "Zhuravel Petro",
+   "name_inp": "Zhuravel Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recJLRpMVoh6NrD8D",
+  "createdTime": "2025-09-08T14:59:52.000Z",
+  "fields": {
+   "name": "Sydorenko Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recDEyTHHHhmcEc1H",
+  "createdTime": "2023-06-24T17:16:06.000Z",
+  "fields": {
+   "name": "Havryliuk Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recocoqvBoH87JjqQ",
+  "createdTime": "2025-10-03T06:11:02.000Z",
+  "fields": {
+   "name": "Osypenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recP7oxVIvICRrr8t",
+  "createdTime": "2025-06-04T09:36:28.000Z",
+  "fields": {
+   "name": "Nazarenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recQkIubrb8kOEo9S",
+  "createdTime": "2025-09-09T13:10:50.000Z",
+  "fields": {
+   "name": "Tymoshenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recFu36PF2jp8SUa1",
+  "createdTime": "2023-01-09T09:48:55.000Z",
+  "fields": {
+   "name": "Yatsenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recBCIS7IIw4MUZsK",
+  "createdTime": "2025-05-15T11:59:50.000Z",
+  "fields": {
+   "name": "Chernenko Petro",
+   "name_inp": "Chernenko Petro",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recEIdy53d86dRVgi",
+  "createdTime": "2025-05-14T11:23:28.000Z",
+  "fields": {
+   "name": "Didyk Petro",
+   "type": "Невідомий",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recI0ji7qiXPOXrkN",
+  "createdTime": "2025-07-28T09:16:31.000Z",
+  "fields": {
+   "name": "Panchenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rectAPjfVHMqdqwyU",
+  "createdTime": "2025-07-28T09:18:35.000Z",
+  "fields": {
+   "name": "Romaniuk Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec58o0QMgpOOOdu4",
+  "createdTime": "2024-07-12T13:38:04.000Z",
+  "fields": {
+   "name": "Kulyk Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recCNTnbLineSpvoM",
+  "createdTime": "2024-02-22T13:17:20.000Z",
+  "fields": {
+   "name": "Stelmakh Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rec7A3AuKrGBbFn4A",
+  "createdTime": "2023-09-04T07:31:18.000Z",
+  "fields": {
+   "name": "Verbytskyi Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "reccYU1xcxd734WVl",
+  "createdTime": "2023-01-09T09:47:12.000Z",
+  "fields": {
+   "name": "Zahorodnii Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recnLqNST4dFOGS84",
+  "createdTime": "2023-01-09T12:11:21.000Z",
+  "fields": {
+   "name": "Prokopenko Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recG4yMn7vnNVFOUZ",
+  "createdTime": "2023-01-09T09:50:39.000Z",
+  "fields": {
+   "name": "Lytvyn Petro",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recmY55oEZXJh2aNf",
+  "createdTime": "2023-01-09T12:20:19.000Z",
+  "fields": {
+   "name": "Onyshchenko Petro",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechRr5tXp98GrSVy",
+  "createdTime": "2025-04-30T09:47:37.000Z",
+  "fields": {
+   "name": "Reznik Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recg4YxrS5ZO3TDod",
+  "createdTime": "2025-04-11T11:34:29.000Z",
+  "fields": {
+   "name": "Shulha Petro",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recRQB7SKS9C8MMCg",
+  "createdTime": "2024-09-02T09:44:26.000Z",
+  "fields": {
+   "name": "Tkachuk Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recOmQuSHONzwXDHH",
+  "createdTime": "2025-03-20T13:10:02.000Z",
+  "fields": {
+   "name": "Yurchenko Petro",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recbiNjT99xGnLcfw",
+  "createdTime": "2024-10-02T12:19:13.000Z",
+  "fields": {
+   "name": "Kovalenko Oksana",
+   "name_inp": "Kovalenko Oksana",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recMbb6HB8e1UGi3f",
+  "createdTime": "2024-12-02T17:47:28.000Z",
+  "fields": {
+   "name": "Bondarenko Oksana",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "rec2193ocMj2djQlF",
+  "createdTime": "2023-01-09T12:19:28.000Z",
+  "fields": {
+   "name": "Tkachenko Oksana",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recfJbb1sDVpSeLki",
+  "createdTime": "2023-01-09T13:05:10.000Z",
+  "fields": {
+   "name": "Shevchuk Oksana",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recJOzwoKiQlIKj7y",
+  "createdTime": "2024-10-19T10:33:06.000Z",
+  "fields": {
+   "name": "Melnyk Oksana",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recaqomKb2ClfjzRf",
+  "createdTime": "2023-08-22T17:01:37.000Z",
+  "fields": {
+   "name": "Boiko Oksana",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "rechhs9jpWDs7smwF",
+  "createdTime": "2024-04-26T20:36:03.000Z",
+  "fields": {
+   "name": "Kravets Oksana",
+   "name_inp": "Kravets Oksana",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recSx8vwitxiaTEwa",
+  "createdTime": "2023-08-01T12:20:18.000Z",
+  "fields": {
+   "name": "Polishchuk Oksana",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recJejdlMXwtUtN1P",
+  "createdTime": "2024-10-07T13:24:56.000Z",
+  "fields": {
+   "name": "Savchenko Oksana",
+   "type": "Невідомий",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recefa8gyrko2Wf0d",
+  "createdTime": "2023-01-09T13:16:11.000Z",
+  "fields": {
+   "name": "Rudenko Oksana",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recdWeOCGM3bRcNni",
+  "createdTime": "2023-01-09T13:03:46.000Z",
+  "fields": {
+   "name": "Marchenko Oksana",
+   "type": "Внутрішній",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recgqULIDxV43PUzz",
+  "createdTime": "2023-01-09T12:13:09.000Z",
+  "fields": {
+   "name": "Lysenko Oksana",
+   "type": "Внутрішній",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recT9LyYzyTrWgdPA",
+  "createdTime": "2023-01-09T11:50:40.000Z",
+  "fields": {
+   "name": "Moroz Oksana",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recMaoVmeYcvq9e5P",
+  "createdTime": "2024-07-15T16:01:48.000Z",
+  "fields": {
+   "name": "Klymenko Oksana",
+   "type": "Комерційний",
+   "gender": "Чоловік"
+  }
+ },
+ {
+  "id": "recunmTj4xI4H1I7D",
+  "createdTime": "2023-08-31T19:10:11.000Z",
+  "fields": {
+   "name": "Hrytsenko Oksana",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ },
+ {
+  "id": "recRTsnmd5QTmHD0o",
+  "createdTime": "2023-01-09T13:01:19.000Z",
+  "fields": {
+   "name": "Danyliuk Oksana",
+   "type": "Комерційний",
+   "gender": "Жінка"
+  }
+ }
+]

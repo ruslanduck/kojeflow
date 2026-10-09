@@ -1,0 +1,82 @@
+[
+  {
+    "id": "rec8DWZmv5Pp85oxj",
+    "createdTime": "2023-01-04T18:47:34.000Z",
+    "fields": {
+      "hostel": "Chuchle",
+      "hostel name": "Chuchle",
+      "min_intPrice": 138,
+      "max_intPrice": 379,
+      "numberOfRegistrations": 145,
+      "MAXnumberOfRegistrations": 145,
+      "balance": -56962,
+      "booked man": 1,
+      "booked woman": 3,
+      "booked family": 0
+    }
+  },
+  {
+    "id": "rec1X931yV8BpL3Hd",
+    "createdTime": "2022-11-09T18:44:48.000Z",
+    "fields": {
+      "hostel": "Korycany",
+      "hostel name": "Korycany",
+      "min_intPrice": 140,
+      "max_intPrice": 230,
+      "numberOfRegistrations": 92,
+      "MAXnumberOfRegistrations": 90,
+      "balance": 103145,
+      "booked man": 0,
+      "booked woman": 0,
+      "booked family": 0
+    }
+  },
+  {
+    "id": "rec5vw7wOy9e8Ajqw",
+    "createdTime": "2022-11-09T18:44:52.000Z",
+    "fields": {
+      "hostel": "Morina",
+      "hostel name": "Morina",
+      "min_intPrice": 161,
+      "max_intPrice": 259,
+      "numberOfRegistrations": 66,
+      "MAXnumberOfRegistrations": 61,
+      "balance": -428508,
+      "booked man": 0,
+      "booked woman": 1,
+      "booked family": 0
+    }
+  },
+  {
+    "id": "recXsgHK2Rx7BZYvR",
+    "createdTime": "2022-11-09T18:44:53.000Z",
+    "fields": {
+      "hostel": "Hostivice",
+      "hostel name": "Hostivice",
+      "min_intPrice": 150,
+      "max_intPrice": 240,
+      "numberOfRegistrations": 51,
+      "MAXnumberOfRegistrations": 47,
+      "balance": 17569,
+      "booked man": 1,
+      "booked woman": 0,
+      "booked family": 0
+    }
+  },
+  {
+    "id": "recqPqIVwu8lAMZny",
+    "createdTime": "2023-02-28T10:46:43.000Z",
+    "fields": {
+      "hostel": "Behovice",
+      "hostel name": "Behovice",
+      "min_intPrice": 150,
+      "max_intPrice": 240,
+      "numberOfRegistrations": 21,
+      "MAXnumberOfRegistrations": 30,
+      "balance": 0,
+      "booked man": 0,
+      "booked woman": 1,
+      "booked family": 0
+    }
+  }
+]

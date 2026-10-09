@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
+import { createClient } from '@/lib/supabase/client';
 
 const LOGO_GRADIENT = 'linear-gradient(135deg,#FFD600 0%,#E500E5 100%)';
 
@@ -18,14 +19,9 @@ export default function LoginPage() {
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setError(data.error ?? 'Invalid email or password');
+      const { error: signInError } = await createClient().auth.signInWithPassword({ email, password });
+      if (signInError) {
+        setError(signInError.message === 'Invalid login credentials' ? 'Invalid email or password' : signInError.message);
         return;
       }
       router.push('/dashboard');
