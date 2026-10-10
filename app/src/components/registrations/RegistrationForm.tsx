@@ -62,7 +62,7 @@ export function RegistrationForm({ onClose, editing, onSaved }: RegistrationForm
     if (!name) return setError(t('pay_err_who'));
     if (!propertyId) return setError(t('err_hostel'));
     if (!expires) return setError(t('err_date'));
-    const payload = { residentName: name, type, status, propertyId, coordinator, issued, expires, docs };
+    const payload = { residentName: name, type, status, propertyId, propertyName: propertiesById.get(propertyId)?.name ?? '', coordinator, issued, expires, docs };
     const saved = editing ? await registrationsRepository.update(editing.id, payload) : await registrationsRepository.create(payload);
     onSaved(saved);
   };

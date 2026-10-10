@@ -1,16 +1,16 @@
-import type { Bed, FloorPlan, Payment, Resident, Room, RoomGender, Stay } from './types';
-import namePools from './data/name-pools.json';
+import type { Bed, FloorPlan, Payment, Resident, RoomGender, Stay } from './types';
 
 /**
- * Reference date all billing and expiry math is measured from.
- *
- * It must not fall behind the Airtable data: a stay that starts after this date
- * yields a negative day count, which clamps to one day and quietly shows a full
- * occupancy as owing a single night. Kept a constant rather than the real clock so
- * that server prerender and client hydration agree — move it to an actual clock
- * (resolved client-side) once the demo stops being rebuilt alongside its data.
+ * Today's date at the properties (Prague), as YYYY-MM-DD. Every screen renders only
+ * after the data has loaded in the browser, so server and client never disagree on it.
  */
-export const TODAY = '2026-09-22';
+export const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Prague' }).format(new Date());
+
+/**
+ * Billing starts from zero in Kojeflow: nights are charged from this date on (or from a
+ * later check-in), and Airtable's old paid/debt totals are not carried over.
+ */
+export const BILLING_START = '2026-10-12';
 
 /** Aspect ratio of the seeded plan image, used when a plan has no stored size. */
 export const DEFAULT_PLAN_ASPECT = '1539/679';
@@ -100,60 +100,6 @@ export function rateFor(basePrice: number, propertyName: string, bedLabel: strin
   return basePrice + (hashString(propertyName + '|' + bedLabel) % 6) * 5;
 }
 
-export interface RoomLogEntry {
-  name: string;
-  gender: 'M' | 'F';
-  isReal: boolean;
-  residentId?: string;
-  stayId?: string;
-  place: string;
-  periodStart: string;
-  periodEnd: string | null; // null = still living there (now)
-}
-
-/**
- * A room's occupancy history: real current occupants (from live bed/resident/stay
- * data) plus a fixed set of deterministic past-tenant rows, since Stage 1's seed data
- * doesn't carry real check-out history yet. Ported from the prototype's roomLogData(),
- * which fabricates the same fixed-count hash-based past tenants for every room.
- */
-export function roomHistoryRows(propertyName: string, room: Room, roomBeds: Bed[], residentsById: Map<string, Resident>, stays: Stay[], today: string = TODAY): RoomLogEntry[] {
-  const rows: RoomLogEntry[] = [];
-  roomBeds.forEach((bed) => {
-    if (bed.status !== 'occupied' || !bed.residentId) return;
-    const resident = residentsById.get(bed.residentId);
-    if (!resident) return;
-    const stay = stays.find((s) => s.residentId === resident.id && s.roomId === room.id && s.status === 'active');
-    rows.push({
-      name: resident.name,
-      gender: resident.gender,
-      isReal: true,
-      residentId: resident.id,
-      stayId: stay?.id,
-      place: `${room.name} · Place ${bed.index}`,
-      periodStart: stay?.checkIn ?? today,
-      periodEnd: null,
-    });
-  });
-
-  if (roomBeds.length === 0) return rows;
-  const { MALE, SURN } = namePools;
-  const h = hashString(propertyName + room.name);
-  for (let i = 0; i < 3; i++) {
-    const name = `${SURN[(h + i * 5) % SURN.length]} ${MALE[(h + i * 3) % MALE.length]}`;
-    const periodEnd = addDays(today, -(60 + ((h + i * 29) % 200)));
-    rows.push({
-      name,
-      gender: 'M',
-      isReal: false,
-      place: `Place ${1 + ((h + i) % roomBeds.length)}`,
-      periodStart: addDays(periodEnd, -90),
-      periodEnd,
-    });
-  }
-  return rows;
-}
-
 export interface Bill {
   days: number;
   rate: number;
@@ -165,23 +111,18 @@ export interface Bill {
 }
 
 /**
- * What a stay has run up and what is still owed.
- *
- * Airtable carries the authoritative balance in its own `debt` formula, and cannot
- * be made to agree with our nights x rate arithmetic: the payment ledger that fed
- * that figure was never recorded transaction by transaction, so `paid` is present
- * on only a fraction of stays. Recomputing the balance ourselves would therefore
- * show almost every resident owing their full stay — a plausible-looking number
- * that is simply wrong. So `debt` wins whenever Airtable supplied one, and only
- * stays created in this session fall back to charged-minus-paid.
+ * What a stay has run up since billing started and what is still owed: nights from
+ * BILLING_START (or a later check-in) to check-out or today, times the nightly rate,
+ * minus the payments recorded in Kojeflow.
  */
 export function billFor(stay: Stay, payments: Payment[], today: string = TODAY): Bill {
-  const days = Math.max(1, diffDays(stay.checkIn, stay.checkOut ?? today));
+  const from = stay.checkIn > BILLING_START ? stay.checkIn : BILLING_START;
+  const to = stay.checkOut ?? today;
+  const days = to > from ? diffDays(from, to) : 0;
   const rate = stay.rate;
   const charged = days * rate;
-  const localPaid = payments.filter((p) => p.stayId === stay.id).reduce((sum, p) => sum + p.amount, 0);
-  const paid = (stay.paidTotal ?? 0) + localPaid;
-  const balance = stay.debt !== undefined ? stay.debt - localPaid : charged - paid;
+  const paid = payments.filter((p) => p.stayId === stay.id).reduce((sum, p) => sum + p.amount, 0);
+  const balance = charged - paid;
   return {
     days,
     rate,

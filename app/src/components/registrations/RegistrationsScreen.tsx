@@ -165,7 +165,7 @@ export function RegistrationsScreen() {
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
                 </div>
                 <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{t(TYPE_LABEL_KEY[r.type])}</div>
-                <div style={{ fontSize: 12.5 }}>{propertiesById.get(r.propertyId)?.name}</div>
+                <div style={{ fontSize: 12.5 }}>{propertiesById.get(r.propertyId)?.name ?? r.propertyName}</div>
                 <div style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>{place}</div>
                 <div className="num" style={{ fontSize: 12, color: 'var(--color-muted)' }}>{formatDateDMY(r.issued)}</div>
                 <div className="num" style={{ fontSize: 12, fontWeight: 600, color: expiryColor }}>{formatDateDMY(r.expires)}</div>

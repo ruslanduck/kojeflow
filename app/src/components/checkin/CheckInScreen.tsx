@@ -87,7 +87,7 @@ export function CheckInScreen() {
         </button>
       </div>
 
-      <div className="g3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 13, marginBottom: 20 }}>
+      <div className="kpis" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 13, marginBottom: 20 }}>
         {kpis.map((k) => (
           <div key={k.label} className="lift" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, padding: '17px 19px' }}>
             <div style={{ fontSize: 11, color: 'var(--color-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{k.label}</div>
@@ -106,9 +106,9 @@ export function CheckInScreen() {
         <span className="num" style={{ marginLeft: 'auto', fontSize: 12, color: 'var(--color-faint)' }}>{filteredStays.length}/{scopedStays.length}</span>
       </div>
 
-      <div className="stagger tscroll" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, overflow: 'hidden' }}>
+      <div className="stagger tscroll mtable" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, overflow: 'hidden' }}>
         <div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.7fr) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.9fr) minmax(78px,1fr) minmax(82px,1.15fr) 168px', gap: 11, padding: '12px 20px', background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', fontSize: 10.5, color: 'var(--color-muted)', fontWeight: 700, letterSpacing: 0.6, textTransform: 'uppercase' }}>
+          <div className="mhead" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.7fr) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.9fr) minmax(78px,1fr) minmax(82px,1.15fr) 168px', gap: 11, padding: '12px 20px', background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', fontSize: 10.5, color: 'var(--color-muted)', fontWeight: 700, letterSpacing: 0.6, textTransform: 'uppercase' }}>
             <div>{t('col_name')}</div><div>{t('col_hostel')}</div><div>{t('col_room_place')}</div><div>{t('col_type')}</div><div>{t('col_since')}</div><div>{t('bl_balance')}</div><div></div>
           </div>
           {filteredStays.map((s) => {
@@ -121,22 +121,24 @@ export function CheckInScreen() {
             return (
               <div
                 key={s.id}
-                className="rowh"
+                className="rowh mrow"
                 onClick={() => router.push(`/residents?person=${s.residentId}`)}
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.7fr) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.9fr) minmax(78px,1fr) minmax(82px,1.15fr) 168px', gap: 11, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div className="mmain" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Avatar name={name} size={28} />
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
                 </div>
-                <div style={{ fontSize: 12.5 }}>{propertiesById.get(s.propertyId)?.name}</div>
-                <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{placeLabel}</div>
-                <div><Pill label={t(TYPE_LABEL_KEY[s.type])} fg={typeFg} bg={typeBg} /></div>
-                <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{formatDateDMY(s.checkIn)}</div>
-                <div className="num" style={{ fontSize: 12.5, fontWeight: 700, color: bill.debtor ? 'var(--color-red)' : '#1B7F52' }}>
+                <div className="mgroup">
+                  <div style={{ fontSize: 12.5 }}>{propertiesById.get(s.propertyId)?.name}</div>
+                  <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{placeLabel}</div>
+                  <div><Pill label={t(TYPE_LABEL_KEY[s.type])} fg={typeFg} bg={typeBg} /></div>
+                  <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{formatDateDMY(s.checkIn)}</div>
+                </div>
+                <div className="num mside" style={{ fontSize: 12.5, fontWeight: 700, color: bill.debtor ? 'var(--color-red)' : '#1B7F52' }}>
                   {bill.debtor ? '+' : ''}{formatCurrency(bill.balance, currency)}
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 6 }}>
+                <div className="mactions" style={{ display: 'flex', justifyContent: 'flex-end', gap: 6 }}>
                   <button
                     className="pbtn"
                     onClick={(e) => { e.stopPropagation(); router.push(`/finance?tab=billing&stay=${s.id}`); }}

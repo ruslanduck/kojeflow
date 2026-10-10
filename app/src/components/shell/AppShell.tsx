@@ -5,7 +5,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { ROLES, ROLE_NAMES, NAV_LABEL_KEY, NAV_ROUTE, roleLabelKey, type NavKey, type RoleName } from '@/domain/roles';
-import { SCREEN_TITLE_KEY } from '@/domain/screenTitles';
 import { initials } from '@/lib/text';
 import { NavIcon } from './NavIcon';
 import { DataProvider } from '@/components/data/DataProvider';
@@ -40,12 +39,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const currentNavKey = useCurrentNavKey(nav);
 
   // A role whose nav omits a module (e.g. Client has no Check-in) can't reach it by typing the URL either.
+  // Checked only once the profile has loaded, or a deep link would bounce off the placeholder role.
+  const profileLoaded = useSessionStore((s) => s.actualRole !== null);
   useEffect(() => {
+    if (!profileLoaded) return;
     const blockedRoute = (Object.keys(NAV_ROUTE) as NavKey[]).find(
       (k) => !nav.includes(k) && (pathname === NAV_ROUTE[k] || pathname.startsWith(NAV_ROUTE[k] + '/')),
     );
     if (blockedRoute) router.replace(NAV_ROUTE[nav[0]]);
-  }, [pathname, nav, router]);
+  }, [pathname, nav, router, profileLoaded]);
 
   // Only a true drill-down (e.g. a property's detail page, reached from the Dashboard)
   // is a distinct screen with its own back-chevron — matches the prototype's navStack,
@@ -65,7 +67,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const inTabs = new Set(tabKeys);
   const overflowKeys = nav.filter((k) => !inTabs.has(k));
 
-  const screenTitle = t(SCREEN_TITLE_KEY[currentNavKey]) || 'Kojeflow';
 
   if (pathname === '/login') {
     return <>{children}</>;
@@ -156,19 +157,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, overflow: 'hidden' }}>
-        {/* MOBILE TOPBAR */}
-        <div className="topbar" style={{ alignItems: 'center', gap: 11, padding: '10px 13px', background: '#fff', borderBottom: '1px solid var(--color-border)' }}>
+        {/* MOBILE TOPBAR: no brand bar, just room for the notch and the back chevron on drill-downs */}
+        <div className="topbar" style={{ alignItems: 'center', padding: 'calc(env(safe-area-inset-top, 0px) + 6px) 10px 0', minHeight: canGoBack ? 38 : 'calc(env(safe-area-inset-top, 0px) + 6px)', background: 'var(--color-bg)' }}>
           {canGoBack && (
-            <button onClick={() => router.back()} aria-label={t('nav_back')} style={{ background: 'none', border: 'none', color: 'var(--color-ink)', fontSize: 22, cursor: 'pointer', lineHeight: 1, padding: '2px 6px 2px 2px' }}>
+            <button onClick={() => router.back()} aria-label={t('nav_back')} style={{ background: 'none', border: 'none', color: 'var(--color-ink)', fontSize: 26, cursor: 'pointer', lineHeight: 1, padding: '2px 8px 2px 4px' }}>
               ‹
             </button>
           )}
-          <div style={{ width: 29, height: 29, flex: 'none', borderRadius: 8, background: LOGO_GRADIENT, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 17, color: 'var(--color-ink)' }}>
-            K
-          </div>
-          <div className="hd" style={{ flex: 1, minWidth: 0, fontSize: 19, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {screenTitle}
-          </div>
         </div>
 
         <div style={{ flex: 1, overflowY: 'auto' }}>

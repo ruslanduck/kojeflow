@@ -19,5 +19,17 @@ export async function GET() {
   const { data, error } = await supabase.rpc('app_snapshot', { lookback_days: LOOKBACK_DAYS });
   if (error) return Response.json({ error: error.message }, { status: 500 });
 
-  return Response.json(toPayload(data as RawSnapshot));
+  const payload = toPayload(data as RawSnapshot);
+
+  // Plan images sit in a private bucket; hand out URLs that expire well after a working day.
+  const plans = payload.entities.floorPlans.filter((p) => p.imagePath);
+  if (plans.length) {
+    const signed = await supabase.storage.from('floor-plans').createSignedUrls(plans.map((p) => p.imagePath as string), PLAN_URL_SECONDS);
+    const urlByPath = new Map((signed.data ?? []).map((s) => [s.path, s.signedUrl]));
+    for (const plan of plans) plan.imageUrl = urlByPath.get(plan.imagePath as string) ?? '';
+  }
+
+  return Response.json(payload);
 }
+
+const PLAN_URL_SECONDS = 60 * 60 * 12;

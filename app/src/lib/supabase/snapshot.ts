@@ -75,24 +75,47 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     payments: [], transfers: [], registrations: [], users: [], floorPlans: [], floorZones: [],
   };
 
+  // Properties hidden in Airtable are neither shown nor counted, and neither is anything in them.
+  // Registrations keep their address, since they stay legally valid after a property closes.
+  const hidden = new Set(raw.properties.filter((p) => p.is_hidden).map((p) => str(p.id)));
+  const visible = (propertyId: unknown) => !hidden.has(str(propertyId));
+  const allPropertyNames = new Map(raw.properties.map((p) => [str(p.id), str(p.name)]));
+
+  // A property's price range spans the internal bed prices of its available rooms.
+  const roomPrices = new Map<string, number[]>();
+  for (const r of raw.rooms) {
+    if (r.status !== 'available' || num(r.internal_price) <= 0) continue;
+    const list = roomPrices.get(str(r.property_id)) ?? [];
+    list.push(num(r.internal_price));
+    roomPrices.set(str(r.property_id), list);
+  }
+  // Billing starts from zero in this app, so a balance is what has been paid here.
+  const paidByProperty = new Map<string, number>();
+  for (const pm of raw.payments) {
+    paidByProperty.set(str(pm.property_id), (paidByProperty.get(str(pm.property_id)) ?? 0) + num(pm.amount));
+  }
+
   // ---- properties
-  entities.properties = raw.properties.map((p): Property => ({
-    id: str(p.id),
-    name: str(p.name),
-    price: num(p.min_internal_price),
-    registrations: num(p.registered),
-    registrationsCapacity: num(p.registrations_capacity),
-    // Airtable's own definition: everything paid in minus what was handed over and received.
-    balance: num(p.paid_total) - num(p.received_total),
-    inProcess: 0,
-    bookedMale: num(p.booked_male),
-    bookedFemale: num(p.booked_female),
-    bookedMixed: num(p.booked_family),
-  }));
+  entities.properties = raw.properties.filter((p) => visible(p.id)).map((p): Property => {
+    const prices = roomPrices.get(str(p.id)) ?? [];
+    return {
+      id: str(p.id),
+      name: str(p.name),
+      price: prices.length ? Math.min(...prices) : 0,
+      priceTo: prices.length ? Math.max(...prices) : 0,
+      registrations: num(p.registered),
+      registrationsCapacity: num(p.registrations_capacity),
+      balance: paidByProperty.get(str(p.id)) ?? 0,
+      inProcess: 0,
+      bookedMale: num(p.booked_male),
+      bookedFemale: num(p.booked_female),
+      bookedMixed: num(p.booked_family),
+    };
+  });
   const propertyName = new Map(entities.properties.map((p) => [p.id, p.name]));
 
   // ---- rooms
-  entities.rooms = raw.rooms.map((r): Room => {
+  entities.rooms = raw.rooms.filter((r) => visible(r.property_id)).map((r): Room => {
     const type = str(r.type);
     const roof = r.is_roof ? ' - дах' : '';
     return {
@@ -102,9 +125,11 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       type: ROOM_TYPE[type] ?? 'Room',
       priceFrom: num(r.internal_price),
       priceTo: num(r.external_price),
+      available: r.status === 'available',
     };
   });
   const roomProperty = new Map(entities.rooms.map((r) => [r.id, r.propertyId]));
+  const roomAvailable = new Map(entities.rooms.map((r) => [r.id, r.available]));
 
   // ---- stays and which beds they hold
   const tenantsById = new Map(raw.tenants.map((t) => [str(t.id), t]));
@@ -115,11 +140,8 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     list.push(str(sp.place_id));
     bedsOfStay.set(str(sp.stay_id), list);
   }
-  const paidByStay = new Map<string, number>();
-  for (const pm of raw.payments) paidByStay.set(str(pm.stay_id), (paidByStay.get(str(pm.stay_id)) ?? 0) + num(pm.amount));
-
   const occupantOfBed = new Map<string, string>();
-  entities.stays = raw.stays.map((s): Stay => {
+  entities.stays = raw.stays.filter((s) => visible(s.property_id)).map((s): Stay => {
     const id = str(s.id);
     const tenant = tenantsById.get(str(s.tenant_id));
     // A stay can hold several beds; the app's Stay carries one, the rest still show as occupied.
@@ -143,21 +165,21 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       checkOut: date(s.check_out_date),
       status: active ? 'active' : 'checked-out',
       rate: num(s.price_per_day),
-      paidTotal: num(s.legacy_paid_total) + (paidByStay.get(id) ?? 0),
-      debt: num(s.legacy_debt),
+      // Airtable's running paid/debt totals are deliberately left behind: billing starts from zero.
     };
   });
 
-  // ---- beds
-  entities.beds = raw.places.map((pl): Bed => {
+  // ---- beds (a bed in an unavailable room is unavailable, as in Airtable's capacity formula)
+  entities.beds = raw.places.filter((pl) => roomProperty.has(str(pl.room_id))).map((pl): Bed => {
     const id = str(pl.id);
     const occupant = occupantOfBed.get(id);
+    const unavailable = pl.status === 'unavailable' || roomAvailable.get(str(pl.room_id)) === false;
     return {
       id,
       roomId: str(pl.room_id),
       propertyId: roomProperty.get(str(pl.room_id)) ?? '',
       index: num(pl.number),
-      status: occupant ? 'occupied' : pl.status === 'unavailable' ? 'unavailable' : 'free',
+      status: occupant ? 'occupied' : unavailable ? 'unavailable' : 'free',
       residentId: occupant ?? null,
     };
   });
@@ -185,7 +207,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
   });
 
   // ---- bookings
-  entities.bookings = raw.bookings.map((b): Booking => {
+  entities.bookings = raw.bookings.filter((b) => visible(b.property_id)).map((b): Booking => {
     const percent = num(b.discount_percent);
     const amount = num(b.discount);
     return {
@@ -239,6 +261,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       type: g.type === 'paid' ? 'Paid' : 'Free',
       status: REGISTRATION_STATUS[str(g.status)] ?? 'New',
       propertyId: str(g.property_id),
+      propertyName: allPropertyNames.get(str(g.property_id)) ?? '',
       coordinator: str(g.creator_name) || str(g.visa_manager_name),
       issued: date(g.start_date) ?? '',
       expires: date(g.expiration_date) ?? '',
@@ -259,7 +282,9 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     propertyId: str(fp.property_id),
     name: str(fp.name),
     sort: num(fp.sort_order),
-    imageUrl: str(fp.image_path),
+    // Signed by the snapshot route: the bucket is private.
+    imageUrl: '',
+    imagePath: str(fp.image_path),
     imageWidth: fp.image_width == null ? undefined : num(fp.image_width),
     imageHeight: fp.image_height == null ? undefined : num(fp.image_height),
   }));

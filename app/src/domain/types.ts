@@ -12,7 +12,9 @@ export type TransferStatus = 'Handed over' | 'Accepted';
 export interface Property {
   id: string;
   name: string;
+  /** Cheapest and dearest internal bed price across the property's available rooms. */
   price: number;
+  priceTo: number;
   registrations: number;
   registrationsCapacity: number;
   balance: number;
@@ -29,6 +31,8 @@ export interface Room {
   type: RoomType;
   priceFrom: number;
   priceTo: number;
+  /** An unavailable room offers no beds, whatever its beds say. */
+  available: boolean;
 }
 
 export interface Bed {
@@ -124,6 +128,8 @@ export interface Registration {
   type: RegistrationType;
   status: RegistrationStatus;
   propertyId: string;
+  /** Kept on the record so registrations at hidden properties still show their address. */
+  propertyName: string;
   coordinator: string;
   issued: string; // ISO date
   expires: string; // ISO date
@@ -142,7 +148,10 @@ export interface FloorPlan {
   propertyId: string;
   name: string;
   sort: number;
+  /** Signed URL for display; expires, so it is re-issued with every data load. */
   imageUrl: string;
+  /** Object path in the private floor-plans bucket. */
+  imagePath?: string;
   /** Natural pixel size of the uploaded image, used to keep its aspect ratio. */
   imageWidth?: number;
   imageHeight?: number;

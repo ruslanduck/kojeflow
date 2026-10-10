@@ -267,6 +267,11 @@ input[type='date'] {
   min-width: 820px;
 }
 
+/* Tables that turn into cards on phones: .mgroup cells sit in the table grid on desktop. */
+.mgroup {
+  display: contents;
+}
+
 @media (max-width: 860px) {
   .app-shell {
     flex-direction: column;
@@ -335,6 +340,53 @@ input[type='date'] {
   }
   .mobonly {
     display: flex !important;
+  }
+  /* KPI rows: two compact cards per row */
+  .kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .kpis > div {
+    padding: 12px 13px !important;
+  }
+  .kpis .fig {
+    font-size: 25px !important;
+  }
+  /* Table rows as cards: name + figure on top, details and actions below */
+  .mtable > div {
+    min-width: 0 !important;
+  }
+  .mhead {
+    display: none !important;
+  }
+  .mrow {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px 10px !important;
+    padding: 13px 15px !important;
+    align-items: center !important;
+  }
+  .mrow > .mmain {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+  .mrow > .mside {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .mrow > .mgroup {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 10px;
+    font-size: 12.5px;
+    color: var(--color-muted);
+  }
+  .mrow > .mactions {
+    grid-column: 1 / -1;
+    justify-content: flex-start !important;
   }
 }
 

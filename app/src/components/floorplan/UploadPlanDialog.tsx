@@ -19,33 +19,42 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
   const [name, setName] = useState('');
   const [sort, setSort] = useState(String(nextSort));
   const [imageUrl, setImageUrl] = useState('');
-  const [fileName, setFileName] = useState('');
+  const [file, setFile] = useState<File | null>(null);
   const [size, setSize] = useState<{ width: number; height: number } | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
 
   const pickFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
     const url = URL.createObjectURL(f);
     setImageUrl(url);
-    setFileName(f.name);
+    setFile(f);
     setSize(null);
     const img = new Image();
     img.onload = () => setSize({ width: img.naturalWidth, height: img.naturalHeight });
     img.src = url;
   };
 
-  const canSave = name.trim() !== '' && !!imageUrl;
+  const canSave = name.trim() !== '' && !!file && !saving;
   const save = async () => {
-    if (!canSave) return;
-    const plan = await floorPlansRepository.create({
-      propertyId,
-      name: name.trim(),
-      sort: Number(sort) || 1,
-      imageUrl,
-      imageWidth: size?.width,
-      imageHeight: size?.height,
-    });
-    onSaved(plan);
+    if (!canSave || !file) return;
+    setSaving(true);
+    setError('');
+    try {
+      const plan = await floorPlansRepository.create({
+        propertyId,
+        name: name.trim(),
+        sort: Number(sort) || 1,
+        file,
+        imageWidth: size?.width,
+        imageHeight: size?.height,
+      });
+      onSaved(plan);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+      setSaving(false);
+    }
   };
 
   return (
@@ -67,10 +76,11 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
             <div>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('fp_image')}</div>
               <label style={{ display: 'flex', alignItems: 'center', gap: 9, background: 'var(--color-bg)', border: '1px dashed #D6D6DE', borderRadius: 9, padding: 13, cursor: 'pointer', fontSize: 13, color: 'var(--color-muted)' }}>
-                <span style={{ fontSize: 16 }}>⇲</span><span>{fileName || t('fp_choosefile')}</span>
+                <span style={{ fontSize: 16 }}>⇲</span><span>{file?.name || t('fp_choosefile')}</span>
                 <input type="file" accept="image/*" onChange={pickFile} style={{ display: 'none' }} />
               </label>
             </div>
+            {error && <div style={{ fontSize: 12.5, color: 'var(--color-red)' }}>{error}</div>}
             {imageUrl && <div style={{ width: '100%', aspectRatio: size ? `${size.width}/${size.height}` : DEFAULT_PLAN_ASPECT, backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', borderRadius: 9 }} />}
           </div>
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>

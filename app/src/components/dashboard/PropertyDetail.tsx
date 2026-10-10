@@ -15,6 +15,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
 import { CheckInWizard } from '@/components/checkin/CheckInWizard';
+import { PersonCard } from '@/components/residents/PersonCard';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
@@ -36,6 +37,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const [tab, setTab] = useState<'rooms' | 'residents'>('rooms');
   const [logRoomId, setLogRoomId] = useState<string | null>(null);
   const [checkInTarget, setCheckInTarget] = useState<{ roomId: string; bedId: string } | null>(null);
+  const [personId, setPersonId] = useState<string | null>(null);
 
   const property = properties.find((p) => p.id === propertyId);
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
@@ -62,13 +64,13 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       const resident = residentsById.get(bed.residentId);
       return `${safeName(resident?.name ?? '', !!roleConfig.hideNames, t('hidden_name'))} · ${t('occ_place')}`;
     }
-    if (bed.status === 'booked') return t('booked_tip');
+    if (bed.status === 'unavailable') return t('unavail_tip');
     return t('free_tip');
   };
 
+  // Everything opens over this screen: the person's card for an occupied bed, check-in for a free one.
   const onBedClick = (bed: Bed, room: Room) => {
-    if (bed.status === 'occupied' && bed.residentId) router.push(`/residents?person=${bed.residentId}`);
-    else if (bed.status === 'booked') router.push(`/bookings?property=${propertyId}`);
+    if (bed.status === 'occupied' && bed.residentId) setPersonId(bed.residentId);
     else if (bed.status === 'free') setCheckInTarget({ roomId: room.id, bedId: bed.id });
   };
 
@@ -118,7 +120,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       </div>
 
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 20 }}>
-        {[{ color: '#22A06B', label: t('free_place') }, { color: '#B4B4C0', label: t('occ_place') }, { color: '#FFD600', label: t('booked_place') }].map((g) => (
+        {[{ color: '#22A06B', label: t('free_place') }, { color: '#B4B4C0', label: t('occ_place') }, { color: '#E5484D', label: t('unavail_place') }].map((g) => (
           <div key={g.label} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 11.5, color: 'var(--color-muted)' }}>
             <span style={{ width: 11, height: 11, borderRadius: 4, display: 'inline-block', background: g.color }} />
             {g.label}
@@ -205,7 +207,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
               <div
                 key={bed.id}
                 className="rowh"
-                onClick={() => router.push(`/residents?person=${resident!.id}`)}
+                onClick={() => setPersonId(resident!.id)}
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.8fr) minmax(0,1.5fr) minmax(0,.9fr) minmax(78px,1fr) minmax(0,1.4fr)', gap: 12, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -223,6 +225,8 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       )}
 
       {logRoomId && <RoomHistoryModal propertyId={propertyId} roomId={logRoomId} onClose={() => setLogRoomId(null)} />}
+
+      {personId && <PersonCard residentId={personId} onClose={() => setPersonId(null)} />}
 
       {checkInTarget && (
         <CheckInWizard

@@ -1,18 +1,18 @@
 'use client';
 
-import { useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { roomHistoryRows } from '@/domain/logic';
 import { translatePlace, safeName } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
+import { useRoomHistory } from '@/lib/supabase/history';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { Portal } from '@/components/ui/Portal';
 
+/** Everyone who has lived in the room, from the stays history in the database. */
 export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: string; roomId: string; onClose: () => void }) {
   const t = useT();
   const router = useRouter();
@@ -22,18 +22,11 @@ export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: 
 
   const properties = useEntityStore((s) => s.properties);
   const rooms = useEntityStore((s) => s.rooms);
-  const beds = useEntityStore((s) => s.beds);
-  const residents = useEntityStore((s) => s.residents);
-  const stays = useEntityStore((s) => s.stays);
+  const rows = useRoomHistory(roomId);
 
   const property = properties.find((p) => p.id === propertyId);
   const room = rooms.find((r) => r.id === roomId);
-  const residentsById = useMemo(() => new Map(residents.map((r) => [r.id, r])), [residents]);
-  const roomBeds = useMemo(() => beds.filter((b) => b.roomId === roomId).sort((a, b) => a.index - b.index), [beds, roomId]);
-
   if (!property || !room) return null;
-
-  const rows = roomHistoryRows(property.name, room, roomBeds, residentsById, stays);
 
   return (
     <Portal>
@@ -47,20 +40,22 @@ export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: 
             <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: 22, color: 'var(--color-faint-2)', cursor: 'pointer', lineHeight: 1 }}>×</button>
           </div>
           <div style={{ padding: '8px 24px 18px', overflowY: 'auto', flex: 1 }}>
-            {rows.map((row, i) => {
+            {rows === null && <div style={{ padding: '18px 0', fontSize: 13, color: 'var(--color-faint)' }}>{t('dl_loading')}…</div>}
+            {rows?.length === 0 && <div style={{ padding: '18px 0', fontSize: 13, color: 'var(--color-faint)' }}>—</div>}
+            {rows?.map((row) => {
               const name = safeName(row.name, !!roleConfig.hideNames, t('hidden_name'));
-              const period = row.periodEnd === null ? t('period_now', { d: formatDateDMY(row.periodStart) }) : `${formatDateDMY(row.periodStart)} — ${formatDateDMY(row.periodEnd)}`;
-              const [badgeFg, badgeBg] = row.isReal ? ['#C0392B', '#FDECEC'] : ['#5C5C66', '#EDEDF2'];
+              const period = row.active ? t('period_now', { d: formatDateDMY(row.checkIn) }) : `${formatDateDMY(row.checkIn)} — ${row.checkOut ? formatDateDMY(row.checkOut) : '…'}`;
+              const [badgeFg, badgeBg] = row.active ? ['#C0392B', '#FDECEC'] : ['#5C5C66', '#EDEDF2'];
               return (
-                <div key={`${row.name}-${i}`} style={{ display: 'flex', gap: 12, alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #F2F2F6' }}>
+                <div key={`${row.stayId}-${row.placeNumber}`} style={{ display: 'flex', gap: 12, alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #F2F2F6' }}>
                   <Avatar name={name} size={28} />
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</div>
-                    <div style={{ fontSize: 12, color: 'var(--color-faint)' }}>{translatePlace(row.place, lang)}</div>
+                    <div style={{ fontSize: 12, color: 'var(--color-faint)' }}>{translatePlace(`Place ${row.placeNumber}`, lang)}</div>
                   </div>
                   <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)', textAlign: 'right', whiteSpace: 'nowrap' }}>{period}</div>
-                  <Pill label={row.isReal ? t('occ_place') : t('st_CheckedIn')} fg={badgeFg} bg={badgeBg} />
-                  {row.isReal && row.stayId && (
+                  <Pill label={row.active ? t('occ_place') : t('st_CheckedIn')} fg={badgeFg} bg={badgeBg} />
+                  {row.active && (
                     <button
                       className="pbtn"
                       onClick={() => router.push(`/finance?tab=billing&stay=${row.stayId}&openPay=1`)}

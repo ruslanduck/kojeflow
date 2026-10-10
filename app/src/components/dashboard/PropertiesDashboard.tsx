@@ -6,13 +6,14 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { propertyStat, applyDayShift, dayShift } from '@/domain/dashboard';
+import { propertyStat } from '@/domain/dashboard';
 import { occupancyColor, billFor, TODAY } from '@/domain/logic';
+import { useOccupancyOn } from '@/lib/supabase/history';
 import { GENDER_EMOJI } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Pill } from '@/components/ui/Pill';
-import { MappingNotice, Flagged } from '@/components/ui/Unmapped';
+import { MappingNotice } from '@/components/ui/Unmapped';
 
 export function PropertiesDashboard() {
   const t = useT();
@@ -28,15 +29,17 @@ export function PropertiesDashboard() {
   const payments = useEntityStore((s) => s.payments);
 
   const [dashDate, setDashDate] = useState(TODAY);
-  const shift = dayShift(dashDate);
-  const asOf = shift > 0 ? formatDateDMY(dashDate) : t('d_today');
+  const isPast = dashDate < TODAY;
+  // Past days come from the stays history in the database, not from today's beds.
+  const pastOccupancy = useOccupancyOn(isPast ? dashDate : null);
+  const asOf = isPast ? (pastOccupancy ? formatDateDMY(dashDate) : '…') : t('d_today');
 
   const rows = useMemo(
     () =>
       properties.map((p) => {
-        const stat = applyDayShift(propertyStat(p, rooms, beds), shift);
-        const rate = stat.total ? Math.round((stat.adjustedOccupied / stat.total) * 100) : 0;
-        const dotColor = occupancyColor(stat.total ? stat.adjustedOccupied / stat.total : 0);
+        const stat = propertyStat(p, rooms, beds, pastOccupancy ? (pastOccupancy.get(p.id) ?? 0) : undefined);
+        const rate = stat.total ? Math.round((stat.occupied / stat.total) * 100) : 0;
+        const dotColor = occupancyColor(stat.total ? stat.occupied / stat.total : 0);
         const badges: { label: string; pill: boolean }[] = [];
         (['M', 'F', 'X'] as const).forEach((g) => {
           const n = g === 'M' ? p.bookedMale : g === 'F' ? p.bookedFemale : p.bookedMixed;
@@ -45,7 +48,7 @@ export function PropertiesDashboard() {
         if (badges.length === 0) badges.push({ label: '—', pill: false });
         return { property: p, stat, rate, dotColor, badges };
       }),
-    [properties, rooms, beds, shift],
+    [properties, rooms, beds, pastOccupancy],
   );
 
   const totals = useMemo(
@@ -53,7 +56,6 @@ export function PropertiesDashboard() {
       rows.reduce(
         (a, r) => {
           a.occ += r.stat.occupied;
-          a.adjOcc += r.stat.adjustedOccupied;
           a.total += r.stat.total;
           a.booked += r.stat.booked;
           a.free += r.stat.free;
@@ -61,11 +63,10 @@ export function PropertiesDashboard() {
           a.proc += r.property.inProcess;
           return a;
         },
-        { occ: 0, adjOcc: 0, total: 0, booked: 0, free: 0, bal: 0, proc: 0 },
+        { occ: 0, total: 0, booked: 0, free: 0, bal: 0, proc: 0 },
       ),
     [rows],
   );
-  const adjustedFreeTotal = totals.free + (totals.occ - totals.adjOcc);
 
   const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
   const debtors = useMemo(
@@ -75,8 +76,8 @@ export function PropertiesDashboard() {
   const debtTotal = useMemo(() => debtors.reduce((sum, s) => sum + billFor(s, payments).balance, 0), [debtors, payments]);
 
   const kpis = [
-    { label: t('kpi_occupied'), value: `${totals.adjOcc}/${totals.total}`, big: true, color: 'var(--color-ink)', sub: asOf },
-    { label: t('kpi_free'), value: String(adjustedFreeTotal), big: true, color: 'var(--color-green)', sub: t('kpi_free_sub') },
+    { label: t('kpi_occupied'), value: `${totals.occ}/${totals.total}`, big: true, color: 'var(--color-ink)', sub: asOf },
+    { label: t('kpi_free'), value: String(totals.free), big: true, color: 'var(--color-green)', sub: t('kpi_free_sub') },
     canSeeBalance
       ? { label: t('kpi_balance'), value: formatCurrency(totals.bal, currency), big: false, color: totals.bal < 0 ? 'var(--color-red)' : 'var(--color-ink)', sub: totals.proc ? t('proc_label', { v: formatCurrency(totals.proc, currency) }) : '' }
       : { label: t('kpi_balance'), value: '—', big: true, color: 'var(--color-faint-2)', sub: t('kpi_restricted') },
@@ -158,7 +159,7 @@ export function PropertiesDashboard() {
                 <div style={{ width: 8, height: 22, borderRadius: 3, background: dotColor }} />
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 14 }}>{property.name}</div>
-                  <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{t('occ_label', { n: rate, f: stat.adjustedFree })}</div>
+                  <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{t('occ_label', { n: rate, f: stat.free })}</div>
                 </div>
               </div>
               <div className="num" style={{ fontSize: 13.5, color: property.registrations > property.registrationsCapacity ? 'var(--color-red)' : 'var(--color-muted)' }}>
@@ -170,7 +171,7 @@ export function PropertiesDashboard() {
                   <div style={{ height: '100%', width: `${rate}%`, background: dotColor }} />
                 </div>
                 <span className="num" style={{ fontSize: 12.5 }}>
-                  <b>{stat.adjustedOccupied}</b><span style={{ color: 'var(--color-faint-2)' }}>/{stat.total}</span>
+                  <b>{stat.occupied}</b><span style={{ color: 'var(--color-faint-2)' }}>/{stat.total}</span>
                 </span>
               </div>
               <div>
@@ -187,7 +188,7 @@ export function PropertiesDashboard() {
                 )}
               </div>
               <div className="num" style={{ fontSize: 12.5 }}>
-                <Flagged entity="Property" field="price">{formatCurrency(property.price, currency)}</Flagged>
+                {property.priceTo > property.price ? `${formatCurrency(property.price, currency)}–${formatCurrency(property.priceTo, currency)}` : formatCurrency(property.price, currency)}
               </div>
             </div>
           ))}

@@ -18,6 +18,14 @@ import type { FloorPlan, FloorZone } from '@/domain/types';
 import { MappingNotice } from '@/components/ui/Unmapped';
 
 const OCC_COLOR_RGB: Record<string, string> = { '#22A06B': '34,160,107', '#F5A524': '245,165,36', '#E5484D': '229,72,77' };
+
+/** Columns that make a zone's bed tiles as close to square as its shape allows. */
+function zoneColumns(plan: FloorPlan, zone: FloorZone, beds: number): number {
+  if (beds <= 1) return 1;
+  const [pw, ph] = planAspect(plan).split('/').map(Number);
+  const zoneAspect = (zone.w / zone.h) * (pw / ph);
+  return Math.max(1, Math.min(beds, Math.round(Math.sqrt(beds * zoneAspect))));
+}
 type Rect = { x: number; y: number; w: number; h: number };
 type ResizeMode = 'move' | 'nw' | 'ne' | 'sw' | 'se';
 const HANDLES: { mode: ResizeMode; cursor: string; rightSide: boolean; bottomSide: boolean }[] = [
@@ -63,10 +71,10 @@ export function FloorPlanScreen() {
   const propertyRooms = rooms.filter((r) => r.propertyId === propertyId);
   const mappedRoomIds = new Set(floorZones.filter((z) => plans.some((p) => p.id === z.planId)).map((z) => z.roomId));
 
+  // A booking reserves a property, not a bed, so beds are only free, occupied or unavailable.
   const legend = [
     { label: t('fp_legend_free'), ...toSwatch('free') },
     { label: t('fp_legend_occ'), ...toSwatch('occupied') },
-    { label: t('booked_place'), ...toSwatch('booked') },
     { label: t('fp_legend_off'), ...toSwatch('unavailable') },
   ];
   function toSwatch(status: keyof typeof BED_TILE_COLORS) {
@@ -74,8 +82,10 @@ export function FloorPlanScreen() {
     return { bg, border };
   }
 
-  // ---- drag/resize an existing zone ----
-  const startZoneDrag = (plan: FloorPlan, zone: FloorZone, mode: ResizeMode, e: React.MouseEvent) => {
+  const failed = (e: unknown) => showToast(e instanceof Error ? e.message : String(e));
+
+  // ---- drag/resize an existing zone (pointer events, so it works with a finger too) ----
+  const startZoneDrag = (plan: FloorPlan, zone: FloorZone, mode: ResizeMode, e: React.PointerEvent) => {
     if (!editMode) return;
     e.stopPropagation();
     e.preventDefault();
@@ -85,10 +95,11 @@ export function FloorPlanScreen() {
     const startX = e.clientX;
     const startY = e.clientY;
     const orig = { x: zone.x, y: zone.y, w: zone.w, h: zone.h };
+    let last = orig;
     setDragZoneId(zone.id);
     const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
-    const onMove = (ev: MouseEvent) => {
+    const onMove = (ev: PointerEvent) => {
       const dx = ((ev.clientX - startX) / rect.width) * 100;
       const dy = ((ev.clientY - startY) / rect.height) * 100;
       let next: Rect;
@@ -103,62 +114,84 @@ export function FloorPlanScreen() {
         if (mode.includes('s')) { h = clamp(orig.h + dy, MIN_H, 100 - orig.y); }
         next = { x, y, w, h };
       }
-      void floorZonesRepository.update(zone.id, next);
+      last = next;
+      floorZonesRepository.preview(zone.id, next);
     };
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
       setDragZoneId(null);
-      showToast(t('toast_saved'));
+      if (last === orig) return;
+      // Only where the zone lands is written to the database, not every step of the drag.
+      floorZonesRepository.update(zone.id, last).then(() => showToast(t('toast_saved')), (err) => {
+        floorZonesRepository.preview(zone.id, orig);
+        failed(err);
+      });
     };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
   };
 
   // ---- draw a new zone on empty canvas ----
-  const startDraw = (plan: FloorPlan, wrapper: HTMLDivElement, e: React.MouseEvent) => {
+  const startDraw = (plan: FloorPlan, wrapper: HTMLDivElement, e: React.PointerEvent) => {
     if (!editMode) return;
+    e.preventDefault();
     const rect = wrapper.getBoundingClientRect();
     const ox = ((e.clientX - rect.left) / rect.width) * 100;
     const oy = ((e.clientY - rect.top) / rect.height) * 100;
     setDraw({ planId: plan.id, rect: { x: ox, y: oy, w: 0, h: 0 } });
 
-    const onMove = (ev: MouseEvent) => {
-      const cx = ((ev.clientX - rect.left) / rect.width) * 100;
-      const cy = ((ev.clientY - rect.top) / rect.height) * 100;
+    const onMove = (ev: PointerEvent) => {
+      const cx = Math.max(0, Math.min(100, ((ev.clientX - rect.left) / rect.width) * 100));
+      const cy = Math.max(0, Math.min(100, ((ev.clientY - rect.top) / rect.height) * 100));
       setDraw({ planId: plan.id, rect: { x: Math.min(ox, cx), y: Math.min(oy, cy), w: Math.abs(cx - ox), h: Math.abs(cy - oy) } });
     };
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
       setDraw((d) => {
         if (d && d.rect.w >= 2 && d.rect.h >= 3) setMapDialog({ planId: d.planId, rect: d.rect });
         return null;
       });
     };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
   };
 
   const unmappedRooms = propertyRooms.filter((r) => !mappedRoomIds.has(r.id));
 
   const confirmMap = async (roomId: string) => {
     if (!mapDialog) return;
-    await floorZonesRepository.create({ planId: mapDialog.planId, roomId, ...mapDialog.rect });
-    setMapDialog(null);
-    showToast(t('toast_saved'));
+    try {
+      await floorZonesRepository.create({ planId: mapDialog.planId, roomId, ...mapDialog.rect });
+      setMapDialog(null);
+      showToast(t('toast_saved'));
+    } catch (e) {
+      failed(e);
+    }
   };
 
   const deleteZone = async (zoneId: string) => {
-    await floorZonesRepository.remove(zoneId);
+    try {
+      await floorZonesRepository.remove(zoneId);
+      showToast(t('toast_saved'));
+    } catch (e) {
+      failed(e);
+    }
     setConfirm(null);
-    showToast(t('toast_saved'));
   };
   const deletePlan = async (planId: string) => {
-    for (const z of floorZones.filter((z) => z.planId === planId)) await floorZonesRepository.remove(z.id);
-    await floorPlansRepository.remove(planId);
+    try {
+      await floorPlansRepository.remove(planId);
+      showToast(t('toast_saved'));
+    } catch (e) {
+      failed(e);
+    }
     setConfirm(null);
-    showToast(t('toast_saved'));
   };
 
   return (
@@ -232,10 +265,10 @@ export function FloorPlanScreen() {
               <div style={{ overflowX: 'auto' }}>
                 <div
                   ref={(el) => { if (el) wrapperRefs.current[plan.id] = el; }}
-                  onMouseDown={(e) => {
+                  onPointerDown={(e) => {
                     if (e.target === e.currentTarget || (e.target as HTMLElement).dataset.fpImg) startDraw(plan, e.currentTarget, e);
                   }}
-                  style={{ position: 'relative', display: 'block', width: '100%', minWidth: planIsWide(plan) ? 1080 : 620, maxWidth: planIsWide(plan) ? undefined : 820, userSelect: 'none', cursor: editMode ? 'crosshair' : 'default' }}
+                  style={{ position: 'relative', display: 'block', width: '100%', minWidth: planIsWide(plan) ? 1080 : 620, maxWidth: planIsWide(plan) ? undefined : 820, userSelect: 'none', cursor: editMode ? 'crosshair' : 'default', touchAction: editMode ? 'none' : 'auto' }}
                 >
                   <div data-fp-img="1" style={{ width: '100%', aspectRatio: planAspect(plan), backgroundImage: `url("${plan.imageUrl}")`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat', pointerEvents: 'none' }} />
                   {zones.map((zone) => {
@@ -252,14 +285,14 @@ export function FloorPlanScreen() {
                     return (
                       <div
                         key={zone.id}
-                        onMouseDown={(e) => startZoneDrag(plan, zone, 'move', e)}
+                        onPointerDown={(e) => startZoneDrag(plan, zone, 'move', e)}
                         onClick={(e) => { if (editMode) return; e.stopPropagation(); setOpenRoomId(room.id); }}
                         style={{
                           position: 'absolute', left: `${zone.x}%`, top: `${zone.y}%`, width: `${zone.w}%`, height: `${zone.h}%`,
                           border: `1.5px solid ${active ? 'var(--color-magenta)' : edgeColor}`, borderRadius: 9,
                           background: `rgba(${rgb},${active ? 0.24 : 0.13})`,
                           boxShadow: `inset 0 0 0 1px rgba(255,255,255,.65)${active ? ', 0 6px 20px rgba(20,20,20,.22)' : ''}`,
-                          display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 4,
+                          display: 'flex', flexDirection: 'column', padding: 4,
                           overflow: editMode ? 'visible' : 'hidden', zIndex: editMode ? (active ? 30 : 10) : undefined,
                           cursor: editMode ? 'grab' : 'pointer',
                         }}
@@ -268,12 +301,13 @@ export function FloorPlanScreen() {
                           <span style={{ fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{translatePlace(room.name, lang)}</span>
                           <span style={{ flex: 'none', fontSize: 9.5, fontWeight: 800, borderRadius: 20, padding: '0 5px', marginLeft: 'auto', color: badgeInk, background: badgeBg }}>{occ}/{available}</span>
                         </div>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, alignContent: 'flex-end', pointerEvents: 'none', overflow: 'hidden', maxHeight: '100%' }}>
-                          {roomBeds.map((bed) => {
+                        {/* Bed tiles fill the whole zone: as many columns as suit the zone's shape. */}
+                        <div style={{ flex: 1, minHeight: 0, marginTop: 4, display: 'grid', gridTemplateColumns: `repeat(${zoneColumns(plan, zone, roomBeds.length)}, minmax(0, 1fr))`, gridAutoRows: 'minmax(0, 1fr)', gap: 3, pointerEvents: 'none' }}>
+                          {[...roomBeds].sort((a, b) => a.index - b.index).map((bed) => {
                             const resident = bed.residentId ? residentsById.get(bed.residentId) : undefined;
                             const [bg, border, fg] = BED_TILE_COLORS[bed.status];
                             return (
-                              <span key={bed.id} title={`${bed.index} · ${resident ? resident.name : bed.status}`} style={{ minWidth: 17, height: 17, padding: '0 3px', borderRadius: 5, flex: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 9.5, fontWeight: 800, lineHeight: 1, background: bg, border: `1px solid ${border}`, color: fg, boxShadow: '0 1px 3px rgba(20,20,20,.14)' }}>
+                              <span key={bed.id} title={`${bed.index} · ${resident ? resident.name : bed.status}`} style={{ minWidth: 0, minHeight: 0, overflow: 'hidden', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'clamp(9px, 1vw, 15px)', fontWeight: 800, lineHeight: 1, background: bg, border: `1px solid ${border}`, color: fg, boxShadow: '0 1px 3px rgba(20,20,20,.14)' }}>
                                 {bed.index}
                               </span>
                             );
@@ -283,7 +317,7 @@ export function FloorPlanScreen() {
                           <div style={{ position: 'absolute', left: '50%', top: -14, transform: 'translateX(-50%)', display: 'flex', alignItems: 'center', gap: 3, zIndex: 32, whiteSpace: 'nowrap' }}>
                             <button
                               type="button"
-                              onMouseDown={(e) => startZoneDrag(plan, zone, 'move', e)}
+                              onPointerDown={(e) => startZoneDrag(plan, zone, 'move', e)}
                               onClick={(e) => e.stopPropagation()}
                               style={{ display: 'flex', alignItems: 'center', gap: 4, background: '#141414', color: '#fff', border: '1.5px solid #fff', borderRadius: 20, padding: '3px 10px', fontSize: 10, fontWeight: 700, cursor: 'grab', boxShadow: '0 2px 8px rgba(20,20,20,.3)', lineHeight: 1.3 }}
                             >
@@ -292,7 +326,7 @@ export function FloorPlanScreen() {
                             <button
                               type="button"
                               onClick={(e) => { e.stopPropagation(); setConfirm({ title: t('fp_delzone'), sub: t('fp_delzone_sub'), onYes: () => void deleteZone(zone.id) }); }}
-                              onMouseDown={(e) => e.stopPropagation()}
+                              onPointerDown={(e) => e.stopPropagation()}
                               style={{ background: '#fff', border: '1.5px solid var(--color-red)', color: 'var(--color-red)', borderRadius: '50%', width: 21, height: 21, fontSize: 12, lineHeight: 1, cursor: 'pointer', boxShadow: '0 2px 8px rgba(20,20,20,.28)', flex: 'none', padding: 0 }}
                             >
                               ×
@@ -302,7 +336,7 @@ export function FloorPlanScreen() {
                         {editMode && HANDLES.map((h) => (
                           <div
                             key={h.mode}
-                            onMouseDown={(e) => startZoneDrag(plan, zone, h.mode, e)}
+                            onPointerDown={(e) => startZoneDrag(plan, zone, h.mode, e)}
                             style={{
                               position: 'absolute', width: 13, height: 13, borderRadius: 4, background: '#fff', border: '2px solid #141414',
                               boxShadow: '0 1px 5px rgba(20,20,20,.28)', zIndex: 32, cursor: `${h.cursor}-resize`,
