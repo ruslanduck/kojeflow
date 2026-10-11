@@ -395,7 +395,8 @@ input[type='date'] {
   left: 12px;
   right: 12px;
   bottom: 12px;
-  z-index: 110;
+  /* Over the page, under modals (z-index 60+), so dialog buttons stay clickable. */
+  z-index: 50;
   background: rgba(20, 20, 22, 0.93);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
