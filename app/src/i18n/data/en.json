@@ -436,6 +436,7 @@
   "bed_archive_sub": "The bed disappears from the app. Its stays history is kept.",
   "bed_edit_hint": "Click a free bed to switch it off, a red one to switch it back on. Occupied beds cannot be changed.",
   "bed_busy": "Only a free bed can be changed",
+  "rm_unavailable": "The whole room is unavailable, its beds can't be switched on one by one",
   "rm_type_Room": "Room",
   "rm_type_Apartment": "Apartment",
   "rm_type_Wagon": "Container",

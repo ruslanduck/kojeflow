@@ -85,6 +85,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const onBedClick = (bed: Bed, room: Room) => {
     if (editRooms) {
       if (bed.status === 'occupied') return showToast(t('bed_busy'));
+      if (!room.available) return showToast(t('rm_unavailable'));
       bedsRepository.setAvailable(bed.id, bed.status === 'unavailable').catch(failed);
       return;
     }
