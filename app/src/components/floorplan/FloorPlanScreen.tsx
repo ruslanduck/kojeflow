@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
@@ -82,7 +83,7 @@ export function FloorPlanScreen() {
     return { bg, border };
   }
 
-  const failed = (e: unknown) => showToast(e instanceof Error ? e.message : String(e));
+  const failed = (e: unknown) => showToast(errorText(e, t));
 
   // ---- drag/resize an existing zone (pointer events, so it works with a finger too) ----
   const startZoneDrag = (plan: FloorPlan, zone: FloorZone, mode: ResizeMode, e: React.PointerEvent) => {
@@ -307,7 +308,7 @@ export function FloorPlanScreen() {
                             const resident = bed.residentId ? residentsById.get(bed.residentId) : undefined;
                             const [bg, border, fg] = BED_TILE_COLORS[bed.status];
                             return (
-                              <span key={bed.id} title={`${bed.index} · ${resident ? resident.name : bed.status}`} style={{ minWidth: 0, minHeight: 0, overflow: 'hidden', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'clamp(9px, 1vw, 15px)', fontWeight: 800, lineHeight: 1, background: bg, border: `1px solid ${border}`, color: fg, boxShadow: '0 1px 3px rgba(20,20,20,.14)' }}>
+                              <span key={bed.id} title={`${bed.index} · ${resident ? resident.name : t(bed.status === 'free' ? 'free_place' : bed.status === 'occupied' ? 'occ_place' : 'unavail_place')}`} style={{ minWidth: 0, minHeight: 0, overflow: 'hidden', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'clamp(9px, 1vw, 15px)', fontWeight: 800, lineHeight: 1, background: bg, border: `1px solid ${border}`, color: fg, boxShadow: '0 1px 3px rgba(20,20,20,.14)' }}>
                                 {bed.index}
                               </span>
                             );

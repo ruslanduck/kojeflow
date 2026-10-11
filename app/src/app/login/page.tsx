@@ -1,9 +1,12 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { createClient } from '@/lib/supabase/client';
+import { useT } from '@/i18n/useT';
+import { useSessionStore } from '@/store/session';
+import { savedLanguage } from '@/lib/language';
 
 const LOGO_GRADIENT = 'linear-gradient(135deg,#FFD600 0%,#E500E5 100%)';
 
@@ -13,6 +16,13 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const t = useT();
+  const setLang = useSessionStore((s) => s.setLang);
+
+  useEffect(() => {
+    const saved = savedLanguage();
+    if (saved) setLang(saved);
+  }, [setLang]);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -21,7 +31,7 @@ export default function LoginPage() {
     try {
       const { error: signInError } = await createClient().auth.signInWithPassword({ email, password });
       if (signInError) {
-        setError(signInError.message === 'Invalid login credentials' ? 'Invalid email or password' : signInError.message);
+        setError(signInError.message === 'Invalid login credentials' ? t('login_invalid') : signInError.message);
         return;
       }
       router.push('/dashboard');
@@ -45,7 +55,7 @@ export default function LoginPage() {
         </div>
 
         <div>
-          <div style={FIELD_LABEL_STYLE}>Email</div>
+          <div style={FIELD_LABEL_STYLE}>{t('login_email')}</div>
           <input
             type="email"
             value={email}
@@ -58,7 +68,7 @@ export default function LoginPage() {
         </div>
 
         <div>
-          <div style={FIELD_LABEL_STYLE}>Password</div>
+          <div style={FIELD_LABEL_STYLE}>{t('login_password')}</div>
           <input
             type="password"
             value={password}
@@ -77,7 +87,7 @@ export default function LoginPage() {
           className="pbtn"
           style={{ background: 'var(--color-ink)', color: '#fff', border: 'none', borderRadius: 10, padding: '11px 16px', fontSize: 14, fontWeight: 600, cursor: loading ? 'default' : 'pointer', opacity: loading ? 0.7 : 1 }}
         >
-          {loading ? 'Signing in…' : 'Sign in'}
+          {loading ? t('login_busy') : t('login_submit')}
         </button>
       </form>
     </div>

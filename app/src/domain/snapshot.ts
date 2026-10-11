@@ -2,6 +2,7 @@ import type {
   Booking, Bed, FloorPlan, FloorZone, Payment, Property, Registration, Resident, Room, Stay, Transfer, User,
 } from './types';
 import type { RoleName } from './roles';
+import type { Lang } from '@/i18n';
 
 /** Every entity slice the app renders, as one transferable bundle. */
 export interface EntityBundle {
@@ -47,6 +48,7 @@ export interface CurrentUser {
   role: RoleName;
   /** Properties a house manager or client is limited to; empty for staff. */
   propertyIds: string[];
+  language: Lang;
 }
 
 export interface SnapshotPayload {

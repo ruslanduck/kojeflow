@@ -19,15 +19,15 @@ export function extractPortrait(scan: Blob): Promise<Blob> {
       canvas.width = 420;
       canvas.height = Math.round(420 * 1.28);
       const g = canvas.getContext('2d');
-      if (!g) return reject(new Error('Canvas is not available'));
+      if (!g) return reject(new Error('err_crop'));
       g.fillStyle = '#fff';
       g.fillRect(0, 0, canvas.width, canvas.height);
       g.drawImage(img, sx, sy, sw, Math.min(sh, img.height - sy), 0, 0, canvas.width, canvas.height);
-      canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error('Could not crop the photo'))), 'image/jpeg', 0.9);
+      canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error('err_crop'))), 'image/jpeg', 0.9);
     };
     img.onerror = () => {
       URL.revokeObjectURL(url);
-      reject(new Error('The scan is not an image'));
+      reject(new Error('err_not_image'));
     };
     img.src = url;
   });

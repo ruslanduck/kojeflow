@@ -4,8 +4,8 @@ import type { Bed } from '@/domain/types';
 
 function requireNotOccupied(bedId: string): Bed {
   const bed = useEntityStore.getState().beds.find((b) => b.id === bedId);
-  if (!bed) throw new Error('Bed not found');
-  if (bed.status === 'occupied') throw new Error('Only a free bed can be changed');
+  if (!bed) throw new Error('err_bed_missing');
+  if (bed.status === 'occupied') throw new Error('bed_busy');
   return bed;
 }
 
@@ -14,7 +14,7 @@ export const bedsRepository = {
   async create(roomId: string): Promise<Bed> {
     const state = useEntityStore.getState();
     const room = state.rooms.find((r) => r.id === roomId);
-    if (!room) throw new Error('Room not found');
+    if (!room) throw new Error('err_room_missing');
     const number = Math.max(0, ...state.beds.filter((b) => b.roomId === roomId).map((b) => b.index)) + 1;
     const row = check(
       await db().from('places').insert({ room_id: roomId, number, status: 'available' }).select('id').single(),

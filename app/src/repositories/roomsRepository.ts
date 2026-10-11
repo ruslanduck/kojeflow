@@ -62,7 +62,7 @@ export const roomsRepository = {
   /** Takes the room and its beds out of the app; their stays history stays in the database. */
   async archive(roomId: string): Promise<void> {
     const state = useEntityStore.getState();
-    if (state.beds.some((b) => b.roomId === roomId && b.status === 'occupied')) throw new Error('Someone still lives in this room');
+    if (state.beds.some((b) => b.roomId === roomId && b.status === 'occupied')) throw new Error('err_room_busy');
     const supabase = db();
     check(await supabase.from('places').update({ is_archived: true }).eq('room_id', roomId), 'Remove beds');
     check(await supabase.from('rooms').update({ is_archived: true, status: 'unavailable' }).eq('id', roomId), 'Remove room');

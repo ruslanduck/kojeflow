@@ -7,6 +7,7 @@ import { hydrateEntities } from '@/store/entities';
 import { setLoadStatus, setSnapshotMeta, useDataSourceStore } from '@/store/dataSource';
 import { useSessionStore } from '@/store/session';
 import { useT } from '@/i18n/useT';
+import { rememberLanguage, savedLanguage } from '@/lib/language';
 
 /**
  * Hydrates the entity store from /api/snapshot (Supabase) before any screen renders.
@@ -22,6 +23,13 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   const error = useDataSourceStore((s) => s.error);
   const setCurrentUser = useSessionStore((s) => s.setCurrentUser);
   const [attempt, setAttempt] = useState(0);
+  const setLang = useSessionStore((s) => s.setLang);
+
+  // The device's last language shows while the profile (which has the final say) loads.
+  useEffect(() => {
+    const saved = savedLanguage();
+    if (saved) setLang(saved);
+  }, [setLang]);
 
   useEffect(() => {
     let cancelled = false;
@@ -37,7 +45,10 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const payload: SnapshotPayload = await response.json();
         if (cancelled) return;
-        if (payload.me) setCurrentUser(payload.me);
+        if (payload.me) {
+          setCurrentUser(payload.me);
+          rememberLanguage(payload.me.language);
+        }
         hydrateEntities(payload.entities);
         setSnapshotMeta(payload.meta);
         setLoadStatus('ready');

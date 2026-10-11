@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
@@ -67,7 +68,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
 
   const stat = propertyStat(property, rooms, beds);
   const occRate = stat.total ? Math.round((stat.occupied / stat.total) * 100) : 0;
-  const summary = `${stat.roomsCount} · ${stat.total} ${t('places_word')} · ${t('occ_label', { n: occRate, f: stat.free })}`;
+  const summary = `${t('rooms_n', { n: stat.roomsCount })} · ${t('beds_n', { n: stat.total })} · ${t('occ_label', { n: occRate, f: stat.free })}`;
 
   const bedTitle = (bed: Bed) => {
     if (bed.status === 'occupied' && bed.residentId) {
@@ -79,7 +80,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
     return t('free_tip');
   };
 
-  const failed = (e: unknown) => showToast(e instanceof Error ? e.message : String(e));
+  const failed = (e: unknown) => showToast(errorText(e, t));
 
   // Everything opens over this screen: the person's card for an occupied bed, check-in for a free one.
   // While editing rooms, a click switches a free bed off or an unavailable one back on.

@@ -41,7 +41,7 @@ export function MapZoneDialog({ unmappedRooms, onCancel, onConfirm }: MapZoneDia
                 >
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontSize: 13.5, fontWeight: 600 }}>{translatePlace(r.name, lang)}</div>
-                    <div style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>{bedCount} {t('places_word')}</div>
+                    <div style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>{t('beds_n', { n: bedCount })}</div>
                   </div>
                   <span style={{ color: 'var(--color-green)', fontWeight: 800, fontSize: 15, opacity: on ? 1 : 0 }}>✓</span>
                 </div>

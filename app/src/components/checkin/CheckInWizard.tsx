@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { checkIn } from '@/repositories/operations';
@@ -139,7 +140,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
       setPortrait({ blob, url: URL.createObjectURL(blob) });
       showToast(t('ai_done'));
     } catch (e) {
-      showToast(e instanceof Error ? e.message : String(e));
+      showToast(errorText(e, t));
     } finally {
       setCropping(false);
     }
@@ -201,7 +202,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
       showToast(t('toast_ci', { n: residentName, p: selectedRoom ? translatePlace(selectedRoom.name, lang) : '' }));
       onSaved([stay]);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(errorText(e, t));
       setSaving(false);
     }
   };

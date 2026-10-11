@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
 import { DEFAULT_PLAN_ASPECT } from '@/domain/logic';
@@ -52,7 +53,7 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
       });
       onSaved(plan);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(errorText(e, t));
       setSaving(false);
     }
   };
@@ -67,7 +68,7 @@ export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: Upl
           <div style={{ flex: 1, overflowY: 'auto', padding: '18px 22px', display: 'grid', gap: 13 }}>
             <div>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('fp_planname')}</div>
-              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="1st Floor" style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t('ph_plan_name')} style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
             </div>
             <div>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('fp_sort')}</div>

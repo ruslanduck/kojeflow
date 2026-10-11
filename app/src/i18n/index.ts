@@ -11,9 +11,14 @@ export const dictionaries: Record<Lang, Record<string, string>> = {
   UK: uk as Record<string, string>,
 };
 
+const pluralRules: Record<Lang, Intl.PluralRules> = { EN: new Intl.PluralRules('en'), UK: new Intl.PluralRules('uk') };
+
+/** A numeric {n} picks the key's plural form when one exists ("doc_n_one", Ukrainian "_few"/"_many"). */
 export function translate(lang: Lang, key: string, vars?: Record<string, string | number>): string {
   const dict = dictionaries[lang];
-  let str = dict[key] ?? key;
+  const n = vars?.n;
+  const form = typeof n === 'number' ? dict[`${key}_${pluralRules[lang].select(n)}`] : undefined;
+  let str = form ?? dict[key] ?? key;
   if (vars) {
     for (const [k, v] of Object.entries(vars)) {
       str = str.split(`{${k}}`).join(String(v));

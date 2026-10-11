@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
@@ -80,7 +81,7 @@ export function BookingsScreen() {
     try {
       await bookingsRepository.update(b.id, { status: 'Cancelled' });
     } catch (e) {
-      showToast(e instanceof Error ? e.message : String(e));
+      showToast(errorText(e, t));
     }
     setConfirmCancel(null);
   };

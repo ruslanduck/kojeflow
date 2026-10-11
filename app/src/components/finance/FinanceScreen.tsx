@@ -161,7 +161,7 @@ export function FinanceScreen() {
                   const name = safeName(s.residentName, !!roleConfig.hideNames, t('hidden_name'));
                   const room = roomsById.get(s.roomId);
                   const bed = bedsById.get(s.bedId);
-                  const placeLabel = `${propertiesById.get(s.propertyId)?.name ?? ''} · ${room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : ''}`;
+                  const placeLabel = `${propertiesById.get(s.propertyId)?.name ?? ''} · ${room && bed ? translatePlace(`${room.name.replace(/^.*? - /, '')} · Place ${bed.index}`, lang) : ''}`;
                   const [badgeFg, badgeBg] = bill.debtor ? ['#C0392B', '#FDECEC'] : ['#1B7F52', '#E4F6EC'];
                   return (
                     <div key={s.id} className="rowh" onClick={() => setLedgerStayId(s.id)} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.9fr) minmax(0,1.5fr) minmax(0,.7fr) minmax(82px,.9fr) minmax(82px,1fr) minmax(82px,1fr) minmax(82px,1.1fr) 84px', gap: 11, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}>

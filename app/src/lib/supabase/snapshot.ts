@@ -46,12 +46,13 @@ export const ROLE_BY_DB: Record<string, RoleName> = {
 
 const ROOM_TYPE: Record<string, RoomType> = { room: 'Room', apartment: 'Apartment', trailer: 'Wagon' };
 export const ROOM_TYPE_DB: Record<RoomType, string> = { Room: 'room', Apartment: 'apartment', Wagon: 'trailer' };
-// Room names keep the Airtable spelling ("Korycany - Кімната 14"), which the team reads every day.
-const ROOM_TYPE_LABEL: Record<string, string> = { room: 'Кімната', apartment: 'Квартира', trailer: 'Вагончик' };
+// Room names are kept in English ("Korycany - Room 14") and translated on screen by translatePlace,
+// which gives the team's Airtable spelling ("Korycany - Кімната 14") in Ukrainian.
+const ROOM_TYPE_LABEL: Record<string, string> = { room: 'Room', apartment: 'Apartment', trailer: 'Wagon' };
 
-/** "Korycany - Кімната 14", "Kralupy - Кімната 3 - дах": the Airtable spelling, for rooms loaded and created alike. */
+/** "Korycany - Room 14", "Kralupy - Room 3 - roof", for rooms loaded and created alike. */
 export function roomName(propertyName: string, dbType: string, number: string, isRoof = false): string {
-  return `${propertyName} - ${ROOM_TYPE_LABEL[dbType] ?? dbType} ${number}${isRoof ? ' - дах' : ''}`;
+  return `${propertyName} - ${ROOM_TYPE_LABEL[dbType] ?? dbType} ${number}${isRoof ? ' - roof' : ''}`;
 }
 
 const BOOKING_STATUS: Record<string, BookingStatus> = { new: 'New', checked_in: 'Checked-in', cancelled: 'Cancelled' };
@@ -310,6 +311,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
         email: str(raw.me.email),
         role: ROLE_BY_DB[str(raw.me.role)] ?? 'Client',
         propertyIds: Array.isArray(raw.me.property_ids) ? raw.me.property_ids.map(str) : [],
+        language: str(raw.me.language) === 'en' ? 'EN' : 'UK',
       }
     : null;
 

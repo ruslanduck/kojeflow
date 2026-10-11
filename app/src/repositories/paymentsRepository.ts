@@ -21,7 +21,7 @@ export interface NewPayment {
 export const paymentsRepository = {
   async create(input: NewPayment): Promise<Payment> {
     const { userId, profileName } = useSessionStore.getState();
-    if (!userId) throw new Error('Not signed in');
+    if (!userId) throw new Error('err_signed_out');
     const stay = useEntityStore.getState().stays.find((s) => s.id === input.stayId);
     const supabase = db();
 

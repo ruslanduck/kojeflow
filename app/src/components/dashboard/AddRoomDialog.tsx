@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { roomsRepository } from '@/repositories/roomsRepository';
 import { DuplicateError } from '@/lib/supabase/write';
 import { Portal } from '@/components/ui/Portal';
@@ -34,7 +35,7 @@ export function AddRoomDialog({ propertyId, onClose }: { propertyId: string; onC
       });
       onClose();
     } catch (e) {
-      setError(e instanceof DuplicateError ? t('rm_exists') : e instanceof Error ? e.message : String(e));
+      setError(e instanceof DuplicateError ? t('rm_exists') : errorText(e, t));
       setSaving(false);
     }
   };

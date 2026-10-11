@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
@@ -131,7 +132,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
       onSaved(saved);
       onClose();
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(errorText(e, t));
     }
   };
 

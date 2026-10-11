@@ -177,7 +177,7 @@ export function ResidentsScreen() {
             const name = safeName(s.residentName, !!roleConfig.hideNames, t('hidden_name'));
             const room = roomsById.get(s.roomId);
             const bed = bedsById.get(s.bedId);
-            const placeLabel = `${propertiesById.get(s.propertyId)?.name ?? ''} · ${room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : ''}`;
+            const placeLabel = `${propertiesById.get(s.propertyId)?.name ?? ''} · ${room && bed ? translatePlace(`${room.name.replace(/^.*? - /, '')} · Place ${bed.index}`, lang) : ''}`;
             const [typeFg, typeBg] = TYPE_PILL[s.type] ?? DEFAULT_PILL;
             return (
               <div

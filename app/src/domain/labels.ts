@@ -14,14 +14,15 @@ export function safeName(name: string, hideNames: boolean, hiddenLabel: string):
  */
 export function translatePlace(value: string | null | undefined, lang: Lang): string {
   if (!value) return value ?? '';
-  if (lang === 'EN') return value.replace(/Wagon/g, 'Container').replace(/Place/g, 'Bed');
+  if (lang === 'EN') return value.replace(/\bWagon\b/g, 'Container').replace(/\bPlace\b/g, 'Bed');
   return value
-    .replace(/Apartment/g, 'Квартира')
-    .replace(/Apt/g, 'Кв.')
-    .replace(/Wagon/g, 'Контейнер')
-    .replace(/Room/g, 'Кімната')
-    .replace(/Place/g, 'Ліжко')
-    .replace(/Bed/g, 'Ліжко')
+    .replace(/\bApartment\b/g, 'Квартира')
+    .replace(/\bApt\b/g, 'Кв.')
+    .replace(/\bWagon\b/g, 'Вагончик')
+    .replace(/\bRoom\b/g, 'Кімната')
+    .replace(/\bPlace\b/g, 'Ліжко')
+    .replace(/\bBed\b/g, 'Ліжко')
+    .replace(/ - roof\b/g, ' - дах')
     .replace(/not assigned/g, 'не призначено');
 }
 

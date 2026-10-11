@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { residentsRepository } from '@/repositories/residentsRepository';
@@ -132,7 +133,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
       showToast(t('toast_saved'));
       setEditing(false);
     } catch (e) {
-      showToast(e instanceof Error ? e.message : String(e));
+      showToast(errorText(e, t));
     } finally {
       setSavingEdit(false);
     }
@@ -167,7 +168,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
       setEditAvatarUrl(URL.createObjectURL(blob));
       showToast(t('ai_done'));
     } catch (e) {
-      showToast(e instanceof Error ? e.message : String(e));
+      showToast(errorText(e, t));
     } finally {
       setAiBusy(false);
     }

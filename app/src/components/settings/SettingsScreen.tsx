@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { saveLanguage } from '@/lib/language';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { usersRepository } from '@/repositories/usersRepository';
@@ -35,7 +36,7 @@ export function SettingsScreen() {
   const [inviteRole, setInviteRole] = useState<RoleName>('Commandant');
 
   const savePassword = () => {
-    if (!newPw || newPw !== repPw) return showToast('Passwords do not match');
+    if (!newPw || newPw !== repPw) return showToast(t('err_pw_mismatch'));
     setCurPw('');
     setNewPw('');
     setRepPw('');
@@ -43,7 +44,7 @@ export function SettingsScreen() {
   };
 
   const sendInvite = async () => {
-    if (!/@/.test(inviteEmail)) return showToast('Enter a valid e-mail');
+    if (!/@/.test(inviteEmail)) return showToast(t('err_email'));
     const name = inviteEmail
       .split('@')[0]
       .replace(/[._]/g, ' ')
@@ -84,9 +85,6 @@ export function SettingsScreen() {
               <div style={{ width: 60, height: 60, flex: 'none', borderRadius: '50%', background: 'var(--color-yellow)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 22, color: 'var(--color-ink)' }}>
                 {initials(profileName)}
               </div>
-              <button className="chip" onClick={() => showToast(t('toast_avatar'))} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', fontWeight: 500 }}>
-                {t('set_avatar')}
-              </button>
             </div>
             <div style={{ marginBottom: 13 }}>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('set_name')}</div>
@@ -96,7 +94,7 @@ export function SettingsScreen() {
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('set_lang')}</div>
               <div style={{ display: 'flex', gap: 8 }}>
                 {([['EN', 'English'], ['UK', 'Українська']] as [Lang, string][]).map(([code, label]) => (
-                  <button key={code} className="pbtn" onClick={() => setLang(code)} style={{ background: lang === code ? '#141414' : 'var(--color-bg)', color: lang === code ? '#fff' : 'var(--color-ink)', border: '1px solid ' + (lang === code ? '#141414' : 'var(--color-border)'), borderRadius: 9, padding: '9px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                  <button key={code} className="pbtn" onClick={() => { setLang(code); saveLanguage(code).catch(() => {}); }} style={{ background: lang === code ? '#141414' : 'var(--color-bg)', color: lang === code ? '#fff' : 'var(--color-ink)', border: '1px solid ' + (lang === code ? '#141414' : 'var(--color-border)'), borderRadius: 9, padding: '9px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                     {label}
                   </button>
                 ))}

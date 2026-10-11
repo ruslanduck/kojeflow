@@ -13,7 +13,7 @@ interface SessionState {
   ownPropertyIds: string[];
   /** Supabase auth id of the signed-in account; payments are recorded under it. */
   userId: string | null;
-  setCurrentUser: (user: { id: string; name: string; role: RoleName; propertyIds: string[] }) => void;
+  setCurrentUser: (user: { id: string; name: string; role: RoleName; propertyIds: string[]; language: Lang }) => void;
   lang: Lang;
   currency: string;
   profileName: string;
@@ -37,8 +37,8 @@ export const useSessionStore = create<SessionState>((set) => ({
   actualRole: null,
   ownPropertyIds: [],
   userId: null,
-  setCurrentUser: ({ id, name, role, propertyIds }) =>
-    set({ userId: id, profileName: name, role, actualRole: role, ownPropertyIds: propertyIds }),
+  setCurrentUser: ({ id, name, role, propertyIds, language }) =>
+    set({ userId: id, profileName: name, role, actualRole: role, ownPropertyIds: propertyIds, lang: language }),
   lang: 'EN',
   currency: 'Kč',
   profileName: '',

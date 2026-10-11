@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { paymentsRepository } from '@/repositories/paymentsRepository';
@@ -23,6 +24,7 @@ interface PaymentModalProps {
 export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentModalProps) {
   const t = useT();
   const currency = useSessionStore((s) => s.currency);
+  const lang = useSessionStore((s) => s.lang);
   const profileName = useSessionStore((s) => s.profileName);
   const role = useSessionStore((s) => s.role);
   const roleConfig = ROLES[role];
@@ -51,7 +53,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const placeLabel = (s: Stay) => {
     const room = roomsById.get(s.roomId);
     const bed = bedsById.get(s.bedId);
-    return room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, 'EN') : '';
+    return room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
   };
 
   const pickOptions = useMemo(
@@ -84,7 +86,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
       const payment = await paymentsRepository.create({ stayId: stay.id, propertyId: stay.propertyId, amount: amt, at: date, note, proof: doc.file });
       onSaved(payment);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(errorText(e, t));
       setSaving(false);
     }
   };

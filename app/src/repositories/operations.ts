@@ -25,8 +25,8 @@ export interface CheckInInput {
 export async function checkIn(input: CheckInInput): Promise<Stay> {
   const state = useEntityStore.getState();
   const beds = input.bedIds.map((id) => state.beds.find((b) => b.id === id));
-  if (!beds.length || beds.some((b) => !b)) throw new Error('Bed not found');
-  if (beds.some((b) => b!.status !== 'free')) throw new Error('A selected bed is no longer free');
+  if (!beds.length || beds.some((b) => !b)) throw new Error('err_bed_missing');
+  if (beds.some((b) => b!.status !== 'free')) throw new Error('err_bed_taken');
 
   const room = state.rooms.find((r) => r.id === input.roomId);
   const bedPrice = input.type === 'Commercial' ? room?.priceTo ?? 0 : room?.priceFrom ?? 0;

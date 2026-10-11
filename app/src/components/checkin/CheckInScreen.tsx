@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
@@ -116,7 +117,7 @@ export function CheckInScreen() {
             const name = safeName(s.residentName, !!roleConfig.hideNames, t('hidden_name'));
             const room = roomsById.get(s.roomId);
             const bed = bedsById.get(s.bedId);
-            const placeLabel = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
+            const placeLabel = room && bed ? translatePlace(`${room.name.replace(/^.*? - /, '')} · Place ${bed.index}`, lang) : '';
             const [typeFg, typeBg] = TYPE_PILL[s.type] ?? DEFAULT_PILL;
             const bill = billFor(s, payments);
             return (
@@ -169,7 +170,7 @@ export function CheckInScreen() {
           confirmLabel={t('checkout_action')}
           cancelLabel={t('stay_checked_in')}
           onCancel={() => setConfirmCheckout(null)}
-          onConfirm={() => { checkOut(confirmCheckout.stayId, TODAY).catch((e) => showToast(e instanceof Error ? e.message : String(e))); setConfirmCheckout(null); }}
+          onConfirm={() => { checkOut(confirmCheckout.stayId, TODAY).catch((e) => showToast(errorText(e, t))); setConfirmCheckout(null); }}
         />
       )}
 
