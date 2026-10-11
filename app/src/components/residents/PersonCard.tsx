@@ -9,6 +9,7 @@ import { residentsRepository } from '@/repositories/residentsRepository';
 import { billFor } from '@/domain/logic';
 import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, DEFAULT_PILL, ROOM_GENDER_LABEL_KEY } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
+import { extractPortrait } from '@/lib/passportPhoto';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
@@ -49,6 +50,9 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const [editPassportDocs, setEditPassportDocs] = useState<ResidentDocument[]>([]);
   const [editOtherDocs, setEditOtherDocs] = useState<ResidentDocument[]>([]);
   const [aiBusy, setAiBusy] = useState(false);
+  // A portrait cut in this edit session, saved with the rest on Save.
+  const [editAvatarBlob, setEditAvatarBlob] = useState<Blob | null>(null);
+  const [savingEdit, setSavingEdit] = useState(false);
   const [zoomDoc, setZoomDoc] = useState<{ url: string; title: string } | null>(null);
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
@@ -107,23 +111,35 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
     setEditAvatarUrl(resident?.avatarUrl);
     setEditPassportDocs(resident?.passportDocs ?? []);
     setEditOtherDocs(resident?.otherDocs ?? []);
+    setEditAvatarBlob(null);
     setEditing(true);
   };
+  /** Writes the edit to the database: fields, new and removed documents, the photo. */
   const saveEdit = async () => {
-    if (resident) {
-      await residentsRepository.update(resident.id, {
-        name: editName.trim() || name,
-        gender: editGender,
-        avatarUrl: editAvatarUrl,
-        passportDocs: editPassportDocs,
-        otherDocs: editOtherDocs,
-      });
+    if (!resident) return setEditing(false);
+    setSavingEdit(true);
+    try {
+      await residentsRepository.update(resident.id, { name: editName.trim() || name, gender: editGender });
+      for (const kind of ['passport', 'other'] as const) {
+        const edited = kind === 'passport' ? editPassportDocs : editOtherDocs;
+        const stored = (kind === 'passport' ? resident.passportDocs : resident.otherDocs) ?? [];
+        const added = edited.flatMap((d) => (d.file ? [d.file] : []));
+        if (added.length) await residentsRepository.addDocuments(resident.id, kind, added);
+        for (const doc of stored) if (doc.id && !edited.some((d) => d.id === doc.id)) await residentsRepository.removeDocument(resident.id, doc);
+      }
+      if (editAvatarBlob) await residentsRepository.setAvatar(resident.id, editAvatarBlob);
+      else if (!editAvatarUrl && resident.avatarPath) await residentsRepository.clearAvatar(resident.id);
+      showToast(t('toast_saved'));
+      setEditing(false);
+    } catch (e) {
+      showToast(e instanceof Error ? e.message : String(e));
+    } finally {
+      setSavingEdit(false);
     }
-    setEditing(false);
   };
   const addDocs = (kind: 'passport' | 'other', files: FileList | null) => {
     if (!files || !files.length) return;
-    const docs: ResidentDocument[] = Array.from(files).map((f) => ({ name: f.name, url: URL.createObjectURL(f) }));
+    const docs: ResidentDocument[] = Array.from(files).map((f) => ({ name: f.name, url: URL.createObjectURL(f), file: f }));
     if (kind === 'passport') setEditPassportDocs((prev) => [...prev, ...docs]);
     else setEditOtherDocs((prev) => [...prev, ...docs]);
     showToast(t('doc_n', { n: docs.length }));
@@ -132,45 +148,29 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
     if (kind === 'passport') setEditPassportDocs((prev) => prev.filter((_, i) => i !== idx));
     else setEditOtherDocs((prev) => prev.filter((_, i) => i !== idx));
   };
-  const clearAvatar = () => setEditAvatarUrl(undefined);
-  const extractAvatar = () => {
-    if (!editPassportDocs.length) {
+  const clearAvatar = () => {
+    setEditAvatarUrl(undefined);
+    setEditAvatarBlob(null);
+  };
+  const extractAvatar = async () => {
+    const scan = editPassportDocs[0];
+    if (!scan) {
       showToast(t('ai_needscan'));
       return;
     }
     setAiBusy(true);
-    const img = new window.Image();
-    img.onload = () => {
-      const sw = img.width * 0.3;
-      const sh = sw * 1.28;
-      const sx = img.width * 0.045;
-      const sy = img.height * 0.22;
-      const c = document.createElement('canvas');
-      c.width = 420;
-      c.height = Math.round(420 * 1.28);
-      const g = c.getContext('2d');
-      if (!g) {
-        setAiBusy(false);
-        return;
-      }
-      g.fillStyle = '#fff';
-      g.fillRect(0, 0, c.width, c.height);
-      g.drawImage(img, sx, sy, sw, Math.min(sh, img.height - sy), 0, 0, c.width, c.height);
-      c.toBlob((blob) => {
-        if (!blob) {
-          setAiBusy(false);
-          return;
-        }
-        const url = URL.createObjectURL(blob);
-        setTimeout(() => {
-          setEditAvatarUrl(url);
-          setAiBusy(false);
-          showToast(t('ai_done'));
-        }, 900);
-      }, 'image/jpeg', 0.9);
-    };
-    img.onerror = () => setAiBusy(false);
-    img.src = editPassportDocs[0].url;
+    try {
+      // A stored scan is fetched through its signed URL; a new one is still a local file.
+      const source = scan.file ?? (await (await fetch(scan.url)).blob());
+      const blob = await extractPortrait(source);
+      setEditAvatarBlob(blob);
+      setEditAvatarUrl(URL.createObjectURL(blob));
+      showToast(t('ai_done'));
+    } catch (e) {
+      showToast(e instanceof Error ? e.message : String(e));
+    } finally {
+      setAiBusy(false);
+    }
   };
 
   return (
@@ -218,7 +218,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
                 <div style={{ flex: 1, minWidth: 170 }}>
                   <button
                     type="button"
-                    onClick={extractAvatar}
+                    onClick={() => void extractAvatar()}
                     disabled={aiBusy}
                     style={{ display: 'flex', alignItems: 'center', gap: 8, background: aiBusy ? '#F6F6F8' : '#141414', color: aiBusy ? '#9A9AA6' : '#fff', border: 'none', borderRadius: 9, padding: '10px 16px', fontSize: 13, fontWeight: 600, cursor: aiBusy ? 'wait' : 'pointer', fontFamily: 'inherit' }}
                   >
@@ -319,7 +319,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
             {editing ? (
               <>
                 <button className="chip" onClick={() => setEditing(false)} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', fontFamily: 'inherit' }}>{t('cancel')}</button>
-                <button className="pbtn" onClick={() => void saveEdit()} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>{t('save')}</button>
+                <button className="pbtn" onClick={() => void saveEdit()} disabled={savingEdit} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: savingEdit ? 'wait' : 'pointer', fontFamily: 'inherit', opacity: savingEdit ? 0.6 : 1 }}>{savingEdit ? t('saving') : t('save')}</button>
               </>
             ) : (
               <>

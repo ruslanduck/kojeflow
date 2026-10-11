@@ -24,6 +24,7 @@ export function CheckInScreen() {
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
   const currency = useSessionStore((s) => s.currency);
+  const showToast = useSessionStore((s) => s.showToast);
   const roleConfig = ROLES[role];
 
   const properties = useEntityStore((s) => s.properties);
@@ -168,7 +169,7 @@ export function CheckInScreen() {
           confirmLabel={t('checkout_action')}
           cancelLabel={t('stay_checked_in')}
           onCancel={() => setConfirmCheckout(null)}
-          onConfirm={() => { void checkOut(confirmCheckout.stayId, TODAY); setConfirmCheckout(null); }}
+          onConfirm={() => { checkOut(confirmCheckout.stayId, TODAY).catch((e) => showToast(e instanceof Error ? e.message : String(e))); setConfirmCheckout(null); }}
         />
       )}
 

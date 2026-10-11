@@ -1,88 +1,114 @@
 import { useEntityStore } from '@/store/entities';
-import { markLocal } from '@/store/dataSource';
-import { rateFor, TODAY } from '@/domain/logic';
+import { check, db } from '@/lib/supabase/write';
+import { TODAY } from '@/domain/logic';
 import type { Stay } from '@/domain/types';
-
-function genId(prefix: string): string {
-  return prefix + Math.random().toString(36).slice(2, 8);
-}
-
-/** Finds a resident by exact name, or creates one — used when checking in someone typed fresh in a wizard. */
-export async function resolveResident(name: string, gender: 'M' | 'F' = 'M'): Promise<string> {
-  const state = useEntityStore.getState();
-  const existing = state.residents.find((r) => r.name === name);
-  if (existing) return existing.id;
-  const resident = { id: genId('res-'), name, gender };
-  useEntityStore.setState((s) => ({ residents: [resident, ...s.residents] }));
-  markLocal(resident.id);
-  return resident.id;
-}
 
 export interface CheckInInput {
   residentId: string;
   residentName: string;
   propertyId: string;
   roomId: string;
-  bedId: string;
+  /** One stay can take several beds (a family, or someone paying for a whole room). */
+  bedIds: string[];
   type: Stay['type'];
   manager: string;
   project: string;
   checkIn?: string;
+  bookingId?: string;
 }
 
-/** Assigns a free bed to a resident: creates the Stay and flips the Bed to occupied. */
+/**
+ * Checks a resident into one or more free beds: one stay in public.stays holding every bed
+ * in public.stay_places. The nightly rate is the sum of the beds' room prices for the stay
+ * type (internal or commercial).
+ */
 export async function checkIn(input: CheckInInput): Promise<Stay> {
   const state = useEntityStore.getState();
-  const bed = state.beds.find((b) => b.id === input.bedId);
-  if (!bed) throw new Error('Bed not found: ' + input.bedId);
-  if (bed.status !== 'free' && bed.status !== 'booked') throw new Error('Bed is not available: ' + input.bedId);
+  const beds = input.bedIds.map((id) => state.beds.find((b) => b.id === id));
+  if (!beds.length || beds.some((b) => !b)) throw new Error('Bed not found');
+  if (beds.some((b) => b!.status !== 'free')) throw new Error('A selected bed is no longer free');
+
   const room = state.rooms.find((r) => r.id === input.roomId);
-  const property = state.properties.find((p) => p.id === input.propertyId);
-  const basePrice = property?.price ?? 220;
-  const bedLabel = `${room?.name ?? ''} · Place ${bed.index}`;
+  const bedPrice = input.type === 'Commercial' ? room?.priceTo ?? 0 : room?.priceFrom ?? 0;
+  const rate = bedPrice * beds.length;
+  const checkInDate = input.checkIn ?? TODAY;
+
+  const supabase = db();
+  const stayRow = check(
+    await supabase
+      .from('stays')
+      .insert({
+        tenant_id: input.residentId,
+        property_id: input.propertyId,
+        booking_id: input.bookingId ?? null,
+        status: 'active',
+        check_in_date: checkInDate,
+        original_check_in_date: checkInDate,
+        price_type: input.type === 'Commercial' ? 'commercial' : 'internal',
+        internal_price: room?.priceFrom ?? null,
+        external_price: room?.priceTo ?? null,
+        price_per_day: rate,
+        manager_name: input.manager || null,
+        project_name: input.project || null,
+        source: 'app',
+      })
+      .select('id')
+      .single(),
+    'Save check-in',
+  );
+
+  const held = await supabase.from('stay_places').insert(input.bedIds.map((place_id) => ({ stay_id: stayRow.id, place_id })));
+  if (held.error) {
+    // Someone took a bed in the meantime (the database allows one active stay per bed).
+    await supabase.from('stays').update({ status: 'cancelled' }).eq('id', stayRow.id);
+    throw new Error(`Save check-in: ${held.error.message}`);
+  }
+
+  if (input.bookingId) {
+    check(await supabase.from('bookings').update({ status: 'checked_in' }).eq('id', input.bookingId), 'Update booking');
+  }
 
   const stay: Stay = {
-    id: genId('st-'),
+    id: stayRow.id,
     residentId: input.residentId,
     residentName: input.residentName,
     propertyId: input.propertyId,
     roomId: input.roomId,
-    bedId: input.bedId,
+    bedId: input.bedIds[0],
     type: input.type,
     manager: input.manager,
     project: input.project,
-    checkIn: input.checkIn ?? TODAY,
+    checkIn: checkInDate,
     checkOut: null,
     status: 'active',
-    rate: rateFor(basePrice, property?.name ?? input.propertyId, bedLabel),
+    rate,
   };
 
   useEntityStore.setState((s) => ({
     stays: [stay, ...s.stays],
-    beds: s.beds.map((b) => (b.id === bed.id ? { ...b, status: 'occupied', residentId: input.residentId } : b)),
+    beds: s.beds.map((b) => (input.bedIds.includes(b.id) ? { ...b, status: 'occupied', residentId: input.residentId } : b)),
+    bookings: input.bookingId ? s.bookings.map((b) => (b.id === input.bookingId ? { ...b, status: 'Checked-in' } : b)) : s.bookings,
   }));
-  markLocal(stay.id);
-
   return stay;
 }
 
-/**
- * Closes an active stay and frees its bed. Not present in the design prototype
- * (which only has check-in) — added as the sensible default for the missing
- * vacate flow, flagged in the build plan.
- */
+/** Closes an active stay and frees every bed it held. */
 export async function checkOut(stayId: string, checkOutDate: string = TODAY): Promise<Stay> {
   const state = useEntityStore.getState();
   const stay = state.stays.find((s) => s.id === stayId);
   if (!stay) throw new Error('Stay not found: ' + stayId);
   if (stay.status === 'checked-out') return stay;
 
-  const updated: Stay = { ...stay, status: 'checked-out', checkOut: checkOutDate };
+  const date = checkOutDate < stay.checkIn ? stay.checkIn : checkOutDate;
+  check(await db().from('stays').update({ status: 'checked_out', check_out_date: date }).eq('id', stayId), 'Check out');
 
+  const updated: Stay = { ...stay, status: 'checked-out', checkOut: date };
   useEntityStore.setState((s) => ({
     stays: s.stays.map((x) => (x.id === stayId ? updated : x)),
-    beds: s.beds.map((b) => (b.id === stay.bedId ? { ...b, status: 'free', residentId: null } : b)),
+    // The store keeps one bed per stay, so every bed this resident holds in the property is freed.
+    beds: s.beds.map((b) =>
+      b.residentId === stay.residentId && b.propertyId === stay.propertyId ? { ...b, status: 'free', residentId: null } : b,
+    ),
   }));
-
   return updated;
 }

@@ -46,7 +46,13 @@ export interface Bed {
 
 export interface ResidentDocument {
   name: string;
+  /** Signed URL of a stored file, or a local object URL for one not uploaded yet. */
   url: string;
+  /** Stored documents: row id and object path in the tenant-documents bucket. */
+  id?: string;
+  path?: string;
+  /** Picked but not uploaded yet. */
+  file?: File;
 }
 
 export interface Resident {
@@ -56,6 +62,8 @@ export interface Resident {
   phone?: string;
   dob?: string;
   avatarUrl?: string;
+  /** Object path of the avatar in the tenant-documents bucket. */
+  avatarPath?: string;
   passportDocs?: ResidentDocument[];
   otherDocs?: ResidentDocument[];
 }

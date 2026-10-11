@@ -45,8 +45,14 @@ export const ROLE_BY_DB: Record<string, RoleName> = {
 };
 
 const ROOM_TYPE: Record<string, RoomType> = { room: 'Room', apartment: 'Apartment', trailer: 'Wagon' };
+export const ROOM_TYPE_DB: Record<RoomType, string> = { Room: 'room', Apartment: 'apartment', Wagon: 'trailer' };
 // Room names keep the Airtable spelling ("Korycany - Кімната 14"), which the team reads every day.
 const ROOM_TYPE_LABEL: Record<string, string> = { room: 'Кімната', apartment: 'Квартира', trailer: 'Вагончик' };
+
+/** "Korycany - Кімната 14", "Kralupy - Кімната 3 - дах": the Airtable spelling, for rooms loaded and created alike. */
+export function roomName(propertyName: string, dbType: string, number: string, isRoof = false): string {
+  return `${propertyName} - ${ROOM_TYPE_LABEL[dbType] ?? dbType} ${number}${isRoof ? ' - дах' : ''}`;
+}
 
 const BOOKING_STATUS: Record<string, BookingStatus> = { new: 'New', checked_in: 'Checked-in', cancelled: 'Cancelled' };
 const REGISTRATION_STATUS: Record<string, RegistrationStatus> = {
@@ -115,13 +121,12 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
   const propertyName = new Map(entities.properties.map((p) => [p.id, p.name]));
 
   // ---- rooms
-  entities.rooms = raw.rooms.filter((r) => visible(r.property_id)).map((r): Room => {
+  entities.rooms = raw.rooms.filter((r) => visible(r.property_id) && !r.is_archived).map((r): Room => {
     const type = str(r.type);
-    const roof = r.is_roof ? ' - дах' : '';
     return {
       id: str(r.id),
       propertyId: str(r.property_id),
-      name: `${propertyName.get(str(r.property_id)) ?? ''} - ${ROOM_TYPE_LABEL[type] ?? type} ${str(r.number)}${roof}`,
+      name: roomName(propertyName.get(str(r.property_id)) ?? '', type, str(r.number), Boolean(r.is_roof)),
       type: ROOM_TYPE[type] ?? 'Room',
       priceFrom: num(r.internal_price),
       priceTo: num(r.external_price),
@@ -193,14 +198,15 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
   }
   entities.residents = raw.tenants.map((t): Resident => {
     const docs = docsByTenant.get(str(t.id)) ?? [];
-    // Files live in a private bucket; their signed URLs are issued when a document is opened.
-    const asDoc = (d: Row) => ({ name: str(d.file_name) || 'document', url: str(d.storage_path) });
+    // Files live in a private bucket; the snapshot route fills in signed URLs.
+    const asDoc = (d: Row) => ({ id: str(d.id), path: str(d.storage_path), name: str(d.file_name) || 'document', url: '' });
     return {
       id: str(t.id),
       name: str(t.full_name),
       gender: t.gender === 'female' ? 'F' : 'M',
       phone: str(t.phone) || undefined,
       dob: date(t.birth_date) ?? undefined,
+      avatarPath: str(t.avatar_path) || undefined,
       passportDocs: docs.filter((d) => d.kind === 'passport').map(asDoc),
       otherDocs: docs.filter((d) => d.kind === 'other').map(asDoc),
     };
@@ -237,7 +243,8 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       amount: num(pm.amount),
       by: str(pm.by),
       at: date(pm.paid_at) ?? '',
-      docName: path ? path.split('/').pop() ?? '' : '',
+      docName: path ? path.split('/').pop()?.replace(/^[0-9a-f-]{36}-/, '') ?? '' : '',
+      // Signed by the snapshot route: the bucket is private.
       docUrl: path,
       note: str(pm.note),
     };

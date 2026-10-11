@@ -39,7 +39,8 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState(TODAY);
   const [note, setNote] = useState('');
-  const [doc, setDoc] = useState<{ name: string; url: string } | null>(null);
+  const [doc, setDoc] = useState<{ name: string; url: string; file: File } | null>(null);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
@@ -69,7 +70,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const pickDoc = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    setDoc({ name: f.name, url: URL.createObjectURL(f) });
+    setDoc({ name: f.name, url: URL.createObjectURL(f), file: f });
     setError('');
   };
 
@@ -78,10 +79,14 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
     const amt = Number(amount);
     if (!amt || amt <= 0) return setError(t('pay_err_amount'));
     if (!doc) return setError(t('pay_err_doc'));
-    const payment = await paymentsRepository.create({
-      stayId: stay.id, propertyId: stay.propertyId, amount: amt, by: profileName, at: date, docName: doc.name, docUrl: doc.url, note,
-    });
-    onSaved(payment);
+    setSaving(true);
+    try {
+      const payment = await paymentsRepository.create({ stayId: stay.id, propertyId: stay.propertyId, amount: amt, at: date, note, proof: doc.file });
+      onSaved(payment);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+      setSaving(false);
+    }
   };
 
   return (
@@ -181,7 +186,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
             <button onClick={onClose} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)' }}>{t('cancel')}</button>
             {!pickMode && (
-              <button onClick={() => void save()} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>{t('save')}</button>
+              <button onClick={() => void save()} disabled={saving} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.6 : 1 }}>{t('save')}</button>
             )}
           </div>
         </div>

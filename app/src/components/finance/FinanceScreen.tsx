@@ -37,8 +37,8 @@ export function FinanceScreen() {
   const payments = useEntityStore((s) => s.payments);
   const transfers = useEntityStore((s) => s.transfers);
 
-  const initialSection: Section = searchParams.get('tab') === 'handover' ? 'handover' : 'billing';
-  const [section, setSection] = useState<Section>(initialSection);
+  // Handovers are hidden for now: billing is the only section (the handover code stays for later).
+  const section = 'billing' as Section;
   const [billingFilter, setBillingFilter] = useState<BillingFilter>((searchParams.get('filter') as BillingFilter) ?? 'All');
   const [hostelFilter, setHostelFilter] = useState('All');
   const [search, setSearch] = useState('');
@@ -62,9 +62,6 @@ export function FinanceScreen() {
   // ---- billing ----
   const debtorStays = activeStays.filter((s) => billFor(s, payments).debtor);
   const debtTotal = debtorStays.reduce((sum, s) => sum + billFor(s, payments).balance, 0);
-  // Summed per stay rather than from the payment list: Airtable supplies a running
-  // paid total but no individual transactions, so the list is empty for everything
-  // it loaded and would report nothing collected against very real balances.
   const collected = activeStays.reduce((sum, s) => sum + billFor(s, payments).paid, 0);
   const chargedAll = activeStays.reduce((sum, s) => sum + billFor(s, payments).charged, 0);
 
@@ -114,13 +111,6 @@ export function FinanceScreen() {
         )}
       </div>
 
-      <div style={{ display: 'flex', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 11, padding: 3, marginBottom: 20, width: 'fit-content' }}>
-        {(['handover', 'billing'] as const).map((k) => (
-          <button key={k} className="pbtn" onClick={() => setSection(k)} style={{ background: section === k ? '#141414' : 'transparent', color: section === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
-            {k === 'handover' ? t('fn_sec_handover') : t('fn_sec_billing')}
-          </button>
-        ))}
-      </div>
 
       {section === 'billing' ? (
         <>

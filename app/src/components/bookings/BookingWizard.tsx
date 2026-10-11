@@ -8,7 +8,7 @@ import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { propertyStat } from '@/domain/dashboard';
 import { canBookProperty, diffDays, TODAY, addDays } from '@/domain/logic';
 import { translatePlace, safeName, TYPE_LABEL_KEY, TYPE_PILL } from '@/domain/labels';
-import { MANAGERS, MANAGER_PROJECTS } from '@/domain/people';
+import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
 import { formatDateDMY } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
@@ -38,6 +38,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const roleConfig = ROLES[role];
 
   const properties = useEntityStore((s) => s.properties);
+  const known = useKnownNames();
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
@@ -123,11 +124,15 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
       status: 'New' as const, manager, project: project || '—',
       payer: payer || manager, family, discount: discount || null,
     };
-    const saved = editing
-      ? await bookingsRepository.update(editing.id, payload)
-      : await bookingsRepository.create(payload);
-    onSaved(saved);
-    onClose();
+    try {
+      const saved = editing
+        ? await bookingsRepository.update(editing.id, payload)
+        : await bookingsRepository.create(payload);
+      onSaved(saved);
+      onClose();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
   };
 
   const goBack = () => {
@@ -139,11 +144,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
     }
   };
 
-  const managerProjects = MANAGER_PROJECTS[manager] ?? [];
-  const projectOptions = type === 'Internal' ? managerProjects : [
-    { value: 'Client direct', label: t('d_client') },
-    { value: 'Hostel direct', label: t('d_hostel') },
-  ];
+  const payerOptions = [...known.managers, 'Client direct', 'Hostel direct'];
   const reviewName = safeName(residentName || '—', !!roleConfig.hideNames, t('hidden_name'));
   const [typeFg, typeBg] = TYPE_PILL[type];
 
@@ -257,19 +258,19 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
               <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_manager') : t('lbl_responsible')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <select value={manager} onChange={(e) => { setManager(e.target.value); setProject(''); }} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {MANAGERS.map((m) => <option key={m} value={m}>{m}</option>)}
-                  </select>
+                  <SuggestInput value={manager} onChange={setManager} options={known.managers} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {type === 'Internal'
-                      ? managerProjects.map((p) => <option key={p} value={p}>{p}</option>)
-                      : (projectOptions as { value: string; label: string }[]).map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-                  </select>
+                  {type === 'Internal' ? (
+                    <SuggestInput value={project} onChange={setProject} options={known.projects} />
+                  ) : (
+                    <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
+                      <option value="">{t('select')}</option>
+                      <option value="Client direct">{t('d_client')}</option>
+                      <option value="Hostel direct">{t('d_hostel')}</option>
+                    </select>
+                  )}
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('wz_expected')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
@@ -278,12 +279,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('wz_payer')}</div>
-                  <select value={payer} onChange={(e) => setPayer(e.target.value)} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {MANAGERS.map((m) => <option key={m} value={m}>{m}</option>)}
-                    <option value="Client direct">{t('d_client')}</option>
-                    <option value="Hostel direct">{t('d_hostel')}</option>
-                  </select>
+                  <SuggestInput value={payer} onChange={setPayer} options={payerOptions} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('wz_discount')}</div>

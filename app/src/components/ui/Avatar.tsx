@@ -12,8 +12,10 @@ import { Lightbox } from './Lightbox';
  * by name everywhere. A masked name (Client role) won't match any resident, so no photo
  * — and no zoom — ever leaks.
  */
-export function Avatar({ name, size = 30, onClick }: { name: string; size?: number; onClick?: () => void }) {
-  const photoUrl = useEntityStore((s) => s.residents.find((r) => r.name === name)?.avatarUrl);
+export function Avatar({ name, size = 30, onClick, url }: { name: string; size?: number; onClick?: () => void; url?: string }) {
+  const storedUrl = useEntityStore((s) => s.residents.find((r) => r.name === name)?.avatarUrl);
+  // An explicit url wins: e.g. a portrait just cut from a passport, not saved yet.
+  const photoUrl = url ?? storedUrl;
   const [zoomed, setZoomed] = useState(false);
 
   return (

@@ -11,7 +11,9 @@ interface SessionState {
   actualRole: RoleName | null;
   /** Properties a house manager or client is limited to. */
   ownPropertyIds: string[];
-  setCurrentUser: (user: { name: string; role: RoleName; propertyIds: string[] }) => void;
+  /** Supabase auth id of the signed-in account; payments are recorded under it. */
+  userId: string | null;
+  setCurrentUser: (user: { id: string; name: string; role: RoleName; propertyIds: string[] }) => void;
   lang: Lang;
   currency: string;
   profileName: string;
@@ -34,8 +36,9 @@ export const useSessionStore = create<SessionState>((set) => ({
   role: 'Client',
   actualRole: null,
   ownPropertyIds: [],
-  setCurrentUser: ({ name, role, propertyIds }) =>
-    set({ profileName: name, role, actualRole: role, ownPropertyIds: propertyIds }),
+  userId: null,
+  setCurrentUser: ({ id, name, role, propertyIds }) =>
+    set({ userId: id, profileName: name, role, actualRole: role, ownPropertyIds: propertyIds }),
   lang: 'EN',
   currency: 'Kč',
   profileName: '',

@@ -7,7 +7,6 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { ROLES } from '@/domain/roles';
-import { MANAGERS } from '@/domain/people';
 import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
@@ -34,6 +33,7 @@ export function BookingsScreen() {
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
   const bookings = useEntityStore((s) => s.bookings);
+  const showToast = useSessionStore((s) => s.showToast);
   const localIds = useDataSourceStore((s) => s.localIds);
 
   const [tab, setTab] = useState<BookingStatus | 'All'>('All');
@@ -77,9 +77,14 @@ export function BookingsScreen() {
   const openNew = () => { setEditing(null); setWizardOpen(true); };
   const openEdit = (b: Booking) => { setEditing(b); setWizardOpen(true); };
   const cancelBooking = async (b: Booking) => {
-    await bookingsRepository.update(b.id, { status: 'Cancelled' });
+    try {
+      await bookingsRepository.update(b.id, { status: 'Cancelled' });
+    } catch (e) {
+      showToast(e instanceof Error ? e.message : String(e));
+    }
     setConfirmCancel(null);
   };
+  const managerNames = Array.from(new Set(bookings.map((b) => b.manager).filter(Boolean))).sort((a, b) => a.localeCompare(b));
 
   return (
     <section className="screen">
@@ -124,7 +129,7 @@ export function BookingsScreen() {
         </select>
         <select value={managerFilter} onChange={(e) => setManagerFilter(e.target.value)} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 30px 9px 12px', fontSize: 13, outline: 'none', maxWidth: 200 }}>
           <option value="All">{t('f_all_mgrs')}</option>
-          {MANAGERS.map((m) => <option key={m} value={m}>{m}</option>)}
+          {managerNames.map((m) => <option key={m} value={m}>{m}</option>)}
         </select>
         <button className="chip" onClick={() => { setTab('All'); setPropertyFilter('All'); setTypeFilter('All'); setManagerFilter('All'); setSearch(''); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 14px', fontSize: 12.5, cursor: 'pointer', color: 'var(--color-muted)' }}>
           {t('clear')}

@@ -29,6 +29,28 @@ export async function GET() {
     for (const plan of plans) plan.imageUrl = urlByPath.get(plan.imagePath as string) ?? '';
   }
 
+  // Residents' photos and documents, likewise private.
+  const residentPaths = payload.entities.residents.flatMap((r) => [
+    ...(r.avatarPath ? [r.avatarPath] : []),
+    ...[...(r.passportDocs ?? []), ...(r.otherDocs ?? [])].flatMap((d) => (d.path ? [d.path] : [])),
+  ]);
+  if (residentPaths.length) {
+    const signed = await supabase.storage.from('tenant-documents').createSignedUrls(residentPaths, PLAN_URL_SECONDS);
+    const urlByPath = new Map((signed.data ?? []).map((s) => [s.path, s.signedUrl]));
+    for (const r of payload.entities.residents) {
+      if (r.avatarPath) r.avatarUrl = urlByPath.get(r.avatarPath) ?? undefined;
+      for (const d of [...(r.passportDocs ?? []), ...(r.otherDocs ?? [])]) if (d.path) d.url = urlByPath.get(d.path) ?? '';
+    }
+  }
+
+  // Payment proofs, likewise private.
+  const proofs = payload.entities.payments.filter((pm) => pm.docUrl);
+  if (proofs.length) {
+    const signed = await supabase.storage.from('payment-proofs').createSignedUrls(proofs.map((pm) => pm.docUrl), PLAN_URL_SECONDS);
+    const urlByPath = new Map((signed.data ?? []).map((s) => [s.path, s.signedUrl]));
+    for (const pm of proofs) pm.docUrl = urlByPath.get(pm.docUrl) ?? '';
+  }
+
   return Response.json(payload);
 }
 

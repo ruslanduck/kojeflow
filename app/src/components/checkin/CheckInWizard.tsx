@@ -4,19 +4,21 @@ import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
-import { checkIn, resolveResident } from '@/repositories/operations';
-import { bookingsRepository } from '@/repositories/bookingsRepository';
-import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL } from '@/domain/labels';
+import { checkIn } from '@/repositories/operations';
+import { residentsRepository } from '@/repositories/residentsRepository';
+import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
 import { roomGender, TODAY } from '@/domain/logic';
-import { MANAGERS, MANAGER_PROJECTS } from '@/domain/people';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
+import { extractPortrait } from '@/lib/passportPhoto';
+import { useResidentDirectory } from '@/lib/supabase/residents';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
-import type { Booking, Stay, StayType } from '@/domain/types';
+import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
+import type { Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
 
 interface CheckInWizardProps {
   onClose: () => void;
@@ -27,6 +29,15 @@ interface CheckInWizardProps {
   defaultBedIds?: string[];
   onSaved: (stays: Stay[]) => void;
 }
+
+/** Who is checking in: someone already known (by id when we have it) or a new person. */
+interface PickedPerson {
+  id?: string;
+  name: string;
+  sub: string;
+}
+
+const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 
 export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, defaultRoomId, defaultBedIds, onSaved }: CheckInWizardProps) {
   const t = useT();
@@ -42,95 +53,157 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const residents = useEntityStore((s) => s.residents);
   const stays = useEntityStore((s) => s.stays);
   const bookings = useEntityStore((s) => s.bookings);
+  const known = useKnownNames();
 
   const [step, setStep] = useState<1 | 2 | 3>(fromBooking ? 2 : 1);
   const [pickMode, setPickMode] = useState(true);
   const [search, setSearch] = useState('');
-  const [residentName, setResidentName] = useState(fromBooking?.residentName ?? '');
+  const [picked, setPicked] = useState<PickedPerson | null>(fromBooking ? { name: fromBooking.residentName, sub: '' } : null);
+
+  // new person
   const [newName, setNewName] = useState('');
-  const [newGender, setNewGender] = useState<'Male' | 'Female'>('Male');
+  const [newGender, setNewGender] = useState<Gender>('M');
+  const [newPhone, setNewPhone] = useState('');
+  const [newDob, setNewDob] = useState('');
+  const [passportFiles, setPassportFiles] = useState<File[]>([]);
+  const [otherFiles, setOtherFiles] = useState<File[]>([]);
+  const [portrait, setPortrait] = useState<{ blob: Blob; url: string } | null>(null);
+  const [cropping, setCropping] = useState(false);
+
   const [propertyId, setPropertyId] = useState(fromBooking?.propertyId ?? defaultPropertyId ?? '');
   const [roomId, setRoomId] = useState(defaultRoomId ?? '');
   const [selectedBedIds, setSelectedBedIds] = useState<string[]>(defaultBedIds ?? []);
   const [type, setType] = useState<StayType>(fromBooking?.type ?? 'Internal');
   const [manager, setManager] = useState(fromBooking?.manager ?? '');
-  const [project, setProject] = useState(fromBooking?.project ?? '');
+  const [project, setProject] = useState(fromBooking?.project && fromBooking.project !== '—' ? fromBooking.project : '');
   const [date, setDate] = useState(TODAY);
-  const [family, setFamily] = useState(fromBooking?.family ?? false);
   const [error, setError] = useState('');
+  const [saving, setSaving] = useState(false);
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const residentsById = useMemo(() => new Map(residents.map((r) => [r.id, r])), [residents]);
-
-  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
+  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
 
-  const residentPool = useMemo(() => {
+  // Everyone in the database is searchable once a couple of letters are typed.
+  const directory = useResidentDirectory(search, 1, step === 1 && pickMode && search.trim().length >= 2);
+
+  const pool = useMemo((): PickedPerson[] => {
     const awaiting = bookings
       .filter((b) => b.status === 'New')
-      .map((b) => ({ name: b.residentName, sub: `${propertiesById.get(b.propertyId)?.name ?? ''} · ${t('wz_expected')} ${formatDateDMY(b.date)}` }));
+      .map((b): PickedPerson => ({ name: b.residentName, sub: `${propertiesById.get(b.propertyId)?.name ?? ''} · ${t('wz_expected')} ${formatDateDMY(b.date)}` }));
     const living = activeStays.map((s) => {
       const room = roomsById.get(s.roomId);
       const bed = bedsById.get(s.bedId);
       const label = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
-      return { name: s.residentName, sub: `${propertiesById.get(s.propertyId)?.name ?? ''} · ${label}` };
+      return { id: s.residentId, name: s.residentName, sub: `${propertiesById.get(s.propertyId)?.name ?? ''} · ${label}` };
     });
+    const fromDb = directory.rows.map((r) => ({ id: r.id, name: r.name, sub: [r.phone, r.dob ? formatDateDMY(r.dob) : ''].filter(Boolean).join(' · ') }));
+    const term = search.trim().toLowerCase();
     const seen = new Set<string>();
-    return [...awaiting, ...living]
-      .filter((x) => !seen.has(x.name) && seen.add(x.name))
-      .filter((x) => !search || x.name.toLowerCase().includes(search.toLowerCase()))
-      .slice(0, 30);
-  }, [bookings, activeStays, roomsById, bedsById, propertiesById, lang, search, t]);
+    return [...awaiting, ...living, ...fromDb]
+      .filter((x) => !term || x.name.toLowerCase().includes(term))
+      .filter((x) => {
+        const key = x.id ?? `name:${x.name}`;
+        return !seen.has(key) && seen.add(key);
+      })
+      .slice(0, 40);
+  }, [bookings, activeStays, directory.rows, roomsById, bedsById, propertiesById, lang, search, t]);
 
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
-  const roomOptions = propertyRooms.map((r) => {
-    const freeCount = beds.filter((b) => b.roomId === r.id && b.status === 'free').length;
-    return { room: r, label: `${translatePlace(r.name, lang)} — ${freeCount} ${t('free').toLowerCase()}` };
-  });
   const selectedRoom = rooms.find((r) => r.id === roomId) ?? null;
-  const roomBeds = selectedRoom ? beds.filter((b) => b.roomId === selectedRoom.id).sort((a, b) => a.index - b.index) : [];
-  const roomG = selectedRoom ? roomGender(roomBeds, residentsById) : 'N';
-  const [roomGFg, roomGBg] = ROOM_GENDER_PILL[roomG] ?? DEFAULT_PILL;
+  const freeInProperty = beds.filter((b) => b.propertyId === propertyId && b.status === 'free').length;
 
-  const managerProjects = MANAGER_PROJECTS[manager] ?? [];
-  const projectOptions = type === 'Internal' ? managerProjects.map((p) => ({ value: p, label: p })) : [
-    { value: 'Client direct', label: t('d_client') },
-    { value: 'Hostel direct', label: t('d_hostel') },
-  ];
+  const pickBed = (room: Room, bedId: string, status: string) => {
+    if (status !== 'free') {
+      showToast(status === 'unavailable' ? t('unavail_tip') : t('occ_place'));
+      return;
+    }
+    setError('');
+    // One stay lives in one room: picking a bed elsewhere starts a new selection there.
+    if (room.id !== roomId) {
+      setRoomId(room.id);
+      setSelectedBedIds([bedId]);
+      return;
+    }
+    setSelectedBedIds((prev) => (prev.includes(bedId) ? prev.filter((x) => x !== bedId) : [...prev, bedId]));
+  };
+
+  const cropPortrait = async () => {
+    if (!passportFiles.length) return showToast(t('ai_needscan'));
+    setCropping(true);
+    try {
+      const blob = await extractPortrait(passportFiles[0]);
+      if (portrait) URL.revokeObjectURL(portrait.url);
+      setPortrait({ blob, url: URL.createObjectURL(blob) });
+      showToast(t('ai_done'));
+    } catch (e) {
+      showToast(e instanceof Error ? e.message : String(e));
+    } finally {
+      setCropping(false);
+    }
+  };
 
   const goNext = async () => {
     if (step === 1) {
-      const name = pickMode ? residentName : newName.trim();
-      if (!name) return setError(t('ph_entername'));
-      setResidentName(name);
+      if (pickMode && !picked) return setError(t('ph_entername'));
+      if (!pickMode && !newName.trim()) return setError(t('ph_entername'));
       setStep(2);
       setError('');
       return;
     }
     if (step === 2) {
       if (!propertyId) return setError(t('err_hostel'));
-      if (!roomId) return setError(t('room'));
-      if (selectedBedIds.length === 0) return setError(t('err_no_places'));
+      if (!roomId || selectedBedIds.length === 0) return setError(t('err_no_places'));
       setStep(3);
       setError('');
       return;
     }
-    if (!manager) return setError(t('err_mgr'));
-    if (!project) return setError(t('err_project'));
+    if (!manager.trim()) return setError(t('err_mgr'));
+    if (!project.trim()) return setError(t('err_project'));
+    await save();
+  };
 
-    const gender: 'M' | 'F' = pickMode ? residentsById.get(residents.find((r) => r.name === residentName)?.id ?? '')?.gender ?? 'M' : newGender === 'Female' ? 'F' : 'M';
-    const residentId = await resolveResident(residentName, gender);
-    const created: Stay[] = [];
-    for (const bedId of selectedBedIds) {
-      const bed = beds.find((b) => b.id === bedId);
-      if (!bed) continue;
-      const stay = await checkIn({ residentId, residentName, propertyId, roomId, bedId, type, manager, project, checkIn: date });
-      created.push(stay);
+  const save = async () => {
+    setSaving(true);
+    setError('');
+    try {
+      const tenantType = type === 'Commercial' ? 'commercial' : 'internal';
+      let residentId: string;
+      let residentName: string;
+      if (!pickMode) {
+        residentName = newName.trim();
+        const resident = await residentsRepository.create({ name: residentName, gender: newGender, phone: newPhone.trim(), dob: newDob, type: tenantType });
+        residentId = resident.id;
+        if (passportFiles.length) await residentsRepository.addDocuments(residentId, 'passport', passportFiles);
+        if (otherFiles.length) await residentsRepository.addDocuments(residentId, 'other', otherFiles);
+        if (portrait) await residentsRepository.setAvatar(residentId, portrait.blob);
+      } else {
+        residentName = picked!.name;
+        // A booking names a person who may not have a record yet.
+        const existingId = picked!.id ?? residents.find((r) => r.name === residentName)?.id;
+        residentId = existingId ?? (await residentsRepository.create({ name: residentName, gender: 'M', type: tenantType })).id;
+        if (picked!.id && !residentsById.has(picked!.id)) {
+          const hit = directory.rows.find((r) => r.id === picked!.id);
+          if (hit) {
+            const { type: _type, ...resident } = hit;
+            void _type;
+            useEntityStore.setState((s) => ({ residents: [...s.residents, resident] }));
+          }
+        }
+      }
+
+      const stay = await checkIn({
+        residentId, residentName, propertyId, roomId, bedIds: selectedBedIds, type,
+        manager: manager.trim(), project: project.trim(), checkIn: date, bookingId: fromBooking?.id,
+      });
+      showToast(t('toast_ci', { n: residentName, p: selectedRoom ? translatePlace(selectedRoom.name, lang) : '' }));
+      onSaved([stay]);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+      setSaving(false);
     }
-    if (fromBooking) await bookingsRepository.update(fromBooking.id, { status: 'Checked-in' });
-    showToast(t('toast_ci', { n: residentName, p: selectedRoom ? translatePlace(selectedRoom.name, lang) : '' }));
-    onSaved(created);
   };
 
   const goBack = () => {
@@ -142,21 +215,34 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
     }
   };
 
-  const toggleBed = (bedId: string, status: string) => {
-    if (status !== 'free') {
-      showToast(status === 'booked' ? t('booked_tip') : t('occ_place'));
-      return;
-    }
-    setSelectedBedIds((prev) => (prev.includes(bedId) ? prev.filter((x) => x !== bedId) : [...prev, bedId]));
-  };
-
-  const reviewName = safeName(residentName || '—', !!roleConfig.hideNames, t('hidden_name'));
+  const personName = pickMode ? picked?.name ?? '—' : newName.trim() || '—';
+  const reviewName = safeName(personName, !!roleConfig.hideNames, t('hidden_name'));
   const reviewPlace = selectedRoom ? `${translatePlace(selectedRoom.name, lang)} · ${selectedBedIds.map((id) => bedsById.get(id)?.index).join(', ')}` : '—';
+
+  const fileList = (files: File[], remove: (i: number) => void) =>
+    files.length ? (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 7 }}>
+        {files.map((f, i) => (
+          <span key={`${f.name}-${i}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 7, padding: '4px 8px', fontSize: 12 }}>
+            {f.name}
+            <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-faint)', padding: 0, fontSize: 14, lineHeight: 1 }}>×</button>
+          </span>
+        ))}
+      </div>
+    ) : null;
+
+  const filePicker = (label: string, onPick: (files: File[]) => void, accept: string) => (
+    <label style={{ display: 'flex', alignItems: 'center', gap: 9, background: 'var(--color-bg)', border: '1px dashed #D6D6DE', borderRadius: 9, padding: '10px 12px', cursor: 'pointer', fontSize: 13, color: 'var(--color-muted)' }}>
+      <span style={{ fontSize: 15 }}>⇲</span>
+      <span>{label}</span>
+      <input type="file" multiple accept={accept} onChange={(e) => { onPick(Array.from(e.target.files ?? [])); e.target.value = ''; }} style={{ display: 'none' }} />
+    </label>
+  );
 
   return (
     <Portal>
     <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} onClick={onClose}>
-      <div onClick={(e) => e.stopPropagation()} style={{ width: 680, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ width: 760, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px 0', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <div>
             <div className="hd" style={{ fontSize: 23 }}>{t('ci_new')}</div>
@@ -176,13 +262,14 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
               {pickMode ? (
                 <>
                   <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t('wz_search')} style={{ ...FIELD_STYLE, marginBottom: 12 }} />
-                  <div style={{ border: '1px solid var(--color-border)', borderRadius: 11, maxHeight: 264, overflowY: 'auto' }}>
-                    {residentPool.map((r) => {
-                      const on = residentName === r.name;
+                  <div style={{ border: '1px solid var(--color-border)', borderRadius: 11, maxHeight: 300, overflowY: 'auto' }}>
+                    {pool.map((r) => {
+                      const on = picked ? (picked.id ? picked.id === r.id : picked.name === r.name) : false;
                       const displayName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
+                      const avatarUrl = r.id ? residentsById.get(r.id)?.avatarUrl : undefined;
                       return (
-                        <div key={r.name} className="rowh" onClick={() => { setResidentName(r.name); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
-                          <Avatar name={displayName} size={34} />
+                        <div key={r.id ?? `name:${r.name}`} className="rowh" onClick={() => { setPicked(r); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
+                          <Avatar name={displayName} size={34} url={avatarUrl} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
                             <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{r.sub}</div>
@@ -191,20 +278,52 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                         </div>
                       );
                     })}
+                    {directory.loading && <div style={{ padding: '10px 13px', fontSize: 12.5, color: 'var(--color-faint)' }}>{t('dl_loading')}…</div>}
                   </div>
                 </>
               ) : (
                 <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                   <div style={{ gridColumn: '1/-1' }}>
-                    <div style={FIELD_LABEL_STYLE}>{t('wz_fullname')}</div>
+                    <div style={FIELD_LABEL_STYLE}>{t('wz_fullname')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                     <input value={newName} onChange={(e) => setNewName(e.target.value)} placeholder={t('ph_entername')} style={FIELD_STYLE} />
                   </div>
                   <div>
+                    <div style={FIELD_LABEL_STYLE}>{t('wz_phone')}</div>
+                    <input value={newPhone} onChange={(e) => setNewPhone(e.target.value)} type="tel" placeholder="+420…" style={FIELD_STYLE} />
+                  </div>
+                  <div>
                     <div style={FIELD_LABEL_STYLE}>{t('wz_gender')}</div>
-                    <select value={newGender} onChange={(e) => setNewGender(e.target.value as 'Male' | 'Female')} style={FIELD_STYLE}>
-                      <option value="Male">{t('g_male')}</option>
-                      <option value="Female">{t('g_female')}</option>
+                    <select value={newGender} onChange={(e) => setNewGender(e.target.value as Gender)} style={FIELD_STYLE}>
+                      <option value="M">{t('g_male')}</option>
+                      <option value="F">{t('g_female')}</option>
                     </select>
+                  </div>
+                  <div>
+                    <div style={FIELD_LABEL_STYLE}>{t('wz_dob')}</div>
+                    <input value={newDob} onChange={(e) => setNewDob(e.target.value)} type="date" max={TODAY} style={FIELD_STYLE} />
+                  </div>
+                  <div style={{ gridColumn: '1/-1' }}>
+                    <div style={FIELD_LABEL_STYLE}>{t('doc_passport')}</div>
+                    {filePicker(t('doc_add'), (files) => setPassportFiles((prev) => [...prev, ...files]), 'image/*,application/pdf')}
+                    {fileList(passportFiles, (i) => setPassportFiles((prev) => prev.filter((_, j) => j !== i)))}
+                  </div>
+                  <div style={{ gridColumn: '1/-1', display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <Avatar name={newName || '?'} size={56} url={portrait?.url} />
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                      <button type="button" className="chip" onClick={() => void cropPortrait()} disabled={cropping} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 14px', fontSize: 12.5, cursor: 'pointer', fontWeight: 600 }}>
+                        {cropping ? t('ai_busy') : t('ai_extract')}
+                      </button>
+                      {portrait && (
+                        <button type="button" className="chip" onClick={() => { URL.revokeObjectURL(portrait.url); setPortrait(null); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 14px', fontSize: 12.5, cursor: 'pointer', color: 'var(--color-muted)' }}>
+                          {t('photo_remove')}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  <div style={{ gridColumn: '1/-1' }}>
+                    <div style={FIELD_LABEL_STYLE}>{t('doc_other')}</div>
+                    {filePicker(t('doc_add'), (files) => setOtherFiles((prev) => [...prev, ...files]), 'image/*,application/pdf')}
+                    {fileList(otherFiles, (i) => setOtherFiles((prev) => prev.filter((_, j) => j !== i)))}
                   </div>
                 </div>
               )}
@@ -216,52 +335,71 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
           {step === 2 && (
             <>
-              <div style={{ display: 'flex', gap: 11, marginBottom: 15, flexWrap: 'wrap' }}>
-                <div style={{ flex: 1, minWidth: 180 }}>
+              <div style={{ display: 'flex', gap: 11, marginBottom: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+                <div style={{ flex: 1, minWidth: 200 }}>
                   <div style={FIELD_LABEL_STYLE}>{t('hostel')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   <select value={propertyId} onChange={(e) => { setPropertyId(e.target.value); setRoomId(''); setSelectedBedIds([]); setError(''); }} style={FIELD_STYLE}>
                     <option value="">{t('select')}</option>
                     {properties.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
                   </select>
                 </div>
-                <div style={{ flex: 1, minWidth: 180 }}>
-                  <div style={FIELD_LABEL_STYLE}>{t('room')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <select value={roomId} onChange={(e) => { setRoomId(e.target.value); setSelectedBedIds([]); setError(''); }} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {roomOptions.map((o) => <option key={o.room.id} value={o.room.id}>{o.label}</option>)}
-                  </select>
-                </div>
+                {propertyId && (
+                  <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)', paddingBottom: 10 }}>
+                    {freeInProperty} {t('free').toLowerCase()}
+                    {selectedBedIds.length > 0 && <> · <b style={{ color: 'var(--color-ink)' }}>{t('ci_beds_sel', { n: selectedBedIds.length })}</b></>}
+                  </div>
+                )}
               </div>
-              {selectedRoom && (
-                <div style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 12, padding: 15 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 11 }}>
-                    <span className="hd" style={{ fontSize: 16 }}>{translatePlace(selectedRoom.name, lang)}</span>
-                    <Pill label={t(ROOM_GENDER_LABEL_KEY[roomG])} fg={roomGFg} bg={roomGBg} />
-                    <span className="num" style={{ fontSize: 11.5, color: 'var(--color-muted)', marginLeft: 'auto' }}>
-                      {formatCurrency(selectedRoom.priceFrom, currency)}–{formatCurrency(selectedRoom.priceTo, currency)}
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                    {roomBeds.map((bed) => {
-                      const sel = selectedBedIds.includes(bed.id);
-                      const colors = bed.status === 'free'
-                        ? (sel ? ['#141414', '#141414', '#FFD600'] : ['#E4F6EC', '#B7E4CB', '#1B7F52'])
-                        : bed.status === 'booked' ? ['#FFFBE6', '#FFE88A', '#8A6B00'] : ['#F1F1F5', '#E2E2EA', '#5C5C66'];
-                      return (
-                        <div
-                          key={bed.id}
-                          className="bed"
-                          onClick={() => toggleBed(bed.id, bed.status)}
-                          title={bed.status === 'occupied' && bed.residentId ? safeName(residentsById.get(bed.residentId)?.name ?? '', !!roleConfig.hideNames, t('hidden_name')) : bed.status === 'booked' ? t('booked_place') : t('free_place')}
-                          style={{ minWidth: 44, height: 44, borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, cursor: bed.status === 'free' ? 'pointer' : 'not-allowed', background: colors[0], border: `1px solid ${colors[1]}`, color: colors[2] }}
-                        >
-                          {bed.index}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div style={{ fontSize: 11.5, color: 'var(--color-faint)', marginTop: 11 }}>{t('ci_pick_hint')}</div>
-                </div>
+              {propertyId && (
+                <>
+                  {GROUP_ORDER.map((groupType) => {
+                    const groupRooms = propertyRooms.filter((r) => r.type === groupType);
+                    if (!groupRooms.length) return null;
+                    return (
+                      <div key={groupType} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(210px,1fr))', gap: 10, marginBottom: 10 }}>
+                        {groupRooms.map((room) => {
+                          const roomBeds = beds.filter((b) => b.roomId === room.id).sort((a, b) => a.index - b.index);
+                          const g = roomGender(roomBeds, residentsById);
+                          const [gFg, gBg] = ROOM_GENDER_PILL[g] ?? DEFAULT_PILL;
+                          const active = room.id === roomId;
+                          return (
+                            <div key={room.id} style={{ background: active ? '#FFFBE6' : '#fff', border: `1px solid ${active ? '#FFE88A' : 'var(--color-border)'}`, borderRadius: 12, padding: '11px 12px', opacity: room.available ? 1 : 0.6 }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 9 }}>
+                                <span style={{ fontWeight: 700, fontSize: 13, flex: 1, minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{translatePlace(room.name.replace(/^.*? - /, ''), lang)}</span>
+                                <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={gFg} bg={gBg} />
+                              </div>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                {roomBeds.map((bed) => {
+                                  const sel = selectedBedIds.includes(bed.id);
+                                  const [bg, border, fg] = sel ? ['#141414', '#141414', '#FFD600'] : BED_TILE_COLORS[bed.status];
+                                  const occupant = bed.residentId ? residentsById.get(bed.residentId) : undefined;
+                                  return (
+                                    <div
+                                      key={bed.id}
+                                      className="bed"
+                                      onClick={() => pickBed(room, bed.id, bed.status)}
+                                      title={occupant ? safeName(occupant.name, !!roleConfig.hideNames, t('hidden_name')) : bed.status === 'unavailable' ? t('unavail_tip') : t('free_place')}
+                                      style={{ position: 'relative', minWidth: 38, height: 38, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12.5, fontWeight: 700, cursor: bed.status === 'free' ? 'pointer' : 'not-allowed', background: bg, border: `1px solid ${border}`, color: fg }}
+                                    >
+                                      {bed.index}
+                                      {occupant && (
+                                        <span style={{ position: 'absolute', bottom: -4, right: -4, fontSize: 10, background: '#fff', borderRadius: '50%', lineHeight: 1, padding: 1 }}>{GENDER_EMOJI[occupant.gender]}</span>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                              <div className="num" style={{ fontSize: 11, color: 'var(--color-muted)', marginTop: 9 }}>
+                                {formatCurrency(room.priceFrom, currency)}–{formatCurrency(room.priceTo, currency)}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
+                  <div style={{ fontSize: 11.5, color: 'var(--color-faint)', marginTop: 4 }}>{t('ci_pick_hint')}</div>
+                </>
               )}
             </>
           )}
@@ -278,28 +416,23 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
               <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_manager') : t('lbl_responsible')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <select value={manager} onChange={(e) => { setManager(e.target.value); setProject(''); }} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {MANAGERS.map((m) => <option key={m} value={m}>{m}</option>)}
-                  </select>
+                  <SuggestInput value={manager} onChange={setManager} options={known.managers} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
-                    <option value="">{t('select')}</option>
-                    {projectOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-                  </select>
+                  {type === 'Internal' ? (
+                    <SuggestInput value={project} onChange={setProject} options={known.projects} />
+                  ) : (
+                    <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
+                      <option value="">{t('select')}</option>
+                      <option value="Client direct">{t('d_client')}</option>
+                      <option value="Hostel direct">{t('d_hostel')}</option>
+                    </select>
+                  )}
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('ff_checkin')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   <DatePopover value={date} onChange={setDate} />
-                </div>
-                <div>
-                  <div style={FIELD_LABEL_STYLE}>{t('wz_family')}</div>
-                  <select value={family ? 'yes' : 'no'} onChange={(e) => setFamily(e.target.value === 'yes')} style={FIELD_STYLE}>
-                    <option value="no">{t('no')}</option>
-                    <option value="yes">{t('yes')}</option>
-                  </select>
                 </div>
               </div>
               <div style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 11, padding: 14, marginTop: 15 }}>
@@ -329,8 +462,8 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
           <button onClick={goBack} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)', visibility: step > 1 ? 'visible' : 'hidden' }}>
             {t('wz_back')}
           </button>
-          <button className="pbtn" onClick={() => void goNext()} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 22px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>
-            {step < 3 ? t('wz_continue') : t('ci_confirm')}
+          <button className="pbtn" onClick={() => void goNext()} disabled={saving} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 22px', fontSize: 13.5, fontWeight: 600, cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.6 : 1 }}>
+            {saving ? t('saving') : step < 3 ? t('wz_continue') : t('ci_confirm')}
           </button>
         </div>
       </div>
