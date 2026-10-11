@@ -16,6 +16,10 @@ import { Pill } from '@/components/ui/Pill';
 import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
 import { CheckInWizard } from '@/components/checkin/CheckInWizard';
 import { PersonCard } from '@/components/residents/PersonCard';
+import { AddRoomDialog } from '@/components/dashboard/AddRoomDialog';
+import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
+import { roomsRepository } from '@/repositories/roomsRepository';
+import { bedsRepository } from '@/repositories/bedsRepository';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
@@ -27,6 +31,9 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const currency = useSessionStore((s) => s.currency);
   const role = useSessionStore((s) => s.role);
   const roleConfig = ROLES[role];
+  const showToast = useSessionStore((s) => s.showToast);
+  // Rooms and beds are managed by admins and team members (checked again by the database).
+  const canManage = useSessionStore((s) => s.actualRole === 'Administrator' || s.actualRole === 'Company employee');
 
   const properties = useEntityStore((s) => s.properties);
   const rooms = useEntityStore((s) => s.rooms);
@@ -38,6 +45,9 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const [logRoomId, setLogRoomId] = useState<string | null>(null);
   const [checkInTarget, setCheckInTarget] = useState<{ roomId: string; bedId: string } | null>(null);
   const [personId, setPersonId] = useState<string | null>(null);
+  const [editRooms, setEditRooms] = useState(false);
+  const [addRoomOpen, setAddRoomOpen] = useState(false);
+  const [confirm, setConfirm] = useState<{ title: string; sub: string; onYes: () => void } | null>(null);
 
   const property = properties.find((p) => p.id === propertyId);
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
@@ -68,8 +78,16 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
     return t('free_tip');
   };
 
+  const failed = (e: unknown) => showToast(e instanceof Error ? e.message : String(e));
+
   // Everything opens over this screen: the person's card for an occupied bed, check-in for a free one.
+  // While editing rooms, a click switches a free bed off or an unavailable one back on.
   const onBedClick = (bed: Bed, room: Room) => {
+    if (editRooms) {
+      if (bed.status === 'occupied') return showToast(t('bed_busy'));
+      bedsRepository.setAvailable(bed.id, bed.status === 'unavailable').catch(failed);
+      return;
+    }
     if (bed.status === 'occupied' && bed.residentId) setPersonId(bed.residentId);
     else if (bed.status === 'free') setCheckInTarget({ roomId: room.id, bedId: bed.id });
   };
@@ -105,6 +123,16 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{property.name}</h1>
           <p style={{ color: 'var(--color-muted)', fontSize: 13.5, marginTop: 2 }}>{summary}</p>
         </div>
+        <div style={{ display: 'flex', gap: 9, alignItems: 'center', flexWrap: 'wrap' }}>
+        {canManage && tab === 'rooms' && (
+          <button
+            className="pbtn"
+            onClick={() => setEditRooms(!editRooms)}
+            style={{ background: editRooms ? '#141414' : '#fff', color: editRooms ? '#fff' : 'var(--color-ink)', border: '1px solid ' + (editRooms ? '#141414' : 'var(--color-border)'), borderRadius: 10, padding: '9px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}
+          >
+            {editRooms ? t('rm_done') : t('rm_edit')}
+          </button>
+        )}
         <div style={{ display: 'flex', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 10, padding: 3 }}>
           {(['rooms', 'residents'] as const).map((k) => (
             <button
@@ -117,6 +145,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
             </button>
           ))}
         </div>
+        </div>
       </div>
 
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 20 }}>
@@ -127,6 +156,15 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
           </div>
         ))}
       </div>
+
+      {editRooms && tab === 'rooms' && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 18 }}>
+          <button className="pbtn" onClick={() => setAddRoomOpen(true)} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 10, padding: '10px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+            {t('rm_add')}
+          </button>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#8A6B00', background: '#FFF8D6', border: '1px solid #FFE88A', borderRadius: 8, padding: '6px 11px' }}>{t('bed_edit_hint')}</div>
+        </div>
+      )}
 
       {tab === 'rooms' &&
         roomGroups.map((group) => (
@@ -148,14 +186,26 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                       <div className="hd" style={{ fontSize: 17, whiteSpace: 'nowrap' }}>{translatePlace(room.name, lang)}</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                         <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={fg} bg={bg} />
-                        <button
-                          className="chip"
-                          onClick={() => setLogRoomId(room.id)}
-                          title={t('room_log')}
-                          style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 7, padding: '3px 8px', fontSize: 11, cursor: 'pointer', color: 'var(--color-muted)', whiteSpace: 'nowrap' }}
-                        >
-                          {t('log')}
-                        </button>
+                        {editRooms ? (
+                          occupied === 0 && (
+                            <button
+                              className="chip"
+                              onClick={() => setConfirm({ title: t('rm_archive'), sub: t('rm_archive_sub'), onYes: () => { roomsRepository.archive(room.id).catch(failed); setConfirm(null); } })}
+                              style={{ background: '#fff', border: '1px solid #F6CBCB', color: 'var(--color-red)', borderRadius: 7, padding: '3px 8px', fontSize: 11, cursor: 'pointer', whiteSpace: 'nowrap' }}
+                            >
+                              {t('rm_archive')}
+                            </button>
+                          )
+                        ) : (
+                          <button
+                            className="chip"
+                            onClick={() => setLogRoomId(room.id)}
+                            title={t('room_log')}
+                            style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 7, padding: '3px 8px', fontSize: 11, cursor: 'pointer', color: 'var(--color-muted)', whiteSpace: 'nowrap' }}
+                          >
+                            {t('log')}
+                          </button>
+                        )}
                       </div>
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 13 }}>
@@ -176,9 +226,29 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                                 {GENDER_EMOJI[resident.gender]}
                               </span>
                             )}
+                            {editRooms && bed.status !== 'occupied' && (
+                              <button
+                                type="button"
+                                title={t('bed_archive')}
+                                onClick={(e) => { e.stopPropagation(); setConfirm({ title: t('bed_archive'), sub: t('bed_archive_sub'), onYes: () => { bedsRepository.archive(bed.id).catch(failed); setConfirm(null); } }); }}
+                                style={{ position: 'absolute', top: -7, right: -7, width: 18, height: 18, borderRadius: '50%', border: '1.5px solid var(--color-red)', background: '#fff', color: 'var(--color-red)', fontSize: 11, lineHeight: 1, padding: 0, cursor: 'pointer' }}
+                              >
+                                ×
+                              </button>
+                            )}
                           </div>
                         );
                       })}
+                      {editRooms && (
+                        <button
+                          type="button"
+                          title={t('bed_add')}
+                          onClick={() => { bedsRepository.create(room.id).catch(failed); }}
+                          style={{ minWidth: 42, height: 42, borderRadius: 11, border: '1px dashed #C9C9D4', background: '#fff', color: 'var(--color-muted)', fontSize: 18, cursor: 'pointer' }}
+                        >
+                          +
+                        </button>
+                      )}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #F2F2F6', paddingTop: 10 }}>
                       <div className="num" style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>
@@ -227,6 +297,8 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       {logRoomId && <RoomHistoryModal propertyId={propertyId} roomId={logRoomId} onClose={() => setLogRoomId(null)} />}
 
       {personId && <PersonCard residentId={personId} onClose={() => setPersonId(null)} />}
+      {addRoomOpen && <AddRoomDialog propertyId={propertyId} onClose={() => setAddRoomOpen(false)} />}
+      {confirm && <ConfirmDialog title={confirm.title} sub={confirm.sub} onCancel={() => setConfirm(null)} onConfirm={confirm.onYes} />}
 
       {checkInTarget && (
         <CheckInWizard
