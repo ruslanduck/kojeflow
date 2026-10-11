@@ -471,3 +471,12 @@ input[type='date'] {
     animation: none !important;
   }
 }
+
+/* Toasts sit above the floating tab bar on phones. */
+@media (max-width: 860px) {
+  .toast {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 92px) !important;
+    max-width: calc(100vw - 32px);
+    text-align: center;
+  }
+}

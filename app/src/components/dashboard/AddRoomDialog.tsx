@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { roomsRepository } from '@/repositories/roomsRepository';
+import { DuplicateError } from '@/lib/supabase/write';
 import { Portal } from '@/components/ui/Portal';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import type { RoomType } from '@/domain/types';
@@ -33,7 +34,7 @@ export function AddRoomDialog({ propertyId, onClose }: { propertyId: string; onC
       });
       onClose();
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(e instanceof DuplicateError ? t('rm_exists') : e instanceof Error ? e.message : String(e));
       setSaving(false);
     }
   };

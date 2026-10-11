@@ -30,9 +30,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   // Only admins may preview the UI as another role; data access is enforced by RLS regardless.
   const isAdmin = useSessionStore((s) => s.actualRole === 'Administrator');
   const toast = useSessionStore((s) => s.toast);
+  const clearToast = useSessionStore((s) => s.clearToast);
   const sheetOpen = useSessionStore((s) => s.sheetOpen);
   const openSheet = useSessionStore((s) => s.openSheet);
   const closeSheet = useSessionStore((s) => s.closeSheet);
+
+  // A toast stays for a few seconds; a newer message restarts the timer.
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(clearToast, 3500);
+    return () => clearTimeout(timer);
+  }, [toast, clearToast]);
 
   const roleConfig = ROLES[role];
   const nav = roleConfig.nav;
@@ -254,7 +262,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </div>
 
       {toast && (
-        <div style={{ position: 'fixed', bottom: 24, left: '50%', transform: 'translateX(-50%)', background: '#141414', color: '#fff', padding: '13px 22px', borderRadius: 11, fontSize: 13.5, fontWeight: 500, zIndex: 200, animation: 'slideUp .2s ease', boxShadow: '0 8px 30px rgba(0,0,0,.3)' }}>
+        <div className="toast" style={{ position: 'fixed', bottom: 24, left: 0, right: 0, margin: '0 auto', width: 'fit-content', background: '#141414', color: '#fff', padding: '13px 22px', borderRadius: 11, fontSize: 13.5, fontWeight: 500, zIndex: 200, animation: 'slideUp .2s ease', boxShadow: '0 8px 30px rgba(0,0,0,.3)' }}>
           {toast}
         </div>
       )}

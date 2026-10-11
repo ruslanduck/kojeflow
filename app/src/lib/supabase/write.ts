@@ -2,8 +2,18 @@
 
 import { createClient } from './client';
 
+const UNIQUE_VIOLATION = '23505';
+
+/** A row with the same number or name already exists (Postgres unique violation). */
+export class DuplicateError extends Error {
+  constructor(what: string) {
+    super(`${what}: already exists`);
+  }
+}
+
 /** Throws a readable error for a failed Supabase call; RLS refusals arrive here too. */
-export function check<T>(result: { data: T; error: { message: string } | null }, what: string): NonNullable<T> {
+export function check<T>(result: { data: T; error: { message: string; code?: string } | null }, what: string): NonNullable<T> {
+  if (result.error?.code === UNIQUE_VIOLATION) throw new DuplicateError(what);
   if (result.error) throw new Error(`${what}: ${result.error.message}`);
   return result.data as NonNullable<T>;
 }

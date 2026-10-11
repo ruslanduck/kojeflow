@@ -74,6 +74,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       const resident = residentsById.get(bed.residentId);
       return `${safeName(resident?.name ?? '', !!roleConfig.hideNames, t('hidden_name'))} · ${t('occ_place')}`;
     }
+    if (editRooms) return t(bed.status === 'unavailable' ? 'bed_on_tip' : 'bed_off_tip');
     if (bed.status === 'unavailable') return t('unavail_tip');
     return t('free_tip');
   };
@@ -187,17 +188,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                       <div className="hd" style={{ fontSize: 17, whiteSpace: 'nowrap' }}>{translatePlace(room.name, lang)}</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                         <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={fg} bg={bg} />
-                        {editRooms ? (
-                          occupied === 0 && (
-                            <button
-                              className="chip"
-                              onClick={() => setConfirm({ title: t('rm_archive'), sub: t('rm_archive_sub'), onYes: () => { roomsRepository.archive(room.id).catch(failed); setConfirm(null); } })}
-                              style={{ background: '#fff', border: '1px solid #F6CBCB', color: 'var(--color-red)', borderRadius: 7, padding: '3px 8px', fontSize: 11, cursor: 'pointer', whiteSpace: 'nowrap' }}
-                            >
-                              {t('rm_archive')}
-                            </button>
-                          )
-                        ) : (
+                        {!editRooms && (
                           <button
                             className="chip"
                             onClick={() => setLogRoomId(room.id)}
@@ -255,9 +246,19 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                       <div className="num" style={{ fontSize: 11.5, color: 'var(--color-muted)' }}>
                         {occupied}/{roomBeds.length} · {free} {t('free').toLowerCase()}
                       </div>
-                      <div className="num" style={{ fontSize: 12.5, fontWeight: 600 }}>
-                        {formatCurrency(room.priceFrom, currency)}–{formatCurrency(room.priceTo, currency)}
-                      </div>
+                      {editRooms && occupied === 0 ? (
+                        <button
+                          className="chip"
+                          onClick={() => setConfirm({ title: t('rm_archive'), sub: t('rm_archive_sub'), onYes: () => { roomsRepository.archive(room.id).catch(failed); setConfirm(null); } })}
+                          style={{ background: '#fff', border: '1px solid #F6CBCB', color: 'var(--color-red)', borderRadius: 7, padding: '3px 9px', fontSize: 11.5, cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        >
+                          {t('rm_archive')}
+                        </button>
+                      ) : (
+                        <div className="num" style={{ fontSize: 12.5, fontWeight: 600 }}>
+                          {formatCurrency(room.priceFrom, currency)}–{formatCurrency(room.priceTo, currency)}
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
