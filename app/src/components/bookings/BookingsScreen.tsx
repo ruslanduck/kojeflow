@@ -51,10 +51,12 @@ export function BookingsScreen() {
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
-  const activeStayByResidentName = useMemo(() => {
+  // The bed shown on a booking is the person's current stay at that same property, matched by id:
+  // company names repeat across bookings, so a name would point at someone else's bed.
+  const activeStayFor = useMemo(() => {
     const m = new Map<string, (typeof stays)[number]>();
-    stays.filter((s) => s.status === 'active').forEach((s) => m.set(s.residentName, s));
-    return m;
+    stays.filter((s) => s.status === 'active').forEach((s) => m.set(`${s.residentId}|${s.propertyId}`, s));
+    return (b: (typeof bookings)[number]) => (b.residentId ? m.get(`${b.residentId}|${b.propertyId}`) : undefined);
   }, [stays]);
 
   const scope = useScopedPropertyIds();
@@ -145,7 +147,7 @@ export function BookingsScreen() {
       <div className="stagger" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {filtered.map((b) => {
           const property = propertiesById.get(b.propertyId);
-          const stay = activeStayByResidentName.get(b.residentName);
+          const stay = activeStayFor(b);
           const room = stay ? roomsById.get(stay.roomId) : undefined;
           const bed = stay ? bedsById.get(stay.bedId) : undefined;
           const assignLabel = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : t('not_assigned');
