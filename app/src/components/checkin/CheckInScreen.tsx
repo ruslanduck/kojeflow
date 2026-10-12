@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { useScopedPropertyIds } from '@/store/scope';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
@@ -50,9 +51,10 @@ export function CheckInScreen() {
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
 
-  const visibleProperties = roleConfig.ownHostel ? properties.filter((p) => p.name === roleConfig.ownHostel) : properties;
+  const scope = useScopedPropertyIds();
+  const visibleProperties = scope ? properties.filter((p) => scope.has(p.id)) : properties;
   const activeStays = stays.filter((s) => s.status === 'active');
-  const scopedStays = roleConfig.ownHostel ? activeStays.filter((s) => propertiesById.get(s.propertyId)?.name === roleConfig.ownHostel) : activeStays;
+  const scopedStays = scope ? activeStays.filter((s) => scope.has(s.propertyId)) : activeStays;
 
   const filteredStays = scopedStays.filter((s) => {
     if (propertyFilter !== 'All' && s.propertyId !== propertyFilter) return false;
@@ -60,8 +62,8 @@ export function CheckInScreen() {
     return true;
   });
 
-  const totalFreeBeds = (roleConfig.ownHostel ? beds.filter((b) => propertiesById.get(b.propertyId)?.name === roleConfig.ownHostel) : beds).filter((b) => b.status === 'free').length;
-  const awaitingCount = bookings.filter((b) => b.status === 'New' && (!roleConfig.ownHostel || propertiesById.get(b.propertyId)?.name === roleConfig.ownHostel)).length;
+  const totalFreeBeds = (scope ? beds.filter((b) => scope.has(b.propertyId)) : beds).filter((b) => b.status === 'free').length;
+  const awaitingCount = bookings.filter((b) => b.status === 'New' && (!scope || scope.has(b.propertyId))).length;
 
   const kpis = [
     { label: t('ci_kpi_living'), value: String(scopedStays.length), color: '#1B7F52', sub: t('kpi_networkwide') },
@@ -143,7 +145,7 @@ export function CheckInScreen() {
                 <div className="mactions" style={{ display: 'flex', justifyContent: 'flex-end', gap: 6 }}>
                   <button
                     className="pbtn"
-                    onClick={(e) => { e.stopPropagation(); router.push(`/finance?tab=billing&stay=${s.id}`); }}
+                    onClick={(e) => { e.stopPropagation(); router.push(`/finance?tab=billing&stay=${s.id}&openPay=1`); }}
                     style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '6px 11px', fontSize: 11.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap' }}
                   >
                     + {t('bl_pay_short')}
@@ -166,7 +168,12 @@ export function CheckInScreen() {
       {confirmCheckout && (
         <ConfirmDialog
           title={t('checkout_title')}
-          sub={t('checkout_confirm', { n: confirmCheckout.name })}
+          sub={(() => {
+            const stay = stays.find((x) => x.id === confirmCheckout.stayId);
+            const bill = stay && roleConfig.balance ? billFor({ ...stay, checkOut: today() }, payments) : null;
+            const base = t('checkout_confirm', { n: confirmCheckout.name });
+            return bill && bill.balance > 0 ? `${base} ${t('co_balance', { v: formatCurrency(bill.balance, currency) })}` : base;
+          })()}
           confirmLabel={t('checkout_action')}
           cancelLabel={t('stay_checked_in')}
           onCancel={() => setConfirmCheckout(null)}

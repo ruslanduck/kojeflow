@@ -137,3 +137,13 @@ export function billFor(stay: Stay, payments: Payment[], asOf: string = today())
     covered: charged ? Math.min(100, Math.round((paid / charged) * 100)) : 100,
   };
 }
+
+/**
+ * Stays that belong in billing: everyone living now, plus anyone who moved out after billing
+ * started and still owes (or was overpaid). Moving out must not make a debt disappear.
+ */
+export function billableStays(stays: Stay[], payments: Payment[]): Stay[] {
+  return stays.filter(
+    (s) => s.status === 'active' || (s.checkOut !== null && s.checkOut > BILLING_START && billFor(s, payments).balance !== 0),
+  );
+}

@@ -81,9 +81,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }
 
   async function handleLogout() {
-    await fetch('/api/logout', { method: 'POST' });
-    router.push('/login');
-    router.refresh();
+    await fetch('/api/logout', { method: 'POST' }).catch(() => {});
+    // A full page load, not client navigation: nothing of this user's data may survive in memory
+    // for whoever signs in next on the same device.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- a full reload is the point
+    window.location.assign('/login');
   }
 
   return (

@@ -49,6 +49,8 @@ export interface CurrentUser {
   /** Properties a house manager or client is limited to; empty for staff. */
   propertyIds: string[];
   language: Lang;
+  /** A switched-off profile reads nothing; the app says so instead of showing empty screens. */
+  active: boolean;
 }
 
 export interface SnapshotPayload {

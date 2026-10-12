@@ -35,7 +35,7 @@
       "settings"
     ],
     "balance": false,
-    "ownHostel": "P.Svandy"
+    "scoped": true
   },
   "Client": {
     "nav": [
@@ -47,6 +47,7 @@
     ],
     "balance": false,
     "hideNames": true,
-    "ownOnly": true
+    "ownOnly": true,
+    "readOnly": true
   }
 }

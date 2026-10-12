@@ -93,7 +93,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       return;
     }
     if (bed.status === 'occupied' && bed.residentId) setPersonId(bed.residentId);
-    else if (bed.status === 'free') setCheckInTarget({ roomId: room.id, bedId: bed.id });
+    else if (bed.status === 'free' && !roleConfig.readOnly) setCheckInTarget({ roomId: room.id, bedId: bed.id });
   };
 
   const roomGroups = GROUP_ORDER.map((type) => {

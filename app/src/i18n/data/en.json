@@ -554,5 +554,20 @@
   "login_password": "Password",
   "login_submit": "Sign in",
   "login_busy": "Signing in…",
-  "login_invalid": "Invalid email or password"
+  "login_invalid": "Invalid email or password",
+  "err_already_living": "This person already lives in a property — check them out there first",
+  "err_not_allowed": "You don't have the rights for this change",
+  "err_pick_bed": "Pick at least one free bed",
+  "rate_none": "No price set — nothing will be charged",
+  "rate_none_short": "no price",
+  "rate_beds_tip": "The stay had no valid price; the beds' price is used",
+  "fn_left": "moved out",
+  "co_balance": "Unpaid balance: {v}. It stays in Finance after check-out.",
+  "team_invite_hint": "New people are invited in Supabase → Authentication → Invite user. After they sign in for the first time, give them a role and properties here.",
+  "team_properties": "Properties",
+  "team_access": "Access",
+  "team_all_properties": "All properties",
+  "team_disable": "Turn off",
+  "team_enable": "Turn on",
+  "err_no_access": "This account has no access. Ask an administrator."
 }

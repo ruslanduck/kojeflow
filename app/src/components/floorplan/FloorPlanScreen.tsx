@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { useScopedPropertyIds } from '@/store/scope';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
@@ -49,9 +50,10 @@ export function FloorPlanScreen() {
   const residents = useEntityStore((s) => s.residents);
   const floorPlans = useEntityStore((s) => s.floorPlans);
   const floorZones = useEntityStore((s) => s.floorZones);
+  const scope = useScopedPropertyIds();
 
   const [propertyId, setPropertyId] = useState(() => {
-    if (roleConfig.ownHostel) return properties.find((p) => p.name === roleConfig.ownHostel)?.id ?? properties[0]?.id ?? '';
+    if (scope) return properties.find((p) => scope.has(p.id))?.id ?? '';
     return properties[0]?.id ?? '';
   });
   const [editMode, setEditMode] = useState(false);
@@ -66,7 +68,7 @@ export function FloorPlanScreen() {
   const canEdit = !!roleConfig.planner;
   const wrapperRefs = useRef<Record<string, HTMLDivElement>>({});
   const residentsById = new Map(residents.map((r) => [r.id, r]));
-  const visibleProperties = roleConfig.ownHostel ? properties.filter((p) => p.name === roleConfig.ownHostel) : properties;
+  const visibleProperties = scope ? properties.filter((p) => scope.has(p.id)) : properties;
 
   const plans = floorPlans.filter((p) => p.propertyId === propertyId).sort((a, b) => a.sort - b.sort || a.name.localeCompare(b.name));
   const propertyRooms = rooms.filter((r) => r.propertyId === propertyId);

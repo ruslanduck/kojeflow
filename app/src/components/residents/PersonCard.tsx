@@ -7,7 +7,7 @@ import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { residentsRepository } from '@/repositories/residentsRepository';
-import { billFor } from '@/domain/logic';
+import { today, billFor } from '@/domain/logic';
 import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, DEFAULT_PILL, ROOM_GENDER_LABEL_KEY } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { extractPortrait } from '@/lib/passportPhoto';
@@ -46,7 +46,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const [tab, setTab] = useState<'details' | 'log'>('details');
   const [editing, setEditing] = useState(false);
   const [editName, setEditName] = useState('');
-  const [editGender, setEditGender] = useState<Gender>('M');
+  const [editGender, setEditGender] = useState<Gender | null>(null);
   const [editAvatarUrl, setEditAvatarUrl] = useState<string | undefined>(undefined);
   const [editPassportDocs, setEditPassportDocs] = useState<ResidentDocument[]>([]);
   const [editOtherDocs, setEditOtherDocs] = useState<ResidentDocument[]>([]);
@@ -64,9 +64,14 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const name = resident?.name ?? personName ?? '';
   const allStaysForResident = resident ? stays.filter((s) => s.residentId === resident.id).sort((a, b) => (a.checkIn < b.checkIn ? 1 : -1)) : [];
   const activeStay = allStaysForResident.find((s) => s.status === 'active') ?? null;
-  const booking = bookings.find((b) => b.residentName === name && b.status === 'New');
-  const registration = registrations.find((r) => r.residentName === name);
-  const bill = activeStay ? billFor(activeStay, payments) : null;
+  // Matched by id; a name is only trusted for records that have no person attached.
+  const isTheirs = (x: { residentId: string | null; residentName: string }) =>
+    resident ? x.residentId === resident.id || (!x.residentId && x.residentName === name) : x.residentName === name;
+  const booking = bookings.find((b) => b.status === 'New' && isTheirs(b));
+  // The latest registration, preferring one that is still valid (the list comes newest first).
+  const theirRegistrations = registrations.filter(isTheirs);
+  const registration = theirRegistrations.find((r) => r.status === 'Registered' && (!r.expires || r.expires >= today())) ?? theirRegistrations[0];
+  const bill = activeStay && roleConfig.balance ? billFor(activeStay, payments) : null;
 
   if (!resident && !booking) {
     return (
@@ -81,7 +86,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   }
 
   const displayName = safeName(name, !!roleConfig.hideNames, t('hidden_name'));
-  const gender: 'M' | 'F' = resident?.gender ?? 'M';
+  const gender = resident?.gender ?? null;
   const propertyName = activeStay ? propertiesById.get(activeStay.propertyId)?.name : booking ? propertiesById.get(booking.propertyId)?.name : undefined;
   const room = activeStay ? roomsById.get(activeStay.roomId) : undefined;
   const bed = activeStay ? bedsById.get(activeStay.bedId) : undefined;
@@ -92,7 +97,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const [typeFg, typeBg] = TYPE_PILL[type] ?? DEFAULT_PILL;
 
   const rows = [
-    { k: t('pm_gender'), v: t(ROOM_GENDER_LABEL_KEY[gender]) },
+    { k: t('pm_gender'), v: gender ? t(ROOM_GENDER_LABEL_KEY[gender]) : '—' },
     { k: t('pm_hostel'), v: propertyName ?? '—' },
     { k: t('pm_roomplace'), v: placeLabel },
     { k: t('pm_checkin'), v: activeStay ? formatDateDMY(activeStay.checkIn) : '—' },
@@ -120,7 +125,8 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
     if (!resident) return setEditing(false);
     setSavingEdit(true);
     try {
-      await residentsRepository.update(resident.id, { name: editName.trim() || name, gender: editGender });
+      // Gender is written only when changed, so an unknown gender is never saved as a guess.
+      await residentsRepository.update(resident.id, { name: editName.trim() || name, ...(editGender !== resident.gender && { gender: editGender }) });
       for (const kind of ['passport', 'other'] as const) {
         const edited = kind === 'passport' ? editPassportDocs : editOtherDocs;
         const stored = (kind === 'passport' ? resident.passportDocs : resident.otherDocs) ?? [];
@@ -192,11 +198,12 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
           </div>
 
           {editing ? (
-            <div style={{ padding: '18px 24px', flex: 1 }}>
+            <div style={{ padding: '18px 24px', flex: 1, minHeight: 0, overflowY: 'auto' }}>
               <div style={FIELD_LABEL_STYLE}>{t('wz_fullname')}</div>
               <input value={editName} onChange={(e) => setEditName(e.target.value)} style={{ ...FIELD_STYLE, marginBottom: 12 }} />
               <div style={FIELD_LABEL_STYLE}>{t('wz_gender')}</div>
-              <select value={editGender} onChange={(e) => setEditGender(e.target.value as Gender)} style={{ ...FIELD_STYLE, marginBottom: 18 }}>
+              <select value={editGender ?? ''} onChange={(e) => setEditGender((e.target.value || null) as Gender | null)} style={{ ...FIELD_STYLE, marginBottom: 18 }}>
+                {!editGender && <option value="">—</option>}
                 <option value="M">{t('g_male')}</option>
                 <option value="F">{t('g_female')}</option>
               </select>
@@ -325,7 +332,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
             ) : (
               <>
                 <button className="chip" onClick={onClose} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', fontFamily: 'inherit' }}>{t('close')}</button>
-                {bill && activeStay && (
+                {bill && activeStay && roleConfig.nav.includes('finances') && (
                   <>
                     <button className="chip" onClick={() => router.push(`/finance?tab=billing&stay=${activeStay.id}&scope=person`)} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', fontFamily: 'inherit' }}>
                       {t('bl_ledger')}

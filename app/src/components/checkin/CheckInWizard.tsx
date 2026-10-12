@@ -1,11 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
-import { checkIn } from '@/repositories/operations';
+import { checkIn, rateForBeds } from '@/repositories/operations';
 import { residentsRepository } from '@/repositories/residentsRepository';
 import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
 import { roomGender, today } from '@/domain/logic';
@@ -19,7 +19,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
-import type { Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
+import type { Bed, Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
 
 interface CheckInWizardProps {
   onClose: () => void;
@@ -36,6 +36,8 @@ interface PickedPerson {
   id?: string;
   name: string;
   sub: string;
+  /** Picked from an open booking: checking in closes it and takes its gender and discount. */
+  booking?: Booking;
 }
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
@@ -59,7 +61,9 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const [step, setStep] = useState<1 | 2 | 3>(fromBooking ? 2 : 1);
   const [pickMode, setPickMode] = useState(true);
   const [search, setSearch] = useState('');
-  const [picked, setPicked] = useState<PickedPerson | null>(fromBooking ? { name: fromBooking.residentName, sub: '' } : null);
+  const [picked, setPicked] = useState<PickedPerson | null>(fromBooking ? { id: fromBooking.residentId ?? undefined, name: fromBooking.residentName, sub: '', booking: fromBooking } : null);
+  // A resident created by a failed attempt is reused on retry, not created again with all their files.
+  const createdResident = useRef<{ id: string; name: string } | null>(null);
 
   // new person
   const [newName, setNewName] = useState('');
@@ -93,7 +97,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const pool = useMemo((): PickedPerson[] => {
     const awaiting = bookings
       .filter((b) => b.status === 'New')
-      .map((b): PickedPerson => ({ name: b.residentName, sub: `${propertiesById.get(b.propertyId)?.name ?? ''} · ${t('wz_expected')} ${formatDateDMY(b.date)}` }));
+      .map((b): PickedPerson => ({ id: b.residentId ?? undefined, name: b.residentName, booking: b, sub: `${propertiesById.get(b.propertyId)?.name ?? ''} · ${t('wz_expected')} ${formatDateDMY(b.date)}` }));
     const living = activeStays.map((s) => {
       const room = roomsById.get(s.roomId);
       const bed = bedsById.get(s.bedId);
@@ -103,10 +107,10 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
     const fromDb = directory.rows.map((r) => ({ id: r.id, name: r.name, sub: [r.phone, r.dob ? formatDateDMY(r.dob) : ''].filter(Boolean).join(' · ') }));
     const term = search.trim().toLowerCase();
     const seen = new Set<string>();
-    return [...awaiting, ...living, ...fromDb]
+    return ([...awaiting, ...living, ...fromDb] as PickedPerson[])
       .filter((x) => !term || x.name.toLowerCase().includes(term))
       .filter((x) => {
-        const key = x.id ?? `name:${x.name}`;
+        const key = x.booking ? `booking:${x.booking.id}` : x.id ?? `name:${x.name}`;
         return !seen.has(key) && seen.add(key);
       })
       .slice(0, 40);
@@ -156,7 +160,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
     }
     if (step === 2) {
       if (!propertyId) return setError(t('err_hostel'));
-      if (!roomId || selectedBedIds.length === 0) return setError(t('err_no_places'));
+      if (!roomId || selectedBedIds.length === 0) return setError(t('err_pick_bed'));
       setStep(3);
       setError('');
       return;
@@ -173,18 +177,23 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
       const tenantType = type === 'Commercial' ? 'commercial' : 'internal';
       let residentId: string;
       let residentName: string;
-      if (!pickMode) {
+      if (createdResident.current) {
+        ({ id: residentId, name: residentName } = createdResident.current);
+      } else if (!pickMode) {
         residentName = newName.trim();
         const resident = await residentsRepository.create({ name: residentName, gender: newGender, phone: newPhone.trim(), dob: newDob, type: tenantType });
         residentId = resident.id;
+        createdResident.current = { id: residentId, name: residentName };
         if (passportFiles.length) await residentsRepository.addDocuments(residentId, 'passport', passportFiles);
         if (otherFiles.length) await residentsRepository.addDocuments(residentId, 'other', otherFiles);
-        if (portrait) await residentsRepository.setAvatar(residentId, portrait.blob);
       } else {
         residentName = picked!.name;
-        // A booking names a person who may not have a record yet.
-        const existingId = picked!.id ?? residents.find((r) => r.name === residentName)?.id;
-        residentId = existingId ?? (await residentsRepository.create({ name: residentName, gender: 'M', type: tenantType })).id;
+        // A booking names a person who may not have a record yet; it knows their gender.
+        if (picked!.id) residentId = picked!.id;
+        else {
+          residentId = (await residentsRepository.create({ name: residentName, gender: picked!.booking?.gender ?? null, type: tenantType })).id;
+          createdResident.current = { id: residentId, name: residentName };
+        }
         if (picked!.id && !residentsById.has(picked!.id)) {
           const hit = directory.rows.find((r) => r.id === picked!.id);
           if (hit) {
@@ -197,8 +206,11 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
       const stay = await checkIn({
         residentId, residentName, propertyId, roomId, bedIds: selectedBedIds, type,
-        manager: manager.trim(), project: project.trim(), checkIn: date, bookingId: fromBooking?.id,
+        manager: manager.trim(), project: project.trim(), checkIn: date,
+        bookingId: picked?.booking?.id ?? fromBooking?.id, discount: (picked?.booking ?? fromBooking)?.discount,
       });
+      // The photo is set once the stay exists, when the resident is visible to every role that may check in.
+      if (!pickMode && portrait) await residentsRepository.setAvatar(residentId, portrait.blob).catch(() => {});
       showToast(t('toast_ci', { n: residentName, p: selectedRoom ? translatePlace(selectedRoom.name, lang) : '' }));
       onSaved([stay]);
     } catch (e) {
@@ -218,6 +230,9 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
   const personName = pickMode ? picked?.name ?? '—' : newName.trim() || '—';
   const reviewName = safeName(personName, !!roleConfig.hideNames, t('hidden_name'));
+  const nightlyRate = rateForBeds(
+    selectedBedIds.map((id) => bedsById.get(id)).filter((b): b is Bed => Boolean(b)), type, (picked?.booking ?? fromBooking)?.discount,
+  );
   const reviewPlace = selectedRoom ? `${translatePlace(selectedRoom.name, lang)} · ${selectedBedIds.map((id) => bedsById.get(id)?.index).join(', ')}` : '—';
 
   const fileList = (files: File[], remove: (i: number) => void) =>
@@ -409,7 +424,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
             <>
               <div style={{ display: 'flex', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 10, padding: 3, marginBottom: 16 }}>
                 {(['Internal', 'Commercial'] as const).map((k) => (
-                  <button key={k} className="pbtn" onClick={() => { setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                  <button key={k} className="pbtn" onClick={() => { if (k !== type) setProject(''); setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                     {t(TYPE_LABEL_KEY[k])}
                   </button>
                 ))}
@@ -443,6 +458,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                     { k: t('ff_hostel'), v: propertiesById.get(propertyId)?.name ?? '—' },
                     { k: t('pm_roomplace'), v: reviewPlace },
                     { k: t('ff_type'), v: t(TYPE_LABEL_KEY[type]) },
+                    { k: t('bl_rate'), v: nightlyRate ? formatCurrency(nightlyRate, currency) : t('rate_none') },
                   ].map((row) => (
                     <div key={row.k}>
                       <div style={{ fontSize: 10, color: 'var(--color-faint)', textTransform: 'uppercase', letterSpacing: 0.5, fontWeight: 700 }}>{row.k}</div>

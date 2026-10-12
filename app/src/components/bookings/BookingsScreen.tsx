@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { useScopedPropertyIds } from '@/store/scope';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
@@ -56,10 +57,11 @@ export function BookingsScreen() {
     return m;
   }, [stays]);
 
-  const visibleProperties = roleConfig.ownHostel ? properties.filter((p) => p.name === roleConfig.ownHostel) : properties;
+  const scope = useScopedPropertyIds();
+  const visibleProperties = scope ? properties.filter((p) => scope.has(p.id)) : properties;
 
   const filtered = bookings.filter((b) => {
-    if (roleConfig.ownHostel && propertiesById.get(b.propertyId)?.name !== roleConfig.ownHostel) return false;
+    if (scope && !scope.has(b.propertyId)) return false;
     if (roleConfig.ownOnly && b.by !== profileName) return false;
     if (tab !== 'All' && b.status !== tab) return false;
     if (propertyFilter !== 'All' && b.propertyId !== propertyFilter) return false;
@@ -102,9 +104,11 @@ export function BookingsScreen() {
           <h1 className="hd ptitle" style={{ fontSize: 38 }}>{t('bk_title')}</h1>
           <p style={{ color: 'var(--color-muted)', fontSize: 13.5, marginTop: 2 }}>{t('bk_sub', { n: bookings.filter((b) => b.status === 'New').length })}</p>
         </div>
-        <button className="pbtn" onClick={openNew} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 10, padding: '12px 20px', fontWeight: 600, fontSize: 14, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap' }}>
+        {!roleConfig.readOnly && (
+          <button className="pbtn" onClick={openNew} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 10, padding: '12px 20px', fontWeight: 600, fontSize: 14, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap' }}>
           <span style={{ fontSize: 17, lineHeight: 1 }}>+</span> {t('bk_new')}
         </button>
+        )}
       </div>
 
       <div style={{ display: 'flex', gap: 10, marginBottom: 11, flexWrap: 'wrap' }}>
@@ -191,20 +195,26 @@ export function BookingsScreen() {
                     ))}
                   </div>
                   <div style={{ display: 'flex', gap: 9, flexWrap: 'wrap' }}>
-                    <button className="chip" onClick={(e) => { e.stopPropagation(); router.push(`/residents?personName=${encodeURIComponent(b.residentName)}`); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', color: 'var(--color-ink)', fontWeight: 600 }}>
+                    {roleConfig.nav.includes('residents') && (
+                      <button className="chip" onClick={(e) => { e.stopPropagation(); router.push(`/residents?personName=${encodeURIComponent(b.residentName)}`); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', color: 'var(--color-ink)', fontWeight: 600 }}>
                       {t('view_person')}
                     </button>
-                    <button
+                    )}
+                    {roleConfig.nav.includes('checkin') && (
+                      <button
                       className="pbtn"
                       onClick={(e) => { e.stopPropagation(); if (!done && !cancelled) router.push(`/checkin?booking=${b.id}`); }}
                       style={{ background: done || cancelled ? '#EDEDF2' : '#141414', color: done || cancelled ? 'var(--color-faint)' : '#fff', border: 'none', borderRadius: 9, padding: '9px 15px', fontSize: 13, fontWeight: 600, cursor: done || cancelled ? 'default' : 'pointer' }}
                     >
                       {done ? t('btn_checkedin') : cancelled ? t('btn_cancelled') : t('btn_checkin')}
                     </button>
-                    <button className="chip" onClick={(e) => { e.stopPropagation(); openEdit(b); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer' }}>
+                    )}
+                    {!roleConfig.readOnly && !done && !cancelled && (
+                      <button className="chip" onClick={(e) => { e.stopPropagation(); openEdit(b); }} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer' }}>
                       {t('edit')}
                     </button>
-                    {!done && !cancelled && (
+                    )}
+                    {!roleConfig.readOnly && !done && !cancelled && (
                       <button className="chip" onClick={(e) => { e.stopPropagation(); setConfirmCancel(b); }} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 9, padding: '9px 15px', fontSize: 13, cursor: 'pointer', color: 'var(--color-red)', fontWeight: 600 }}>
                         {t('cancel_booking')}
                       </button>

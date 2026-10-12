@@ -47,14 +47,17 @@ export function RegistrationsScreen() {
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
-  const activeStayByResidentName = useMemo(() => {
-    const m = new Map<string, (typeof stays)[number]>();
-    stays.filter((s) => s.status === 'active').forEach((s) => m.set(s.residentName, s));
-    return m;
-  }, [stays]);
+  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
+  const activeStayByResidentId = useMemo(() => new Map(activeStays.map((s) => [s.residentId, s])), [activeStays]);
+  const activeStayByResidentName = useMemo(() => new Map(activeStays.map((s) => [s.residentName, s])), [activeStays]);
+  // By id when the registration knows its person; old records only have a name.
+  const stayOf = (r: (typeof registrations)[number]) =>
+    r.residentId ? activeStayByResidentId.get(r.residentId) : activeStayByResidentName.get(r.residentName);
 
   const coordinators = useMemo(() => Array.from(new Set(registrations.map((r) => r.coordinator))).sort(), [registrations]);
-  const needAttention = registrations.filter((r) => expiryBucket(r.expires) !== 'Valid');
+  // Only registrations still in force for people living here now; a long-gone resident's
+  // expired registration needs nobody's attention.
+  const needAttention = registrations.filter((r) => r.status === 'Registered' && expiryBucket(r.expires) !== 'Valid' && stayOf(r));
 
   const filtered = registrations.filter((r) => {
     if (hostelFilter !== 'All' && r.propertyId !== hostelFilter) return false;
@@ -149,7 +152,7 @@ export function RegistrationsScreen() {
             const [statusFg, statusBg] = STATUS_PILL[r.status] ?? DEFAULT_PILL;
             const bucket = expiryBucket(r.expires);
             const expiryColor = bucket === 'Expired' ? 'var(--color-red)' : bucket === 'Soon' ? '#B8860B' : 'var(--color-muted)';
-            const stay = activeStayByResidentName.get(r.residentName);
+            const stay = stayOf(r);
             const room = stay ? roomsById.get(stay.roomId) : undefined;
             const bed = stay ? bedsById.get(stay.bedId) : undefined;
             const place = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : t('not_assigned');

@@ -334,6 +334,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
         role: ROLE_BY_DB[str(raw.me.role)] ?? 'Client',
         propertyIds: Array.isArray(raw.me.property_ids) ? raw.me.property_ids.map(str) : [],
         language: str(raw.me.language) === 'en' ? 'EN' : 'UK',
+        active: raw.me.is_active !== false,
       }
     : null;
 

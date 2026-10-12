@@ -6,7 +6,7 @@ import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { paymentsRepository } from '@/repositories/paymentsRepository';
-import { billFor, today } from '@/domain/logic';
+import { billableStays, billFor, today } from '@/domain/logic';
 import { translatePlace, safeName } from '@/domain/labels';
 import { formatCurrency } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
@@ -48,7 +48,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
-  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
+  const activeStays = useMemo(() => billableStays(stays, payments), [stays, payments]);
 
   const placeLabel = (s: Stay) => {
     const room = roomsById.get(s.roomId);

@@ -7,7 +7,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
 import { bookedCount, propertyStat } from '@/domain/dashboard';
-import { occupancyColor, billFor, today } from '@/domain/logic';
+import { occupancyColor, billableStays, billFor, today } from '@/domain/logic';
 import { useOccupancyOn } from '@/lib/supabase/history';
 import { GENDER_EMOJI } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
@@ -70,7 +70,7 @@ export function PropertiesDashboard() {
     [rows],
   );
 
-  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
+  const activeStays = useMemo(() => billableStays(stays, payments), [stays, payments]);
   const debtors = useMemo(
     () => (canSeeBalance ? activeStays.filter((s) => billFor(s, payments).debtor) : []),
     [activeStays, payments, canSeeBalance],

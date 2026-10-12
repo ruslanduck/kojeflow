@@ -7,6 +7,7 @@ import { hydrateEntities } from '@/store/entities';
 import { setLoadStatus, setSnapshotMeta, useDataSourceStore } from '@/store/dataSource';
 import { useSessionStore } from '@/store/session';
 import { useT } from '@/i18n/useT';
+import { translate } from '@/i18n';
 import { rememberLanguage, savedLanguage } from '@/lib/language';
 
 /**
@@ -45,6 +46,10 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const payload: SnapshotPayload = await response.json();
         if (cancelled) return;
+        if (!payload.me || !payload.me.active) {
+          setLoadStatus('error', translate(useSessionStore.getState().lang, 'err_no_access'));
+          return;
+        }
         if (payload.me) {
           setCurrentUser(payload.me);
           rememberLanguage(payload.me.language);
@@ -62,6 +67,31 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       cancelled = true;
     };
   }, [attempt, router, setCurrentUser]);
+
+  // Coming back to a tab that sat in the background refreshes the data quietly: colleagues'
+  // check-ins appear, and file links (signed for 12 hours) are renewed.
+  useEffect(() => {
+    let hiddenAt = 0;
+    const onVisibility = async () => {
+      if (document.hidden) {
+        hiddenAt = Date.now();
+        return;
+      }
+      if (!hiddenAt || Date.now() - hiddenAt < 5 * 60_000 || useDataSourceStore.getState().status !== 'ready') return;
+      hiddenAt = 0;
+      try {
+        const response = await fetch('/api/snapshot', { cache: 'no-store' });
+        if (response.status === 401) return router.replace('/login');
+        if (!response.ok) return;
+        const payload: SnapshotPayload = await response.json();
+        if (payload.me?.active) hydrateEntities(payload.entities);
+      } catch {
+        // Offline for a moment: the data on screen stays, the next return tries again.
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, [router]);
 
   if (status === 'ready') return <>{children}</>;
 

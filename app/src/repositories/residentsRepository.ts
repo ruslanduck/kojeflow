@@ -1,4 +1,5 @@
 import { useEntityStore } from '@/store/entities';
+import { useSessionStore } from '@/store/session';
 import { check, db } from '@/lib/supabase/write';
 import type { Gender, Resident, ResidentDocument } from '@/domain/types';
 
@@ -10,7 +11,7 @@ export type DocumentKind = 'passport' | 'other';
 
 export interface ResidentInput {
   name: string;
-  gender: Gender;
+  gender: Gender | null;
   phone?: string;
   dob?: string;
   type?: 'internal' | 'commercial' | 'unknown';
@@ -28,23 +29,25 @@ function objectName(fileName: string): string {
 /** Residents (public.tenants) and their files in the private tenant-documents bucket. */
 export const residentsRepository = {
   async create(input: ResidentInput): Promise<Resident> {
-    const row = check(
+    // The id is made here and the row is not read back: a house manager may insert a resident
+    // they cannot read until the stay exists, and reading it back would fail the insert.
+    const id = crypto.randomUUID();
+    check(
       await db()
         .from('tenants')
         .insert({
+          id,
           full_name: input.name,
-          gender: GENDER_DB[input.gender],
+          gender: input.gender ? GENDER_DB[input.gender] : null,
           phone: input.phone || null,
           birth_date: input.dob || null,
           type: input.type ?? 'unknown',
           source: 'app',
-        })
-        .select('id')
-        .single(),
+        }),
       'Save resident',
     );
     const resident: Resident = {
-      id: row.id, name: input.name, gender: input.gender, phone: input.phone || undefined, dob: input.dob || undefined,
+      id, name: input.name, gender: input.gender, phone: input.phone || undefined, dob: input.dob || undefined,
       passportDocs: [], otherDocs: [],
     };
     useEntityStore.setState((s) => ({ residents: [resident, ...s.residents] }));
@@ -54,7 +57,7 @@ export const residentsRepository = {
   async update(id: string, patch: Partial<ResidentInput>): Promise<void> {
     const row: Record<string, unknown> = {};
     if (patch.name !== undefined) row.full_name = patch.name;
-    if (patch.gender !== undefined) row.gender = GENDER_DB[patch.gender];
+    if (patch.gender !== undefined) row.gender = patch.gender ? GENDER_DB[patch.gender] : null;
     if (patch.phone !== undefined) row.phone = patch.phone || null;
     if (patch.dob !== undefined) row.birth_date = patch.dob || null;
     check(await db().from('tenants').update(row).eq('id', id), 'Update resident');
@@ -74,7 +77,10 @@ export const residentsRepository = {
       check(await supabase.storage.from(BUCKET).upload(path, file, { contentType: file.type || undefined }), 'Upload document');
       const inserted = await supabase
         .from('tenant_documents')
-        .insert({ tenant_id: tenantId, kind, storage_path: path, file_name: file.name, mime_type: file.type || null, size_bytes: file.size })
+        .insert({
+          tenant_id: tenantId, kind, storage_path: path, file_name: file.name, mime_type: file.type || null, size_bytes: file.size,
+          uploaded_by: useSessionStore.getState().userId,
+        })
         .select('id')
         .single();
       if (inserted.error) {
@@ -92,7 +98,9 @@ export const residentsRepository = {
   async removeDocument(tenantId: string, doc: ResidentDocument): Promise<void> {
     if (!doc.id) return;
     const supabase = db();
-    check(await supabase.from('tenant_documents').delete().eq('id', doc.id), 'Delete document');
+    // Row-level security filters a delete it refuses instead of failing it.
+    const removed = check(await supabase.from('tenant_documents').delete().eq('id', doc.id).select('id'), 'Delete document');
+    if (!removed.length) throw new Error('err_not_allowed');
     if (doc.path) await supabase.storage.from(BUCKET).remove([doc.path]);
     patchResident(tenantId, (r) => ({
       passportDocs: (r.passportDocs ?? []).filter((d) => d.id !== doc.id),

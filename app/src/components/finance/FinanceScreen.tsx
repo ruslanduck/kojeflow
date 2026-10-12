@@ -6,7 +6,7 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { billFor } from '@/domain/logic';
+import { billableStays, billFor } from '@/domain/logic';
 import { translatePlace, safeName, STATUS_LABEL_KEY, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatCurrency } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
@@ -57,7 +57,8 @@ export function FinanceScreen() {
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
-  const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
+  // Living residents plus those who moved out still owing: a debt stays visible after check-out.
+  const activeStays = useMemo(() => billableStays(stays, payments), [stays, payments]);
 
   // ---- billing ----
   const debtorStays = activeStays.filter((s) => billFor(s, payments).debtor);
@@ -169,7 +170,10 @@ export function FinanceScreen() {
                         <Avatar name={name} size={32} />
                         <div style={{ minWidth: 0 }}>
                           <div style={{ fontWeight: 600, fontSize: 13.5, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
-                          <Pill label={bill.debtor ? t('bl_owes') : t('bl_ok')} fg={badgeFg} bg={badgeBg} />
+                          <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                            <Pill label={bill.debtor ? t('bl_owes') : t('bl_ok')} fg={badgeFg} bg={badgeBg} />
+                            {s.status !== 'active' && <Pill label={t('fn_left')} fg="#6B6B78" bg="#EFEFF4" />}
+                          </div>
                         </div>
                       </div>
                       <div style={{ minWidth: 0 }}>
@@ -179,7 +183,9 @@ export function FinanceScreen() {
                         </div>
                       </div>
                       <div className="num" style={{ fontSize: 13 }}>{bill.days}</div>
-                      <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{formatCurrency(bill.rate, currency)}</div>
+                      <div className="num" title={s.rateSource === 'beds' ? t('rate_beds_tip') : s.rateSource === 'none' ? t('rate_none') : undefined} style={{ fontSize: 12.5, color: s.rateSource === 'stay' ? 'var(--color-muted)' : 'var(--color-red)' }}>
+                        {s.rateSource === 'none' ? `⚠ ${t('rate_none_short')}` : `${formatCurrency(bill.rate, currency)}${s.rateSource === 'beds' ? ' ⚠' : ''}`}
+                      </div>
                       <div className="num" style={{ fontSize: 13 }}>{formatCurrency(bill.charged, currency)}</div>
                       <div className="num" style={{ fontSize: 13, color: '#1B7F52' }}>{formatCurrency(bill.paid, currency)}</div>
                       <div className="num" style={{ fontSize: 14, fontWeight: 700, color: bill.debtor ? 'var(--color-red)' : '#1B7F52' }}>{formatCurrency(bill.debtor ? bill.balance : Math.min(bill.balance, 0), currency)}</div>

@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { saveLanguage } from '@/lib/language';
 import { useSessionStore } from '@/store/session';
-import { useEntityStore } from '@/store/entities';
-import { usersRepository } from '@/repositories/usersRepository';
-import { ROLE_NAMES, roleLabelKey, type RoleName } from '@/domain/roles';
+import { createClient } from '@/lib/supabase/client';
+import { errorText } from '@/i18n/errors';
+import { TeamTab } from './TeamTab';
 import { initials } from '@/lib/text';
-import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { formatCurrency } from '@/lib/format';
 import type { Lang } from '@/i18n';
 import { MappingNotice } from '@/components/ui/Unmapped';
@@ -25,42 +24,47 @@ export function SettingsScreen() {
   const setCurrency = useSessionStore((s) => s.setCurrency);
   const showToast = useSessionStore((s) => s.showToast);
 
-  const users = useEntityStore((s) => s.users);
-
+  const isAdmin = useSessionStore((s) => s.actualRole === 'Administrator');
   const [tab, setTab] = useState<'profile' | 'team' | 'system'>('profile');
-  const [confirmRemove, setConfirmRemove] = useState<{ id: string; name: string } | null>(null);
+
   const [curPw, setCurPw] = useState('');
   const [newPw, setNewPw] = useState('');
   const [repPw, setRepPw] = useState('');
-  const [inviteEmail, setInviteEmail] = useState('');
-  const [inviteRole, setInviteRole] = useState<RoleName>('Commandant');
+  const [savingPw, setSavingPw] = useState(false);
+  const [nameDraft, setNameDraft] = useState(profileName);
 
-  const savePassword = () => {
-    if (!newPw || newPw !== repPw) return showToast(t('err_pw_mismatch'));
-    setCurPw('');
-    setNewPw('');
-    setRepPw('');
-    showToast(t('toast_pw'));
+  /** Checks the current password by signing in with it, then sets the new one. */
+  const savePassword = async () => {
+    if (newPw.length < 8) return showToast(t('err_pw_short'));
+    if (newPw !== repPw) return showToast(t('err_pw_mismatch'));
+    setSavingPw(true);
+    try {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getUser();
+      const email = data.user?.email;
+      if (!email) throw new Error('err_signed_out');
+      const { error: wrong } = await supabase.auth.signInWithPassword({ email, password: curPw });
+      if (wrong) throw new Error('err_pw_current');
+      const { error } = await supabase.auth.updateUser({ password: newPw });
+      if (error) throw new Error(error.message);
+      setCurPw('');
+      setNewPw('');
+      setRepPw('');
+      showToast(t('toast_pw'));
+    } catch (e) {
+      showToast(errorText(e, t));
+    } finally {
+      setSavingPw(false);
+    }
   };
 
-  const sendInvite = async () => {
-    if (!/@/.test(inviteEmail)) return showToast(t('err_email'));
-    const name = inviteEmail
-      .split('@')[0]
-      .replace(/[._]/g, ' ')
-      .replace(/\b\w/g, (c) => c.toUpperCase());
-    await usersRepository.create({ name, email: inviteEmail, role: inviteRole });
-    setInviteEmail('');
-    showToast(t('toast_invite', { e: inviteEmail }));
-  };
-
-  const changeUserRole = async (userId: string, role: string) => {
-    await usersRepository.update(userId, { role });
-  };
-  const removeUser = async (userId: string, name: string) => {
-    await usersRepository.remove(userId);
-    setConfirmRemove(null);
-    showToast(t('toast_removed', { n: name }));
+  const saveName = async () => {
+    const name = nameDraft.trim();
+    if (!name || name === profileName) return;
+    const { error } = await createClient().rpc('set_my_name', { p_name: name });
+    if (error) return showToast(error.message);
+    setProfileName(name);
+    showToast(t('toast_saved'));
   };
 
   return (
@@ -70,7 +74,7 @@ export function SettingsScreen() {
       <p style={{ color: 'var(--color-muted)', fontSize: 13.5, marginTop: 2, marginBottom: 20 }}>{t('set_sub')}</p>
 
       <div style={{ display: 'flex', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 10, padding: 3, marginBottom: 20, width: 'fit-content', flexWrap: 'wrap' }}>
-        {(['profile', 'team', 'system'] as const).map((k) => (
+        {(isAdmin ? (['profile', 'team', 'system'] as const) : (['profile', 'system'] as const)).map((k) => (
           <button key={k} className="pbtn" onClick={() => setTab(k)} style={{ background: tab === k ? '#141414' : 'transparent', color: tab === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
             {k === 'profile' ? t('tab_profile') : k === 'team' ? t('tab_team') : t('tab_system')}
           </button>
@@ -88,7 +92,7 @@ export function SettingsScreen() {
             </div>
             <div style={{ marginBottom: 13 }}>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('set_name')}</div>
-              <input value={profileName} onChange={(e) => setProfileName(e.target.value)} style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
+              <input value={nameDraft} onChange={(e) => setNameDraft(e.target.value)} onBlur={() => void saveName()} onKeyDown={(e) => { if (e.key === 'Enter') void saveName(); }} style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
             </div>
             <div>
               <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('set_lang')}</div>
@@ -113,53 +117,14 @@ export function SettingsScreen() {
                 <input type="password" value={f.value} onChange={(e) => f.onChange(e.target.value)} placeholder="••••••••" style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
               </div>
             ))}
-            <button className="pbtn" onClick={savePassword} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', marginTop: 5 }}>
+            <button className="pbtn" onClick={() => void savePassword()} disabled={savingPw} style={{ opacity: savingPw ? 0.6 : 1, background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', marginTop: 5 }}>
               {t('set_updatepw')}
             </button>
           </div>
         </div>
       )}
 
-      {tab === 'team' && (
-        <>
-          <div style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, padding: 20, marginBottom: 14, maxWidth: 900 }}>
-            <h3 className="hd" style={{ fontSize: 17, marginBottom: 14 }}>{t('set_invite')}</h3>
-            <div style={{ display: 'flex', gap: 9, flexWrap: 'wrap' }}>
-              <input value={inviteEmail} onChange={(e) => setInviteEmail(e.target.value)} placeholder="name@company.com" style={{ flex: 2, minWidth: 200, background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '11px 13px', fontSize: 13.5, outline: 'none' }} />
-              <select value={inviteRole} onChange={(e) => setInviteRole(e.target.value as RoleName)} style={{ flex: 1, minWidth: 160, background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '11px 32px 11px 13px', fontSize: 13.5, outline: 'none' }}>
-                {ROLE_NAMES.map((r) => <option key={r} value={r}>{t(roleLabelKey(r))}</option>)}
-              </select>
-              <button className="pbtn" onClick={() => void sendInvite()} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                {t('set_send')}
-              </button>
-            </div>
-          </div>
-          <div className="tscroll" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, overflow: 'hidden', maxWidth: 900 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.6fr) minmax(0,1.8fr) minmax(0,1.4fr) minmax(0,.6fr)', gap: 11, padding: '12px 20px', background: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)', fontSize: 10.5, color: 'var(--color-muted)', fontWeight: 700, letterSpacing: 0.6, textTransform: 'uppercase' }}>
-              <div>{t('col_name')}</div><div>{t('col_email')}</div><div>{t('col_role')}</div><div></div>
-            </div>
-            {users.map((u) => (
-              <div key={u.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.6fr) minmax(0,1.8fr) minmax(0,1.4fr) minmax(0,.6fr)', gap: 11, padding: '11px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-                  <div style={{ width: 30, height: 30, flex: 'none', borderRadius: '50%', background: 'var(--color-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 12 }}>{initials(u.name)}</div>
-                  <span style={{ fontWeight: 600, fontSize: 13.5 }}>{u.name}</span>
-                </div>
-                <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{u.email}</div>
-                <div>
-                  <select value={u.role} onChange={(e) => void changeUserRole(u.id, e.target.value)} style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '7px 28px 7px 10px', fontSize: 12.5, outline: 'none' }}>
-                    {ROLE_NAMES.map((r) => <option key={r} value={r}>{t(roleLabelKey(r))}</option>)}
-                  </select>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <button className="chip" onClick={() => setConfirmRemove({ id: u.id, name: u.name })} style={{ background: '#fff', border: '1px solid #F6CBCB', borderRadius: 8, padding: '6px 11px', fontSize: 12, cursor: 'pointer', color: 'var(--color-red)' }}>
-                    {t('remove')}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+      {tab === 'team' && isAdmin && <TeamTab />}
 
       {tab === 'system' && (
         <div style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, padding: 20, maxWidth: 520 }}>
@@ -179,16 +144,7 @@ export function SettingsScreen() {
         </div>
       )}
 
-      {confirmRemove && (
-        <ConfirmDialog
-          title={t('remove_member_title')}
-          sub={t('remove_member_confirm', { n: confirmRemove.name })}
-          confirmLabel={t('remove')}
-          cancelLabel={t('keep_member')}
-          onCancel={() => setConfirmRemove(null)}
-          onConfirm={() => void removeUser(confirmRemove.id, confirmRemove.name)}
-        />
-      )}
+
     </section>
   );
 }

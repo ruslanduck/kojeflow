@@ -16,7 +16,10 @@ export interface RoleConfig {
   nav: NavKey[];
   balance: boolean;
   planner?: boolean;
-  ownHostel?: string;
+  /** Limited to the properties assigned to the user (profile_properties). */
+  scoped?: boolean;
+  /** Sees the data but may not change it (the database refuses its writes anyway). */
+  readOnly?: boolean;
   hideNames?: boolean;
   ownOnly?: boolean;
 }
