@@ -1,6 +1,6 @@
 import type { CurrentUser, EntityBundle, SnapshotPayload, TableStat } from '@/domain/snapshot';
 import type {
-  Bed, Booking, BookingStatus, FloorPlan, FloorZone, Payment, Property, Registration, RegistrationStatus,
+  Bed, Booking, BookingStatus, FloorPlan, FloorZone, Gender, Payment, Property, Registration, RegistrationStatus,
   Resident, Room, RoomType, Stay, StayType, Transfer, User,
 } from '@/domain/types';
 import type { RoleName } from '@/domain/roles';
@@ -71,6 +71,13 @@ function transferDate(iso: unknown): string {
   return Number.isNaN(at.getTime()) ? '' : pragueTime.format(at).replace(',', '');
 }
 
+/** Above this a nightly bed price is a data error (Airtable has 210200 where 210 and 200 were glued together). */
+const MAX_NIGHTLY_RATE = 5000;
+
+function genderOf(value: unknown): Gender | null {
+  return value === 'female' ? 'F' : value === 'male' ? 'M' : null;
+}
+
 function stayType(priceType: unknown, tenantType: unknown): StayType {
   if (priceType) return priceType === 'commercial' ? 'Commercial' : 'Internal';
   return tenantType === 'commercial' ? 'Commercial' : 'Internal';
@@ -114,9 +121,6 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       registrationsCapacity: num(p.registrations_capacity),
       balance: paidByProperty.get(str(p.id)) ?? 0,
       inProcess: 0,
-      bookedMale: num(p.booked_male),
-      bookedFemale: num(p.booked_female),
-      bookedMixed: num(p.booked_family),
     };
   });
   const propertyName = new Map(entities.properties.map((p) => [p.id, p.name]));
@@ -146,6 +150,14 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     list.push(str(sp.place_id));
     bedsOfStay.set(str(sp.stay_id), list);
   }
+  // A bed's own price wins over its room's (Airtable: "overrides the room price").
+  const rawRoomsById = new Map(raw.rooms.map((r) => [str(r.id), r]));
+  const bedPrice = (placeId: string, type: StayType): number => {
+    const pl = placesById.get(placeId);
+    const room = rawRoomsById.get(str(pl?.room_id));
+    const column = type === 'Commercial' ? 'external_price' : 'internal_price';
+    return num(pl?.[column]) || num(room?.[column]);
+  };
   const occupantOfBed = new Map<string, string>();
   entities.stays = raw.stays.filter((s) => visible(s.property_id)).map((s): Stay => {
     const id = str(s.id);
@@ -157,6 +169,10 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     const active = s.status === 'active';
     if (active) for (const bed of beds) occupantOfBed.set(bed, str(s.tenant_id));
     const bedId = beds[0] ?? '';
+    const type = stayType(s.price_type, tenant?.type);
+    const stayRate = num(s.price_per_day);
+    const bedsRate = beds.reduce((sum, b) => sum + bedPrice(b, type), 0);
+    const rateValid = stayRate > 0 && stayRate <= MAX_NIGHTLY_RATE * Math.max(1, beds.length);
     return {
       id,
       residentId: str(s.tenant_id),
@@ -164,13 +180,15 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       propertyId: str(s.property_id),
       roomId: str(placesById.get(bedId)?.room_id),
       bedId,
-      type: stayType(s.price_type, tenant?.type),
+      bedIds: beds,
+      type,
       manager: str(s.manager_name),
       project: str(s.project_name),
       checkIn: date(s.check_in_date) ?? '',
       checkOut: date(s.check_out_date),
       status: active ? 'active' : 'checked-out',
-      rate: num(s.price_per_day),
+      rate: rateValid ? stayRate : bedsRate,
+      rateSource: rateValid ? 'stay' : bedsRate > 0 ? 'beds' : 'none',
       // Airtable's running paid/debt totals are deliberately left behind: billing starts from zero.
     };
   });
@@ -187,6 +205,8 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       index: num(pl.number),
       status: occupant ? 'occupied' : unavailable ? 'unavailable' : 'free',
       residentId: occupant ?? null,
+      priceInternal: bedPrice(id, 'Internal'),
+      priceExternal: bedPrice(id, 'Commercial'),
     };
   });
 
@@ -204,7 +224,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     return {
       id: str(t.id),
       name: str(t.full_name),
-      gender: t.gender === 'female' ? 'F' : 'M',
+      gender: genderOf(t.gender),
       phone: str(t.phone) || undefined,
       dob: date(t.birth_date) ?? undefined,
       avatarPath: str(t.avatar_path) || undefined,
@@ -219,7 +239,9 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
     const amount = num(b.discount);
     return {
       id: str(b.id),
+      residentId: str(b.tenant_id) || null,
       residentName: str(b.tenant_name),
+      gender: genderOf(b.tenant_gender),
       type: stayType(b.price_type, b.tenant_type),
       propertyId: str(b.property_id),
       date: date(b.start_date) ?? '',
@@ -262,9 +284,9 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
   }));
 
   entities.registrations = raw.registrations.map((g): Registration => {
-    const files = str(g.file_names) || str(g.files);
     return {
       id: str(g.id),
+      residentId: str(g.tenant_id) || null,
       residentName: str(g.full_name),
       type: g.type === 'paid' ? 'Paid' : 'Free',
       status: REGISTRATION_STATUS[str(g.status)] ?? 'New',
@@ -273,7 +295,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       coordinator: str(g.creator_name) || str(g.visa_manager_name),
       issued: date(g.start_date) ?? '',
       expires: date(g.expiration_date) ?? '',
-      docs: files ? files.split(',').filter((name) => name.trim()).length : 0,
+      docs: num(g.file_count),
     };
   });
 

@@ -20,7 +20,7 @@ export const bedsRepository = {
       await db().from('places').insert({ room_id: roomId, number, status: 'available' }).select('id').single(),
       'Save bed',
     );
-    const bed: Bed = { id: row.id, roomId, propertyId: room.propertyId, index: number, status: room.available ? 'free' : 'unavailable', residentId: null };
+    const bed: Bed = { id: row.id, roomId, propertyId: room.propertyId, index: number, status: room.available ? 'free' : 'unavailable', residentId: null, priceInternal: room.priceFrom, priceExternal: room.priceTo };
     useEntityStore.setState((s) => ({ beds: [...s.beds, bed] }));
     return bed;
   },

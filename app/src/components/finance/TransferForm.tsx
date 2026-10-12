@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useT } from '@/i18n/useT';
 import { useEntityStore } from '@/store/entities';
 import { transfersRepository } from '@/repositories/transfersRepository';
-import { TODAY } from '@/domain/logic';
+import { today } from '@/domain/logic';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { Portal } from '@/components/ui/Portal';
 import type { Transfer, TransferStatus } from '@/domain/types';
@@ -23,7 +23,7 @@ export function TransferForm({ onClose, editing, onSaved }: TransferFormProps) {
   const [by, setBy] = useState(editing?.by ?? '');
   const [to, setTo] = useState(editing?.to ?? '');
   const [amount, setAmount] = useState(editing ? String(editing.amount) : '');
-  const [date, setDate] = useState(editing?.date ?? `${TODAY} 09:00`);
+  const [date, setDate] = useState(editing?.date ?? `${today()} 09:00`);
   const [status, setStatus] = useState<TransferStatus>(editing?.status ?? 'Handed over');
   const [error, setError] = useState('');
 

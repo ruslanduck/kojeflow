@@ -1,7 +1,7 @@
 import { useEntityStore } from '@/store/entities';
 import { check, db } from '@/lib/supabase/write';
-import { TODAY } from '@/domain/logic';
-import type { Stay } from '@/domain/types';
+import { today } from '@/domain/logic';
+import type { Bed, Stay } from '@/domain/types';
 
 export interface CheckInInput {
   residentId: string;
@@ -15,25 +15,42 @@ export interface CheckInInput {
   project: string;
   checkIn?: string;
   bookingId?: string;
+  /** The booking's discount, "30%" or an amount; a percentage lowers the nightly rate. */
+  discount?: string | null;
+}
+
+/** Nightly rate of a set of beds for a stay type, after a percentage discount. */
+export function rateForBeds(beds: Bed[], type: Stay['type'], discount?: string | null): number {
+  const full = beds.reduce((sum, b) => sum + (type === 'Commercial' ? b.priceExternal : b.priceInternal), 0);
+  const percent = discount?.trim().endsWith('%') ? Number(discount.trim().slice(0, -1).replace(',', '.')) : 0;
+  const factor = Number.isFinite(percent) && percent > 0 && percent < 100 ? 1 - percent / 100 : 1;
+  return Math.round(full * factor * 100) / 100;
 }
 
 /**
  * Checks a resident into one or more free beds: one stay in public.stays holding every bed
- * in public.stay_places. The nightly rate is the sum of the beds' room prices for the stay
- * type (internal or commercial).
+ * in public.stay_places. The nightly rate is the sum of the beds' prices for the stay type
+ * (internal or commercial), less a percentage discount from the booking.
  */
 export async function checkIn(input: CheckInInput): Promise<Stay> {
   const state = useEntityStore.getState();
   const beds = input.bedIds.map((id) => state.beds.find((b) => b.id === id));
   if (!beds.length || beds.some((b) => !b)) throw new Error('err_bed_missing');
   if (beds.some((b) => b!.status !== 'free')) throw new Error('err_bed_taken');
-
-  const room = state.rooms.find((r) => r.id === input.roomId);
-  const bedPrice = input.type === 'Commercial' ? room?.priceTo ?? 0 : room?.priceFrom ?? 0;
-  const rate = bedPrice * beds.length;
-  const checkInDate = input.checkIn ?? TODAY;
+  if (state.stays.some((s) => s.residentId === input.residentId && s.status === 'active')) throw new Error('err_already_living');
 
   const supabase = db();
+  // The store holds only recent data, so the database has the last word on "already living".
+  const living = check(
+    await supabase.from('stays').select('id').eq('tenant_id', input.residentId).eq('status', 'active').limit(1),
+    'Check resident',
+  );
+  if (living.length) throw new Error('err_already_living');
+
+  const picked = beds as Bed[];
+  const rate = rateForBeds(picked, input.type, input.discount);
+  const checkInDate = input.checkIn ?? today();
+
   const stayRow = check(
     await supabase
       .from('stays')
@@ -45,9 +62,10 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
         check_in_date: checkInDate,
         original_check_in_date: checkInDate,
         price_type: input.type === 'Commercial' ? 'commercial' : 'internal',
-        internal_price: room?.priceFrom ?? null,
-        external_price: room?.priceTo ?? null,
-        price_per_day: rate,
+        internal_price: picked[0].priceInternal || null,
+        external_price: picked[0].priceExternal || null,
+        // No price set for these beds: left empty, so the stay shows up as "no price" instead of free.
+        price_per_day: rate || null,
         manager_name: input.manager || null,
         project_name: input.project || null,
         source: 'app',
@@ -60,12 +78,8 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
   const held = await supabase.from('stay_places').insert(input.bedIds.map((place_id) => ({ stay_id: stayRow.id, place_id })));
   if (held.error) {
     // Someone took a bed in the meantime (the database allows one active stay per bed).
-    await supabase.from('stays').update({ status: 'cancelled' }).eq('id', stayRow.id);
-    throw new Error(`Save check-in: ${held.error.message}`);
-  }
-
-  if (input.bookingId) {
-    check(await supabase.from('bookings').update({ status: 'checked_in' }).eq('id', input.bookingId), 'Update booking');
+    check(await supabase.from('stays').update({ status: 'cancelled' }).eq('id', stayRow.id), 'Undo check-in');
+    throw new Error(held.error.message.includes('active stay') ? 'err_bed_taken' : `Save check-in: ${held.error.message}`);
   }
 
   const stay: Stay = {
@@ -75,6 +89,7 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
     propertyId: input.propertyId,
     roomId: input.roomId,
     bedId: input.bedIds[0],
+    bedIds: input.bedIds,
     type: input.type,
     manager: input.manager,
     project: input.project,
@@ -82,18 +97,26 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
     checkOut: null,
     status: 'active',
     rate,
+    rateSource: rate > 0 ? 'stay' : 'none',
   };
 
   useEntityStore.setState((s) => ({
     stays: [stay, ...s.stays],
     beds: s.beds.map((b) => (input.bedIds.includes(b.id) ? { ...b, status: 'occupied', residentId: input.residentId } : b)),
-    bookings: input.bookingId ? s.bookings.map((b) => (b.id === input.bookingId ? { ...b, status: 'Checked-in' } : b)) : s.bookings,
   }));
+
+  // The stay is saved; the booking is closed after, so a failure here can't hide the stay.
+  if (input.bookingId) {
+    check(await supabase.from('bookings').update({ status: 'checked_in' }).eq('id', input.bookingId), 'Update booking');
+    useEntityStore.setState((s) => ({
+      bookings: s.bookings.map((b) => (b.id === input.bookingId ? { ...b, status: 'Checked-in' } : b)),
+    }));
+  }
   return stay;
 }
 
 /** Closes an active stay and frees every bed it held. */
-export async function checkOut(stayId: string, checkOutDate: string = TODAY): Promise<Stay> {
+export async function checkOut(stayId: string, checkOutDate: string = today()): Promise<Stay> {
   const state = useEntityStore.getState();
   const stay = state.stays.find((s) => s.id === stayId);
   if (!stay) throw new Error('Stay not found: ' + stayId);
@@ -105,10 +128,8 @@ export async function checkOut(stayId: string, checkOutDate: string = TODAY): Pr
   const updated: Stay = { ...stay, status: 'checked-out', checkOut: date };
   useEntityStore.setState((s) => ({
     stays: s.stays.map((x) => (x.id === stayId ? updated : x)),
-    // The store keeps one bed per stay, so every bed this resident holds in the property is freed.
-    beds: s.beds.map((b) =>
-      b.residentId === stay.residentId && b.propertyId === stay.propertyId ? { ...b, status: 'free', residentId: null } : b,
-    ),
+    // Exactly this stay's beds: the same person may hold other beds under another stay.
+    beds: s.beds.map((b) => (stay.bedIds.includes(b.id) ? { ...b, status: 'free', residentId: null } : b)),
   }));
   return updated;
 }

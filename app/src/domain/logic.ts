@@ -1,10 +1,14 @@
 import type { Bed, FloorPlan, Payment, Resident, RoomGender, Stay } from './types';
 
+const pragueDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Prague' });
+
 /**
- * Today's date at the properties (Prague), as YYYY-MM-DD. Every screen renders only
- * after the data has loaded in the browser, so server and client never disagree on it.
+ * Today's date at the properties (Prague), as YYYY-MM-DD. A function, not a constant:
+ * the app stays open for days, and a check-out after midnight must be dated the new day.
  */
-export const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Prague' }).format(new Date());
+export function today(): string {
+  return pragueDate.format(new Date());
+}
 
 /**
  * Billing starts from zero in Kojeflow: nights are charged from this date on (or from a
@@ -115,9 +119,9 @@ export interface Bill {
  * BILLING_START (or a later check-in) to check-out or today, times the nightly rate,
  * minus the payments recorded in Kojeflow.
  */
-export function billFor(stay: Stay, payments: Payment[], today: string = TODAY): Bill {
+export function billFor(stay: Stay, payments: Payment[], asOf: string = today()): Bill {
   const from = stay.checkIn > BILLING_START ? stay.checkIn : BILLING_START;
-  const to = stay.checkOut ?? today;
+  const to = stay.checkOut ?? asOf;
   const days = to > from ? diffDays(from, to) : 0;
   const rate = stay.rate;
   const charged = days * rate;

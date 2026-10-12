@@ -8,7 +8,7 @@ import { useEntityStore } from '@/store/entities';
 import { checkIn } from '@/repositories/operations';
 import { residentsRepository } from '@/repositories/residentsRepository';
 import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
-import { roomGender, TODAY } from '@/domain/logic';
+import { roomGender, today } from '@/domain/logic';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { extractPortrait } from '@/lib/passportPhoto';
 import { useResidentDirectory } from '@/lib/supabase/residents';
@@ -77,7 +77,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const [type, setType] = useState<StayType>(fromBooking?.type ?? 'Internal');
   const [manager, setManager] = useState(fromBooking?.manager ?? '');
   const [project, setProject] = useState(fromBooking?.project && fromBooking.project !== '—' ? fromBooking.project : '');
-  const [date, setDate] = useState(TODAY);
+  const [date, setDate] = useState(today());
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
 
@@ -301,7 +301,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                   </div>
                   <div>
                     <div style={FIELD_LABEL_STYLE}>{t('wz_dob')}</div>
-                    <input value={newDob} onChange={(e) => setNewDob(e.target.value)} type="date" max={TODAY} style={FIELD_STYLE} />
+                    <input value={newDob} onChange={(e) => setNewDob(e.target.value)} type="date" max={today()} style={FIELD_STYLE} />
                   </div>
                   <div style={{ gridColumn: '1/-1' }}>
                     <div style={FIELD_LABEL_STYLE}>{t('doc_passport')}</div>
@@ -384,7 +384,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                                     >
                                       {bed.index}
                                       {occupant && (
-                                        <span style={{ position: 'absolute', bottom: -4, right: -4, fontSize: 10, background: '#fff', borderRadius: '50%', lineHeight: 1, padding: 1 }}>{GENDER_EMOJI[occupant.gender]}</span>
+                                        <span style={{ position: 'absolute', bottom: -4, right: -4, fontSize: 10, background: '#fff', borderRadius: '50%', lineHeight: 1, padding: 1 }}>{occupant.gender ? GENDER_EMOJI[occupant.gender] : '👤'}</span>
                                       )}
                                     </div>
                                   );

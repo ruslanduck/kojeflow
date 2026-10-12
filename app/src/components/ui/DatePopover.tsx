@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useSessionStore } from '@/store/session';
 import { useT } from '@/i18n/useT';
 import { MONTHS, WEEKDAYS } from '@/domain/calendar';
-import { TODAY } from '@/domain/logic';
+import { today } from '@/domain/logic';
 import { formatDateDMY } from '@/lib/format';
 
 const ISO_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -21,7 +21,7 @@ export function DatePopover({ value, onChange, variant = 'field', align = 'left'
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const [open, setOpen] = useState(false);
-  const base = ISO_RE.test(value || '') ? value : TODAY;
+  const base = ISO_RE.test(value || '') ? value : today();
   const [view, setView] = useState(base.slice(0, 7));
 
   const openPopover = () => {
@@ -100,7 +100,7 @@ export function DatePopover({ value, onChange, variant = 'field', align = 'left'
             {cells.map((c, i) => {
               if (!c.iso) return <div key={i} style={{ height: 32 }} />;
               const sel = c.iso === value;
-              const isToday = c.iso === TODAY;
+              const isToday = c.iso === today();
               return (
                 <div
                   key={i}
@@ -116,7 +116,7 @@ export function DatePopover({ value, onChange, variant = 'field', align = 'left'
               );
             })}
           </div>
-          <button type="button" onClick={() => pick(TODAY)} style={{ width: '100%', marginTop: 9, background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 8, padding: 7, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
+          <button type="button" onClick={() => pick(today())} style={{ width: '100%', marginTop: 9, background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 8, padding: 7, fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
             {t('d_today')}
           </button>
         </div>

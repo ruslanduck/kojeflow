@@ -5,7 +5,7 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { diffDays, TODAY } from '@/domain/logic';
+import { diffDays, today } from '@/domain/logic';
 import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
@@ -17,7 +17,7 @@ import { MappingNotice, Flagged } from '@/components/ui/Unmapped';
 type ExpiryBucket = 'Expired' | 'Soon' | 'Valid';
 
 function expiryBucket(expires: string): ExpiryBucket {
-  const days = diffDays(TODAY, expires);
+  const days = diffDays(today(), expires);
   if (days < 0) return 'Expired';
   if (days <= 30) return 'Soon';
   return 'Valid';

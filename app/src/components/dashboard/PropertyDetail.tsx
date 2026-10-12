@@ -39,6 +39,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const properties = useEntityStore((s) => s.properties);
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
+  const bookings = useEntityStore((s) => s.bookings);
   const residents = useEntityStore((s) => s.residents);
   const stays = useEntityStore((s) => s.stays);
 
@@ -66,7 +67,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
     );
   }
 
-  const stat = propertyStat(property, rooms, beds);
+  const stat = propertyStat(property, rooms, beds, bookings);
   const occRate = stat.total ? Math.round((stat.occupied / stat.total) * 100) : 0;
   const summary = `${t('rooms_n', { n: stat.roomsCount })} · ${t('beds_n', { n: stat.total })} · ${t('occ_label', { n: occRate, f: stat.free })}`;
 
@@ -216,7 +217,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                             {bed.index}
                             {bed.status === 'occupied' && resident && (
                               <span style={{ position: 'absolute', bottom: -4, right: -4, fontSize: 11, background: '#fff', borderRadius: '50%', lineHeight: 1, padding: 1 }}>
-                                {GENDER_EMOJI[resident.gender]}
+                                {resident.gender ? GENDER_EMOJI[resident.gender] : '👤'}
                               </span>
                             )}
                             {editRooms && bed.status !== 'occupied' && (

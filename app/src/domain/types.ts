@@ -19,9 +19,6 @@ export interface Property {
   registrationsCapacity: number;
   balance: number;
   inProcess: number;
-  bookedMale: number;
-  bookedFemale: number;
-  bookedMixed: number;
 }
 
 export interface Room {
@@ -42,6 +39,9 @@ export interface Bed {
   index: number;
   status: BedStatus;
   residentId: string | null;
+  /** Nightly price of this bed: its own price, else its room's. 0 when neither is set. */
+  priceInternal: number;
+  priceExternal: number;
 }
 
 export interface ResidentDocument {
@@ -58,7 +58,8 @@ export interface ResidentDocument {
 export interface Resident {
   id: string;
   name: string;
-  gender: Gender;
+  /** Unknown for many people imported from Airtable; never guessed. */
+  gender: Gender | null;
   phone?: string;
   dob?: string;
   avatarUrl?: string;
@@ -74,14 +75,23 @@ export interface Stay {
   residentName: string;
   propertyId: string;
   roomId: string;
+  /** First bed, for labels. */
   bedId: string;
+  /** Every bed the stay holds (up to 5). */
+  bedIds: string[];
   type: StayType;
   manager: string;
   project: string;
   checkIn: string; // ISO date
   checkOut: string | null; // ISO date
   status: StayStatus;
+  /** Nightly price of the whole stay (all its beds). */
   rate: number;
+  /**
+   * Where the rate came from: the stay itself, the beds' prices (the stay had none or an
+   * impossible one, like Airtable's 210200), or nowhere — then nothing is billed.
+   */
+  rateSource: 'stay' | 'beds' | 'none';
   /**
    * Running totals Airtable keeps on the stay itself. It has no per-transaction
    * ledger, so without these the app would sum an empty Payment list and report
@@ -94,7 +104,9 @@ export interface Stay {
 
 export interface Booking {
   id: string;
+  residentId: string | null;
   residentName: string;
+  gender: Gender | null;
   type: StayType;
   propertyId: string;
   date: string; // ISO date
@@ -132,6 +144,7 @@ export interface Transfer {
 
 export interface Registration {
   id: string;
+  residentId: string | null;
   residentName: string;
   type: RegistrationType;
   status: RegistrationStatus;

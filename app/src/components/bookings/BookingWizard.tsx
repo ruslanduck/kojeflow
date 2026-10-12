@@ -7,7 +7,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { propertyStat } from '@/domain/dashboard';
-import { canBookProperty, diffDays, TODAY, addDays } from '@/domain/logic';
+import { canBookProperty, diffDays, today, addDays } from '@/domain/logic';
 import { translatePlace, safeName, TYPE_LABEL_KEY, TYPE_PILL } from '@/domain/labels';
 import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
 import { formatDateDMY } from '@/lib/format';
@@ -43,11 +43,14 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
+  const bookings = useEntityStore((s) => s.bookings);
+  const residents = useEntityStore((s) => s.residents);
 
   const [step, setStep] = useState<1 | 2 | 3>(editing ? 2 : 1);
   const [pickMode, setPickMode] = useState(true);
   const [search, setSearch] = useState('');
   const [residentName, setResidentName] = useState(editing?.residentName ?? '');
+  const [residentId, setResidentId] = useState<string | null>(editing?.residentId ?? null);
   const [newName, setNewName] = useState('');
   const [newPhone, setNewPhone] = useState('');
   const [newGender, setNewGender] = useState<'Male' | 'Female'>('Male');
@@ -56,12 +59,13 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const [propertyId, setPropertyId] = useState(editing?.propertyId ?? defaultPropertyId ?? '');
   const [manager, setManager] = useState(editing?.manager ?? '');
   const [project, setProject] = useState(editing?.project ?? '');
-  const [date, setDate] = useState(addDays(TODAY, 3));
+  const [date, setDate] = useState(editing?.date || addDays(today(), 3));
   const [payer, setPayer] = useState(editing?.payer ?? '');
   const [family, setFamily] = useState(editing?.family ?? false);
   const [discount, setDiscount] = useState(editing?.discount ?? '');
   const [comment, setComment] = useState(editing?.comment ?? '');
   const [error, setError] = useState('');
+  const [saving, setSaving] = useState(false);
 
   const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
@@ -79,18 +83,18 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
         const bed = bedsById.get(s.bedId);
         const property = propertiesById.get(s.propertyId);
         const label = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
-        return { name: s.residentName, sub: `${property?.name ?? ''} · ${label}` };
+        return { id: s.residentId, name: s.residentName, sub: `${property?.name ?? ''} · ${label}` };
       });
   }, [activeStays, search, roomsById, bedsById, propertiesById, lang]);
 
   const propertyOptions = useMemo(
     () =>
       properties.map((p) => {
-        const stat = propertyStat(p, rooms, beds);
+        const stat = propertyStat(p, rooms, beds, bookings, { excludeBookingId: editing?.id });
         const can = canBookProperty(stat.free, stat.booked);
         return { property: p, stat, can };
       }),
-    [properties, rooms, beds],
+    [properties, rooms, beds, bookings, editing?.id],
   );
 
   const goNext = () => {
@@ -107,9 +111,10 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
       if (!manager) return setError(t('err_mgr'));
       if (!project) return setError(t('err_project'));
       if (!date) return setError(t('err_date'));
-      if (diffDays(TODAY, date) > 14) return setError(t('err_2weeks'));
+      // The two-week limit is for new dates; an existing booking keeps its own.
+      if (date !== editing?.date && diffDays(today(), date) > 14) return setError(t('err_2weeks'));
       const p = properties.find((x) => x.id === propertyId);
-      const stat = p ? propertyStat(p, rooms, beds) : null;
+      const stat = p ? propertyStat(p, rooms, beds, bookings, { excludeBookingId: editing?.id }) : null;
       if (stat && !canBookProperty(stat.free, stat.booked)) return setError(t('err_no_places'));
       setStep(3);
       setError('');
@@ -119,20 +124,36 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   };
 
   const save = async () => {
-    const name = pickMode ? residentName : newName.trim();
-    const payload = {
-      residentName: name, type, propertyId, date, comment, by: profileName,
-      status: 'New' as const, manager, project: project || '—',
+    if (saving) return;
+    const details = {
+      type, propertyId, date, comment, manager, project: project || '—',
       payer: payer || manager, family, discount: discount || null,
     };
+    setSaving(true);
     try {
-      const saved = editing
-        ? await bookingsRepository.update(editing.id, payload)
-        : await bookingsRepository.create(payload);
+      let saved: Booking;
+      if (editing) {
+        // Editing changes the details only: status, author and person stay as they were.
+        saved = await bookingsRepository.update(editing.id, details);
+      } else {
+        const picked = pickMode && residentId ? residents.find((r) => r.id === residentId) : undefined;
+        saved = await bookingsRepository.create(
+          {
+            ...details,
+            residentId: pickMode ? residentId : null,
+            residentName: pickMode ? residentName : newName.trim(),
+            gender: pickMode ? (picked?.gender ?? null) : newGender === 'Female' ? 'F' : 'M',
+            by: profileName,
+            status: 'New',
+          },
+          pickMode ? undefined : newPhone.trim(),
+        );
+      }
       onSaved(saved);
       onClose();
     } catch (e) {
       setError(errorText(e, t));
+      setSaving(false);
     }
   };
 
@@ -176,10 +197,10 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
                   <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t('wz_search')} style={{ ...FIELD_STYLE, marginBottom: 12 }} />
                   <div style={{ border: '1px solid var(--color-border)', borderRadius: 11, maxHeight: 264, overflowY: 'auto' }}>
                     {residentPool.map((r) => {
-                      const on = residentName === r.name;
+                      const on = residentId ? residentId === r.id : residentName === r.name;
                       const displayName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
                       return (
-                        <div key={r.name} className="rowh" onClick={() => { setResidentName(r.name); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
+                        <div key={r.id} className="rowh" onClick={() => { setResidentName(r.name); setResidentId(r.id); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
                           <Avatar name={displayName} size={34} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
@@ -336,8 +357,8 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
           <button onClick={goBack} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)', visibility: step > 1 ? 'visible' : 'hidden' }}>
             {t('wz_back')}
           </button>
-          <button className="pbtn" onClick={goNext} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 22px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>
-            {step < 3 ? t('wz_continue') : editing ? t('wz_save') : t('wz_create')}
+          <button className="pbtn" onClick={goNext} disabled={saving} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 22px', fontSize: 13.5, fontWeight: 600, cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.6 : 1 }}>
+            {saving ? t('saving') : step < 3 ? t('wz_continue') : editing ? t('wz_save') : t('wz_create')}
           </button>
         </div>
       </div>

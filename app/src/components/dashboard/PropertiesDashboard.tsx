@@ -6,8 +6,8 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { propertyStat } from '@/domain/dashboard';
-import { occupancyColor, billFor, TODAY } from '@/domain/logic';
+import { bookedCount, propertyStat } from '@/domain/dashboard';
+import { occupancyColor, billFor, today } from '@/domain/logic';
 import { useOccupancyOn } from '@/lib/supabase/history';
 import { GENDER_EMOJI } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
@@ -27,9 +27,10 @@ export function PropertiesDashboard() {
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
   const payments = useEntityStore((s) => s.payments);
+  const bookings = useEntityStore((s) => s.bookings);
 
-  const [dashDate, setDashDate] = useState(TODAY);
-  const isPast = dashDate < TODAY;
+  const [dashDate, setDashDate] = useState(today());
+  const isPast = dashDate < today();
   // Past days come from the stays history in the database, not from today's beds.
   const pastOccupancy = useOccupancyOn(isPast ? dashDate : null);
   const asOf = isPast ? (pastOccupancy ? formatDateDMY(dashDate) : '…') : t('d_today');
@@ -37,18 +38,19 @@ export function PropertiesDashboard() {
   const rows = useMemo(
     () =>
       properties.map((p) => {
-        const stat = propertyStat(p, rooms, beds, pastOccupancy ? (pastOccupancy.get(p.id) ?? 0) : undefined);
+        const stat = propertyStat(p, rooms, beds, bookings, { occupiedOverride: pastOccupancy ? (pastOccupancy.get(p.id) ?? 0) : undefined });
+        const booked = bookedCount(bookings, p.id);
         const rate = stat.total ? Math.round((stat.occupied / stat.total) * 100) : 0;
         const dotColor = occupancyColor(stat.total ? stat.occupied / stat.total : 0);
         const badges: { label: string; pill: boolean }[] = [];
         (['M', 'F', 'X'] as const).forEach((g) => {
-          const n = g === 'M' ? p.bookedMale : g === 'F' ? p.bookedFemale : p.bookedMixed;
-          if (n) badges.push({ label: `${GENDER_EMOJI[g]} ${n}`, pill: true });
+          if (booked[g]) badges.push({ label: `${GENDER_EMOJI[g]} ${booked[g]}`, pill: true });
         });
+        if (booked.unknown) badges.push({ label: `👤 ${booked.unknown}`, pill: true });
         if (badges.length === 0) badges.push({ label: '—', pill: false });
         return { property: p, stat, rate, dotColor, badges };
       }),
-    [properties, rooms, beds, pastOccupancy],
+    [properties, rooms, beds, bookings, pastOccupancy],
   );
 
   const totals = useMemo(

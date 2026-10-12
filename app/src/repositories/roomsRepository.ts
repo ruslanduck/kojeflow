@@ -54,6 +54,7 @@ export const roomsRepository = {
     };
     const beds: Bed[] = places.map((pl) => ({
       id: pl.id, roomId: row.id, propertyId: input.propertyId, index: pl.number, status: 'free', residentId: null,
+      priceInternal: input.internalPrice, priceExternal: input.externalPrice,
     }));
     useEntityStore.setState((s) => ({ rooms: [...s.rooms, room], beds: [...s.beds, ...beds] }));
     return room;

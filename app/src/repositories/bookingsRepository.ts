@@ -32,13 +32,18 @@ function toRow(b: Partial<Omit<Booking, 'id'>>) {
 
 /** Bookings (public.bookings): reservations to a property, not to a bed. */
 export const bookingsRepository = {
-  async create(input: Omit<Booking, 'id'>): Promise<Booking> {
-    // The dashboard's booked badges count by gender, so it is taken from the person when known.
-    const person = useEntityStore.getState().residents.find((r) => r.name === input.residentName);
+  /** `phone` is the new person's number, kept on the booking until they are checked in. */
+  async create(input: Omit<Booking, 'id'>, phone?: string): Promise<Booking> {
     const row = check(
       await db()
         .from('bookings')
-        .insert({ ...toRow(input), tenant_id: person?.id ?? null, tenant_gender: person ? (person.gender === 'F' ? 'female' : 'male') : null })
+        .insert({
+          ...toRow(input),
+          tenant_id: input.residentId,
+          // Booked beds are counted by gender, so it is stored with the booking.
+          tenant_gender: input.gender === 'F' ? 'female' : input.gender === 'M' ? 'male' : null,
+          tenant_phone: phone || null,
+        })
         .select('id')
         .single(),
       'Save booking',

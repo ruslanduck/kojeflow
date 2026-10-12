@@ -7,7 +7,7 @@ import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { billFor, TODAY } from '@/domain/logic';
+import { billFor, today } from '@/domain/logic';
 import { checkOut } from '@/repositories/operations';
 import { translatePlace, safeName, TYPE_LABEL_KEY, TYPE_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
@@ -170,7 +170,7 @@ export function CheckInScreen() {
           confirmLabel={t('checkout_action')}
           cancelLabel={t('stay_checked_in')}
           onCancel={() => setConfirmCheckout(null)}
-          onConfirm={() => { checkOut(confirmCheckout.stayId, TODAY).catch((e) => showToast(errorText(e, t))); setConfirmCheckout(null); }}
+          onConfirm={() => { checkOut(confirmCheckout.stayId, today()).catch((e) => showToast(errorText(e, t))); setConfirmCheckout(null); }}
         />
       )}
 

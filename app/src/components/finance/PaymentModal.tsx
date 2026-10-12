@@ -6,7 +6,7 @@ import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { paymentsRepository } from '@/repositories/paymentsRepository';
-import { billFor, TODAY } from '@/domain/logic';
+import { billFor, today } from '@/domain/logic';
 import { translatePlace, safeName } from '@/domain/labels';
 import { formatCurrency } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
@@ -39,7 +39,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const [pickSearch, setPickSearch] = useState('');
   const [stay, setStay] = useState<Stay | null>(initialStay);
   const [amount, setAmount] = useState('');
-  const [date, setDate] = useState(TODAY);
+  const [date, setDate] = useState(today());
   const [note, setNote] = useState('');
   const [doc, setDoc] = useState<{ name: string; url: string; file: File } | null>(null);
   const [saving, setSaving] = useState(false);
