@@ -167,14 +167,18 @@ export function FloorPlanScreen() {
 
   const unmappedRooms = propertyRooms.filter((r) => !mappedRoomIds.has(r.id));
 
+  const mapping = useRef(false);
   const confirmMap = async (roomId: string) => {
-    if (!mapDialog) return;
+    if (!mapDialog || mapping.current) return;
+    mapping.current = true;
     try {
       await floorZonesRepository.create({ planId: mapDialog.planId, roomId, ...mapDialog.rect });
       setMapDialog(null);
       showToast(t('toast_saved'));
     } catch (e) {
       failed(e);
+    } finally {
+      mapping.current = false;
     }
   };
 

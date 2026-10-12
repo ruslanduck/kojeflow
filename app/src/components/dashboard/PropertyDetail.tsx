@@ -49,6 +49,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const [personId, setPersonId] = useState<string | null>(null);
   const [editRooms, setEditRooms] = useState(false);
   const [addRoomOpen, setAddRoomOpen] = useState(false);
+  const [addingBedIn, setAddingBedIn] = useState<string | null>(null);
   const [confirm, setConfirm] = useState<{ title: string; sub: string; onYes: () => void } | null>(null);
 
   const property = properties.find((p) => p.id === propertyId);
@@ -237,7 +238,8 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                         <button
                           type="button"
                           title={t('bed_add')}
-                          onClick={() => { bedsRepository.create(room.id).catch(failed); }}
+                          disabled={addingBedIn === room.id}
+                          onClick={() => { setAddingBedIn(room.id); bedsRepository.create(room.id).catch(failed).finally(() => setAddingBedIn(null)); }}
                           style={{ minWidth: 42, height: 42, borderRadius: 11, border: '1px dashed #C9C9D4', background: '#fff', color: 'var(--color-muted)', fontSize: 18, cursor: 'pointer' }}
                         >
                           +

@@ -30,7 +30,7 @@ export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: 
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 70, padding: 16 }} onClick={onClose}>
         <div onClick={(e) => e.stopPropagation()} style={{ width: 540, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '22px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <div>
@@ -54,7 +54,7 @@ export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: 
                     <div style={{ fontSize: 12, color: 'var(--color-faint)' }}>{translatePlace(`Place ${row.placeNumber}`, lang)}</div>
                   </div>
                   <div className="num" style={{ fontSize: 12.5, color: 'var(--color-muted)', textAlign: 'right', whiteSpace: 'nowrap' }}>{period}</div>
-                  <Pill label={row.active ? t('occ_place') : t('st_CheckedIn')} fg={badgeFg} bg={badgeBg} />
+                  <Pill label={row.active ? t('occ_place') : t('fn_left')} fg={badgeFg} bg={badgeBg} />
                   {row.active && (
                     <button
                       className="pbtn"

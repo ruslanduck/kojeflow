@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { errorText } from '@/i18n/errors';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
 import type { FloorPlan } from '@/domain/types';
@@ -17,10 +18,20 @@ export function PlanSettingsDialog({ plan, onClose, onSaved }: PlanSettingsDialo
   const [name, setName] = useState(plan.name);
   const [sort, setSort] = useState(String(plan.sort));
 
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
+
   const save = async () => {
-    if (!name.trim()) return;
-    await floorPlansRepository.update(plan.id, { name: name.trim(), sort: Number(sort) || 1 });
-    onSaved();
+    if (!name.trim() || saving) return;
+    setSaving(true);
+    setError('');
+    try {
+      await floorPlansRepository.update(plan.id, { name: name.trim(), sort: Math.round(Number(sort)) || 1 });
+      onSaved();
+    } catch (e) {
+      setError(errorText(e, t));
+      setSaving(false);
+    }
   };
 
   return (
@@ -40,9 +51,10 @@ export function PlanSettingsDialog({ plan, onClose, onSaved }: PlanSettingsDialo
               <input type="number" value={sort} onChange={(e) => setSort(e.target.value)} style={{ width: '100%', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 12px', fontSize: 13.5, outline: 'none' }} />
             </div>
           </div>
+          {error && <div style={{ padding: '0 22px 10px', fontSize: 12.5, color: 'var(--color-red)' }}>{error}</div>}
           <div style={{ padding: '14px 22px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'flex-end', gap: 9 }}>
             <button onClick={onClose} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer' }}>{t('cancel')}</button>
-            <button onClick={() => void save()} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>{t('save')}</button>
+            <button onClick={() => void save()} disabled={saving} style={{ opacity: saving ? 0.6 : 1, background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 20px', fontSize: 13.5, fontWeight: 600, cursor: 'pointer' }}>{t('save')}</button>
           </div>
         </div>
       </div>

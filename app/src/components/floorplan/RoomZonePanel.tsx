@@ -58,7 +58,7 @@ export function RoomZonePanel({ propertyId, roomId, onClose }: { propertyId: str
             {roomBeds.map((bed) => {
               const resident = bed.residentId ? residentsById.get(bed.residentId) : undefined;
               const [bg, border, fg] = BED_TILE_COLORS[bed.status];
-              const who = resident ? safeName(resident.name, !!roleConfig.hideNames, t('hidden_name')) : bed.status === 'unavailable' ? t('fp_legend_off') : bed.status === 'booked' ? t('booked_place') : t('fp_legend_free');
+              const who = resident ? safeName(resident.name, !!roleConfig.hideNames, t('hidden_name')) : bed.status === 'occupied' ? t('occ_place') : bed.status === 'unavailable' ? t('fp_legend_off') : bed.status === 'booked' ? t('booked_place') : t('fp_legend_free');
               return (
                 <div
                   key={bed.id}

@@ -47,8 +47,8 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
   const bill = billFor(stay, payments);
 
   const scopeMatch = useMemo(() => {
-    if (scope === 'person') return (p: (typeof payments)[number]) => staysById.get(p.stayId)?.residentName === stay.residentName;
-    if (scope === 'bed') return (p: (typeof payments)[number]) => staysById.get(p.stayId)?.bedId === stay.bedId;
+    if (scope === 'person') return (p: (typeof payments)[number]) => staysById.get(p.stayId)?.residentId === stay.residentId;
+    if (scope === 'bed') return (p: (typeof payments)[number]) => (staysById.get(p.stayId)?.bedIds ?? []).some((b) => stay.bedIds.includes(b));
     return (p: (typeof payments)[number]) => p.stayId === stay.id;
   }, [scope, stay, staysById]);
 
