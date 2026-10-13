@@ -84,6 +84,14 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const [manager, setManager] = useState(fromBooking?.manager ?? '');
   const [project, setProject] = useState(fromBooking?.project && fromBooking.project !== '—' ? fromBooking.project : '');
   const [date, setDate] = useState(today());
+  // Everything else Airtable's "Create booking by Request" copied onto a stay; filled from the booking.
+  const [responsible, setResponsible] = useState(fromBooking?.responsible ?? '');
+  const [payer, setPayer] = useState(fromBooking?.payer ?? '');
+  const [discount, setDiscount] = useState(fromBooking?.discount ?? '');
+  const [note, setNote] = useState(fromBooking?.comment ?? '');
+  const [secondPerson, setSecondPerson] = useState(fromBooking?.children ?? '');
+  const [registrationNeeded, setRegistrationNeeded] = useState(fromBooking?.registrationNeeded ?? false);
+  const profileName = useSessionStore((s) => s.profileName);
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
 
@@ -139,6 +147,12 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
     setType(b.type);
     if (b.manager) setManager(b.manager);
     if (b.project && b.project !== '—') setProject(b.project);
+    setResponsible(b.responsible);
+    setPayer(b.payer);
+    setDiscount(b.discount ?? '');
+    setNote(b.comment);
+    setSecondPerson(b.children);
+    setRegistrationNeeded(b.registrationNeeded);
   };
 
   const pickBed = (room: Room, bedId: string, status: string) => {
@@ -212,7 +226,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
         // A booking names a person who may not have a record yet; it knows their gender.
         if (picked!.id) residentId = picked!.id;
         else {
-          residentId = (await residentsRepository.create({ name: residentName, gender: picked!.booking?.gender ?? null, type: tenantType })).id;
+          residentId = (await residentsRepository.create({ name: residentName, gender: picked!.booking?.gender ?? null, phone: picked!.booking?.phone, type: tenantType })).id;
           createdResident.current = { id: residentId, name: residentName };
         }
         if (picked!.id && !residentsById.has(picked!.id)) {
@@ -228,7 +242,10 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
       const stay = await checkIn({
         residentId, residentName, propertyId, roomId, bedIds: selectedBedIds, type,
         manager: manager.trim(), project: project.trim(), checkIn: date,
-        bookingId: picked?.booking?.id ?? fromBooking?.id, discount: (picked?.booking ?? fromBooking)?.discount,
+        bookingId: booking?.id, discount: discount.trim() || null,
+        officeManager: booking?.by || profileName,
+        responsible: responsible.trim(), payerName: payer.trim(), payerTenantId: booking?.payerTenantId ?? null,
+        note: note.trim(), secondPerson: secondPerson.trim(), registrationNeeded,
       });
       // The photo is set once the stay exists, when the resident is visible to every role that may check in.
       if (!pickMode && portrait) await residentsRepository.setAvatar(residentId, portrait.blob).catch(() => {});
@@ -251,8 +268,9 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
   const personName = pickMode ? picked?.name ?? '—' : newName.trim() || '—';
   const reviewName = safeName(personName, !!roleConfig.hideNames, t('hidden_name'));
+  const booking = picked?.booking ?? fromBooking ?? undefined;
   const nightlyRate = rateForBeds(
-    selectedBedIds.map((id) => bedsById.get(id)).filter((b): b is Bed => Boolean(b)), type, (picked?.booking ?? fromBooking)?.discount,
+    selectedBedIds.map((id) => bedsById.get(id)).filter((b): b is Bed => Boolean(b)), type, discount,
   );
   const reviewPlace = selectedRoom ? `${translatePlace(roomOnly(selectedRoom.name), lang)} · ${selectedBedIds.map((id) => bedsById.get(id)?.index).join(', ')}` : '—';
 
@@ -457,20 +475,36 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  {type === 'Internal' ? (
-                    <SuggestInput value={project} onChange={setProject} options={known.projects} />
-                  ) : (
-                    <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
-                      <option value="">{t('select')}</option>
-                      <option value="Client direct">{t('d_client')}</option>
-                      <option value="Hostel direct">{t('d_hostel')}</option>
-                    </select>
-                  )}
+                  <SuggestInput value={project} onChange={setProject} options={type === 'Internal' ? known.projects : ['Client direct', 'Hostel direct', ...known.projects]} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('ff_checkin')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   <DatePopover value={date} onChange={setDate} />
                 </div>
+                <div>
+                  <div style={FIELD_LABEL_STYLE}>{t('lbl_responsible')}</div>
+                  <SuggestInput value={responsible} onChange={setResponsible} options={known.managers} />
+                </div>
+                <div>
+                  <div style={FIELD_LABEL_STYLE}>{t('wz_payer')}</div>
+                  <SuggestInput value={payer} onChange={setPayer} options={known.managers} />
+                </div>
+                <div>
+                  <div style={FIELD_LABEL_STYLE}>{t('wz_discount')}</div>
+                  <input value={discount} onChange={(e) => setDiscount(e.target.value)} placeholder={t('wz_disc_ph')} style={FIELD_STYLE} />
+                </div>
+                <div>
+                  <div style={FIELD_LABEL_STYLE}>{t('ci_second')}</div>
+                  <input value={secondPerson} onChange={(e) => setSecondPerson(e.target.value)} style={FIELD_STYLE} />
+                </div>
+                <div style={{ gridColumn: '1/-1' }}>
+                  <div style={FIELD_LABEL_STYLE}>{t('wz_comment')}</div>
+                  <input value={note} onChange={(e) => setNote(e.target.value)} placeholder={t('wz_optnote')} style={FIELD_STYLE} />
+                </div>
+                <label style={{ gridColumn: '1/-1', display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, cursor: 'pointer' }}>
+                  <input type="checkbox" checked={registrationNeeded} onChange={(e) => setRegistrationNeeded(e.target.checked)} />
+                  {t('ci_reg_needed')}
+                </label>
               </div>
               <div style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 11, padding: 14, marginTop: 15 }}>
                 <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>

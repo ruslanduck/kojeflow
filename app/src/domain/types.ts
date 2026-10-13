@@ -81,6 +81,8 @@ export interface Stay {
   bedIds: string[];
   type: StayType;
   manager: string;
+  /** The project's own manager (Airtable "jobManager"); `manager` is who handles the stay in the office. */
+  jobManager: string;
   project: string;
   checkIn: string; // ISO date
   checkOut: string | null; // ISO date
@@ -118,6 +120,12 @@ export interface Booking {
   payer: string;
   family: boolean;
   discount: string | null;
+  phone: string;
+  responsible: string;
+  /** A second person staying with them (a child), as written on the booking. */
+  children: string;
+  registrationNeeded: boolean;
+  payerTenantId: string | null;
 }
 
 export interface Payment {

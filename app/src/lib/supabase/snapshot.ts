@@ -183,6 +183,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       bedIds: beds,
       type,
       manager: str(s.manager_name),
+      jobManager: str(s.job_manager_name),
       // Commercial stays name their customer in a column of its own.
       project: str(s.project_name) || str(s.customer),
       checkIn: date(s.check_in_date) ?? '',
@@ -254,6 +255,11 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       payer: str(b.payer_name),
       family: Boolean(b.is_family),
       discount: percent ? `${percent}%` : amount ? String(amount) : null,
+      phone: str(b.tenant_phone),
+      responsible: str(b.responsible_name),
+      children: str(b.children),
+      registrationNeeded: Boolean(b.registration_needed),
+      payerTenantId: str(b.payer_tenant_id) || null,
     };
   });
 

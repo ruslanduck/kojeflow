@@ -17,6 +17,26 @@ export interface CheckInInput {
   bookingId?: string;
   /** The booking's discount, "30%" or an amount; a percentage lowers the nightly rate. */
   discount?: string | null;
+  /**
+   * The rest of what Airtable's "Create booking by Request" automation copied onto a stay.
+   * `officeManager` is Airtable's "manger" (who created the booking, or who checks in);
+   * `manager` above is the project's manager ("jobManager").
+   */
+  officeManager?: string;
+  responsible?: string;
+  payerName?: string;
+  payerTenantId?: string | null;
+  note?: string;
+  secondPerson?: string;
+  registrationNeeded?: boolean;
+}
+
+/** An amount discount is stored on the stay as in Airtable; a percentage is already in the rate. */
+function discountAmount(discount?: string | null): number | null {
+  const text = (discount ?? '').trim();
+  if (!text || text.endsWith('%')) return null;
+  const value = Number(text.replace(',', '.'));
+  return Number.isFinite(value) && value > 0 ? value : null;
 }
 
 /** Nightly rate of a set of beds for a stay type, after a percentage discount. */
@@ -66,8 +86,18 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
         external_price: picked[0].priceExternal || null,
         // No price set for these beds: left empty, so the stay shows up as "no price" instead of free.
         price_per_day: rate || null,
-        manager_name: input.manager || null,
-        project_name: input.project || null,
+        manager_name: input.officeManager || input.manager || null,
+        job_manager_name: input.manager || null,
+        responsible_name: input.responsible || null,
+        // Airtable keeps the client or project in "customer" for every stay; internal ones name a project too.
+        customer: input.project || null,
+        project_name: input.type === 'Internal' ? input.project || null : null,
+        discount: discountAmount(input.discount),
+        payer_tenant_id: input.payerTenantId ?? null,
+        payer_name: input.payerName || null,
+        note: input.note || null,
+        second_tenant_name: input.secondPerson || null,
+        registration_needed: Boolean(input.registrationNeeded),
         source: 'app',
       })
       .select('id')
@@ -91,7 +121,8 @@ export async function checkIn(input: CheckInInput): Promise<Stay> {
     bedId: input.bedIds[0],
     bedIds: input.bedIds,
     type: input.type,
-    manager: input.manager,
+    manager: input.officeManager || input.manager,
+    jobManager: input.manager,
     project: input.project,
     checkIn: checkInDate,
     checkOut: null,

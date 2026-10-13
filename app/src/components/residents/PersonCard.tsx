@@ -98,7 +98,8 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const bed = activeStay ? bedsById.get(activeStay.bedId) : undefined;
   const placeLabel = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : t('not_assigned');
   const type = activeStay?.type ?? booking?.type ?? 'Internal';
-  const manager = activeStay?.manager ?? booking?.manager;
+  // Office manager and the project's own manager, when they differ.
+  const manager = activeStay ? [...new Set([activeStay.manager, activeStay.jobManager].filter(Boolean))].join(' / ') : booking?.manager;
   const project = activeStay?.project ?? booking?.project;
   const [typeFg, typeBg] = TYPE_PILL[type] ?? DEFAULT_PILL;
 

@@ -155,6 +155,11 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
             gender: pickMode ? (picked?.gender ?? null) : newGender === 'Female' ? 'F' : 'M',
             by: profileName,
             status: 'New',
+            phone: pickMode ? '' : newPhone.trim(),
+            responsible: '',
+            children: '',
+            registrationNeeded: false,
+            payerTenantId: null,
           },
           pickMode ? undefined : newPhone.trim(),
         );
