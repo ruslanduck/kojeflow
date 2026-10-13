@@ -34,7 +34,9 @@ export default function LoginPage() {
         setError(signInError.message === 'Invalid login credentials' ? t('login_invalid') : signInError.message);
         return;
       }
-      router.push('/dashboard');
+      // Only a path inside the app, never another site.
+      const next = new URLSearchParams(window.location.search).get('next');
+      router.push(next && next.startsWith('/') && !next.startsWith('//') && !next.startsWith('/login') ? next : '/dashboard');
       router.refresh();
     } finally {
       setLoading(false);

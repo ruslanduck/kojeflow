@@ -19,12 +19,18 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { Portal } from '@/components/ui/Portal';
 import { Lightbox } from '@/components/ui/Lightbox';
 import type { Gender, ResidentDocument } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface PersonCardProps {
   residentId?: string;
   personName?: string;
   onClose: () => void;
+}
+
+/** Scans are images or PDFs; only images can be shown as thumbnails. */
+function isImageDoc(d: { name: string; file?: File }): boolean {
+  if (d.file) return d.file.type.startsWith('image/');
+  return !/\.pdf$/i.test(d.name);
 }
 
 export function PersonCard({ residentId, personName, onClose }: PersonCardProps) {
@@ -67,9 +73,9 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const name = resident?.name ?? personName ?? '';
   const allStaysForResident = resident ? stays.filter((s) => s.residentId === resident.id).sort((a, b) => (a.checkIn < b.checkIn ? 1 : -1)) : [];
   const activeStay = allStaysForResident.find((s) => s.status === 'active') ?? null;
-  const history = useResidentHistory(resident?.id ?? null);
+  const history = useResidentHistory(resident?.id ?? null, allStaysForResident.map((s) => s.id + s.status).join());
   // The full history once loaded; the stays already in memory meanwhile.
-  const logStays: { id: string; propertyId: string; status: string; checkIn: string; checkOut: string | null; bedId: string }[] = history ?? allStaysForResident;
+  const logStays: { id: string; propertyId: string; status: string; checkIn: string; checkOut: string | null; bedIds: string[] }[] = history ?? allStaysForResident;
   // Matched by id; a name is only trusted for records that have no person attached.
   const isTheirs = (x: { residentId: string | null; residentName: string }) =>
     resident ? x.residentId === resident.id || (!x.residentId && x.residentName === name) : x.residentName === name;
@@ -190,10 +196,10 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   return (
     <>
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} {...backdropClose(onClose)}>
         <div onClick={(e) => e.stopPropagation()} style={{ width: 560, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '22px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 14 }}>
-            <Avatar name={displayName} size={58} />
+            <Avatar name={displayName} size={58} residentId={resident?.id} />
             <div style={{ flex: 1, minWidth: 0 }}>
               <div className="hd" style={{ fontSize: 24 }}>{displayName}</div>
               <div style={{ marginTop: 3, display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
@@ -258,7 +264,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
                     <div style={{ fontSize: 12, color: '#5C5C66', fontWeight: 600 }}>{label}</div>
                     <label style={{ background: '#F6F6F8', border: '1px solid #ECECF1', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer', color: '#141414' }}>
                       {t('doc_add')}
-                      <input type="file" accept="image/*" multiple onChange={(e) => { addDocs(kind, e.target.files); e.target.value = ''; }} style={{ display: 'none' }} />
+                      <input type="file" accept="image/*,application/pdf" multiple onChange={(e) => { addDocs(kind, e.target.files); e.target.value = ''; }} style={{ display: 'none' }} />
                     </label>
                   </div>
                   {docs.length === 0 ? (
@@ -267,11 +273,25 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                       {docs.map((d, i) => (
                         <div key={`${d.url}-${i}`} style={{ position: 'relative' }}>
-                          <div
-                            onClick={() => setZoomDoc({ url: d.url, title: d.name })}
-                            title={d.name}
-                            style={{ width: 62, height: 62, borderRadius: 9, cursor: 'zoom-in', backgroundColor: '#F1F1F5', backgroundImage: `url("${d.url}")`, backgroundSize: 'cover', backgroundPosition: 'center', boxShadow: 'inset 0 0 0 1px rgba(20,20,20,.1)' }}
-                          />
+                          {isImageDoc(d) ? (
+                            <div
+                              onClick={() => setZoomDoc({ url: d.url, title: d.name })}
+                              title={d.name}
+                              style={{ width: 62, height: 62, borderRadius: 9, cursor: 'zoom-in', backgroundColor: '#F1F1F5', backgroundImage: `url("${d.url}")`, backgroundSize: 'cover', backgroundPosition: 'center', boxShadow: 'inset 0 0 0 1px rgba(20,20,20,.1)' }}
+                            />
+                          ) : (
+                            // A PDF can't be drawn as a picture: it opens in its own tab.
+                            <a
+                              href={d.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title={d.name}
+                              style={{ width: 62, height: 62, borderRadius: 9, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2, background: '#FFF5F5', color: '#C0392B', fontSize: 11, fontWeight: 800, textDecoration: 'none', boxShadow: 'inset 0 0 0 1px rgba(192,57,43,.25)' }}
+                            >
+                              <span style={{ fontSize: 18 }}>📄</span>
+                              {(d.name.split('.').pop() ?? 'file').toUpperCase().slice(0, 4)}
+                            </a>
+                          )}
                           <button
                             type="button"
                             onClick={(e) => { e.stopPropagation(); removeDoc(kind, i); }}
@@ -309,7 +329,8 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
                     <div style={{ textAlign: 'center', padding: 34, color: 'var(--color-faint)', fontSize: 13 }}>{t('no_log')}</div>
                   ) : (
                     logStays.map((s) => {
-                      const sBed = bedsById.get(s.bedId);
+                      // The stay's lowest-numbered bed, like everywhere else.
+                      const sBed = s.bedIds.map((id) => bedsById.get(id)).filter((b) => b !== undefined).sort((a, b) => a.index - b.index)[0];
                       const sRoom = sBed ? roomsById.get(sBed.roomId) : undefined;
                       const sPlace = sRoom && sBed ? translatePlace(`${roomOnly(sRoom.name)} · Place ${sBed.index}`, lang) : '';
                       const period = s.status === 'active' ? t('period_now', { d: formatDateDMY(s.checkIn) }) : `${formatDateDMY(s.checkIn)} — ${formatDateDMY(s.checkOut)}`;

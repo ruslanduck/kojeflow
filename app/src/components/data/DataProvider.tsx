@@ -40,7 +40,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       try {
         const response = await fetch('/api/snapshot', { cache: 'no-store' });
         if (response.status === 401) {
-          router.replace('/login');
+          router.replace(`/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`);
           return;
         }
         if (!response.ok) throw new Error(`HTTP ${response.status}`);

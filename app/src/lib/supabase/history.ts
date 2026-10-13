@@ -75,14 +75,14 @@ export interface ResidentStayRow {
   status: 'active' | 'checked-out';
   checkIn: string;
   checkOut: string | null;
-  bedId: string;
+  bedIds: string[];
 }
 
 /**
  * Every stay of one person, straight from the database: the loaded data only reaches back
  * 120 days, and a returning resident's earlier stays matter. Null while loading.
  */
-export function useResidentHistory(residentId: string | null): ResidentStayRow[] | null {
+export function useResidentHistory(residentId: string | null, version = ''): ResidentStayRow[] | null {
   const [result, setResult] = useState<{ id: string; rows: ResidentStayRow[] } | null>(null);
 
   useEffect(() => {
@@ -104,14 +104,15 @@ export function useResidentHistory(residentId: string | null): ResidentStayRow[]
             status: s.status === 'active' ? 'active' : 'checked-out',
             checkIn: s.check_in_date ?? '',
             checkOut: s.check_out_date,
-            bedId: (s.stay_places as { place_id: string }[] | null)?.[0]?.place_id ?? '',
+            bedIds: ((s.stay_places as { place_id: string }[] | null) ?? []).map((sp) => sp.place_id),
           })),
         });
       });
     return () => {
       cancelled = true;
     };
-  }, [residentId]);
+    // `version` changes when the person's stays change here, so a check-in or check-out shows at once.
+  }, [residentId, version]);
 
   return result && result.id === residentId ? result.rows : null;
 }

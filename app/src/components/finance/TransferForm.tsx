@@ -8,6 +8,7 @@ import { today } from '@/domain/logic';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { Portal } from '@/components/ui/Portal';
 import type { Transfer, TransferStatus } from '@/domain/types';
+import { backdropClose } from '@/lib/useEscape';
 
 interface TransferFormProps {
   onClose: () => void;
@@ -37,7 +38,7 @@ export function TransferForm({ onClose, editing, onSaved }: TransferFormProps) {
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} {...backdropClose(onClose)}>
         <div onClick={(e) => e.stopPropagation()} style={{ width: 480, maxWidth: '100%', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <div className="hd" style={{ fontSize: 23 }}>{editing ? `${t('form_edit')} · ${t('ent_transfer')}` : `${t('form_add')} · ${t('ent_transfer')}`}</div>

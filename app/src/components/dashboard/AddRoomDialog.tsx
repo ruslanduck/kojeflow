@@ -8,7 +8,7 @@ import { DuplicateError } from '@/lib/supabase/write';
 import { Portal } from '@/components/ui/Portal';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import type { RoomType } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 /** Adds a room with its beds to a property (admins and team members). */
 export function AddRoomDialog({ propertyId, onClose }: { propertyId: string; onClose: () => void }) {
@@ -44,7 +44,7 @@ export function AddRoomDialog({ propertyId, onClose }: { propertyId: string; onC
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.42)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 120 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.42)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 120 }} {...backdropClose(onClose)}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 420, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '18px 22px 14px', borderBottom: '1px solid var(--color-border)' }}>
             <div className="hd" style={{ fontSize: 19 }}>{t('rm_add_title')}</div>

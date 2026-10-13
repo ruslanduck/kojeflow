@@ -164,7 +164,7 @@ export function RegistrationsScreen() {
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.7fr) minmax(0,.8fr) minmax(0,1.1fr) minmax(0,1.2fr) minmax(78px,1fr) minmax(78px,1fr) minmax(0,.6fr) minmax(76px,1fr)', gap: 10, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <Avatar name={name} size={28} />
+                  <Avatar name={name} size={28} residentId={r.residentId} />
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
                 </div>
                 <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{t(TYPE_LABEL_KEY[r.type])}</div>

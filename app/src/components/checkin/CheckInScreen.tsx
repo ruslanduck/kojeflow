@@ -130,7 +130,7 @@ export function CheckInScreen() {
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.7fr) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.9fr) minmax(78px,1fr) minmax(82px,1.15fr) 168px', gap: 11, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}
               >
                 <div className="mmain" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <Avatar name={name} size={28} />
+                  <Avatar name={name} size={28} residentId={s.residentId} />
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
                 </div>
                 <div className="mgroup">

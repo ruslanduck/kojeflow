@@ -114,7 +114,7 @@ export function PropertiesDashboard() {
             </svg>
             <span style={{ whiteSpace: 'nowrap' }}>{t('fp_open')}</span>
           </button>
-          <DatePopover value={dashDate} onChange={setDashDate} variant="dashboard" align="right" />
+          <DatePopover value={dashDate} onChange={setDashDate} variant="dashboard" align="right" max={today()} />
         </div>
       </div>
 

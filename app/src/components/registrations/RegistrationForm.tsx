@@ -15,7 +15,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Registration, RegistrationStatus, RegistrationType } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface RegistrationFormProps {
   onClose: () => void;
@@ -90,7 +90,7 @@ export function RegistrationForm({ onClose, editing, onSaved }: RegistrationForm
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} {...backdropClose(onClose)}>
         <div onClick={(e) => e.stopPropagation()} style={{ width: 620, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <div>
@@ -110,7 +110,7 @@ export function RegistrationForm({ onClose, editing, onSaved }: RegistrationForm
                     const rowName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
                     return (
                       <div key={r.id} className="rowh" onClick={() => { setResidentName(r.name); setResidentId(r.id); setPropertyId((p) => p || r.propertyId); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
-                        <Avatar name={rowName} size={30} />
+                        <Avatar name={rowName} size={30} residentId={r.id} />
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontWeight: 600, fontSize: 13.5 }}>{rowName}</div>
                           <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{r.sub}</div>

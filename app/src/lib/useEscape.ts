@@ -30,3 +30,20 @@ export function useEscape(onClose: () => void): void {
     };
   }, []);
 }
+
+/**
+ * Props for a dialog's backdrop: it closes only when the press both started and ended on the
+ * backdrop, so dragging a text selection out of a field never throws the form away.
+ */
+export function backdropClose(onClose: () => void) {
+  return {
+    onPointerDown: (e: React.PointerEvent<HTMLElement>) => {
+      e.currentTarget.dataset.pressed = e.target === e.currentTarget ? '1' : '';
+    },
+    onClick: (e: React.MouseEvent<HTMLElement>) => {
+      const pressed = e.currentTarget.dataset.pressed === '1';
+      e.currentTarget.dataset.pressed = '';
+      if (pressed && e.target === e.currentTarget) onClose();
+    },
+  };
+}

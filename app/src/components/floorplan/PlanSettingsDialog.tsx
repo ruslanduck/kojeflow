@@ -6,7 +6,7 @@ import { errorText } from '@/i18n/errors';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
 import type { FloorPlan } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface PlanSettingsDialogProps {
   plan: FloorPlan;
@@ -38,7 +38,7 @@ export function PlanSettingsDialog({ plan, onClose, onSaved }: PlanSettingsDialo
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.42)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 120 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.42)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 120 }} {...backdropClose(onClose)}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 380, overflow: 'hidden' }}>
           <div style={{ padding: '18px 22px 14px', borderBottom: '1px solid var(--color-border)' }}>
             <div className="hd" style={{ fontSize: 19 }}>{t('fp_planset')}</div>

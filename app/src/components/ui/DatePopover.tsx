@@ -15,9 +15,12 @@ interface DatePopoverProps {
   /** 'dashboard' = the pill-style "History ⌄" trigger; 'field' = a full-width form input look. */
   variant?: 'dashboard' | 'field';
   align?: 'left' | 'right';
+  /** Earliest and latest pickable days (ISO); days outside are shown but can't be picked. */
+  min?: string;
+  max?: string;
 }
 
-export function DatePopover({ value, onChange, variant = 'field', align = 'left' }: DatePopoverProps) {
+export function DatePopover({ value, onChange, variant = 'field', align = 'left', min, max }: DatePopoverProps) {
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const [open, setOpen] = useState(false);
@@ -113,14 +116,15 @@ export function DatePopover({ value, onChange, variant = 'field', align = 'left'
               if (!c.iso) return <div key={i} style={{ height: 32 }} />;
               const sel = c.iso === value;
               const isToday = c.iso === today();
+              const off = (min !== undefined && c.iso < min) || (max !== undefined && c.iso > max);
               return (
                 <div
                   key={i}
-                  onClick={() => pick(c.iso as string)}
+                  onClick={() => { if (!off) pick(c.iso as string); }}
                   style={{
                     height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8,
-                    fontSize: 12.5, cursor: 'pointer', border: '1px solid ' + (sel ? '#141414' : isToday ? '#E0E0E8' : 'transparent'),
-                    background: sel ? '#141414' : 'transparent', color: sel ? '#fff' : '#141414', fontWeight: sel || isToday ? 700 : 500,
+                    fontSize: 12.5, cursor: off ? 'default' : 'pointer', border: '1px solid ' + (sel ? '#141414' : isToday ? '#E0E0E8' : 'transparent'),
+                    background: sel ? '#141414' : 'transparent', color: sel ? '#fff' : off ? '#C9C9D4' : '#141414', fontWeight: sel || isToday ? 700 : 500,
                   }}
                 >
                   {c.day}

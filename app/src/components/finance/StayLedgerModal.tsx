@@ -65,7 +65,7 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
       <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 65 }} onClick={onClose}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 560, maxHeight: '88vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '18px 22px 15px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Avatar name={displayName} size={48} />
+            <Avatar name={displayName} size={48} residentId={stay.residentId} />
             <div style={{ flex: 1, minWidth: 0 }}>
               <div className="hd" style={{ fontSize: 19, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{displayName}</div>
               <div style={{ fontSize: 12.5, color: 'var(--color-muted)' }}>{property?.name} · {placeLabel}</div>

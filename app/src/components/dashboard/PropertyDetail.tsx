@@ -287,7 +287,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.8fr) minmax(0,1.5fr) minmax(0,.9fr) minmax(78px,1fr) minmax(0,1.4fr)', gap: 12, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <Avatar name={name} size={30} />
+                  <Avatar name={name} size={30} residentId={resident!.id} />
                   <span style={{ fontWeight: 600, fontSize: 13.5 }}>{name}</span>
                 </div>
                 <div style={{ fontSize: 12.5 }}>{translatePlace(`${room.name} · Place ${bed.index}`, lang)}</div>

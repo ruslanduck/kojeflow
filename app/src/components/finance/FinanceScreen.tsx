@@ -167,7 +167,7 @@ export function FinanceScreen() {
                   return (
                     <div key={s.id} className="rowh" onClick={() => setLedgerStayId(s.id)} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.9fr) minmax(0,1.5fr) minmax(0,.7fr) minmax(82px,.9fr) minmax(82px,1fr) minmax(82px,1fr) minmax(82px,1.1fr) 84px', gap: 11, padding: '13px 20px', borderBottom: '1px solid #F2F2F6', alignItems: 'center', cursor: 'pointer' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 9, minWidth: 0 }}>
-                        <Avatar name={name} size={32} />
+                        <Avatar name={name} size={32} residentId={s.residentId} />
                         <div style={{ minWidth: 0 }}>
                           <div style={{ fontWeight: 600, fontSize: 13.5, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
                           <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>

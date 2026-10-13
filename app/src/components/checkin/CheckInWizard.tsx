@@ -20,7 +20,7 @@ import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
 import type { Bed, Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface CheckInWizardProps {
   onClose: () => void;
@@ -44,7 +44,6 @@ interface PickedPerson {
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 
 export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, defaultRoomId, defaultBedIds, onSaved }: CheckInWizardProps) {
-  useEscape(onClose);
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
@@ -94,6 +93,9 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const profileName = useSessionStore((s) => s.profileName);
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
+  // Closing mid-save would hide its outcome; Escape and the backdrop wait for it.
+  const closeUnlessSaving = () => { if (!saving) onClose(); };
+  useEscape(closeUnlessSaving);
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
   const residentsById = useMemo(() => new Map(residents.map((r) => [r.id, r])), [residents]);
@@ -302,7 +304,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
   return (
     <Portal>
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} onClick={onClose}>
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 61, padding: 16 }} {...backdropClose(closeUnlessSaving)}>
       <div onClick={(e) => e.stopPropagation()} style={{ width: 760, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px 0', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <div>
@@ -334,7 +336,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                       const avatarUrl = r.id ? residentsById.get(r.id)?.avatarUrl : undefined;
                       return (
                         <div key={r.booking ? `booking:${r.booking.id}` : r.id ?? `name:${r.name}`} className="rowh" onClick={() => pickPerson(r)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
-                          <Avatar name={displayName} size={34} url={avatarUrl} />
+                          <Avatar name={displayName} size={34} url={avatarUrl} residentId={r.id} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
                             <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{r.sub}</div>
@@ -489,7 +491,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('ff_checkin')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <DatePopover value={date} onChange={setDate} />
+                  <DatePopover value={date} onChange={setDate} max={today()} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('lbl_responsible')}</div>

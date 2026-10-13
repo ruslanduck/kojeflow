@@ -166,7 +166,7 @@ export function BookingsScreen() {
                 style={{ display: 'grid', gridTemplateColumns: 'minmax(0,2.1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(78px,1.2fr) minmax(92px,.9fr) 26px', gap: 13, padding: '15px 19px', alignItems: 'center', cursor: 'pointer' }}
               >
                 <div className="bkwho" style={{ display: 'flex', alignItems: 'center', gap: 11, minWidth: 0 }}>
-                  <Avatar name={name} size={36} />
+                  <Avatar name={name} size={36} residentId={b.residentId} />
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontWeight: 600, fontSize: 14, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>

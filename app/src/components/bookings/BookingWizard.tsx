@@ -19,7 +19,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Booking, StayType } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface BookingWizardProps {
   onClose: () => void;
@@ -34,7 +34,6 @@ interface BookingWizardProps {
  * from props instead of synced via an effect.
  */
 export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: BookingWizardProps) {
-  useEscape(onClose);
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
@@ -69,6 +68,9 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const [comment, setComment] = useState(editing?.comment ?? '');
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
+  // Closing mid-save would hide its outcome; Escape and the backdrop wait for it.
+  const closeUnlessSaving = () => { if (!saving) onClose(); };
+  useEscape(closeUnlessSaving);
 
   const activeStays = useMemo(() => stays.filter((s) => s.status === 'active'), [stays]);
   const roomsById = useMemo(() => new Map(rooms.map((r) => [r.id, r])), [rooms]);
@@ -187,7 +189,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
 
   return (
     <Portal>
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} onClick={onClose}>
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60, padding: 16 }} {...backdropClose(closeUnlessSaving)}>
       <div onClick={(e) => e.stopPropagation()} style={{ width: 640, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px 0', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <div>
@@ -216,7 +218,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
                       const displayName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
                       return (
                         <div key={r.id} className="rowh" onClick={() => { setResidentName(r.name); setResidentId(r.id); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
-                          <Avatar name={displayName} size={34} />
+                          <Avatar name={displayName} size={34} residentId={r.id} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
                             <div style={{ fontSize: 11.5, color: 'var(--color-faint)' }}>{r.sub}</div>
@@ -246,7 +248,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
                   </div>
                   <div>
                     <div style={FIELD_LABEL_STYLE}>{t('wz_dob')}</div>
-                    <DatePopover value={newDob} onChange={setNewDob} />
+                    <DatePopover value={newDob} onChange={setNewDob} max={today()} />
                   </div>
                 </div>
               )}
@@ -311,7 +313,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('wz_expected')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <DatePopover value={date} onChange={setDate} />
+                  <DatePopover value={date} onChange={setDate} min={editing ? undefined : today()} />
                   <div style={{ fontSize: 10.5, color: 'var(--color-faint)', marginTop: 3 }}>{t('wz_2weeks')}</div>
                 </div>
                 <div>
@@ -337,7 +339,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
           {step === 3 && (
             <div style={{ background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 12, padding: 19 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 15, paddingBottom: 15, borderBottom: '1px solid var(--color-border)' }}>
-                <Avatar name={reviewName} size={44} />
+                <Avatar name={reviewName} size={44} residentId={pickMode ? residentId : null} />
                 <div>
                   <div className="hd" style={{ fontSize: 19 }}>{reviewName}</div>
                   <Pill label={t(TYPE_LABEL_KEY[type])} fg={typeFg} bg={typeBg} />

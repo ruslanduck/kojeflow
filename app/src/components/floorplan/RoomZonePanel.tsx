@@ -68,7 +68,7 @@ export function RoomZonePanel({ propertyId, roomId, onClose }: { propertyId: str
                   style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 12px', borderBottom: '1px solid #F2F2F6', cursor: resident ? 'pointer' : 'default' }}
                 >
                   <span style={{ width: 24, height: 24, flex: 'none', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, background: bg, border: `1px solid ${border}`, color: fg }}>{bed.index}</span>
-                  {resident && <Avatar name={who} size={30} />}
+                  {resident && <Avatar name={who} size={30} residentId={resident.id} />}
                   <span style={{ flex: 1, minWidth: 0, fontSize: 13.5, fontWeight: resident ? 600 : 500, color: resident ? 'var(--color-ink)' : fg, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{who}</span>
                 </div>
               );

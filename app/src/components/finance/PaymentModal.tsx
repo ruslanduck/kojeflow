@@ -14,7 +14,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Payment, Stay } from '@/domain/types';
-import { useEscape } from '@/lib/useEscape';
+import { backdropClose, useEscape } from '@/lib/useEscape';
 
 interface PaymentModalProps {
   onClose: () => void;
@@ -23,7 +23,6 @@ interface PaymentModalProps {
 }
 
 export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentModalProps) {
-  useEscape(onClose);
   const t = useT();
   const currency = useSessionStore((s) => s.currency);
   const lang = useSessionStore((s) => s.lang);
@@ -45,6 +44,9 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const [note, setNote] = useState('');
   const [doc, setDoc] = useState<{ name: string; url: string; file: File } | null>(null);
   const [saving, setSaving] = useState(false);
+  // Closing mid-save would hide its outcome; Escape and the backdrop wait for it.
+  const closeUnlessSaving = () => { if (!saving) onClose(); };
+  useEscape(closeUnlessSaving);
   const [error, setError] = useState('');
 
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
@@ -95,10 +97,10 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
 
   return (
     <Portal>
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 66 }} onClick={onClose}>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(20,20,20,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, zIndex: 66 }} {...backdropClose(closeUnlessSaving)}>
         <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 430, maxHeight: '88vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '18px 22px 15px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 12 }}>
-            {!pickMode && <Avatar name={displayName} size={44} />}
+            {!pickMode && <Avatar name={displayName} size={44} residentId={stay?.residentId} />}
             <div style={{ flex: 1, minWidth: 0 }}>
               <div className="hd" style={{ fontSize: 19 }}>{t('pay_title')}</div>
               {!pickMode && stay ? (
@@ -128,7 +130,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
                   const rowName = safeName(s.residentName, !!roleConfig.hideNames, t('hidden_name'));
                   return (
                     <div key={s.id} onClick={() => { setStay(s); setAmount(b.balance > 0 ? String(b.balance) : ''); setPickMode(false); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: '#fff' }}>
-                      <Avatar name={rowName} size={34} />
+                      <Avatar name={rowName} size={34} residentId={s.residentId} />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontSize: 13.5, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{rowName}</div>
                         <div style={{ fontSize: 11.5, color: 'var(--color-faint)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{propertiesById.get(s.propertyId)?.name} · {placeLabel(s)}</div>
@@ -163,7 +165,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
                 </div>
                 <div>
                   <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('pay_when')}</div>
-                  <DatePopover value={date} onChange={setDate} />
+                  <DatePopover value={date} onChange={setDate} max={today()} />
                 </div>
                 <div>
                   <div style={{ fontSize: 12, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 5 }}>{t('pay_by')}</div>
