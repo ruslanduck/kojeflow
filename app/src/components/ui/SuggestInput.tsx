@@ -12,7 +12,7 @@ export function useKnownNames(): { managers: string[]; projects: string[] } {
     const uniq = (values: string[]) =>
       Array.from(new Set(values.map((v) => v.trim()).filter((v) => v && v !== '—'))).sort((a, b) => a.localeCompare(b));
     return {
-      managers: uniq([...stays.map((s) => s.manager), ...bookings.map((b) => b.manager)]),
+      managers: uniq([...stays.flatMap((s) => [s.manager, s.jobManager]), ...bookings.map((b) => b.manager)]),
       projects: uniq([...stays.map((s) => s.project), ...bookings.map((b) => b.project)]),
     };
   }, [stays, bookings]);

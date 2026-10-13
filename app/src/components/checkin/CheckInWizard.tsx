@@ -5,7 +5,7 @@ import { useT } from '@/i18n/useT';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
-import { checkIn, rateForBeds } from '@/repositories/operations';
+import { checkIn, isValidDiscount, rateForBeds } from '@/repositories/operations';
 import { residentsRepository } from '@/repositories/residentsRepository';
 import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
 import { roomGender, today } from '@/domain/logic';
@@ -133,26 +133,30 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const selectedRoom = rooms.find((r) => r.id === roomId) ?? null;
   const freeInProperty = beds.filter((b) => b.propertyId === propertyId && b.status === 'free').length;
 
-  // Picking a booking brings its details along: property, type, manager and project.
-  const pickPerson = (person: PickedPerson) => {
-    setPicked(person);
-    setError('');
-    const b = person.booking;
-    if (!b) return;
-    if (!defaultPropertyId && b.propertyId !== propertyId) {
+  /**
+   * Picking a booking brings all its details along; picking anyone else clears what a previous
+   * booking filled in, so one person's discount or payer never lands on another.
+   */
+  const applyBooking = (b: Booking | undefined) => {
+    setResponsible(b?.responsible ?? '');
+    setPayer(b?.payer ?? '');
+    setDiscount(b?.discount ?? '');
+    setNote(b?.comment ?? '');
+    setSecondPerson(b?.children ?? '');
+    setRegistrationNeeded(b?.registrationNeeded ?? false);
+    setManager(b?.manager ?? '');
+    setProject(b?.project && b.project !== '—' ? b.project : '');
+    setType(b?.type ?? 'Internal');
+    if (b && !defaultPropertyId && b.propertyId !== propertyId) {
       setPropertyId(b.propertyId);
       setRoomId('');
       setSelectedBedIds([]);
     }
-    setType(b.type);
-    if (b.manager) setManager(b.manager);
-    if (b.project && b.project !== '—') setProject(b.project);
-    setResponsible(b.responsible);
-    setPayer(b.payer);
-    setDiscount(b.discount ?? '');
-    setNote(b.comment);
-    setSecondPerson(b.children);
-    setRegistrationNeeded(b.registrationNeeded);
+  };
+  const pickPerson = (person: PickedPerson) => {
+    if (person.booking?.id !== picked?.booking?.id) applyBooking(person.booking);
+    setPicked(person);
+    setError('');
   };
 
   const pickBed = (room: Room, bedId: string, status: string) => {
@@ -201,6 +205,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
       return;
     }
     if (!manager.trim()) return setError(t('err_mgr'));
+    if (discount.trim() && !isValidDiscount(discount)) return setError(t('err_discount'));
     if (!project.trim()) return setError(t('err_project'));
     await save();
   };
@@ -268,7 +273,8 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
   const personName = pickMode ? picked?.name ?? '—' : newName.trim() || '—';
   const reviewName = safeName(personName, !!roleConfig.hideNames, t('hidden_name'));
-  const booking = picked?.booking ?? fromBooking ?? undefined;
+  // Only the booking of the person actually picked; a new person has none.
+  const booking = pickMode ? picked?.booking : undefined;
   const nightlyRate = rateForBeds(
     selectedBedIds.map((id) => bedsById.get(id)).filter((b): b is Bed => Boolean(b)), type, discount,
   );
@@ -319,11 +325,15 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                   <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t('wz_search')} style={{ ...FIELD_STYLE, marginBottom: 12 }} />
                   <div style={{ border: '1px solid var(--color-border)', borderRadius: 11, maxHeight: 300, overflowY: 'auto' }}>
                     {pool.map((r) => {
-                      const on = picked ? (picked.id ? picked.id === r.id : picked.name === r.name) : false;
+                      const on = picked
+                        ? picked.booking || r.booking
+                          ? picked.booking?.id === r.booking?.id
+                          : picked.id ? picked.id === r.id : picked.name === r.name
+                        : false;
                       const displayName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
                       const avatarUrl = r.id ? residentsById.get(r.id)?.avatarUrl : undefined;
                       return (
-                        <div key={r.id ?? `name:${r.name}`} className="rowh" onClick={() => pickPerson(r)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
+                        <div key={r.booking ? `booking:${r.booking.id}` : r.id ?? `name:${r.name}`} className="rowh" onClick={() => pickPerson(r)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
                           <Avatar name={displayName} size={34} url={avatarUrl} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
@@ -382,7 +392,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                   </div>
                 </div>
               )}
-              <button className="chip" onClick={() => { setPickMode(!pickMode); setError(''); }} style={{ width: '100%', background: '#fff', border: '1px dashed var(--color-scrollbar)', borderRadius: 9, padding: 11, fontSize: 13, cursor: 'pointer', color: 'var(--color-ink)', fontWeight: 600, marginTop: 12 }}>
+              <button className="chip" onClick={() => { if (picked?.booking) applyBooking(undefined); setPicked(null); setPickMode(!pickMode); setError(''); }} style={{ width: '100%', background: '#fff', border: '1px dashed var(--color-scrollbar)', borderRadius: 9, padding: 11, fontSize: 13, cursor: 'pointer', color: 'var(--color-ink)', fontWeight: 600, marginTop: 12 }}>
                 {pickMode ? t('wz_createnew') : t('wz_backlist')}
               </button>
             </>
@@ -470,12 +480,12 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
               </div>
               <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                 <div>
-                  <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_manager') : t('lbl_responsible')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
+                  <div style={FIELD_LABEL_STYLE}>{t('lbl_manager')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   <SuggestInput value={manager} onChange={setManager} options={known.managers} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <SuggestInput value={project} onChange={setProject} options={type === 'Internal' ? known.projects : ['Client direct', 'Hostel direct', ...known.projects]} />
+                  <SuggestInput value={project} onChange={setProject} options={known.projects} />
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('ff_checkin')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
@@ -531,7 +541,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
         </div>
 
         <div style={{ padding: '15px 24px', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <button onClick={goBack} style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)', visibility: step > 1 ? 'visible' : 'hidden' }}>
+          <button onClick={goBack} style={{ whiteSpace: 'nowrap', flex: 'none', background: '#fff', border: '1px solid var(--color-border)', borderRadius: 9, padding: '10px 17px', fontSize: 13.5, cursor: 'pointer', color: 'var(--color-muted)', visibility: step > 1 ? 'visible' : 'hidden' }}>
             {t('wz_back')}
           </button>
           <button className="pbtn" onClick={() => void goNext()} disabled={saving} style={{ background: '#141414', color: '#fff', border: 'none', borderRadius: 9, padding: '11px 22px', fontSize: 13.5, fontWeight: 600, cursor: saving ? 'wait' : 'pointer', opacity: saving ? 0.6 : 1 }}>

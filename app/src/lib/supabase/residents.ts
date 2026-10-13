@@ -46,7 +46,7 @@ export function useResidentDirectory(search: string, pages: number, enabled: boo
         rows: (data ?? []).map((t) => ({
           id: t.id,
           name: t.full_name,
-          gender: t.gender === 'female' ? 'F' : 'M',
+          gender: t.gender === 'female' ? 'F' : t.gender === 'male' ? 'M' : null,
           phone: t.phone ?? undefined,
           dob: t.birth_date ?? undefined,
           type: t.type,

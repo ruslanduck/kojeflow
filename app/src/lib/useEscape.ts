@@ -7,7 +7,8 @@ const stack: Array<{ current: () => void }> = [];
 
 if (typeof window !== 'undefined') {
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && stack.length) {
+    // A popover inside the dialog (date picker) handles its own Escape first and marks it done.
+    if (e.key === 'Escape' && !e.defaultPrevented && !e.isComposing && stack.length) {
       e.preventDefault();
       stack[stack.length - 1].current();
     }

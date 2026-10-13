@@ -33,17 +33,28 @@ export interface CheckInInput {
 
 /** An amount discount is stored on the stay as in Airtable; a percentage is already in the rate. */
 function discountAmount(discount?: string | null): number | null {
-  const text = (discount ?? '').trim();
-  if (!text || text.endsWith('%')) return null;
-  const value = Number(text.replace(',', '.'));
-  return Number.isFinite(value) && value > 0 ? value : null;
+  return parseDiscount(discount)?.amount ?? null;
+}
+
+/** "10 %", "10,5%", "300 Kč", "1 000" → { percent } or { amount }; null when it isn't a discount. */
+function parseDiscount(discount?: string | null): { percent?: number; amount?: number } | null {
+  const text = (discount ?? '').replace(/\s|kč|czk/gi, '').replace(',', '.');
+  if (!text) return null;
+  const isPercent = text.endsWith('%');
+  const value = Number(isPercent ? text.slice(0, -1) : text);
+  if (!Number.isFinite(value) || value <= 0 || (isPercent && value >= 100)) return null;
+  return isPercent ? { percent: value } : { amount: value };
+}
+
+export function isValidDiscount(discount: string): boolean {
+  return parseDiscount(discount) !== null;
 }
 
 /** Nightly rate of a set of beds for a stay type, after a percentage discount. */
 export function rateForBeds(beds: Bed[], type: Stay['type'], discount?: string | null): number {
   const full = beds.reduce((sum, b) => sum + (type === 'Commercial' ? b.priceExternal : b.priceInternal), 0);
-  const percent = discount?.trim().endsWith('%') ? Number(discount.trim().slice(0, -1).replace(',', '.')) : 0;
-  const factor = Number.isFinite(percent) && percent > 0 && percent < 100 ? 1 - percent / 100 : 1;
+  const percent = parseDiscount(discount)?.percent ?? 0;
+  const factor = percent ? 1 - percent / 100 : 1;
   return Math.round(full * factor * 100) / 100;
 }
 

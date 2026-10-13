@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSessionStore } from '@/store/session';
 import { useT } from '@/i18n/useT';
 import { MONTHS, WEEKDAYS } from '@/domain/calendar';
@@ -57,6 +57,18 @@ export function DatePopover({ value, onChange, variant = 'field', align = 'left'
     }
     setView(`${y}-${pad(m)}`);
   };
+
+  // Escape closes just the calendar, not the dialog around it.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      e.preventDefault();
+      setOpen(false);
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, [open]);
 
   const pick = (iso: string) => {
     onChange(iso);

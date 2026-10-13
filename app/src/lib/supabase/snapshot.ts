@@ -251,7 +251,8 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       by: str(b.creator_name),
       status: BOOKING_STATUS[str(b.status)] ?? 'New',
       manager: str(b.manager_name),
-      project: str(b.manager_project),
+      // Commercial bookings name their client in "customer", internal ones a project.
+      project: b.price_type === 'commercial' ? str(b.customer) || str(b.manager_project) : str(b.manager_project) || str(b.customer),
       payer: str(b.payer_name),
       family: Boolean(b.is_family),
       discount: percent ? `${percent}%` : amount ? String(amount) : null,
