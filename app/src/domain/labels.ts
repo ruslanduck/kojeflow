@@ -14,7 +14,7 @@ export function safeName(name: string, hideNames: boolean, hiddenLabel: string):
  */
 /** "P.Svandy - Room 9" → "Room 9", for places where the property is already shown next to it. */
 export function roomOnly(roomName: string): string {
-  return roomName.replace(/^.*? - (?=(Room|Apartment|Wagon))/, '');
+  return roomName.replace(/^.*? - (?=(Room|Apartment|Wagon)\b)/, '');
 }
 
 export function translatePlace(value: string | null | undefined, lang: Lang): string {
