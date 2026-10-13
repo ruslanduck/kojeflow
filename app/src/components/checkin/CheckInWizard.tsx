@@ -125,6 +125,22 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const selectedRoom = rooms.find((r) => r.id === roomId) ?? null;
   const freeInProperty = beds.filter((b) => b.propertyId === propertyId && b.status === 'free').length;
 
+  // Picking a booking brings its details along: property, type, manager and project.
+  const pickPerson = (person: PickedPerson) => {
+    setPicked(person);
+    setError('');
+    const b = person.booking;
+    if (!b) return;
+    if (!defaultPropertyId && b.propertyId !== propertyId) {
+      setPropertyId(b.propertyId);
+      setRoomId('');
+      setSelectedBedIds([]);
+    }
+    setType(b.type);
+    if (b.manager) setManager(b.manager);
+    if (b.project && b.project !== '—') setProject(b.project);
+  };
+
   const pickBed = (room: Room, bedId: string, status: string) => {
     if (status !== 'free') {
       showToast(status === 'unavailable' ? t('unavail_tip') : t('occ_place'));
@@ -238,7 +254,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const nightlyRate = rateForBeds(
     selectedBedIds.map((id) => bedsById.get(id)).filter((b): b is Bed => Boolean(b)), type, (picked?.booking ?? fromBooking)?.discount,
   );
-  const reviewPlace = selectedRoom ? `${translatePlace(selectedRoom.name, lang)} · ${selectedBedIds.map((id) => bedsById.get(id)?.index).join(', ')}` : '—';
+  const reviewPlace = selectedRoom ? `${translatePlace(roomOnly(selectedRoom.name), lang)} · ${selectedBedIds.map((id) => bedsById.get(id)?.index).join(', ')}` : '—';
 
   const fileList = (files: File[], remove: (i: number) => void) =>
     files.length ? (
@@ -289,7 +305,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                       const displayName = safeName(r.name, !!roleConfig.hideNames, t('hidden_name'));
                       const avatarUrl = r.id ? residentsById.get(r.id)?.avatarUrl : undefined;
                       return (
-                        <div key={r.id ?? `name:${r.name}`} className="rowh" onClick={() => { setPicked(r); setError(''); }} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
+                        <div key={r.id ?? `name:${r.name}`} className="rowh" onClick={() => pickPerson(r)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 13px', borderBottom: '1px solid #F2F2F6', cursor: 'pointer', background: on ? '#FFFBE6' : '#fff' }}>
                           <Avatar name={displayName} size={34} url={avatarUrl} />
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{displayName}</div>
