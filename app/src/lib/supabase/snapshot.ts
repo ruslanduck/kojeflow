@@ -183,7 +183,8 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       bedIds: beds,
       type,
       manager: str(s.manager_name),
-      project: str(s.project_name),
+      // Commercial stays name their customer in a column of its own.
+      project: str(s.project_name) || str(s.customer),
       checkIn: date(s.check_in_date) ?? '',
       checkOut: date(s.check_out_date),
       status: active ? 'active' : 'checked-out',

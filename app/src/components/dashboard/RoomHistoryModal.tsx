@@ -5,15 +5,17 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
-import { translatePlace, safeName } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
 import { useRoomHistory } from '@/lib/supabase/history';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { Portal } from '@/components/ui/Portal';
+import { useEscape } from '@/lib/useEscape';
 
 /** Everyone who has lived in the room, from the stays history in the database. */
 export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: string; roomId: string; onClose: () => void }) {
+  useEscape(onClose);
   const t = useT();
   const router = useRouter();
   const lang = useSessionStore((s) => s.lang);
@@ -34,7 +36,7 @@ export function RoomHistoryModal({ propertyId, roomId, onClose }: { propertyId: 
         <div onClick={(e) => e.stopPropagation()} style={{ width: 540, maxWidth: '100%', maxHeight: '92vh', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '22px 24px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <div>
-              <div className="hd" style={{ fontSize: 22 }}>{property.name} · {translatePlace(room.name, lang)}</div>
+              <div className="hd" style={{ fontSize: 22 }}>{property.name} · {translatePlace(roomOnly(room.name), lang)}</div>
               <div style={{ fontSize: 12.5, color: 'var(--color-faint)', marginTop: 2 }}>{t('room_log_sub')}</div>
             </div>
             <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: 22, color: 'var(--color-faint-2)', cursor: 'pointer', lineHeight: 1 }}>×</button>

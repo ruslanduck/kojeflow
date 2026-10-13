@@ -1,7 +1,8 @@
 /** Matches Component.fmt(n): symbol-suffixed for Kč/zł, prefixed otherwise. */
 export function formatCurrency(amount: number, currency: string): string {
   const sign = amount < 0 ? '-' : '';
-  const digits = Math.abs(amount).toLocaleString('en-US');
+  // Czech grouping ("108 667"), the way crowns are written; reads right in Ukrainian too.
+  const digits = Math.abs(amount).toLocaleString('cs-CZ', { maximumFractionDigits: 2 });
   return currency === 'Kč' || currency === 'zł' ? `${sign}${digits} ${currency}` : `${sign}${currency}${digits}`;
 }
 

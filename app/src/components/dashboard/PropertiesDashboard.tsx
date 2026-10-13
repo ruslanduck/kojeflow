@@ -112,16 +112,16 @@ export function PropertiesDashboard() {
               <path d="M9 3v15" />
               <path d="M15 5.4v15.2" />
             </svg>
-            <span>{t('fp_open')}</span>
+            <span style={{ whiteSpace: 'nowrap' }}>{t('fp_open')}</span>
           </button>
           <DatePopover value={dashDate} onChange={setDashDate} variant="dashboard" align="right" />
         </div>
       </div>
 
       {canSeeBalance && debtors.length > 0 && (
-        <div style={{ background: '#FFF5F5', border: '1px solid #F6CBCB', borderRadius: 12, padding: '13px 17px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 11 }}>
+        <div style={{ background: '#FFF5F5', border: '1px solid #F6CBCB', borderRadius: 12, padding: '13px 17px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 11, flexWrap: 'wrap' }}>
           <span style={{ fontSize: 17 }}>💸</span>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: '1 1 180px', minWidth: 0 }}>
             <div style={{ fontWeight: 600, fontSize: 13.5 }}>{t('dash_debt_title', { n: debtors.length })}</div>
             <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>{t('dash_debt_sub', { v: formatCurrency(debtTotal, currency) })}</div>
           </div>

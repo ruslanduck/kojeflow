@@ -2,13 +2,14 @@
 
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { useResidentDirectory } from '@/lib/supabase/residents';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { propertyStat } from '@/domain/dashboard';
 import { canBookProperty, diffDays, today, addDays } from '@/domain/logic';
-import { translatePlace, safeName, TYPE_LABEL_KEY, TYPE_PILL } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, TYPE_PILL } from '@/domain/labels';
 import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
 import { formatDateDMY } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
@@ -18,6 +19,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Booking, StayType } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface BookingWizardProps {
   onClose: () => void;
@@ -32,6 +34,7 @@ interface BookingWizardProps {
  * from props instead of synced via an effect.
  */
 export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: BookingWizardProps) {
+  useEscape(onClose);
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
@@ -72,20 +75,25 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
   const bedsById = useMemo(() => new Map(beds.map((b) => [b.id, b])), [beds]);
   const propertiesById = useMemo(() => new Map(properties.map((p) => [p.id, p])), [properties]);
 
+  // Everyone in the database is searchable once a couple of letters are typed, not only who lives here now.
+  const directory = useResidentDirectory(search, 1, step === 1 && pickMode && search.trim().length >= 2);
+
   const residentPool = useMemo(() => {
     const seen = new Set<string>();
-    return activeStays
-      .filter((s) => !seen.has(s.residentName) && seen.add(s.residentName))
-      .filter((s) => !search || s.residentName.toLowerCase().includes(search.toLowerCase()))
-      .slice(0, 30)
-      .map((s) => {
-        const room = roomsById.get(s.roomId);
-        const bed = bedsById.get(s.bedId);
-        const property = propertiesById.get(s.propertyId);
-        const label = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
-        return { id: s.residentId, name: s.residentName, sub: `${property?.name ?? ''} · ${label}` };
-      });
-  }, [activeStays, search, roomsById, bedsById, propertiesById, lang]);
+    const term = search.trim().toLowerCase();
+    const living = activeStays.map((s) => {
+      const room = roomsById.get(s.roomId);
+      const bed = bedsById.get(s.bedId);
+      const property = propertiesById.get(s.propertyId);
+      const label = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : '';
+      return { id: s.residentId, name: s.residentName, sub: `${property?.name ?? ''} · ${label}` };
+    });
+    const fromDb = directory.rows.map((r) => ({ id: r.id, name: r.name, sub: [r.phone, r.dob ? formatDateDMY(r.dob) : ''].filter(Boolean).join(' · ') }));
+    return [...living, ...fromDb]
+      .filter((x) => !term || x.name.toLowerCase().includes(term))
+      .filter((x) => !seen.has(x.id) && seen.add(x.id))
+      .slice(0, 40);
+  }, [activeStays, directory.rows, search, roomsById, bedsById, propertiesById, lang]);
 
   const propertyOptions = useMemo(
     () =>
@@ -136,7 +144,9 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
         // Editing changes the details only: status, author and person stay as they were.
         saved = await bookingsRepository.update(editing.id, details);
       } else {
-        const picked = pickMode && residentId ? residents.find((r) => r.id === residentId) : undefined;
+        const picked = pickMode && residentId
+          ? residents.find((r) => r.id === residentId) ?? directory.rows.find((r) => r.id === residentId)
+          : undefined;
         saved = await bookingsRepository.create(
           {
             ...details,

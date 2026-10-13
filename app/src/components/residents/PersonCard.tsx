@@ -3,12 +3,13 @@
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/useT';
+import { useResidentHistory } from '@/lib/supabase/history';
 import { errorText } from '@/i18n/errors';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { residentsRepository } from '@/repositories/residentsRepository';
 import { today, billFor } from '@/domain/logic';
-import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, DEFAULT_PILL, ROOM_GENDER_LABEL_KEY } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, DEFAULT_PILL, ROOM_GENDER_LABEL_KEY } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { extractPortrait } from '@/lib/passportPhoto';
 import { ROLES } from '@/domain/roles';
@@ -18,6 +19,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { Portal } from '@/components/ui/Portal';
 import { Lightbox } from '@/components/ui/Lightbox';
 import type { Gender, ResidentDocument } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface PersonCardProps {
   residentId?: string;
@@ -26,6 +28,7 @@ interface PersonCardProps {
 }
 
 export function PersonCard({ residentId, personName, onClose }: PersonCardProps) {
+  useEscape(onClose);
   const t = useT();
   const router = useRouter();
   const lang = useSessionStore((s) => s.lang);
@@ -64,6 +67,9 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const name = resident?.name ?? personName ?? '';
   const allStaysForResident = resident ? stays.filter((s) => s.residentId === resident.id).sort((a, b) => (a.checkIn < b.checkIn ? 1 : -1)) : [];
   const activeStay = allStaysForResident.find((s) => s.status === 'active') ?? null;
+  const history = useResidentHistory(resident?.id ?? null);
+  // The full history once loaded; the stays already in memory meanwhile.
+  const logStays: { id: string; propertyId: string; status: string; checkIn: string; checkOut: string | null; bedId: string }[] = history ?? allStaysForResident;
   // Matched by id; a name is only trusted for records that have no person attached.
   const isTheirs = (x: { residentId: string | null; residentName: string }) =>
     resident ? x.residentId === resident.id || (!x.residentId && x.residentName === name) : x.residentName === name;
@@ -90,7 +96,7 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
   const propertyName = activeStay ? propertiesById.get(activeStay.propertyId)?.name : booking ? propertiesById.get(booking.propertyId)?.name : undefined;
   const room = activeStay ? roomsById.get(activeStay.roomId) : undefined;
   const bed = activeStay ? bedsById.get(activeStay.bedId) : undefined;
-  const placeLabel = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : t('not_assigned');
+  const placeLabel = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : t('not_assigned');
   const type = activeStay?.type ?? booking?.type ?? 'Internal';
   const manager = activeStay?.manager ?? booking?.manager;
   const project = activeStay?.project ?? booking?.project;
@@ -101,8 +107,8 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
     { k: t('pm_hostel'), v: propertyName ?? '—' },
     { k: t('pm_roomplace'), v: placeLabel },
     { k: t('pm_checkin'), v: activeStay ? formatDateDMY(activeStay.checkIn) : '—' },
-    { k: t('pm_mgr'), v: manager ?? '—' },
-    { k: t('pm_project'), v: project ?? '—' },
+    { k: t('pm_mgr'), v: manager || '—' },
+    { k: t('pm_project'), v: project || '—' },
     { k: t('pm_registration'), v: registration ? `${t(STATUS_LABEL_KEY[registration.status])} · ${t(TYPE_LABEL_KEY[registration.type])}` : '—' },
     { k: t('col_expires'), v: registration ? formatDateDMY(registration.expires) : '—' },
   ];
@@ -298,13 +304,13 @@ export function PersonCard({ residentId, personName, onClose }: PersonCardProps)
                     </div>
                   ))}
                 {tab === 'log' && (
-                  allStaysForResident.length === 0 ? (
+                  logStays.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: 34, color: 'var(--color-faint)', fontSize: 13 }}>{t('no_log')}</div>
                   ) : (
-                    allStaysForResident.map((s) => {
-                      const sRoom = roomsById.get(s.roomId);
+                    logStays.map((s) => {
                       const sBed = bedsById.get(s.bedId);
-                      const sPlace = sRoom && sBed ? translatePlace(`${sRoom.name} · Place ${sBed.index}`, lang) : '';
+                      const sRoom = sBed ? roomsById.get(sBed.roomId) : undefined;
+                      const sPlace = sRoom && sBed ? translatePlace(`${roomOnly(sRoom.name)} · Place ${sBed.index}`, lang) : '';
                       const period = s.status === 'active' ? t('period_now', { d: formatDateDMY(s.checkIn) }) : `${formatDateDMY(s.checkIn)} — ${formatDateDMY(s.checkOut)}`;
                       return (
                         <div key={s.id} style={{ display: 'flex', gap: 13, padding: '12px 0', borderBottom: '1px solid #F2F2F6' }}>

@@ -6,6 +6,7 @@ import { errorText } from '@/i18n/errors';
 import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
 import type { FloorPlan } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface PlanSettingsDialogProps {
   plan: FloorPlan;
@@ -14,6 +15,7 @@ interface PlanSettingsDialogProps {
 }
 
 export function PlanSettingsDialog({ plan, onClose, onSaved }: PlanSettingsDialogProps) {
+  useEscape(onClose);
   const t = useT();
   const [name, setName] = useState(plan.name);
   const [sort, setSort] = useState(String(plan.sort));

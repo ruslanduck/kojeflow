@@ -7,7 +7,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { checkIn, rateForBeds } from '@/repositories/operations';
 import { residentsRepository } from '@/repositories/residentsRepository';
-import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
 import { roomGender, today } from '@/domain/logic';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { extractPortrait } from '@/lib/passportPhoto';
@@ -20,6 +20,7 @@ import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
 import type { Bed, Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface CheckInWizardProps {
   onClose: () => void;
@@ -43,6 +44,7 @@ interface PickedPerson {
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
 
 export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, defaultRoomId, defaultBedIds, onSaved }: CheckInWizardProps) {
+  useEscape(onClose);
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const role = useSessionStore((s) => s.role);
@@ -95,13 +97,16 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const directory = useResidentDirectory(search, 1, step === 1 && pickMode && search.trim().length >= 2);
 
   const pool = useMemo((): PickedPerson[] => {
+    // Bookings for the property being checked into come first.
+    const here = defaultPropertyId ?? propertyId;
     const awaiting = bookings
       .filter((b) => b.status === 'New')
+      .sort((a, b) => Number(b.propertyId === here) - Number(a.propertyId === here))
       .map((b): PickedPerson => ({ id: b.residentId ?? undefined, name: b.residentName, booking: b, sub: `${propertiesById.get(b.propertyId)?.name ?? ''} · ${t('wz_expected')} ${formatDateDMY(b.date)}` }));
     const living = activeStays.map((s) => {
       const room = roomsById.get(s.roomId);
       const bed = bedsById.get(s.bedId);
-      const label = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
+      const label = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : '';
       return { id: s.residentId, name: s.residentName, sub: `${propertiesById.get(s.propertyId)?.name ?? ''} · ${label}` };
     });
     const fromDb = directory.rows.map((r) => ({ id: r.id, name: r.name, sub: [r.phone, r.dob ? formatDateDMY(r.dob) : ''].filter(Boolean).join(' · ') }));
@@ -114,7 +119,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
         return !seen.has(key) && seen.add(key);
       })
       .slice(0, 40);
-  }, [bookings, activeStays, directory.rows, roomsById, bedsById, propertiesById, lang, search, t]);
+  }, [defaultPropertyId, propertyId, bookings, activeStays, directory.rows, roomsById, bedsById, propertiesById, lang, search, t]);
 
   const propertyRooms = useMemo(() => rooms.filter((r) => r.propertyId === propertyId), [rooms, propertyId]);
   const selectedRoom = rooms.find((r) => r.id === roomId) ?? null;

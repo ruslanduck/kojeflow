@@ -115,7 +115,7 @@ export function FinanceScreen() {
 
       {section === 'billing' ? (
         <>
-          <div className="g3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 13, marginBottom: 20 }}>
+          <div className="kpis" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 13, marginBottom: 20 }}>
             <div className="lift" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, padding: '17px 19px' }}>
               <div style={{ fontSize: 11, color: 'var(--color-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{t('bl_debt_total')}</div>
               <div className="fig" style={{ fontSize: 31, marginTop: 5, color: debtTotal > 0 ? 'var(--color-red)' : '#22A06B' }}>{formatCurrency(debtTotal, currency)}</div>

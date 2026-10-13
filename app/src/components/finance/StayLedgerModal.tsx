@@ -5,13 +5,14 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { billFor } from '@/domain/logic';
-import { translatePlace, safeName } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { Portal } from '@/components/ui/Portal';
 import { Lightbox } from '@/components/ui/Lightbox';
 import type { Stay } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 type LedgerScope = 'stay' | 'person' | 'bed';
 
@@ -22,6 +23,7 @@ interface StayLedgerModalProps {
 }
 
 export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModalProps) {
+  useEscape(onClose);
   const t = useT();
   const lang = useSessionStore((s) => s.lang);
   const currency = useSessionStore((s) => s.currency);
@@ -42,7 +44,7 @@ export function StayLedgerModal({ stay, onClose, onAddPayment }: StayLedgerModal
   const property = properties.find((p) => p.id === stay.propertyId);
   const room = rooms.find((r) => r.id === stay.roomId);
   const bed = beds.find((b) => b.id === stay.bedId);
-  const placeLabel = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
+  const placeLabel = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : '';
   const displayName = safeName(stay.residentName, !!roleConfig.hideNames, t('hidden_name'));
   const bill = billFor(stay, payments);
 

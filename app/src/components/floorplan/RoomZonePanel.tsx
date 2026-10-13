@@ -13,8 +13,10 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
 import { Portal } from '@/components/ui/Portal';
 import { RoomHistoryModal } from '@/components/dashboard/RoomHistoryModal';
+import { useEscape } from '@/lib/useEscape';
 
 export function RoomZonePanel({ propertyId, roomId, onClose }: { propertyId: string; roomId: string; onClose: () => void }) {
+  useEscape(onClose);
   const t = useT();
   const router = useRouter();
   const lang = useSessionStore((s) => s.lang);

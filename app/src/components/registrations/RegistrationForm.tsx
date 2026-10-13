@@ -15,6 +15,7 @@ import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Registration, RegistrationStatus, RegistrationType } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface RegistrationFormProps {
   onClose: () => void;
@@ -23,6 +24,7 @@ interface RegistrationFormProps {
 }
 
 export function RegistrationForm({ onClose, editing, onSaved }: RegistrationFormProps) {
+  useEscape(onClose);
   const t = useT();
   const role = useSessionStore((s) => s.role);
   const roleConfig = ROLES[role];

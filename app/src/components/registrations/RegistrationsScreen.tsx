@@ -6,7 +6,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { ROLES } from '@/domain/roles';
 import { diffDays, today } from '@/domain/logic';
-import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
@@ -155,7 +155,7 @@ export function RegistrationsScreen() {
             const stay = stayOf(r);
             const room = stay ? roomsById.get(stay.roomId) : undefined;
             const bed = stay ? bedsById.get(stay.bedId) : undefined;
-            const place = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : t('not_assigned');
+            const place = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : t('not_assigned');
             return (
               <div
                 key={r.id}

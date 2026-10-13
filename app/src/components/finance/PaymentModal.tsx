@@ -7,13 +7,14 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { paymentsRepository } from '@/repositories/paymentsRepository';
 import { billableStays, billFor, today } from '@/domain/logic';
-import { translatePlace, safeName } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName } from '@/domain/labels';
 import { formatCurrency } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
 import type { Payment, Stay } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface PaymentModalProps {
   onClose: () => void;
@@ -22,6 +23,7 @@ interface PaymentModalProps {
 }
 
 export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentModalProps) {
+  useEscape(onClose);
   const t = useT();
   const currency = useSessionStore((s) => s.currency);
   const lang = useSessionStore((s) => s.lang);
@@ -53,7 +55,7 @@ export function PaymentModal({ onClose, stay: initialStay, onSaved }: PaymentMod
   const placeLabel = (s: Stay) => {
     const room = roomsById.get(s.roomId);
     const bed = bedsById.get(s.bedId);
-    return room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : '';
+    return room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : '';
   };
 
   const pickOptions = useMemo(

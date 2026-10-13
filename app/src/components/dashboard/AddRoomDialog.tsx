@@ -8,9 +8,11 @@ import { DuplicateError } from '@/lib/supabase/write';
 import { Portal } from '@/components/ui/Portal';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import type { RoomType } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 /** Adds a room with its beds to a property (admins and team members). */
 export function AddRoomDialog({ propertyId, onClose }: { propertyId: string; onClose: () => void }) {
+  useEscape(onClose);
   const t = useT();
   const [type, setType] = useState<RoomType>('Room');
   const [number, setNumber] = useState('');

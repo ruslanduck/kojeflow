@@ -2,6 +2,7 @@
 
 import { useT } from '@/i18n/useT';
 import { Portal } from './Portal';
+import { useEscape } from '@/lib/useEscape';
 
 interface ConfirmDialogProps {
   title: string;
@@ -16,6 +17,7 @@ interface ConfirmDialogProps {
 }
 
 export function ConfirmDialog({ title, sub, confirmLabel, cancelLabel, tone = 'danger', onCancel, onConfirm }: ConfirmDialogProps) {
+  useEscape(onCancel);
   const t = useT();
   return (
     <Portal>

@@ -12,6 +12,11 @@ export function safeName(name: string, hideNames: boolean, hiddenLabel: string):
  * ("Room 1 · Place 2") and translated by direct word substitution, matching the
  * prototype exactly (including English's own Wagon->Container, Place->Bed swap).
  */
+/** "P.Svandy - Room 9" → "Room 9", for places where the property is already shown next to it. */
+export function roomOnly(roomName: string): string {
+  return roomName.replace(/^.*? - (?=(Room|Apartment|Wagon))/, '');
+}
+
 export function translatePlace(value: string | null | undefined, lang: Lang): string {
   if (!value) return value ?? '';
   if (lang === 'EN') return value.replace(/\bWagon\b/g, 'Container').replace(/\bPlace\b/g, 'Bed');

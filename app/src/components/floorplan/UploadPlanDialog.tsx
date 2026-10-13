@@ -7,6 +7,7 @@ import { floorPlansRepository } from '@/repositories/floorPlansRepository';
 import { Portal } from '@/components/ui/Portal';
 import { DEFAULT_PLAN_ASPECT } from '@/domain/logic';
 import type { FloorPlan } from '@/domain/types';
+import { useEscape } from '@/lib/useEscape';
 
 interface UploadPlanDialogProps {
   propertyId: string;
@@ -16,6 +17,7 @@ interface UploadPlanDialogProps {
 }
 
 export function UploadPlanDialog({ propertyId, nextSort, onClose, onSaved }: UploadPlanDialogProps) {
+  useEscape(onClose);
   const t = useT();
   const [name, setName] = useState('');
   const [sort, setSort] = useState(String(nextSort));

@@ -1,8 +1,10 @@
 'use client';
 
 import { Portal } from './Portal';
+import { useEscape } from '@/lib/useEscape';
 
 export function Lightbox({ url, title, onClose }: { url: string; title: string; onClose: () => void }) {
+  useEscape(onClose);
   return (
     <Portal>
       <div onClick={(e) => { e.stopPropagation(); onClose(); }} style={{ position: 'fixed', inset: 0, background: 'rgba(12,12,14,.92)', display: 'flex', flexDirection: 'column', zIndex: 200, padding: 28 }}>

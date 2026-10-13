@@ -105,7 +105,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <nav style={{ flex: 1, padding: '14px 12px', display: 'flex', flexDirection: 'column', gap: 2, overflowY: 'auto' }}>
-          {nav.map((k) => {
+          {profileLoaded && nav.map((k) => {
             const on = k === currentNavKey;
             return (
               <button
@@ -183,7 +183,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       {/* MOBILE TAB BAR */}
       <nav className="tabbar">
-        {tabKeys.map((k) => {
+        {profileLoaded && tabKeys.map((k) => {
           const on = k === currentNavKey;
           return (
             <button key={k} className={'tabbtn' + (on ? ' on' : '')} onClick={() => router.push(NAV_ROUTE[k])} aria-label={t(NAV_LABEL_KEY[k])}>

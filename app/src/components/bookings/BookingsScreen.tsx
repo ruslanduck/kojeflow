@@ -9,7 +9,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { ROLES } from '@/domain/roles';
-import { translatePlace, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, STATUS_LABEL_KEY, TYPE_PILL, STATUS_PILL, DEFAULT_PILL } from '@/domain/labels';
 import { formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
@@ -150,7 +150,7 @@ export function BookingsScreen() {
           const stay = activeStayFor(b);
           const room = stay ? roomsById.get(stay.roomId) : undefined;
           const bed = stay ? bedsById.get(stay.bedId) : undefined;
-          const assignLabel = room && bed ? translatePlace(`${room.name} · Place ${bed.index}`, lang) : t('not_assigned');
+          const assignLabel = room && bed ? translatePlace(`${roomOnly(room.name)} · Place ${bed.index}`, lang) : t('not_assigned');
           const done = b.status === 'Checked-in';
           const cancelled = b.status === 'Cancelled';
           const isOpen = expanded === b.id;
