@@ -1,0 +1,36 @@
+# Daily one-way sync Airtable -> Supabase while the team still works in Airtable.
+# Needs two repository secrets (Settings -> Secrets and variables -> Actions):
+#   AIRTABLE_TOKEN  - Airtable personal access token, scopes data.records:read + schema.bases:read,
+#                     access to the "Work Hotel" base only
+#   DATABASE_URL    - Supabase Postgres connection string (Session pooler)
+# It can also be started by hand: Actions -> Airtable sync -> Run workflow.
+# GitHub runs scheduled workflows only from the default branch (main, the landing page), so this
+# file lives there too; the sync code itself is taken from the app's dev branch.
+name: Airtable sync
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # 02:00 UTC = 03:00/04:00 in Prague, before the working day
+  workflow_dispatch:
+
+concurrency:
+  group: airtable-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "psycopg[binary]==3.2.3"
+      - name: Sync
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python sync/import_airtable.py --sync
