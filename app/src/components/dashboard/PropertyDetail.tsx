@@ -10,7 +10,7 @@ import { ROLES } from '@/domain/roles';
 import { propertyStat } from '@/domain/dashboard';
 import { roomGender } from '@/domain/logic';
 import type { Bed, Room, RoomType } from '@/domain/types';
-import { translatePlace, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, TYPE_PILL, DEFAULT_PILL, GENDER_EMOJI, BED_TILE_COLORS } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, UNAVAILABLE_ROOM_PILL, ROOM_GENDER_PILL, TYPE_PILL, DEFAULT_PILL, GENDER_EMOJI, BED_TILE_COLORS } from '@/domain/labels';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { Avatar } from '@/components/ui/Avatar';
 import { Pill } from '@/components/ui/Pill';
@@ -187,10 +187,15 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
                 const free = roomBeds.filter((b) => b.status === 'free').length;
                 return (
                   <div key={room.id} className="lift" style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: 14, padding: '15px 17px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 11 }}>
-                      <div className="hd" style={{ fontSize: 17, whiteSpace: 'nowrap' }}>{translatePlace(room.name, lang)}</div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={fg} bg={bg} />
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px 8px', marginBottom: 11 }}>
+                      {/* The property is the page's title; the card names just the room. */}
+                      <div className="hd" style={{ fontSize: 17, whiteSpace: 'nowrap' }}>{translatePlace(roomOnly(room.name), lang)}</div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginLeft: 'auto' }}>
+                        {room.available ? (
+                          <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={fg} bg={bg} />
+                        ) : (
+                          <Pill label={t('room_unavailable')} fg={UNAVAILABLE_ROOM_PILL[0]} bg={UNAVAILABLE_ROOM_PILL[1]} />
+                        )}
                         {!editRooms && (
                           <button
                             className="chip"

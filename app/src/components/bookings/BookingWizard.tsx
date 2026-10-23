@@ -10,7 +10,7 @@ import { bookingsRepository } from '@/repositories/bookingsRepository';
 import { propertyStat } from '@/domain/dashboard';
 import { canBookProperty, diffDays, today, addDays } from '@/domain/logic';
 import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, TYPE_PILL } from '@/domain/labels';
-import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
+import { ChoiceSelect, SuggestInput, useCommercialOptions, useKnownNames } from '@/components/ui/SuggestInput';
 import { formatDateDMY } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
@@ -42,6 +42,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
 
   const properties = useEntityStore((s) => s.properties);
   const known = useKnownNames();
+  const commercial = useCommercialOptions();
   const rooms = useEntityStore((s) => s.rooms);
   const beds = useEntityStore((s) => s.beds);
   const stays = useEntityStore((s) => s.stays);
@@ -266,7 +267,7 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
             <>
               <div style={{ display: 'flex', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 10, padding: 3, marginBottom: 16 }}>
                 {(['Internal', 'Commercial'] as const).map((k) => (
-                  <button key={k} className="pbtn" onClick={() => { setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                  <button key={k} className="pbtn" onClick={() => { if (k !== type) { setProject(''); setManager(''); } setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                     {t(TYPE_LABEL_KEY[k])}
                   </button>
                 ))}
@@ -297,18 +298,18 @@ export function BookingWizard({ onClose, editing, defaultPropertyId, onSaved }: 
               <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_manager') : t('lbl_responsible')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <SuggestInput value={manager} onChange={setManager} options={known.managers} />
+                  {type === 'Internal' ? (
+                    <SuggestInput value={manager} onChange={setManager} options={known.managers} />
+                  ) : (
+                    <ChoiceSelect value={manager} onChange={setManager} options={commercial.responsibles} placeholder={t('select')} />
+                  )}
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   {type === 'Internal' ? (
                     <SuggestInput value={project} onChange={setProject} options={known.projects} />
                   ) : (
-                    <select value={project} onChange={(e) => setProject(e.target.value)} style={FIELD_STYLE}>
-                      <option value="">{t('select')}</option>
-                      <option value="Client direct">{t('d_client')}</option>
-                      <option value="Hostel direct">{t('d_hostel')}</option>
-                    </select>
+                    <ChoiceSelect value={project} onChange={setProject} options={commercial.customers} placeholder={t('select')} />
                   )}
                 </div>
                 <div>

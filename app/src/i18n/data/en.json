@@ -572,5 +572,6 @@
   "err_no_access": "This account has no access. Ask an administrator.",
   "ci_second": "Second person (child)",
   "ci_reg_needed": "Address registration needed",
-  "err_discount": "The discount must be a number or a percentage, e.g. 10% or 300"
+  "err_discount": "The discount must be a number or a percentage, e.g. 10% or 300",
+  "room_unavailable": "Unavailable"
 }

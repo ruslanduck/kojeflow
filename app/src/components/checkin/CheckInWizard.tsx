@@ -7,7 +7,7 @@ import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { checkIn, isValidDiscount, rateForBeds } from '@/repositories/operations';
 import { residentsRepository } from '@/repositories/residentsRepository';
-import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
+import { translatePlace, roomOnly, safeName, TYPE_LABEL_KEY, ROOM_GENDER_LABEL_KEY, UNAVAILABLE_ROOM_PILL, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, GENDER_EMOJI } from '@/domain/labels';
 import { roomGender, today } from '@/domain/logic';
 import { formatCurrency, formatDateDMY } from '@/lib/format';
 import { extractPortrait } from '@/lib/passportPhoto';
@@ -18,7 +18,7 @@ import { Pill } from '@/components/ui/Pill';
 import { FIELD_STYLE, FIELD_LABEL_STYLE } from '@/components/ui/formStyles';
 import { DatePopover } from '@/components/ui/DatePopover';
 import { Portal } from '@/components/ui/Portal';
-import { SuggestInput, useKnownNames } from '@/components/ui/SuggestInput';
+import { ChoiceSelect, SuggestInput, useCommercialOptions, useKnownNames } from '@/components/ui/SuggestInput';
 import type { Bed, Booking, Gender, Room, RoomType, Stay, StayType } from '@/domain/types';
 import { backdropClose, useEscape } from '@/lib/useEscape';
 
@@ -58,6 +58,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const stays = useEntityStore((s) => s.stays);
   const bookings = useEntityStore((s) => s.bookings);
   const known = useKnownNames();
+  const commercial = useCommercialOptions();
 
   const [step, setStep] = useState<1 | 2 | 3>(fromBooking ? 2 : 1);
   const [pickMode, setPickMode] = useState(true);
@@ -80,7 +81,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
   const [roomId, setRoomId] = useState(defaultRoomId ?? '');
   const [selectedBedIds, setSelectedBedIds] = useState<string[]>(defaultBedIds ?? []);
   const [type, setType] = useState<StayType>(fromBooking?.type ?? 'Internal');
-  const [manager, setManager] = useState(fromBooking?.manager ?? '');
+  const [manager, setManager] = useState((fromBooking?.type === 'Commercial' ? fromBooking.responsible || fromBooking.by : fromBooking?.manager) ?? '');
   const [project, setProject] = useState(fromBooking?.project && fromBooking.project !== '—' ? fromBooking.project : '');
   const [date, setDate] = useState(today());
   // Everything else Airtable's "Create booking by Request" copied onto a stay; filled from the booking.
@@ -146,7 +147,8 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
     setNote(b?.comment ?? '');
     setSecondPerson(b?.children ?? '');
     setRegistrationNeeded(b?.registrationNeeded ?? false);
-    setManager(b?.manager ?? '');
+    // A commercial stay's required person is the one responsible for it, as in Airtable.
+    setManager((b?.type === 'Commercial' ? b?.responsible || b?.by : b?.manager) ?? '');
     setProject(b?.project && b.project !== '—' ? b.project : '');
     setType(b?.type ?? 'Internal');
     if (b && !defaultPropertyId && b.propertyId !== propertyId) {
@@ -248,10 +250,11 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
 
       const stay = await checkIn({
         residentId, residentName, propertyId, roomId, bedIds: selectedBedIds, type,
-        manager: manager.trim(), project: project.trim(), checkIn: date,
+        // Commercial: the required person is the responsible one; internal: the project's manager.
+        manager: type === 'Internal' ? manager.trim() : '', project: project.trim(), checkIn: date,
         bookingId: booking?.id, discount: discount.trim() || null,
         officeManager: booking?.by || profileName,
-        responsible: responsible.trim(), payerName: payer.trim(), payerTenantId: booking?.payerTenantId ?? null,
+        responsible: type === 'Internal' ? responsible.trim() : manager.trim(), payerName: payer.trim(), payerTenantId: booking?.payerTenantId ?? null,
         note: note.trim(), secondPerson: secondPerson.trim(), registrationNeeded,
       });
       // The photo is set once the stay exists, when the resident is visible to every role that may check in.
@@ -433,7 +436,7 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
                             <div key={room.id} style={{ background: active ? '#FFFBE6' : '#fff', border: `1px solid ${active ? '#FFE88A' : 'var(--color-border)'}`, borderRadius: 12, padding: '11px 12px', opacity: room.available ? 1 : 0.6 }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 9 }}>
                                 <span style={{ fontWeight: 700, fontSize: 13, flex: 1, minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{translatePlace(room.name.replace(/^.*? - /, ''), lang)}</span>
-                                <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={gFg} bg={gBg} />
+                                {room.available ? <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={gFg} bg={gBg} /> : <Pill label={t('room_unavailable')} fg={UNAVAILABLE_ROOM_PILL[0]} bg={UNAVAILABLE_ROOM_PILL[1]} />}
                               </div>
                               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                 {roomBeds.map((bed) => {
@@ -475,28 +478,38 @@ export function CheckInWizard({ onClose, fromBooking, defaultPropertyId, default
             <>
               <div style={{ display: 'flex', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: 10, padding: 3, marginBottom: 16 }}>
                 {(['Internal', 'Commercial'] as const).map((k) => (
-                  <button key={k} className="pbtn" onClick={() => { if (k !== type) setProject(''); setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                  <button key={k} className="pbtn" onClick={() => { if (k !== type) { setProject(''); setManager(''); } setType(k); setError(''); }} style={{ flex: 1, background: type === k ? '#141414' : 'transparent', color: type === k ? '#fff' : 'var(--color-muted)', border: 'none', borderRadius: 8, padding: '8px 15px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                     {t(TYPE_LABEL_KEY[k])}
                   </button>
                 ))}
               </div>
               <div className="g2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 12 }}>
                 <div>
-                  <div style={FIELD_LABEL_STYLE}>{t('lbl_manager')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <SuggestInput value={manager} onChange={setManager} options={known.managers} />
+                  <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_manager') : t('lbl_responsible')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
+                  {type === 'Internal' ? (
+                    <SuggestInput value={manager} onChange={setManager} options={known.managers} />
+                  ) : (
+                    <ChoiceSelect value={manager} onChange={setManager} options={commercial.responsibles} placeholder={t('select')} />
+                  )}
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{type === 'Internal' ? t('lbl_project') : t('lbl_customer')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
-                  <SuggestInput value={project} onChange={setProject} options={known.projects} />
+                  {type === 'Internal' ? (
+                    <SuggestInput value={project} onChange={setProject} options={known.projects} />
+                  ) : (
+                    <ChoiceSelect value={project} onChange={setProject} options={commercial.customers} placeholder={t('select')} />
+                  )}
                 </div>
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('ff_checkin')} <span style={{ color: 'var(--color-red)' }}>*</span></div>
                   <DatePopover value={date} onChange={setDate} max={today()} />
                 </div>
-                <div>
-                  <div style={FIELD_LABEL_STYLE}>{t('lbl_responsible')}</div>
-                  <SuggestInput value={responsible} onChange={setResponsible} options={known.managers} />
-                </div>
+                {type === 'Internal' && (
+                  <div>
+                    <div style={FIELD_LABEL_STYLE}>{t('lbl_responsible')}</div>
+                    <SuggestInput value={responsible} onChange={setResponsible} options={known.managers} />
+                  </div>
+                )}
                 <div>
                   <div style={FIELD_LABEL_STYLE}>{t('wz_payer')}</div>
                   <SuggestInput value={payer} onChange={setPayer} options={known.managers} />

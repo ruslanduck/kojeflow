@@ -87,6 +87,10 @@ export const BED_TILE_COLORS: Record<'free' | 'occupied' | 'booked' | 'unavailab
 export const ROOM_GENDER_PILL: Record<string, [fg: string, bg: string]> = {
   M: ['#1D4F91', '#E6EEFA'],
   F: ['#A0126F', '#FBE3F2'],
-  X: ['#7A0F7A', '#FBE3FB'],
+  // Amber, so "mixed" can't be mistaken for the pink of a women's room.
+  X: ['#8A5300', '#FFEFD1'],
   N: ['#5C5C66', '#EDEDF2'],
 };
+
+/** A switched-off room shows its availability, not who could live there. */
+export const UNAVAILABLE_ROOM_PILL: [fg: string, bg: string] = ['#B42318', '#FDECEC'];

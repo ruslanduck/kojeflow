@@ -488,3 +488,8 @@ input[type='date'] {
     font-size: 16px !important;
   }
 }
+
+/* Free-text fields with suggestions are plain text boxes: no dropdown arrow on hover. */
+input[list]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}

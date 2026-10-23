@@ -6,7 +6,7 @@ import { useT } from '@/i18n/useT';
 import { useSessionStore } from '@/store/session';
 import { useEntityStore } from '@/store/entities';
 import { roomGender } from '@/domain/logic';
-import { translatePlace, safeName, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS } from '@/domain/labels';
+import { translatePlace, safeName, ROOM_GENDER_LABEL_KEY, ROOM_GENDER_PILL, DEFAULT_PILL, BED_TILE_COLORS, UNAVAILABLE_ROOM_PILL } from '@/domain/labels';
 import { formatCurrency } from '@/lib/format';
 import { ROLES } from '@/domain/roles';
 import { Avatar } from '@/components/ui/Avatar';
@@ -49,7 +49,7 @@ export function RoomZonePanel({ propertyId, roomId, onClose }: { propertyId: str
             <div style={{ flex: 1, minWidth: 0 }}>
               <div className="hd" style={{ fontSize: 20, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{translatePlace(room.name, lang)}</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 7, flexWrap: 'wrap' }}>
-                <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={genderFg} bg={genderBg} />
+                {room.available ? <Pill label={t(ROOM_GENDER_LABEL_KEY[g])} fg={genderFg} bg={genderBg} /> : <Pill label={t('room_unavailable')} fg={UNAVAILABLE_ROOM_PILL[0]} bg={UNAVAILABLE_ROOM_PILL[1]} />}
                 <span style={{ fontSize: 11.5, color: 'var(--color-muted)', fontWeight: 600 }}>{formatCurrency(room.priceFrom, currency)}–{formatCurrency(room.priceTo, currency)}</span>
               </div>
             </div>
