@@ -3,6 +3,7 @@
 Two sources, same shape:
 - the Airtable REST API, when AIRTABLE_TOKEN is set (the daily sync; read-only token with
   data.records:read and schema.bases:read on the base);
+  The token can also sit in ../../db/.env as AIRTABLE_TOKEN=... (running the sync by hand);
 - otherwise a dump on disk (AIRTABLE_DUMP, default ../../db/airtable_dump): pages saved from the
   Airtable connector plus schema.json — how the first import was done.
 
@@ -20,9 +21,24 @@ import urllib.request
 from functools import lru_cache
 from pathlib import Path
 
+DB = Path(__file__).resolve().parent.parent.parent / "db"
+
+
+def _env_file_token():
+    """AIRTABLE_TOKEN from ../../db/.env, for running the sync by hand on the office machine."""
+    env = DB / ".env"
+    if not env.is_file():
+        return None
+    for line in env.read_text(encoding="utf-8").splitlines():
+        key, _, value = line.partition("=")
+        if key.strip() == "AIRTABLE_TOKEN" and value.strip():
+            return value.strip().strip('"').strip("'")
+    return None
+
+
 BASE_ID = os.environ.get("AIRTABLE_BASE_ID", "appB8CoTWVtmH4hbK")
-TOKEN = os.environ.get("AIRTABLE_TOKEN")
-DUMP = Path(os.environ.get("AIRTABLE_DUMP", Path(__file__).resolve().parent.parent.parent / "db" / "airtable_dump"))
+TOKEN = os.environ.get("AIRTABLE_TOKEN") or _env_file_token()
+DUMP = Path(os.environ.get("AIRTABLE_DUMP", DB / "airtable_dump"))
 FILE_PREFIX = {"Money transfer": "MoneyTransfer"}
 API = "https://api.airtable.com/v0"
 
