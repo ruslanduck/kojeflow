@@ -59,6 +59,12 @@ def _get(path, params=None):
                 time.sleep(30 if e.code == 429 else 5)
                 continue
             raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError):
+            # A dropped connection is worth another try; Airtable resets idle ones now and then.
+            if attempt < 5:
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
 
 
 @lru_cache(maxsize=None)
