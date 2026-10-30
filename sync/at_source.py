@@ -37,7 +37,8 @@ def _env_file_token():
 
 
 BASE_ID = os.environ.get("AIRTABLE_BASE_ID", "appB8CoTWVtmH4hbK")
-TOKEN = os.environ.get("AIRTABLE_TOKEN") or _env_file_token()
+# Pasted secrets often carry a trailing newline or quotes, which would break the request header.
+TOKEN = (os.environ.get("AIRTABLE_TOKEN") or "").strip().strip('"').strip("'").strip() or _env_file_token()
 DUMP = Path(os.environ.get("AIRTABLE_DUMP", DB / "airtable_dump"))
 FILE_PREFIX = {"Money transfer": "MoneyTransfer"}
 API = "https://api.airtable.com/v0"

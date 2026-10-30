@@ -430,8 +430,9 @@ APP_ONLY = ["public.payments", "public.tenant_documents", "public.floor_zones", 
 
 
 def database_url():
-    if os.environ.get("DATABASE_URL"):
-        return os.environ["DATABASE_URL"]
+    url = os.environ.get("DATABASE_URL", "").strip().strip('"').strip("'").strip()
+    if url:
+        return url
     for line in (ROOT / ".env").read_text(encoding="utf-8").splitlines():
         if line.startswith("DATABASE_URL="):
             return line.split("=", 1)[1].strip().strip('"').strip("'")
