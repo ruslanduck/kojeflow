@@ -47,7 +47,9 @@ export function propertyStat(
   options: { occupiedOverride?: number; excludeBookingId?: string } = {},
 ): PropertyStat {
   const propertyRooms = rooms.filter((r) => r.propertyId === property.id);
-  const propertyBeds = beds.filter((b) => b.propertyId === property.id && b.status !== 'unavailable');
+  // Capacity is the available beds of available rooms, as Airtable counts it; somebody living on
+  // a switched-off bed doesn't add a place.
+  const propertyBeds = beds.filter((b) => b.propertyId === property.id && b.status !== 'unavailable' && !b.offline);
   const occupied = options.occupiedOverride ?? propertyBeds.filter((b) => b.status === 'occupied').length;
   const total = Math.max(propertyBeds.length, occupied);
   return {

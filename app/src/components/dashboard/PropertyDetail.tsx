@@ -23,6 +23,8 @@ import { roomsRepository } from '@/repositories/roomsRepository';
 import { bedsRepository } from '@/repositories/bedsRepository';
 
 const GROUP_ORDER: RoomType[] = ['Room', 'Apartment', 'Wagon'];
+// "Room 2" before "Room 10", "Room 11" before "Room 11a".
+const ROOM_ORDER = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 const GROUP_LABEL_KEY: Record<RoomType, string> = { Room: 'grp_Rooms', Apartment: 'grp_Apartments', Wagon: 'grp_Wagons' };
 
 export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: string; showBackToDash: boolean }) {
@@ -48,6 +50,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
   const [checkInTarget, setCheckInTarget] = useState<{ roomId: string; bedId: string } | null>(null);
   const [personId, setPersonId] = useState<string | null>(null);
   const [editRooms, setEditRooms] = useState(false);
+  const [showUnavailable, setShowUnavailable] = useState(false);
   const [addRoomOpen, setAddRoomOpen] = useState(false);
   const [addingBedIn, setAddingBedIn] = useState<string | null>(null);
   const [confirm, setConfirm] = useState<{ title: string; sub: string; onYes: () => void } | null>(null);
@@ -97,8 +100,13 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
     else if (bed.status === 'free' && !roleConfig.readOnly) setCheckInTarget({ roomId: room.id, bedId: bed.id });
   };
 
+  // Switched-off rooms and beds are hidden unless asked for; editing rooms shows everything.
+  const showAll = showUnavailable || editRooms;
+  const visibleBed = (b: Bed) => showAll || !b.offline || b.status === 'occupied';
   const roomGroups = GROUP_ORDER.map((type) => {
-    const typeRooms = propertyRooms.filter((r) => r.type === type);
+    const typeRooms = propertyRooms
+      .filter((r) => r.type === type && (showAll || r.available))
+      .sort((a, b) => ROOM_ORDER.compare(roomOnly(a.name), roomOnly(b.name)));
     if (typeRooms.length === 0) return null;
     return { type, label: t(GROUP_LABEL_KEY[type]), rooms: typeRooms };
   }).filter((g): g is { type: RoomType; label: string; rooms: Room[] } => g !== null);
@@ -154,12 +162,18 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
       </div>
 
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 20 }}>
-        {[{ color: '#22A06B', label: t('free_place') }, { color: '#B4B4C0', label: t('occ_place') }, { color: '#E5484D', label: t('unavail_place') }].map((g) => (
+        {[{ color: '#22A06B', label: t('free_place') }, { color: '#B4B4C0', label: t('occ_place') }, ...(showAll ? [{ color: '#E5484D', label: t('unavail_place') }] : [])].map((g) => (
           <div key={g.label} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 11.5, color: 'var(--color-muted)' }}>
             <span style={{ width: 11, height: 11, borderRadius: 4, display: 'inline-block', background: g.color }} />
             {g.label}
           </div>
         ))}
+        {tab === 'rooms' && !editRooms && (
+          <label style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 11.5, color: 'var(--color-muted)', marginLeft: 'auto', cursor: 'pointer', userSelect: 'none' }}>
+            <input type="checkbox" checked={showUnavailable} onChange={(e) => setShowUnavailable(e.target.checked)} style={{ accentColor: '#141414', margin: 0 }} />
+            {t('show_unavailable')}
+          </label>
+        )}
       </div>
 
       {editRooms && tab === 'rooms' && (
@@ -180,7 +194,7 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
             </div>
             <div className="stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(304px,1fr))', gap: 13 }}>
               {group.rooms.map((room) => {
-                const roomBeds = beds.filter((b) => b.roomId === room.id).sort((a, b) => a.index - b.index);
+                const roomBeds = beds.filter((b) => b.roomId === room.id && visibleBed(b)).sort((a, b) => a.index - b.index);
                 const g = roomGender(roomBeds, residentsById);
                 const [fg, bg] = ROOM_GENDER_PILL[g] ?? DEFAULT_PILL;
                 const occupied = roomBeds.filter((b) => b.status === 'occupied').length;

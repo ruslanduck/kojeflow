@@ -171,7 +171,8 @@ export async function checkOut(stayId: string, checkOutDate: string = today()): 
   useEntityStore.setState((s) => ({
     stays: s.stays.map((x) => (x.id === stayId ? updated : x)),
     // Exactly this stay's beds: the same person may hold other beds under another stay.
-    beds: s.beds.map((b) => (stay.bedIds.includes(b.id) ? { ...b, status: 'free', residentId: null } : b)),
+    // A bed switched off while occupied goes back to being unavailable, not free.
+    beds: s.beds.map((b) => (stay.bedIds.includes(b.id) ? { ...b, status: b.offline ? 'unavailable' : 'free', residentId: null } : b)),
   }));
   return updated;
 }

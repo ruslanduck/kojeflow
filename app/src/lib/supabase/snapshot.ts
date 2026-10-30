@@ -207,6 +207,7 @@ export function toPayload(raw: RawSnapshot): SnapshotPayload {
       index: num(pl.number),
       status: occupant ? 'occupied' : unavailable ? 'unavailable' : 'free',
       residentId: occupant ?? null,
+      offline: unavailable,
       priceInternal: bedPrice(id, 'Internal'),
       priceExternal: bedPrice(id, 'Commercial'),
     };

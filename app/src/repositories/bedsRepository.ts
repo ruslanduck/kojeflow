@@ -20,7 +20,7 @@ export const bedsRepository = {
       await db().from('places').insert({ room_id: roomId, number, status: 'available' }).select('id').single(),
       'Save bed',
     );
-    const bed: Bed = { id: row.id, roomId, propertyId: room.propertyId, index: number, status: room.available ? 'free' : 'unavailable', residentId: null, priceInternal: room.priceFrom, priceExternal: room.priceTo };
+    const bed: Bed = { id: row.id, roomId, propertyId: room.propertyId, index: number, status: room.available ? 'free' : 'unavailable', residentId: null, offline: !room.available, priceInternal: room.priceFrom, priceExternal: room.priceTo };
     useEntityStore.setState((s) => ({ beds: [...s.beds, bed] }));
     return bed;
   },
@@ -31,7 +31,7 @@ export const bedsRepository = {
     check(await db().from('places').update({ status: available ? 'available' : 'unavailable' }).eq('id', bedId), 'Update bed');
     const roomAvailable = useEntityStore.getState().rooms.find((r) => r.id === bed.roomId)?.available ?? true;
     useEntityStore.setState((s) => ({
-      beds: s.beds.map((b) => (b.id === bedId ? { ...b, status: available && roomAvailable ? 'free' : 'unavailable' } : b)),
+      beds: s.beds.map((b) => (b.id === bedId ? { ...b, status: available && roomAvailable ? 'free' : 'unavailable', offline: !(available && roomAvailable) } : b)),
     }));
   },
 

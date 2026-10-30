@@ -573,5 +573,6 @@
   "ci_second": "Second person (child)",
   "ci_reg_needed": "Address registration needed",
   "err_discount": "The discount must be a number or a percentage, e.g. 10% or 300",
-  "room_unavailable": "Unavailable"
+  "room_unavailable": "Unavailable",
+  "show_unavailable": "Show unavailable rooms and beds"
 }

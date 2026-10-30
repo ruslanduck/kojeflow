@@ -39,6 +39,8 @@ export interface Bed {
   index: number;
   status: BedStatus;
   residentId: string | null;
+  /** The bed or its room is switched off. Such a bed never counts as capacity, even while occupied. */
+  offline?: boolean;
   /** Nightly price of this bed: its own price, else its room's. 0 when neither is set. */
   priceInternal: number;
   priceExternal: number;

@@ -19,24 +19,17 @@ export function useKnownNames(): { managers: string[]; projects: string[] } {
 }
 
 /**
- * Choices for commercial bookings and stays: who handles them in the office and which client
- * they come through, as Airtable has them ("Напряму", "Клієнт"). The current value always stays
- * selectable, even when it is not among them.
+ * Choices for commercial bookings and stays, the same lists as Airtable's check-in form: who
+ * handles them in the office and how the client came. A value outside them (from an older
+ * record) still shows in the select.
  */
+const COMMERCIAL_OPTIONS = {
+  responsibles: ['Erika Rozman', 'Kateryna Melnyk', 'Valeriia Kondratenko', 'Valeriia Moshkina', 'Vladyslava Vakarova', 'Lilia Mamiseishvili', 'Ivanna Mazar', 'Гуртожиток'],
+  customers: ['Напряму', 'Клієнт'],
+};
+
 export function useCommercialOptions(): { responsibles: string[]; customers: string[] } {
-  const stays = useEntityStore((s) => s.stays);
-  const bookings = useEntityStore((s) => s.bookings);
-  return useMemo(() => {
-    const uniq = (values: string[]) =>
-      Array.from(new Set(values.map((v) => v.trim()).filter((v) => v && v !== '—'))).sort((a, b) => a.localeCompare(b));
-    const commercialStays = stays.filter((s) => s.type === 'Commercial');
-    const commercialBookings = bookings.filter((b) => b.type === 'Commercial');
-    const customers = uniq([...commercialStays.map((s) => s.project), ...commercialBookings.map((b) => b.project)]);
-    return {
-      responsibles: uniq([...commercialStays.map((s) => s.manager), ...commercialBookings.flatMap((b) => [b.responsible, b.by])]),
-      customers: customers.length ? customers : ['Напряму', 'Клієнт'],
-    };
-  }, [stays, bookings]);
+  return COMMERCIAL_OPTIONS;
 }
 
 /** A select over `options`; a value outside them (from an older record) is still shown. */
