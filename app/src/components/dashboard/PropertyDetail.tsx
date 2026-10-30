@@ -102,10 +102,12 @@ export function PropertyDetail({ propertyId, showBackToDash }: { propertyId: str
 
   // Switched-off rooms and beds are hidden unless asked for; editing rooms shows everything.
   const showAll = showUnavailable || editRooms;
+  // A bed somebody sleeps in always shows, and so does its room.
   const visibleBed = (b: Bed) => showAll || !b.offline || b.status === 'occupied';
+  const visibleRoom = (r: Room) => showAll || beds.some((b) => b.roomId === r.id && visibleBed(b));
   const roomGroups = GROUP_ORDER.map((type) => {
     const typeRooms = propertyRooms
-      .filter((r) => r.type === type && (showAll || r.available))
+      .filter((r) => r.type === type && visibleRoom(r))
       .sort((a, b) => ROOM_ORDER.compare(roomOnly(a.name), roomOnly(b.name)));
     if (typeRooms.length === 0) return null;
     return { type, label: t(GROUP_LABEL_KEY[type]), rooms: typeRooms };

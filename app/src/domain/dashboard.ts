@@ -54,7 +54,8 @@ export function propertyStat(
   const total = Math.max(propertyBeds.length, occupied);
   return {
     property,
-    roomsCount: propertyRooms.length,
+    // Rooms that offer at least one place, like the beds counted below.
+    roomsCount: propertyRooms.filter((r) => propertyBeds.some((b) => b.roomId === r.id)).length,
     total,
     occupied,
     booked: bookedCount(bookings, property.id, options.excludeBookingId).total,
