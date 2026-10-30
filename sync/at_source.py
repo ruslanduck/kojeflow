@@ -58,6 +58,9 @@ def _get(path, params=None):
             if e.code in (429, 500, 502, 503) and attempt < 5:
                 time.sleep(30 if e.code == 429 else 5)
                 continue
+            if e.code in (401, 403, 404):
+                raise SystemExit(f"Airtable answered {e.code} for {path.split('?')[0]}: the token is wrong, expired, "
+                                 "lacks data.records:read / schema.bases:read, or has no access to the Work Hotel base") from None
             raise
         except (urllib.error.URLError, ConnectionError, TimeoutError):
             # A dropped connection is worth another try; Airtable resets idle ones now and then.
@@ -135,6 +138,8 @@ def _dump_schema():
 
 
 def _dump_load(table):
+    if not (DUMP / "schema.json").is_file():
+        raise SystemExit("AIRTABLE_TOKEN is not set (empty secret?) and there is no Airtable dump to read instead")
     names = {f["id"]: f["name"] for f in _dump_schema()[table]["fields"]}
     prefix = FILE_PREFIX.get(table, table)
     pages = sorted(glob.glob(str(DUMP / "raw" / f"{prefix}_p*.json")), key=lambda p: int(p.rsplit("_p", 1)[1][:-5]))
